@@ -1,0 +1,207 @@
+.profile-dropdown-container {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.75rem;
+    z-index: 100;
+    animation: slideDown 0.2s ease-out forwards;
+}
+
+.profile-dropdown {
+    background: var(--bg-card, #ffffff);
+    border: 1px solid var(--border-color, rgba(0, 0, 0, 0.1));
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.dropdown-header {
+    padding: 1.25rem 1rem 1rem;
+    background: linear-gradient(145deg, rgba(34, 197, 94, 0.08), transparent);
+    border-bottom: 1px solid var(--border-color, rgba(0, 0, 0, 0.05));
+}
+
+.header-profile-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-avatar {
+    background: linear-gradient(135deg, var(--color-accent-green, #22c55e), #10b981);
+    color: #fff;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(34, 197, 94, 0.3);
+    flex-shrink: 0;
+}
+
+.header-info {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.dropdown-name {
+    font-weight: 700;
+    color: var(--text-main, #0f172a);
+    font-size: 1.05rem;
+    margin-bottom: 0.15rem;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-email {
+    font-size: 0.8rem;
+    color: var(--text-secondary, #64748b);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0.4rem;
+}
+
+.dropdown-role {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 800;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.15rem 0.4rem;
+    border-radius: 4px;
+    display: inline-block;
+    align-self: flex-start;
+    color: #fbbf24;
+}
+
+.dropdown-info-list {
+    padding: 0.85rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    border-bottom: 1px solid var(--border-color, rgba(0, 0, 0, 0.05));
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.info-icon {
+    font-size: 1rem;
+    color: var(--text-secondary, #94a3b8);
+}
+
+.info-text {
+    font-size: 0.82rem;
+    color: var(--text-main, #334155);
+}
+
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.dropdown-menu {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.75rem;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    color: var(--text-main, #334155);
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus-visible {
+    background: var(--bg-hover, rgba(0, 0, 0, 0.05));
+    color: var(--text-main, #0f172a);
+    outline: none;
+}
+
+.dropdown-item .material-symbols-outlined {
+    font-size: 1.25rem;
+    transition: transform 0.2s ease;
+}
+
+.dropdown-item:hover .material-symbols-outlined {
+    transform: scale(1.1);
+}
+
+.icon-profile {
+    color: var(--color-brand-blue, #60a5fa);
+}
+
+.dropdown-divider {
+    height: 1px;
+    background: var(--border-color, rgba(0, 0, 0, 0.08));
+    margin: 0.25rem 0;
+}
+
+.item-warning {
+    color: #fbbf24;
+}
+
+.item-warning:hover,
+.item-warning:focus-visible {
+    background: rgba(251, 191, 36, 0.1);
+    color: #fbbf24;
+}
+
+.icon-warning {
+    color: #fbbf24;
+}
+
+.item-logout {
+    color: #ef4444;
+}
+
+.item-logout:hover,
+.item-logout:focus-visible {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+}
+
+.icon-logout {
+    color: #ef4444;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}

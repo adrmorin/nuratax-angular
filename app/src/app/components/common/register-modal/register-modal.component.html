@@ -1,0 +1,101 @@
+<div class="login-card glass">
+    <button class="close-btn" (click)="modalService.closeRegister()">&times;</button>
+    <div class="login-header">
+        <img src="assets/neuraltax_logo.png" alt="NeuralTax" style="height: 50px" />
+        <h1>{{ 'AUTH.JOIN_US' | translate }}</h1>
+        <p>{{ 'AUTH.REGISTER_DESC' | translate }}</p>
+    </div>
+
+    @if (!success) {
+    <form class="login-form" (submit)="onSubmit()">
+        <div class="form-row">
+            <div class="form-group half">
+                <label for="reg-firstName">{{ 'AUTH.FIRST_NAME' | translate }}</label>
+                <input type="text" name="reg-firstName" [(ngModel)]="firstName" [placeholder]="'AUTH.FIRST_NAME_PLACEHOLDER' | translate" required />
+            </div>
+            <div class="form-group half">
+                <label for="reg-lastName">{{ 'AUTH.LAST_NAME' | translate }}</label>
+                <input type="text" name="reg-lastName" [(ngModel)]="lastName" [placeholder]="'AUTH.LAST_NAME_PLACEHOLDER' | translate" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="reg-email">{{ 'AUTH.EMAIL' | translate }}</label>
+            <input type="email" name="reg-email" [(ngModel)]="email" [placeholder]="'AUTH.EMAIL_PLACEHOLDER' | translate" required />
+        </div>
+
+        <div class="form-group">
+            <label for="reg-phone">{{ 'AUTH.PHONE' | translate }}</label>
+            <input type="tel" name="reg-phone" [(ngModel)]="phone" [placeholder]="'AUTH.PHONE_PLACEHOLDER' | translate" required />
+        </div>
+
+        <div class="form-group">
+            <label for="reg-password">{{ 'AUTH.PASSWORD' | translate }}</label>
+            <div class="password-input-container">
+                <input [type]="showPassword ? 'text' : 'password'" name="reg-password" [(ngModel)]="password"
+                    [placeholder]="'AUTH.PASSWORD_PLACEHOLDER' | translate" (input)="validatePassword()" required />
+                <button type="button" class="password-toggle-btn" (click)="togglePasswordVisibility()"
+                    [attr.aria-label]="showPassword ? ('AUTH.HIDE_PASSWORD' | translate) : ('AUTH.SHOW_PASSWORD' | translate)">
+                    <span class="material-symbols-outlined">
+                        {{ showPassword ? 'visibility_off' : 'visibility' }}
+                    </span>
+                </button>
+            </div>
+
+            @if (password) {
+            <div class="password-requirements">
+                <p [class.valid]="hasUpperCase" [class.invalid]="!hasUpperCase">
+                    <span class="material-symbols-outlined icon">{{ hasUpperCase ? 'check' : 'close' }}</span>
+                    {{ 'AUTH.REQ_UPPERCASE' | translate }}
+                </p>
+                <p [class.valid]="hasSpecialChar" [class.invalid]="!hasSpecialChar">
+                    <span class="material-symbols-outlined icon">{{ hasSpecialChar ? 'check' : 'close' }}</span>
+                    {{ 'AUTH.REQ_SPECIAL' | translate }}
+                </p>
+                <p [class.valid]="hasNumber" [class.invalid]="!hasNumber">
+                    <span class="material-symbols-outlined icon">{{ hasNumber ? 'check' : 'close' }}</span>
+                    {{ 'AUTH.REQ_NUMBER' | translate }}
+                </p>
+                <p [class.valid]="minLength" [class.invalid]="!minLength">
+                    <span class="material-symbols-outlined icon">{{ minLength ? 'check' : 'close' }}</span>
+                    {{ 'AUTH.REQ_MIN_LENGTH' | translate }}
+                </p>
+            </div>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="reg-confirm-password">{{ 'AUTH.CONFIRM_PASSWORD' | translate }}</label>
+            <input type="password" name="reg-confirm-password" [(ngModel)]="confirmPassword" [placeholder]="'AUTH.PASSWORD_PLACEHOLDER' | translate"
+                (input)="checkPasswordsMatch()" required />
+
+            @if (confirmPassword) {
+            <p class="match-message" [class.valid]="passwordsMatch" [class.invalid]="!passwordsMatch">
+                <span class="material-symbols-outlined icon">{{ passwordsMatch ? 'check' : 'close' }}</span>
+                {{ (passwordsMatch ? 'AUTH.PASS_MATCH' : 'AUTH.PASS_NOT_MATCH') | translate }}
+            </p>
+            }
+        </div>
+
+        @if (error) {
+        <app-message type="error" [message]="error" />
+        }
+
+        <button type="submit" class="btn btn-primary" style="width: 100%" [disabled]="loading">
+            {{ (loading ? 'AUTH.REGISTERING' : 'AUTH.REGISTER_BTN') | translate }}
+        </button>
+    </form>
+    } @else {
+    <div class="success-msg">
+        <app-message type="success" [message]="successMessage" />
+        <button type="button" class="btn btn-primary success-action" (click)="openLoginAfterRegister()">
+            {{ 'AUTH.SIGN_IN' | translate }}
+        </button>
+    </div>
+    }
+
+    @if (!success) {
+    <p class="login-footer">{{ 'AUTH.HAS_ACCOUNT' | translate }} <a href="javascript:void(0)"
+            (click)="modalService.openLogin()">{{ 'AUTH.SIGN_IN' | translate }}</a></p>
+    }
+</div>

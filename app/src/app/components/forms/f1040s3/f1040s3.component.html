@@ -1,0 +1,540 @@
+<div class="irs-form-container">
+    <div class="irs-form-box">
+        <!-- Main Header -->
+        <div class="irs-main-header">
+            <div class="irs-col-1">
+                <div>
+                    <div class="irs-form-id">SCHEDULE 3</div>
+                    <div class="irs-form-sub-id">(Form 1040)</div>
+                </div>
+                <div class="irs-dept-info">
+                    Department of the Treasury<br>
+                    Internal Revenue Service
+                </div>
+            </div>
+            <div class="irs-col-2">
+                <h1>Additional Credits and Payments</h1>
+                <p>Attach to Form 1040, 1040-SR, or 1040-NR.</p>
+                <p class="irs-instruction">Go to <i>www.irs.gov/Form1040</i> for instructions and the latest
+                    information.</p>
+            </div>
+            <div class="irs-col-3">
+                <div class="irs-omb-box">OMB No. 1545-0074</div>
+                <div class="irs-sequence-box">
+                    <div class="irs-year-box">
+                        <span class="year-outline-20">20</span><span class="year-solid-25">24</span>
+                    </div>
+                    <div class="irs-attachment">
+                        Attachment<br>
+                        Sequence No. <strong>03</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form [formGroup]="scheduleForm" (ngSubmit)="onSubmit()">
+            <!-- Name and SSN -->
+            <div class="irs-row-border" style="border-bottom: 2px solid #000;">
+                <div class="irs-field flex-3 border-right">
+                    <label for="nameShown">Name(s) shown on Form 1040, 1040-SR, or 1040-NR</label>
+                    <input type="text" id="nameShown" formControlName="nameShown">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="ssn">Your social security number</label>
+                    <input type="text" id="ssn" formControlName="ssn">
+                </div>
+            </div>
+
+            <!-- PART I -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part I</span>
+                <span class="irs-part-title">Nonrefundable Credits</span>
+            </div>
+
+            <table class="irs-table">
+                <!-- Grid Anchor Row -->
+                <tr style="height: 0; line-height: 0;">
+                    <td class="irs-line-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-desc" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-sub-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-intermediate-val" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-main-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-val-cell" style="height: 0; border: none; padding: 0;"></td>
+                </tr>
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content">
+                                <span>Foreign tax credit. Attach Form 1116 if required</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">1</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell">
+                            <input type="number" formControlName="line1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">2</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content">
+                                <span>Credit for child and dependent care expenses from Form 2441, line 11. Attach Form
+                                    2441</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">2</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell">
+                            <input type="number" formControlName="line2">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content">
+                                <span>Education credits from Form 8863, line 19</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">3</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell">
+                            <input type="number" formControlName="line3">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content">
+                                <span>Retirement savings contributions credit. Attach Form 8880</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">4</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell">
+                            <input type="number" formControlName="line4">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">5a</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content">
+                                <span>Residential clean energy credit from Form 5695, line 15</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num">5a</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell">
+                            <input type="number" formControlName="line5a">
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">b</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content">
+                                <span>Energy efficient home improvement credit from Form 5695, line 32</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num">5b</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell">
+                            <input type="number" formControlName="line5b">
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">6</td>
+                        <td class="irs-desc" colspan="5">
+                            <div class="irs-desc-content"><span>Other nonrefundable credits:</span></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">a</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>General business credit. Attach Form 3800</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num">6a</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line6a"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">b</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Credit for prior year minimum tax. Attach Form
+                                    8801</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num">6b</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line6b"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">c</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Adoption credit. Attach Form 8839</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num">6c</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line6c"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">d</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Credit for the elderly or disabled. Attach Schedule
+                                    R</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num">6d</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line6d"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">f</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Clean vehicle credit. Attach Form 8936</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num">6f</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line6f"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">g</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Mortgage interest credit. Attach Form 8396</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num">6g</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line6g"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">h</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>District of Columbia first-time homebuyer credit. Attach
+                                    Form 8859</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num">6h</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line6h"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">i</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Qualified electric vehicle credit. Attach Form
+                                    8834</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num">6i</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line6i"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">j</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Alternative fuel vehicle refueling property credit.
+                                    Attach Form 8911</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num">6j</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line6j"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">k</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Credit to holders of tax credit bonds. Attach Form
+                                    8912</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num">6k</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line6k"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">l</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Amount on Form 8978, line 14</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num">6l</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line6l"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">m</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Credit for previously owned clean vehicles. Attach Form
+                                    8936</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num">6m</td>
+                        <!-- Line 6z: Rectified with rowspan to remove internal lines -->
+                    <tr>
+                        <td class="irs-line-num" rowspan="3"
+                            style="text-align: left; vertical-align: top; padding-top: 5px !important;">z</td>
+                        <td class="irs-desc" colspan="3" style="border-bottom: none !important; height: 28px;">
+                            <div class="irs-desc-content">
+                                <span>Other nonrefundable credits. List type and amount:</span>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border" style="border-bottom: none !important;"></td>
+                        <td class="irs-val-cell irs-grey-cell" style="border-bottom: none !important;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="irs-blue-cell"
+                            style="height: 32px; border: 1px solid #000 !important; border-top: none !important; border-bottom: none !important;">
+                            <input type="text" formControlName="line6z_type_extra"
+                                style="width: 100%; border: none; background: transparent; height: 100%; padding: 0 8px;">
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border"
+                            style="border-top: none !important; border-bottom: none !important;"></td>
+                        <td class="irs-val-cell irs-grey-cell"
+                            style="border-top: none !important; border-bottom: none !important;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="irs-blue-cell"
+                            style="height: 32px; border: 1px solid #000 !important; border-top: 1px solid #000 !important;">
+                            <input type="text" formControlName="line6z_type"
+                                style="width: 100%; border: none; background: transparent; height: 100%; padding: 0 8px;">
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border"
+                            style="vertical-align: bottom !important; font-weight: 900; text-align: center; padding-bottom: 2px !important;">
+                            <div
+                                style="width: 100%; height: 100%; display: flex; align-items: flex-end; justify-content: center;">
+                                6z</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell" style="vertical-align: bottom !important;">
+                            <input type="number" formControlName="line6z">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">7</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Add lines 6a through 6z</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">7</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell"
+                            style="display:flex; align-items:center; justify-content:flex-end; padding-right:8px; font-weight:700;">
+                            {{ scheduleForm.get('line7')?.value | number:'1.0-2' }}
+                        </td>
+                    </tr>
+                    <tr style="border-bottom: 2px solid #000;">
+                        <td class="irs-line-num">8</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content">
+                                <span><strong>Add lines 1 through 5b and line 7. Enter here and on Form 1040, 1040-SR,
+                                        or 1040-NR, line 20</strong></span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">8</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell"
+                            style="display:flex; align-items:center; justify-content:flex-end; padding-right:8px; font-weight:700;">
+                            {{ scheduleForm.get('line8')?.value | number:'1.0-2' }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PART II -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part II</span>
+                <span class="irs-part-title">Other Payments and Refundable Credits</span>
+            </div>
+
+            <table class="irs-table">
+                <!-- Grid Anchor Row -->
+                <tr style="height: 0; line-height: 0;">
+                    <td class="irs-line-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-desc" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-sub-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-intermediate-val" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-main-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-val-cell" style="height: 0; border: none; padding: 0;"></td>
+                </tr>
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">9</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Net premium tax credit. Attach Form 8962</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">9</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line9"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">10</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Amount paid with request for extension to file (see
+                                    instructions)</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">10</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line10"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">11</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Excess social security and tier 1 RRTA tax withheld (see
+                                    instructions)</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">11</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line11"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">12</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Credit for federal tax on fuels. Attach Form 4136</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">12</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line12"></td>
+                    </tr>
+                    <!-- Line 13z: Rectified with rowspan to remove internal lines -->
+                    <tr>
+                        <td class="irs-line-num" rowspan="3"
+                            style="text-align: left; vertical-align: top; padding-top: 5px !important;">z</td>
+                        <td class="irs-desc" colspan="3" style="border-bottom: none !important; height: 28px;">
+                            <div class="irs-desc-content">
+                                <span>Other refundable credits (see instructions):</span>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border" style="border-bottom: none !important;"></td>
+                        <td class="irs-val-cell irs-grey-cell" style="border-bottom: none !important;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="irs-blue-cell"
+                            style="height: 32px; border: 1px solid #000 !important; border-top: none !important; border-bottom: none !important;">
+                            <input type="text"
+                                style="width: 100%; border: none; background: transparent; height: 100%;">
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border"
+                            style="border-top: none !important; border-bottom: none !important;"></td>
+                        <td class="irs-val-cell irs-grey-cell"
+                            style="border-top: none !important; border-bottom: none !important;"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="irs-blue-cell"
+                            style="height: 32px; border: 1px solid #000 !important; border-top: 1px solid #000 !important;">
+                            <input type="text"
+                                style="width: 100%; border: none; background: transparent; height: 100%;">
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border"
+                            style="vertical-align: bottom !important; font-weight: 900; text-align: center; padding-bottom: 2px !important;">
+                            <div
+                                style="width: 100%; height: 100%; display: flex; align-items: flex-end; justify-content: center;">
+                                13z</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell" style="vertical-align: bottom !important;">
+                            <input type="number" formControlName="line13">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">14</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Total other payments or refundable credits. Add lines 9
+                                    through 13</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">14</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line14"></td>
+                    </tr>
+                    <tr style="border-bottom: 2px solid #000;">
+                        <td class="irs-line-num" style="border-bottom: 2px solid #000 !important;">15</td>
+                        <td class="irs-desc" colspan="3" style="border-bottom: 2px solid #000 !important;">
+                            <div class="irs-desc-content" style="align-items: flex-end; padding-bottom: 2px;">
+                                <span><strong>Add lines 9 through 14. These are your total other payments and refundable
+                                        credits. Enter here and on Form 1040, 1040-SR, or 1040-NR, line
+                                        31</strong></span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border"
+                            style="border-bottom: 2px solid #000 !important;">
+                            <div class="irs-main-line-num-box">15</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell"
+                            style="display:flex; align-items:center; justify-content:flex-end; padding-right:8px; font-weight:700; border-bottom: 2px solid #000 !important;">
+                            {{ scheduleForm.get('line15')?.value | number:'1.0-2' }}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="irs-footer-actions">
+                <button type="submit" class="btn-submit">Guardar Formulario 1040 S-3</button>
+            </div>
+        </form>
+    </div>
+</div>

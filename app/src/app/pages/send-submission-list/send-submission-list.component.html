@@ -1,0 +1,38 @@
+<section class="submission-list">
+
+  <h2>IRS Submissions</h2>
+
+  <div *ngIf="loading">
+    Loading submissions...
+  </div>
+
+  <div *ngIf="error" class="error">
+    {{ error }}
+  </div>
+
+  <table *ngIf="!loading && submissions.length > 0">
+    <thead>
+      <tr>
+        <th>Submission ID</th>
+        <th>Tax Year</th>
+        <th>IRS Status</th>
+        <th>Ack Status</th>
+        <th>Created At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let submission of submissions">
+        <td>{{ submission.submissionId }}</td>
+        <td>{{ submission.taxYear }}</td>
+        <td>{{ submission.localStatus }}</td>
+        <td>{{ submission.ackStatus }}</td>
+        <td>{{ submission.submittedAt }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="!loading && submissions.length === 0">
+    No submissions found.
+  </div>
+
+</section>

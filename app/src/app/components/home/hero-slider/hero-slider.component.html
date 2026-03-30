@@ -1,0 +1,5 @@
+<div class="hero-logo-slider">
+    @for (img of images; track img; let i = $index) {
+    <img [src]="img" alt="Neuraltax Slider {{i}}" class="hero-logo-img" [class.active]="i === currentImageIndex">
+    }
+</div>

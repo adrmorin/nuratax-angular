@@ -1,0 +1,128 @@
+.ntx-chat-trigger {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  background-color: #abc2b3; /* matches $main-color */
+  color: #1c2c3c; /* matches $blue-color */
+  border: none;
+  border-radius: 24px;
+  padding: 10px 14px;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: transform .15s ease, background-color .2s ease;
+}
+.ntx-chat-trigger:hover { background-color: #ddefe8; transform: translateY(-1px); }
+
+.ntx-modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.35); z-index: 1000;
+}
+
+.ntx-modal {
+  position: fixed;
+  right: 24px;
+  bottom: 80px;
+  width: min(96vw, 420px);
+  height: 70vh;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  display: flex; flex-direction: column;
+  z-index: 1001;
+}
+.session-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  background: #f5fbf6;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 13px;
+  color: #0f172a;
+}
+
+.session-actions {
+  display: inline-flex;
+  gap: 8px;
+}
+
+.pill {
+  border: 1px solid #d1d5db;
+  background: #ffffff;
+  color: #0f172a;
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    background: #e5f2e9;
+    border-color: #9dd3af;
+  }
+}
+
+.pill.alt {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
+
+  &:hover {
+    background: #111827;
+  }
+}
+
+.ntx-modal-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 14px; border-bottom: 1px solid #e6eef0;
+  // background: #ddefe8; /* mainhover */
+}
+.ntx-title-wrap { display: flex; align-items: center; gap: 8px; }
+.ntx-bot-icon { width: 20px; height: 20px; border-radius: 4px; display: block; object-fit: cover; object-position: 50% 35%; }
+.ntx-title { font-weight: 700; color: #1c2c3c; }
+.ntx-close { background: transparent; border: 0; font-size: 20px; cursor: pointer; color: #1c2c3c; }
+
+.ntx-modal-body {
+  flex: 1; overflow: auto; padding: 12px; background: #f8fbfa;
+}
+
+.ntx-msg { display: flex; align-items: flex-end; margin: 8px 0; }
+.ntx-msg.user { justify-content: flex-end; }
+.ntx-msg.bot, .ntx-msg.system { justify-content: flex-start; }
+
+.bubble {
+  max-width: 80%; padding: 10px 12px; border-radius: 12px; line-height: 1.45; font-size: 14px;
+}
+.user .bubble { background: #9dd3af; color: #1c2c3c; border-bottom-right-radius: 4px; }
+.bot .bubble { background: #ffffff; color: #1c2c3c; border: 1px solid #e1ece4; border-bottom-left-radius: 4px; }
+.system .bubble { background: #fff4f4; color: #7a2727; border: 1px solid #ffd1d1; }
+
+/* Avatars */
+.avatar { width: 28px; height: 28px; border-radius: 50%; overflow: hidden; flex: 0 0 28px; display: flex; align-items: center; justify-content: center; }
+.avatar img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; display: block; }
+.avatar.bot { margin-right: 8px; border: 1px solid #e1ece4; background: #fff; }
+.avatar.user { margin-left: 8px; border: 1px solid #b7d0c2; background: #eaf6ef; }
+.avatar .placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: #1c2c3c; font-size: 12px; }
+
+.bubble.loading { display: inline-flex; align-items: center; gap: 4px; }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: #abc2b3; display: inline-block; animation: blink 1s infinite ease-in-out; }
+.dot:nth-child(2){ animation-delay: .15s; }
+.dot:nth-child(3){ animation-delay: .3s; }
+@keyframes blink { 0%,80%,100%{ opacity:.2 } 40%{ opacity: 1 } }
+
+.ntx-modal-footer { display: flex; gap: 8px; padding: 10px; border-top: 1px solid #e6eef0;
+  // background: #fff;
+}
+.ntx-modal-footer input {
+  flex: 1; border: 1px solid #d7e6dd; border-radius: 8px; padding: 10px 12px; font-size: 14px; outline: none;
+}
+.ntx-modal-footer input:focus { border-color: #abc2b3; box-shadow: 0 0 0 3px rgba(171,194,179,.25); }
+
+/* Small screens: modal grows taller */
+@media (max-width: 480px){
+  .ntx-modal{ right: 12px; left: 12px; width: auto; height: 75vh; bottom: 90px; }
+  .ntx-chat-trigger{ right: 12px; bottom: 12px; }
+}

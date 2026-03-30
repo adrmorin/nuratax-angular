@@ -1,0 +1,53 @@
+<section class="home-hero">
+    <div class="hero-grid">
+        <div class="support-text-block">
+            <h3>{{ 'HOME.HERO.SPECIALIZED_SUPPORT' | translate }}</h3>
+            <p>{{ 'HOME.HERO.SUPPORT_DESC' | translate }}</p>
+
+            <!-- Animated Text Block -->
+            <div class="animated-text-carousel">
+                <div class="carousel-item">
+                    <p class="carousel-message" [innerHTML]="messages[currentMessageIndex()]"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- LEFT COLUMN: Slider -->
+        <div class="hero-visual-col">
+            <div class="slider-container">
+                <app-hero-slider />
+            </div>
+        </div>
+
+        <!-- RIGHT COLUMN: Main Content -->
+        <div class="hero-content-col">
+            <div class="hero-text-content">
+                <div class="logo-area">
+                    <img src="assets/neuraltax_logo.png" alt="Neuraltax AI Expert" class="hero-brand-logo" />
+                </div>
+
+                <h1 class="main-slogan" [innerHTML]="'HOME.HERO.MAIN_SLOGAN' | translate"></h1>
+
+                <div class="sub-slogan-block">
+                    <h2 class="sub-headline">{{ 'HOME.HERO.MAXIMIZE_SAVINGS' | translate }}</h2>
+                    <p class="sub-description" [innerHTML]="'HOME.HERO.AI_OPTIMIZATION_DESC' | translate"></p>
+                    <p class="value-prop" [innerHTML]="'HOME.HERO.VALUE_PROP' | translate"></p>
+                </div>
+
+                <div class="hero-actions">
+                    <a routerLink="/wizard" class="btn btn-estimate">
+                        <span class="material-symbols-outlined icon-flame">local_fire_department</span>
+                        {{ 'HOME.HERO.GET_ESTIMATE' | translate }}
+                    </a>
+                    <a [routerLink]="authService.currentUserDashboard()" class="btn btn-primary"
+                        style="font-weight: 700;">
+                        {{ 'HOME.PLANS.FILE_TAXES_2026' | translate }}
+                    </a>
+                    <button (click)="modalService.openPlans()" class="btn btn-login-hero">
+                        <span>{{ 'HOME.HERO.UPDATE' | translate }}</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

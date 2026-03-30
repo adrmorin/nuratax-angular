@@ -1,0 +1,37 @@
+<section class="upload-page">
+  <div class="intro">
+    <h1>Upload your documents</h1>
+    <p>Take a photo or pick files from your phone to continue.</p>
+  </div>
+
+  <div class="actions">
+    <label class="action-btn primary">
+      <input type="file" accept="image/*" capture="environment" (change)="onCaptureChange($event)">
+      Take a photo
+    </label>
+
+    <label class="action-btn outline">
+      <input type="file" accept="image/*,.pdf,.png,.jpg,.jpeg,.heic,.heif" multiple (change)="onFileChange($event)">
+      Choose files
+    </label>
+  </div>
+
+  <p class="helper-text">New documents appear instantly.</p>
+
+  <div *ngIf="documents.length; else emptyState" class="list">
+    <div class="doc-card" *ngFor="let doc of documents; let i = index">
+      <div class="meta">
+        <div class="name">{{ doc.name }}</div>
+        <div class="details">{{ doc.kind === 'image' ? 'Photo' : 'File' }} · {{ formatSize(doc.size) }}</div>
+        <div class="timestamp">Added {{ doc.addedAt | date:'shortTime' }}</div>
+      </div>
+      <button type="button" class="remove" (click)="remove(i)">Remove</button>
+    </div>
+    <button type="button" class="send-btn" (click)="sendToChat()">Send documents to chatbot</button>
+    <div class="status" *ngIf="sendStatus">{{ sendStatus }}</div>
+  </div>
+
+  <ng-template #emptyState>
+    <div class="empty">No documents yet.</div>
+  </ng-template>
+</section>

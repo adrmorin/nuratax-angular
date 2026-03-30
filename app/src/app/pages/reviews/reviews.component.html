@@ -1,0 +1,16 @@
+<section class="section reviews">
+  <div class="container">
+    <div class="section-title">
+      <h2>What Our Clients Say</h2>
+      <h3>Discover why thousands of businesses and professionals trust Neuraltax for their most important tax needs.
+      </h3>
+    </div>
+    <div class="reviews-list">
+      <div class="review-card" *ngFor="let r of items">
+        <app-reviews-cards [valoracion]="r.valoracion" [contenido]="r.contenido" [usuario]="r.usuario"
+          [avatarUrl]="r.avatarUrl" [puesto]="r.puesto">
+        </app-reviews-cards>
+      </div>
+    </div>
+  </div>
+</section>

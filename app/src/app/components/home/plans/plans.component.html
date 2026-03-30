@@ -1,0 +1,139 @@
+<section class="membership-plans">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">{{ 'HOME.PLANS.TITLE' | translate }}</h2>
+            <p class="section-subtitle">{{ 'HOME.PLANS.SUBTITLE' | translate }}</p>
+        </div>
+
+        <div class="plans-grid">
+            <!-- Free Plan -->
+            <div class="plan-card free">
+                <div class="popular-badge basic-badge">
+                    <span class="material-symbols-outlined">star_rate</span>
+                    {{ 'HOME.PLANS.BASIC_ACCESS' | translate }}
+                </div>
+                <div class="card-header">
+                    <h3>{{ 'HOME.PLANS.INDIVIDUAL_FREE' | translate }}</h3>
+                    <p>{{ 'HOME.PLANS.FREE_DESC' | translate }}</p>
+                </div>
+                <div class="card-price">
+                    <span class="price-label">{{ 'HOME.PLANS.TAX_FEE_LABEL' | translate }}</span>
+                    <span class="price-value">$49</span>
+                </div>
+                <ul class="feature-list">
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.AI_AUTOMATION' |
+                        translate }}</li>
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.SECURITY' |
+                        translate }}</li>
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.EFILE' | translate
+                        }}</li>
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.ADVANCE_PAY' |
+                        translate }}</li>
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.CHATBOT' |
+                        translate }}</li>
+                </ul>
+                <button class="btn btn-primary" [routerLink]="authService.currentUserDashboard()">{{
+                    'HOME.PLANS.FILE_TAXES_2026' | translate
+                    }}</button>
+            </div>
+
+            <!-- Smart Saver (Most Popular) -->
+            <div class="plan-card featured">
+                <div class="popular-badge">
+                    <span class="material-symbols-outlined">auto_awesome</span>
+                    {{ 'HOME.PLANS.MOST_POPULAR' | translate }}
+                </div>
+                <div class="card-header">
+                    <h3>{{ 'HOME.PLANS.SMART_SAVER' | translate }}</h3>
+                    <p>{{ 'HOME.PLANS.SMART_SAVER_DESC' | translate }}</p>
+                </div>
+                <div class="card-price">
+                    <span class="price-value">$12/{{ 'HOME.PLANS.MONTHLY' | translate }}</span>
+                </div>
+                <ul class="feature-list">
+                    <li class="emphasized"><span class="material-symbols-outlined">check</span> {{
+                        'HOME.PLANS.FEATURES.SMART_SAVER_FEE' | translate }}</li>
+                    <li class="sub-feature">{{ 'HOME.PLANS.FEATURES.SMART_SAVER_FEE_LESS' | translate }}</li>
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.CHATBOT' |
+                        translate }} ({{ 'HOME.PLANS.FEATURES.PRIORITY_SUPPORT' | translate }})</li>
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.EDUCATIONAL' |
+                        translate }}</li>
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.AI_AUTOMATION' |
+                        translate }}</li>
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.SECURITY' |
+                        translate }}</li>
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.EFILE' | translate
+                        }}</li>
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.ADVANCE_PAY' |
+                        translate }}</li>
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.STORAGE' |
+                        translate }}</li>
+                </ul>
+                <button class="btn btn-outline-light" routerLink="/update">{{ 'HOME.PLANS.UPDATE_NOW' | translate
+                    }}</button>
+            </div>
+
+            <!-- VIP Plan -->
+            <div class="plan-card black">
+                <div class="popular-badge">
+                    <span class="material-symbols-outlined">workspace_premium</span>
+                    {{ 'HOME.PLANS.EXCLUSIVE_VIP' | translate }}
+                </div>
+                <div class="card-header">
+                    <h3>{{ 'HOME.PLANS.BLACK_VIP' | translate }}</h3>
+                    <p>{{ 'HOME.PLANS.BLACK_VIP_DESC' | translate }}</p>
+                </div>
+                <div class="card-price">
+                    <span class="price-value">{{ 'HOME.PLANS.BY_INVITATION' | translate }}</span>
+                </div>
+                <ul class="feature-list">
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.FREE_TAX_DECL' |
+                        translate }}</li>
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.CHATBOT_1TO1' |
+                        translate }}</li>
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.SECURITY' |
+                        translate }}</li>
+                    <li><span class="material-symbols-outlined">check</span> {{
+                        'HOME.PLANS.FEATURES.PERSONAL_COUNSELING' | translate }}</li>
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.INVESTMENT_PLANS' |
+                        translate }}</li>
+                </ul>
+                <button class="btn btn-outline-light">{{ 'HOME.PLANS.REQUEST_INVITATION' | translate }}</button>
+            </div>
+
+            <!-- Agent Plan -->
+            <div class="plan-card agent">
+                <div class="popular-badge agent-badge">
+                    <span class="material-symbols-outlined">hub</span>
+                    {{ 'HOME.PLANS.B2B_SOLUTION' | translate }}
+                </div>
+                <div class="card-header">
+                    <h3>{{ 'HOME.PLANS.PROFESSIONAL_AGENT' | translate }}</h3>
+                    <p>{{ 'HOME.PLANS.AGENT_DESC' | translate }}</p>
+                </div>
+                <div class="card-price">
+                    <span class="price-value">{{ 'HOME.PLANS.CUSTOM_PLAN' | translate }}</span>
+                </div>
+                <ul class="feature-list">
+                    <li class="emphasized green-highlight"><span
+                            class="material-symbols-outlined green-highlight">hub</span> {{
+                        'HOME.PLANS.FEATURES.CLIENT_MGMT' | translate }}</li>
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.AGENT_TOOLS' |
+                        translate }}</li>
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.COLLABORATION' |
+                        translate }}</li>
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.FILING_RATES' |
+                        translate }}</li>
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.ACCOUNT_MANAGER' |
+                        translate }}</li>
+                    <li><span class="material-symbols-outlined">check</span> {{ 'HOME.PLANS.FEATURES.API_INTEGRATION' |
+                        translate }}</li>
+                </ul>
+                <button class="btn btn-agent">{{ 'HOME.PLANS.CONTACT_SALES' | translate }}</button>
+            </div>
+        </div>
+
+        <p class="disclaimer">*Free tax declaration available with Saver and Gold memberships. Additional terms may
+            apply.</p>
+    </div>
+</section>

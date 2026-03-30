@@ -1,0 +1,85 @@
+.submission-list {
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  min-height: 1000px;
+  margin-top: 100px;
+
+  h2 {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937; // gray-800
+  }
+
+  .error {
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    background-color: #fee2e2;
+    color: #991b1b;
+    border-radius: 6px;
+    font-size: 0.9rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+
+  thead {
+    background-color: #f3f4f6; // gray-100
+  }
+
+  th {
+    text-align: left;
+    padding: 0.75rem;
+    font-weight: 600;
+    color: #374151; // gray-700
+    border-bottom: 2px solid #e5e7eb;
+    white-space: nowrap;
+  }
+
+  td {
+    padding: 0.75rem;
+    border-bottom: 1px solid #e5e7eb;
+    color: #1f2937;
+    vertical-align: middle;
+  }
+
+  tbody tr {
+    transition: background-color 0.15s ease-in-out;
+
+    &:hover {
+      background-color: #f9fafb;
+    }
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  /* Status styling (optional, auto-applies by text) */
+  td:nth-child(3),
+  td:nth-child(4) {
+    font-weight: 500;
+  }
+
+  /* Empty / loading messages */
+  > div {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #6b7280; // gray-500
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    overflow-x: auto;
+
+    table {
+      min-width: 700px;
+    }
+  }
+}

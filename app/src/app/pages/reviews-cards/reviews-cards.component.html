@@ -1,0 +1,16 @@
+<section class="review-card" aria-label="user review">
+  <header class="review-header">
+    <img *ngIf="avatarUrl" [src]="avatarUrl" alt="avatar" class="avatar" />
+    <div class="user-block">
+      <div class="user">{{ usuario }}</div>
+      <div class="puesto" *ngIf="puesto">{{ puesto }}</div>
+    </div>
+  </header>
+  <div class="identity">
+    <div class="stars" role="img" aria-label="rating" [attr.aria-valuenow]="valoracion" aria-valuemin="0"
+      aria-valuemax="5">
+      <i *ngFor="let s of stars" class="bx" [ngClass]="s ? 'bxs-star' : 'bx-star'"></i>
+    </div>
+  </div>
+  <p class="content">{{ contenido }}</p>
+</section>

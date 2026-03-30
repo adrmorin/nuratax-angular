@@ -1,0 +1,603 @@
+{
+    "PAGE_TITLE": "Neuraltax - AI Tax Agency",
+    "HEADER": {
+        "HOME": "Home",
+        "ABOUT": "About Us",
+        "SERVICES": "Services",
+        "PRICING": "Pricing",
+        "CONTACT": "Contact",
+        "DASHBOARD": "Dashboard",
+        "LOGIN": "Login",
+        "REGISTER": "Register",
+        "LOGOUT": "Logout",
+        "BACK_TO_HOME": "Back to Home"
+    },
+    "COMMON": {
+        "CLOSE": "Close",
+        "SAVE": "Save",
+        "CANCEL": "Cancel",
+        "PREMIUM": "Premium",
+        "FREE": "Free",
+        "AGENT": "Agent",
+        "VIP": "VIP",
+        "PORTAL_OF": "Portal of",
+        "PROFILE": "Profile",
+        "BACK": "Back",
+        "TOGGLE_SIDEBAR": "Toggle sidebar",
+        "EN": "English",
+        "ES": "Spanish",
+        "READ_MORE": "Read More",
+        "READ_TIME_SUFFIX": "min read"
+    },
+    "HOME": {
+        "HERO": {
+            "SPECIALIZED_SUPPORT": "Specialized Support",
+            "SUPPORT_DESC": "Support in English or Spanish, powered by AI and human assistance when needed.",
+            "MAIN_SLOGAN": "\"NEURAL POWER,<br><span class='highlight-text'>efficiency delivered..</span>\"",
+            "MAXIMIZE_SAVINGS": "Maximize your savings",
+            "AI_OPTIMIZATION_DESC": "and your peace of mind with<br>AI-powered tax optimization",
+            "VALUE_PROP": "More deductions,<br>less stress, full Control<br><strong>starts Now!</strong>",
+            "GET_ESTIMATE": "Get Free Estimate",
+            "UPDATE": "Update"
+        },
+        "MESSAGES": [
+            "Optimize your taxes with AI—fast,<br />and hassle-free.",
+            "Tax technology that understands<br />your needs.",
+            "Clear taxes, automated processes,<br />precise results.",
+            "Automate your taxes and avoid<br />costly mistakes.",
+            "Save time and money with intelligent<br />tax automation.",
+            "Trust your taxes to a smart and<br />secure system.",
+            "AI + human expertise: the new era of<br />tax filing.",
+            "Full control of your taxes in<br />one place."
+        ],
+        "STATS": {
+            "SATISFACTION": "Satisfaction",
+            "CLIENTS": "Clients",
+            "SUPPORT": "Support"
+        },
+        "PLANS": {
+            "TITLE": "Membership plans",
+            "SUBTITLE": "Choose the membership plan that best fits your tax needs. All plans include our advanced AI technology and expert support.",
+            "MOST_POPULAR": "Most Popular",
+            "EXCLUSIVE_VIP": "Exclusive VIP",
+            "B2B_SOLUTION": "B2B Solution",
+            "BASIC_ACCESS": "Basic Access",
+            "INDIVIDUAL_FREE": "Individual Free Member",
+            "SMART_SAVER": "Premium Member",
+            "BLACK_VIP": "Exclusive VIP",
+            "PROFESSIONAL_AGENT": "Professional Agent",
+            "FREE_DESC": "Essential tax services with AI automation",
+            "SMART_SAVER_DESC": "Comprehensive monthly tax management solution",
+            "BLACK_VIP_DESC": "Ultimate exclusive membership by invitation only",
+            "AGENT_DESC": "For tax professionals and accounting firms",
+            "TAX_FEE_LABEL": "Tax declaration fee",
+            "MONTHLY": "Monthly",
+            "BY_INVITATION": "VIP",
+            "CUSTOM_PLAN": "AGENT MODE",
+            "CONTACT_SALES": "Contact Sales",
+            "REQUEST_INVITATION": "Request Invitation",
+            "UPDATE_NOW": "Update Now",
+            "FILE_TAXES_2026": "File 2025 Taxes",
+            "FEATURES": {
+                "AI_AUTOMATION": "AI form filing automation",
+                "SECURITY": "IRS/CISA level security",
+                "EFILE": "Direct e-file submission",
+                "ADVANCE_PAY": "Advance payment",
+                "CHATBOT": "Chatbot Assistant",
+                "PRIORITY_SUPPORT": "priority support",
+                "EDUCATIONAL": "Tax educational resources",
+                "STORAGE": "Invoice & document storage (unlimited)",
+                "SMART_SAVER_FEE": "Tax declaration fee: $0 (if you have +4 months with membership)",
+                "SMART_SAVER_FEE_LESS": "$29-$39 (if you have less than 4 months)",
+                "FREE_TAX_DECL": "Free Tax declaration",
+                "CHATBOT_1TO1": "Chatbot Assistant (1-to-1)",
+                "PERSONAL_COUNSELING": "Personal financial counseling",
+                "INVESTMENT_PLANS": "FTF investment plans",
+                "CLIENT_MGMT": "Unlimited Client Management",
+                "AGENT_TOOLS": "Advanced AI Tools for Agents",
+                "COLLABORATION": "Multi-user collaboration",
+                "FILING_RATES": "Wholesale filing rates",
+                "ACCOUNT_MANAGER": "Dedicated account manager",
+                "API_INTEGRATION": "Custom API integrations"
+            }
+        },
+        "NEWS": {
+            "TITLE": "Latest News & Tax Insights",
+            "SUBTITLE": "Stay updated with the latest US tax regulations, AI-powered tax solutions, and IRS guidelines with our expert articles and comprehensive tax preparation guides.",
+            "VIEW_ALL": "View All Articles",
+            "PREVIOUS_ARTICLES": "Previous articles",
+            "NEXT_ARTICLES": "Next articles",
+            "ARTICLES": [
+                {
+                    "TITLE": "AI-Powered Tax Preparation:",
+                    "EXCERPT": "Discover how artificial intelligence is transforming US tax preparation, from automated...",
+                    "CATEGORY": "AI Technology"
+                },
+                {
+                    "TITLE": "Maximizing US Tax Deductions: 2024 IRS",
+                    "EXCERPT": "Learn the latest IRS deduction strategies for 2024 and how AI-powered tools can identify...",
+                    "CATEGORY": "IRS Guidelines"
+                },
+                {
+                    "TITLE": "Form 1040 Made Simple: AI-",
+                    "EXCERPT": "Navigate the complexities of US tax forms with AI assistance. From Schedule C to Form 8829...",
+                    "CATEGORY": "Tax Forms"
+                },
+                {
+                    "TITLE": "Smart Tax Technology: The",
+                    "EXCERPT": "Explore cutting-edge tax preparation technology that's reshaping the industry. From...",
+                    "CATEGORY": "Innovation"
+                }
+            ]
+        },
+        "TESTIMONIALS": {
+            "TITLE": "What Our Clients Say",
+            "SUBTITLE": "Discover why thousands of businesses and professionals trust Neuraltax for their most important tax needs.",
+            "REVIEWS": [
+                {
+                    "ROLE": "Executive Director",
+                    "TEXT": "Neuraltax completely revolutionized our tax management. AI automation saved us over 80% of the time in tax preparation."
+                },
+                {
+                    "ROLE": "CEO",
+                    "TEXT": "The accuracy and speed of Neuraltax is impressive. We haven't had a single error in our tax returns since we started using the service."
+                },
+                {
+                    "ROLE": "Independent Accountant",
+                    "TEXT": "As an independent professional, Neuraltax allows me to offer premium quality services to my clients without the traditional technical complexity."
+                },
+                {
+                    "ROLE": "CFO",
+                    "TEXT": "The operational cost savings have been extraordinary. Neuraltax helped us optimize our tax structure in a completely legal manner."
+                },
+                {
+                    "ROLE": "Financial Manager",
+                    "TEXT": "The interface is intuitive and the technical support exceptional. I recommend Neuraltax to any company looking to modernize their tax management."
+                },
+                {
+                    "ROLE": "Founder",
+                    "TEXT": "Neuraltax perfectly handles the tax complexities of our international business. An indispensable tool for global companies."
+                }
+            ]
+        },
+        "ABOUT": {
+            "TITLE": "ABOUT US",
+            "QUESTIONS": [
+                {
+                    "Q": "Does Neuraltax replace an accountant?",
+                    "A": "Neuraltax acts as a powerful AI assistant that handles most tax scenarios with precision. For complex cases, we offer access to human experts."
+                },
+                {
+                    "Q": "How do I get started?",
+                    "A": "Simply click \"Get Free Estimate\" or \"Login\" to create your account. Our wizard will guide you through the process step-by-step."
+                },
+                {
+                    "Q": "Can I use Neuraltax if I only file personal taxes?",
+                    "A": "Absolutely! Neuraltax is optimized for individual filers (1040), freelancers, and families."
+                },
+                {
+                    "Q": "How secure is the platform?",
+                    "A": "We use bank-level 256-bit encryption to protect your data. Your privacy and security are our top priorities."
+                },
+                {
+                    "Q": "What services does it offer?",
+                    "A": "We offer federal and state tax filing, tax planning, and audit support."
+                },
+                {
+                    "Q": "Who is it for?",
+                    "A": "Anyone looking to simplify their tax filing process."
+                },
+                {
+                    "Q": "What are the main benefits?",
+                    "A": "Accuracy, speed, and maximum refund guarantee."
+                },
+                {
+                    "Q": "How does it work?",
+                    "A": "Upload your documents, answer simple questions, and let our AI do the rest."
+                },
+                {
+                    "Q": "What pricing plans are available?",
+                    "A": "We offer free and premium plans to suit your needs."
+                },
+                {
+                    "Q": "What is Neuraltax?",
+                    "A": "Your AI-powered tax filing companion."
+                }
+            ]
+        }
+    },
+    "LANDING": {
+        "OR_REGISTER": "or register",
+        "WHY_NEURALTAX": "Why Neuraltax?",
+        "WHY_NEURALTAX_DESC": "Neuraltax is your automated tax expert. Designed to simplify tax management, we combine cutting-edge technology with precision and efficiency. Our intelligent system analyzes, calculates, and optimizes your returns, ensuring full IRS compliance and maximizing your tax benefits.",
+        "SMART_AUTOMATION": "Smart Automation:",
+        "FAST_PROCESSES": "Fast processes, no human errors",
+        "SAVE_TIME": "Save Time and Money: Forget the hassle, focus on what matters.",
+        "GUARANTEED_COMPLIANCE": "Guaranteed Compliance: Always up-to-date with tax regulations.",
+        "DISCOVER_TRANSFORM": "Discover how Neuraltax can transform your tax experience."
+    },
+    "VALIDATION": {
+        "TITLE": "Identity Verification",
+        "DESC": "To continue to your dashboard, we need to validate your credentials.",
+        "DNI_TITLE": "1. Official ID",
+        "DNI_DESC": "Upload your Driver's License or State ID. <br><small>It is the most widely used identity document. If you do not drive, a State ID has the same legal validity.</small>",
+        "DNI_UPLOAD": "Upload ID / License",
+        "W2_TITLE": "2. Form W-2",
+        "W2_DESC": "Tax document provided by your employer. <br><small>Reports your earnings and withholdings. Essential for your tax return.</small>",
+        "W2_UPLOAD": "Upload Form W-2",
+        "SSN_TITLE": "3. Social Security (SSN)",
+        "SSN_DESC": "Social Security Card. <br><small>Required to track your contributions and validate your tax identity.</small>",
+        "SSN_UPLOAD": "Upload SSN",
+        "BTN_VALIDATE": "Validate Documents",
+        "BTN_VERIFYING": "Verifying...",
+        "ERROR_MISSING": "Please upload all required documents.",
+        "ERROR_TITLE": "Validation Error",
+        "ERROR_GENERIC": "Error validating the documents. Please try again.",
+        "SUCCESS_TITLE": "Documents Verified",
+        "SUCCESS_MESSAGE": "Your documents were validated successfully."
+    },
+    "FOOTER": {
+        "BRAND_DESC": "Your automated tax expert. Simplifying tax management with cutting-edge AI technology and precision.",
+        "BUSINESS_REG": "Business Registration",
+        "CONTACT_INFO": "Contact Information",
+        "EMAIL_US": "Email us",
+        "BUSINESS_HOURS": "Business Hours",
+        "WEEKDAYS": "Monday - Friday",
+        "WEEKENDS": "Saturday - Sunday",
+        "CLOSED": "Closed",
+        "RESPONSE_TIME": "Response Time",
+        "RESPONSE_DESC": "Within 24 hours",
+        "CONNECT_WITH_US": "Connect With Us",
+        "SERVICES": "Our Services",
+        "PRICING": "Pricing",
+        "ABOUT": "About Us",
+        "FAQ": "FAQ",
+        "QUICK_LINKS": "Quick Links",
+        "RIGHTS": "All rights reserved.",
+        "PRIVACY": "Privacy Policy",
+        "TERMS": "Terms of Service",
+        "SUPPORT": "Support",
+        "REG_INFO": "Business Registration Number",
+        "DISCLAIMER": "Neuraltax is not meant for collecting PII or securing sensitive data. Please consult with a qualified tax professional for complex tax situations.",
+        "LICENSE": "Licensed and registered for tax advisory services. All communications are confidential and secure."
+    },
+    "DASHBOARD": {
+        "HEADER": {
+            "TITLE": "Dashboard",
+            "TITLE_AGENT": "Agent Portal",
+            "SUBTITLE_FREE": "Welcome to the Free portal",
+            "SUBTITLE_PREMIUM": "Welcome to the Premium portal",
+            "SUBTITLE_VIP": "Welcome to the VIP portal",
+            "SUBTITLE_AGENT": "Welcome to the agent portal"
+        },
+        "FREE": {
+            "WELCOME": {
+                "TITLE": "Free User Dashboard.",
+                "SUBTITLE": "Welcome to your dashboard to do your taxes. Please verify that your user is validated."
+            },
+            "STATS": {
+                "UPLOADED_DOCS": "Uploaded Documents",
+                "COMPLETED_FORMS": "Completed Forms",
+                "EST_REFUND": "Est. Refund",
+                "IN_PROGRESS": "In Progress",
+                "ESTIMATED": "Estimated"
+            },
+            "ACTIONS": {
+                "UPLOAD_TITLE": "Upload Documents",
+                "UPLOAD_STEP": "Step 1 of 2",
+                "UPLOAD_DESC": "Upload your W-2, 1099 and other tax documents. You can upload up to 10 documents.",
+                "GO_TO_DOCS": "Go to Documents",
+                "DECLARATION_TITLE": "Tax Declaration (Form 1040)",
+                "DECLARATION_STEP": "Step 2 of 2",
+                "DECLARATION_DESC": "Complete your Form 1040 to calculate your taxes and estimated refund.",
+                "START_DECLARATION": "Tax Declaration 2025",
+                "FILE_TAXES": "File your 2025 Taxes"
+            },
+            "STEPS": {
+                "W2": "W-2 Forms",
+                "INTEREST": "Interest Statements",
+                "RECEIPTS": "Receipts & Invoices",
+                "FORM1040": "Form 1040 (Principal)",
+                "DEDUCTION": "Standard Deduction",
+                "SCHEDULE_C": "Schedule C (Business)"
+            },
+            "UPSELL": {
+                "TITLE": "Unlock Premium Features",
+                "DESC": "Get AI assistance, unlimited documents, Schedule C for businesses, advanced deductions, and priority support.",
+                "UPGRADE_NOW": "Upgrade to Premium",
+                "COMPARE_PLANS": "Compare Plans"
+            }
+        },
+        "UPDATE": {
+            "PAYMENT_METHOD": "Select Payment Method",
+            "SECURE_SSL": "Secure SSL Encrypted Transaction",
+            "METHODS": {
+                "CARD": "Credit / Debit Card",
+                "CARD_DESC": "Visa, Mastercard, Amex",
+                "PAYPAL": "PayPal",
+                "PAYPAL_DESC": "Fast and secure",
+                "CRYPTO": "Crypto",
+                "CRYPTO_DESC": "BTC, ETH, USDT"
+            },
+            "FORM": {
+                "CARDHOLDER": "Cardholder Name",
+                "CARD_NUMBER": "Card Number",
+                "EXPIRY": "Expiry Date",
+                "CVC": "CVC",
+                "SAVE_CARD": "Save for future payments",
+                "PAY_BIN": "Pay"
+            },
+            "PAYPAL_REDIRECT": "You will be redirected to PayPal to complete your purchase securely.",
+            "PAY_WITH_PAYPAL": "Pay with PayPal",
+            "CRYPTO_CONNECT": "Connect your wallet or scan QR code to pay.",
+            "CONNECT_WALLET": "Connect Wallet",
+            "SUMMARY": {
+                "TITLE": "Order Summary",
+                "PLAN_NAME": "Smart Saver Plan",
+                "PLAN_FREQ": "Monthly subscription",
+                "SUBTOTAL": "Subtotal",
+                "TAX": "Tax",
+                "TOTAL": "Total to pay",
+                "SECURE_CHECKOUT": "Secure Checkout",
+                "GUARANTEE": "Money-back Guarantee"
+            }
+        }
+    },
+    "RETURNS": {
+        "TITLE": "My Returns",
+        "SUBTITLE": "History and status of your tax returns."
+    },
+    "SETTINGS": {
+        "TITLE": "Settings",
+        "SUBTITLE": "Application settings."
+    },
+    "ARTICLES_PAGE": {
+        "VIEW_ALL": "View All Articles",
+        "TITLE": "Latest News & Tax Insights",
+        "SUBTITLE": "Stay updated with the latest US tax regulations, AI-powered tax solutions, and IRS guidelines with our expert articles and comprehensive tax preparation guides.",
+        "ARTICLES": [
+            {
+                "CATEGORY": "AI Technology",
+                "TITLE": "AI-Powered Tax Preparation: Revolutionizing IRS Compliance in 2024",
+                "DATE": "January 15, 2024",
+                "READ_TIME": "6 min read",
+                "CONTENT": "Discover how artificial intelligence is transforming US tax preparation, from automated document processing to intelligent deduction optimization and real-time IRS compliance checking."
+            },
+            {
+                "CATEGORY": "IRS Guidelines",
+                "TITLE": "Maximizing US Tax Deductions: 2024 IRS Guidelines & AI Optimization",
+                "DATE": "January 12, 2024",
+                "READ_TIME": "8 min read",
+                "CONTENT": "Learn the latest IRS deduction strategies for 2024 and how AI-powered tools can identify missed opportunities, ensuring maximum legitimate tax savings for individuals and businesses."
+            },
+            {
+                "CATEGORY": "Tax Forms",
+                "TITLE": "Form 1040 Made Simple: AI-Assisted Tax Filing for US Taxpayers",
+                "DATE": "January 8, 2024",
+                "READ_TIME": "7 min read",
+                "CONTENT": "Navigate the complexities of US tax forms with AI assistance. From Schedule C to Form 8829, learn how intelligent automation simplifies even the most complex IRS requirements."
+            },
+            {
+                "CATEGORY": "Innovation",
+                "TITLE": "Smart Tax Technology: The Future of US Tax Preparation Services",
+                "DATE": "January 5, 2024",
+                "READ_TIME": "5 min read",
+                "CONTENT": "Explore cutting-edge tax preparation technology that's reshaping the industry. From machine learning algorithms to blockchain-secured document storage for IRS audits."
+            }
+        ]
+    },
+    "HOME_TWO": {
+        "SLIDES": {
+            "SLIDE_3": {
+                "TITLE_TOP": "Automate your taxes and avoid",
+                "SUBTITLE_TOP": "The system detects inconsistencies and corrects data before submitting your return.",
+                "TITLE_BOTTOM": "More deductions",
+                "SUBTITLE_BOTTOM": "Less stress, full control"
+            },
+            "SLIDE_4": {
+                "TITLE_TOP": "Trust your taxes to an",
+                "SUBTITLE_TOP": "Neuraltax safeguards your data and uses advanced algorithms to ensure accuracy and security.",
+                "TITLE_BOTTOM": "More deductions",
+                "SUBTITLE_BOTTOM": "Less stress, full control"
+            },
+            "SLIDE_5": {
+                "TITLE_TOP": "AI + human expertise:",
+                "SUBTITLE_TOP": "Neuraltax combines advanced technology with professional judgment for a reliable service.",
+                "TITLE_BOTTOM": "More deductions",
+                "SUBTITLE_BOTTOM": "Less stress, full control"
+            },
+            "SLIDE_6": {
+                "TITLE_TOP": "Total control of your taxes",
+                "SUBTITLE_TOP": "Neuraltax centralizes documents, calculations, and reports in an easy-to-use app.",
+                "TITLE_BOTTOM": "More deductions",
+                "SUBTITLE_BOTTOM": "Less stress, full control"
+            }
+        }
+    },
+    "AUTH": {
+        "WELCOME": "Welcome",
+        "LOGIN_DESC": "Log in to your account",
+        "EMAIL": "Email",
+        "PASSWORD": "Password",
+        "LOGGING_IN": "Logging in...",
+        "LOGIN_BTN": "Log In",
+        "NO_ACCOUNT": "Don't have an account?",
+        "SIGN_UP": "Sign up",
+        "JOIN_US": "Join Us",
+        "REGISTER_DESC": "Register to receive exclusive updates",
+        "FIRST_NAME": "First Name",
+        "LAST_NAME": "Last Name",
+        "PHONE": "Phone",
+        "FIRST_NAME_PLACEHOLDER": "First name",
+        "LAST_NAME_PLACEHOLDER": "Last name",
+        "EMAIL_PLACEHOLDER": "you@example.com",
+        "PASSWORD_PLACEHOLDER": "Enter your password",
+        "PHONE_PLACEHOLDER": "1234567890",
+        "HIDE_PASSWORD": "Hide password",
+        "SHOW_PASSWORD": "Show password",
+        "REQ_UPPERCASE": "At least one uppercase",
+        "REQ_SPECIAL": "At least one special character",
+        "REQ_NUMBER": "At least one number",
+        "REQ_MIN_LENGTH": "Minimum 8 characters",
+        "CONFIRM_PASSWORD": "Repeat Password",
+        "PASS_MATCH": "Passwords match",
+        "PASS_NOT_MATCH": "Passwords do not match",
+        "REGISTERING": "Registering...",
+        "REGISTER_BTN": "Register",
+        "REGISTER_SUCCESS": "Thanks for registering! We have sent you a confirmation email.",
+        "HAS_ACCOUNT": "Already have an account?",
+        "SIGN_IN": "Sign in",
+        "USER": "User",
+        "ERROR_LOGIN_FAILED": "Invalid credentials or backend unavailable.",
+        "ERROR_REQUIRED_FIELDS": "All fields are required.",
+        "ERROR_PASSWORD_REQUIREMENTS": "The password does not meet the requirements.",
+        "ERROR_PASSWORD_MISMATCH": "Passwords do not match.",
+        "ERROR_SERVER": "Server error. Please try again later."
+    },
+    "CHATBOT": {
+        "OPEN_ARIA": "Open chat",
+        "ROLE": "AI Tax Assistant",
+        "PLACEHOLDER": "Type your message...",
+        "ENCRYPTED": "End-to-end encrypted",
+        "AUDIO_MUTE": "Mute audio",
+        "AUDIO_ENABLE": "Enable audio",
+        "VOICE_STOP": "Stop listening",
+        "VOICE_START": "Speak",
+        "FORM_GREETING": "Hello! I'm Nerea. It's time to secure your refund! Shall we start completing your personal information right now?",
+        "FORM_START": "Yes, let's start!",
+        "FORM_QUESTION": "I have a question",
+        "GREETING": "Hello! I'm Nerea. Let's get that refund! Do you want to upload your documents or check your declaration status today?",
+        "CHECK_STATUS": "Your return is being processed. You can see the status on your Dashboard.",
+        "ESTIMATE_REFUND": "Based on your documents, your estimated refund is available in the calculator.",
+        "UPLOAD_DOCS": "You can securely upload your documents. I accept W2, 1099, and more.",
+        "TALK_TO_HUMAN": "Our agents are available on the Premium plan. Would you like to upgrade?",
+        "HELP": "I can help you with checking status, estimating refunds, and uploading documents.",
+        "THANKS": "You're welcome! I'm here to help.",
+        "GOODBYE": "Goodbye! Have a great day.",
+        "UNKNOWN": "I'm not sure I understand. Could you rephrase your question?",
+        "PII_WARNING": "Please do not share sensitive information like your SSN here.",
+        "ERROR_CONNECTION": "Sorry, there was an error connecting to my brain. Please try again.",
+        "OPT_STATUS": "Check status",
+        "OPT_REFUND": "Estimate refund",
+        "OPT_UPLOAD": "Upload docs",
+        "OPT_GO_UPLOAD": "Go to upload",
+        "OPT_UPGRADE": "View plans",
+        "OPT_NO_THANKS": "No, thanks"
+    },
+    "PROFILE": {
+        "YOUR_PROFILE": "Your Profile",
+        "MANAGE_INFO": "Manage your personal information",
+        "PREMIUM_MEMBER": "Premium Member",
+        "VIP_MEMBER": "VIP Member",
+        "MEMBER": "Member",
+        "AGENT": "Agent",
+        "FREE_MEMBER": "Free Member",
+        "PHONE": "Phone",
+        "PHYSICAL_ADDRESS": "Physical Address",
+        "NOT_REGISTERED": "Not registered",
+        "PENDING_UPDATE": "Pending update",
+        "VERIFIED_IDENTITY": "Verified Identity",
+        "PENDING_VERIFICATION": "Pending Verification",
+        "VERIFIED_DESC": "Your identity has been successfully checked.",
+        "PENDING_DESC": "It is necessary to validate your ID to enable sensitive tax operations.",
+        "VERIFY_NOW": "Verify Now",
+        "MY_PROFILE": "My Profile",
+        "VERIFY_IDENTITY": "Verify Identity",
+        "LOGOUT": "Logout"
+    },
+    "WIZARD": {
+        "BADGE": "Neural Power",
+        "TITLE": "Tax Assistant",
+        "SUBTITLE": "Maximize your savings with our specialized AI",
+        "CALCULATING": {
+            "TITLE": "Calculating your tax return...",
+            "SUBTITLE": "Nerea is optimizing your deductions"
+        },
+        "STEPS": {
+            "PERSONAL_INFO": {
+                "TITLE": "Personal Information",
+                "FULL_NAME": "Full Name",
+                "FULL_NAME_PLACEHOLDER": "Example: John Smith",
+                "MARITAL_STATUS": "Marital Status"
+            },
+            "INCOME": {
+                "TITLE": "Income",
+                "ANNUAL_INCOME": "Annual Income (W-2)",
+                "OTHER_INCOME": "Other Income (1099, etc.)",
+                "BUSINESS_OWNER": "Do you own a business or work as self-employed?"
+            },
+            "DEDUCTIONS": {
+                "TITLE": "Deductions",
+                "MEDICAL_EXPENSES": "Medical Expenses",
+                "CHARITY": "Charitable Donations"
+            },
+            "REVIEW": {
+                "TITLE": "Final Review",
+                "NAME": "Name",
+                "MARITAL_STATUS": "Marital Status",
+                "TOTAL_INCOME": "Total Income",
+                "TOTAL_DEDUCTIONS": "Total Deductions"
+            },
+            "RESULT": {
+                "TITLE": "Estimated Result",
+                "ESTIMATED_REFUND": "Your Estimated Refund",
+                "TAX_DUE": "Tax Due"
+            }
+        },
+        "MARITAL_STATUS_OPTIONS": {
+            "SINGLE": "Single",
+            "MARRIED": "Married",
+            "HEAD": "Head of Household"
+        },
+        "ACTIONS": {
+            "PREVIOUS": "Previous",
+            "NEXT": "Next",
+            "CALCULATE": "Calculate Return",
+            "NEW_RETURN": "Start New Return"
+        }
+    },
+    "UPLOAD": {
+        "TITLE": "Document Management",
+        "SUBTITLE": "Upload and manage your tax documents (W-2, 1099, 1040, etc.)",
+        "BTN_UPLOAD": "Upload Document",
+        "BTN_CLOSE": "Close",
+        "DOCS": {
+            "W2_MAIN": "W-2 Principal Employer",
+            "FREELANCE": "Freelance Contract",
+            "BANK_INTEREST": "Bank Interest",
+            "HEALTH_REPORT": "Health Report",
+            "ANNUAL_RETURN": "Annual Return",
+            "BUSINESS_INCOME": "Business Income",
+            "W2_OLD": "W-2 Former Employer"
+        },
+        "DROPZONE": {
+            "TITLE": "Drag and drop your documents here",
+            "SUBTITLE": "or click to select files (PDF, PNG, JPG)",
+            "LIMIT": "Maximum size: 10MB per file"
+        },
+        "SELECTED": {
+            "TITLE": "Selected Files",
+            "BTN_CLEAR": "Clear all",
+            "BTN_CONFIRM": "Confirm and Upload"
+        },
+        "FILTERS": {
+            "TITLE": "Filter by Fiscal Year:",
+            "ALL": "All"
+        },
+        "TIMELINE": {
+            "YEAR_HEADING": "Fiscal Year"
+        },
+        "CARD": {
+            "STATUS": {
+                "VERIFIED": "VERIFIED",
+                "PENDING": "PENDING",
+                "REJECTED": "REJECTED"
+            },
+            "MODEL": "Form",
+            "SIZE": "Size",
+            "ACTION_DOWNLOAD": "Download",
+            "ACTION_VIEW": "View details"
+        },
+        "EMPTY_STATE": "No documents found for this period."
+    }
+}

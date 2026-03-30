@@ -1,0 +1,9 @@
+<div class="dashboard-container" [class.sidebar-collapsed]="isCollapsed()">
+    <app-sidebar [isCollapsed]="isCollapsed()" [portalType]="portalType()"
+        (isCollapsedChange)="isCollapsed.set($event)" />
+    <main class="main-content" [class.sidebar-collapsed]="isCollapsed()">
+        <router-outlet />
+    </main>
+    <app-chatbot />
+    <app-validate-modal />
+</div>

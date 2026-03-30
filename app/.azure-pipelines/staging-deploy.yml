@@ -1,0 +1,39 @@
+name: $(Build.SourceBranchName)-$(Date:yyyyMMdd)$(Rev:.r)
+trigger:
+  branches:
+    include:
+      - staging
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  app_location: "dist/nuratax/browser"
+  output_location: "dist/nuratax/browser"
+
+steps:
+  - checkout: self
+
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "20.x"
+    displayName: "Instalar Node.js"
+
+  - script: |
+      npm ci
+      npm install -g @angular/cli
+      ng build --configuration=staging
+    displayName: "Construir aplicación Angular para Staging"
+
+  - script: |
+      echo "📁 Contenido directo de dist/nuratax/browser:"
+      ls -la dist/nuratax/browser
+    displayName: "Debug: root browser folder"
+
+  - task: AzureStaticWebApp@0
+    inputs:
+      app_location: "$(app_location)"
+      output_location: "$(output_location)"
+      azure_static_web_apps_api_token: "$(AZURE_STATIC_WEB_APPS_API_TOKEN_STAGING)"
+      skip_app_build: true
+    displayName: "Desplegar en Azure Static Web App (staging)"

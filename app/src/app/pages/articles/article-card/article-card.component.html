@@ -1,0 +1,31 @@
+<div class="article">
+    <div class="container-4" [style.background-image]="'url(' + imageUrl + ')'">
+        <div class="text-3" *ngIf="categoryLabel">
+            <div class="text-wrapper-5">{{ categoryLabel | translate }}</div>
+        </div>
+    </div>
+
+    <div class="container-2">
+        <div class="container-3">
+            <div class="text">
+                <div class="text-wrapper-2">{{ date | translate }}</div>
+            </div>
+            <div class="div-wrapper">
+                <div class="text-wrapper-3">{{ readTime | translate }}</div>
+            </div>
+        </div>
+
+        <div class="heading-2">
+            <p class="AI-powered-tax">{{ title | translate }}</p>
+        </div>
+
+        <div class="paragraph-2">
+            <p class="discover-how">{{ content | translate }}</p>
+        </div>
+
+        <div class="text-2">
+            <div class="text-wrapper-4">{{ 'COMMON.READ_MORE' | translate }}</div>
+            <div class="icon"><img class="vector" src="/assets/img/otros/vector-43.svg" /></div>
+        </div>
+    </div>
+</div>

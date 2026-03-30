@@ -1,0 +1,138 @@
+<div class="wizard-container">
+    <app-sidebar [isCollapsed]="isSidebarCollapsed()" portalType="free"
+        (isCollapsedChange)="isSidebarCollapsed.set($event)"></app-sidebar>
+
+    <div class="wizard-main-content">
+        <div class="wizard-header">
+            <div class="header-badge">{{ 'WIZARD.BADGE' | translate }}</div>
+            <h1>{{ 'WIZARD.TITLE' | translate }}</h1>
+            <p>{{ 'WIZARD.SUBTITLE' | translate }}</p>
+        </div>
+
+        <div class="wizard-layout">
+            <div class="form-section">
+                <div class="step-indicator">
+                    <div class="step" [class.active]="currentStep() === 1" [class.completed]="currentStep() > 1">1</div>
+                    <div class="step" [class.active]="currentStep() === 2" [class.completed]="currentStep() > 2">2</div>
+                    <div class="step" [class.active]="currentStep() === 3" [class.completed]="currentStep() > 3">3</div>
+                    <div class="step" [class.active]="currentStep() === 4" [class.completed]="currentStep() > 4">4</div>
+                    <div class="step" [class.active]="currentStep() === 5" [class.completed]="currentStep() > 5">5</div>
+                </div>
+
+                <div class="form-content">
+                    @if (isCalculating()) {
+                    <div class="calculating-overlay">
+                        <div class="loader"></div>
+                        <h3>{{ 'WIZARD.CALCULATING.TITLE' | translate }}</h3>
+                        <p>{{ 'WIZARD.CALCULATING.SUBTITLE' | translate }}</p>
+                    </div>
+                    }
+
+                    @if (!isCalculating()) {
+                    @if (currentStep() === 1) {
+                    <div class="step-content">
+                        <h2>{{ 'WIZARD.STEPS.PERSONAL_INFO.TITLE' | translate }}</h2>
+                        <div class="form-group">
+                            <label for="fullName">{{ 'WIZARD.STEPS.PERSONAL_INFO.FULL_NAME' | translate }}</label>
+                            <input id="fullName" type="text" [(ngModel)]="formData.fullName"
+                                [placeholder]="'WIZARD.STEPS.PERSONAL_INFO.FULL_NAME_PLACEHOLDER' | translate">
+                        </div>
+                        <div class="form-group">
+                            <label for="maritalStatus">{{ 'WIZARD.STEPS.PERSONAL_INFO.MARITAL_STATUS' | translate }}</label>
+                            <select id="maritalStatus" [(ngModel)]="formData.maritalStatus">
+                                @for (option of maritalStatusOptions; track option.value) {
+                                <option [value]="option.value">{{ option.labelKey | translate }}</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    }
+
+                    @if (currentStep() === 2) {
+                    <div class="step-content">
+                        <h2>{{ 'WIZARD.STEPS.INCOME.TITLE' | translate }}</h2>
+                        <div class="form-group">
+                            <label for="annualIncome">{{ 'WIZARD.STEPS.INCOME.ANNUAL_INCOME' | translate }}</label>
+                            <input id="annualIncome" type="number" [(ngModel)]="formData.annualIncome" placeholder="0.00">
+                        </div>
+                        <div class="form-group">
+                            <label for="otherIncome">{{ 'WIZARD.STEPS.INCOME.OTHER_INCOME' | translate }}</label>
+                            <input id="otherIncome" type="number" [(ngModel)]="formData.otherIncome" placeholder="0.00">
+                        </div>
+                        <div class="form-group-checkbox">
+                            <label>
+                                <input type="checkbox" [(ngModel)]="formData.isBusinessOwner">
+                                {{ 'WIZARD.STEPS.INCOME.BUSINESS_OWNER' | translate }}
+                            </label>
+                        </div>
+                    </div>
+                    }
+
+                    @if (currentStep() === 3) {
+                    <div class="step-content">
+                        <h2>{{ 'WIZARD.STEPS.DEDUCTIONS.TITLE' | translate }}</h2>
+                        <div class="form-group">
+                            <label for="medicalExpenses">{{ 'WIZARD.STEPS.DEDUCTIONS.MEDICAL_EXPENSES' | translate }}</label>
+                            <input id="medicalExpenses" type="number" [(ngModel)]="formData.medicalExpenses"
+                                placeholder="0.00">
+                        </div>
+                        <div class="form-group">
+                            <label for="charity">{{ 'WIZARD.STEPS.DEDUCTIONS.CHARITY' | translate }}</label>
+                            <input id="charity" type="number" [(ngModel)]="formData.charity" placeholder="0.00">
+                        </div>
+                    </div>
+                    }
+
+                    @if (currentStep() === 4) {
+                    <div class="step-content">
+                        <h2>{{ 'WIZARD.STEPS.REVIEW.TITLE' | translate }}</h2>
+                        <div class="review-summary">
+                            <p><strong>{{ 'WIZARD.STEPS.REVIEW.NAME' | translate }}:</strong> {{ formData.fullName }}</p>
+                            <p><strong>{{ 'WIZARD.STEPS.REVIEW.MARITAL_STATUS' | translate }}:</strong> {{ getMaritalStatusLabelKey(formData.maritalStatus) | translate }}</p>
+                            <p><strong>{{ 'WIZARD.STEPS.REVIEW.TOTAL_INCOME' | translate }}:</strong> {{ (formData.annualIncome || 0) + (formData.otherIncome || 0) | currency }}</p>
+                            <p><strong>{{ 'WIZARD.STEPS.REVIEW.TOTAL_DEDUCTIONS' | translate }}:</strong> {{ (formData.medicalExpenses || 0) + (formData.charity || 0) | currency }}</p>
+                        </div>
+                    </div>
+                    }
+
+                    @if (currentStep() === 5) {
+                    <div class="step-content result-step">
+                        <h2>{{ 'WIZARD.STEPS.RESULT.TITLE' | translate }}</h2>
+                        @if (resultData(); as result) {
+                        <div class="result-card" [class.refund]="result.refund > 0">
+                            <div class="result-icon">
+                                <span class="material-symbols-outlined">{{ result.refund > 0 ? 'payments' : 'account_balance_wallet' }}</span>
+                            </div>
+                            <div class="result-amount">
+                                <span class="label">{{ (result.refund > 0 ? 'WIZARD.STEPS.RESULT.ESTIMATED_REFUND' : 'WIZARD.STEPS.RESULT.TAX_DUE') | translate }}</span>
+                                <span class="value">{{ (result.refund > 0 ? result.refund : result.taxDue) | currency }}</span>
+                            </div>
+                        </div>
+                        }
+                        <div class="result-actions">
+                            <button class="btn-next" (click)="currentStep.set(1)">{{ 'WIZARD.ACTIONS.NEW_RETURN' | translate }}</button>
+                        </div>
+                    </div>
+                    }
+                    }
+                </div>
+
+                @if (currentStep() < 5 && !isCalculating()) {
+                <div class="form-actions">
+                    @if (currentStep() > 1) {
+                    <button class="btn-prev" (click)="prevStep()">{{ 'WIZARD.ACTIONS.PREVIOUS' | translate }}</button>
+                    }
+                    <div style="flex: 1"></div>
+                    <button class="btn-next" (click)="nextStep()">
+                        {{ (currentStep() === 4 ? 'WIZARD.ACTIONS.CALCULATE' : 'WIZARD.ACTIONS.NEXT') | translate }}
+                    </button>
+                </div>
+                }
+            </div>
+
+            <div class="chatbot-section">
+                <app-chatbot [embedded]="true"></app-chatbot>
+            </div>
+        </div>
+    </div>
+</div>

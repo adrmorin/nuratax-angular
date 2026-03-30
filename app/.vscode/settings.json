@@ -1,0 +1,9 @@
+{
+    "angular.language-service.typeCheckingMode": "basic",
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.preferences.importModuleSpecifier": "relative",
+    "angular.suggest.enabled": true,
+    "typescript.validate.enable": true,
+    "angular.forceStrictTemplates": false,
+    "problems.decorations.enabled": false
+}

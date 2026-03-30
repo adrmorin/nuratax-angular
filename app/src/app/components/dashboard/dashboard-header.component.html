@@ -1,0 +1,46 @@
+<div class="dashboard-header">
+    <div class="header-left">
+        <h1 class="header-title">{{ displayTitle | translate }}</h1>
+        <p class="header-subtitle">{{ displaySubtitle | translate }}</p>
+    </div>
+
+    <div class="header-right">
+        <!-- User Info -->
+
+
+        <!-- User Info -->
+        @if (hasAuthenticatedUser) {
+        <div class="user-info-section" (click)="toggleProfileMenu()" tabindex="0" (keydown.enter)="toggleProfileMenu()"
+            role="button" aria-haspopup="menu" (mouseenter)="cancelMenuClose()" (mouseleave)="closeProfileMenu()">
+            <div class="user-avatar-circle">
+                @if (userAvatar) {
+                <img [src]="userAvatar" [alt]="userName" class="user-avatar-img">
+                } @else {
+                <span class="user-initials">{{ userInitials }}</span>
+                }
+                <span class="status-indicator"></span>
+            </div>
+            <span class="user-name-text">{{ userName }}</span>
+
+            <!-- Dropdown Menu -->
+            @if (isProfileMenuOpen) {
+            <app-user-profile-menu [user]="user" (closeMenu)="closeProfileMenu()"
+                (cancelCloseMenu)="cancelMenuClose()"></app-user-profile-menu>
+            }
+        </div>
+        }
+
+        <!-- Brand Info -->
+        <div class="brand-info">
+            <div class="brand-name">{{ config.brandName | translate }}</div>
+            <div class="brand-subtitle" [style.color]="config.accentColor">{{ config.brandSubtitle | translate }}</div>
+        </div>
+
+        <!-- Logo -->
+        @if (showLogo) {
+        <div class="logo-container">
+            <img src="assets/neuraltax1.png" alt="Neuraltax" class="header-logo">
+        </div>
+        }
+    </div>
+</div>

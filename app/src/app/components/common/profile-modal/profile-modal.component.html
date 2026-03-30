@@ -1,0 +1,101 @@
+@if (modalService.isProfileVisible()) {
+<div class="modal-backdrop" (click)="closeModal($event)" (keydown.enter)="closeModal($event)" tabindex="0" role="dialog"
+    aria-modal="true">
+    <div class="modal-content profile-modal animate-scale-up">
+        <!-- Close Button -->
+        <button class="btn-close-modal" (click)="modalService.closeProfile()" title="Cerrar Panel">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+
+        <div class="modal-header">
+            <h3>{{ 'PROFILE.YOUR_PROFILE' | translate }}</h3>
+            <p>{{ 'PROFILE.MANAGE_INFO' | translate }}</p>
+        </div>
+
+        <div class="modal-body profile-body">
+            @if (user) {
+            <!-- Avatar Section -->
+            <div class="profile-avatar-section">
+                <div class="avatar-circle-large">
+                    <span class="avatar-initials-large">{{ userInitials }}</span>
+                </div>
+                <div class="profile-name-main">
+                    <h2>{{ user.firstName }} {{ user.lastName }}</h2>
+                    <span class="profile-role-badge">
+                        {{ (user.roles?.includes('ROLE_PREMIUM') ? 'PROFILE.PREMIUM_MEMBER' : 'PROFILE.MEMBER') |
+                        translate }}
+                    </span>
+                </div>
+            </div>
+
+            <!-- Detail Grid -->
+            <div class="profile-details-grid">
+                <!-- Email -->
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <span class="material-symbols-outlined">mail</span>
+                    </div>
+                    <div class="detail-content">
+                        <span class="detail-label">{{ 'AUTH.EMAIL' | translate }}</span>
+                        <p>{{ user.email }}</p>
+                    </div>
+                </div>
+
+                <!-- Phone -->
+                <div class="detail-item">
+                    <div class="detail-icon">
+                        <span class="material-symbols-outlined">call</span>
+                    </div>
+                    <div class="detail-content">
+                        <span class="detail-label">{{ 'PROFILE.PHONE' | translate }}</span>
+                        <p>{{ user.phone || ('PROFILE.NOT_REGISTERED' | translate) }}</p>
+                    </div>
+                </div>
+
+                <!-- Address -->
+                <div class="detail-item address-item">
+                    <div class="detail-icon">
+                        <span class="material-symbols-outlined">home_pin</span>
+                    </div>
+                    <div class="detail-content">
+                        <span class="detail-label">{{ 'PROFILE.PHYSICAL_ADDRESS' | translate }}</span>
+                        <p>{{ user.address || ('PROFILE.PENDING_UPDATE' | translate) }}</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Verification Action -->
+            <div class="profile-verification-card" [class.verified]="user.isValidated">
+                <div class="verification-status-icon">
+                    <span class="material-symbols-outlined">
+                        {{ user.isValidated ? 'verified' : 'gpp_maybe' }}
+                    </span>
+                </div>
+                <div class="verification-info">
+                    <h4>{{ (user.isValidated ? 'PROFILE.VERIFIED_IDENTITY' : 'PROFILE.PENDING_VERIFICATION') | translate
+                        }}</h4>
+                    <p>
+                        {{ (user.isValidated
+                        ? 'PROFILE.VERIFIED_DESC'
+                        : 'PROFILE.PENDING_DESC') | translate
+                        }}
+                    </p>
+                </div>
+                @if (!user.isValidated) {
+                <button class="btn btn-verify-now" (click)="openValidation()">
+                    {{ 'PROFILE.VERIFY_NOW' | translate }}
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+                }
+            </div>
+
+            } @else {
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Cargando información...</p>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+}

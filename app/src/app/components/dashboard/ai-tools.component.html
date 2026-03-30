@@ -1,0 +1,61 @@
+<div class="ai-tools-container">
+    <!-- Header -->
+    <div class="ai-tools-header">
+        <div class="header-left">
+            <div class="header-icon">
+                <span class="material-symbols-outlined">psychology</span>
+            </div>
+            <div class="header-text">
+                <h2 class="header-title">Herramientas IA para Agentes</h2>
+                <p class="header-subtitle">Herramientas IA potentes para hacer crecer y optimizar tu práctica</p>
+            </div>
+        </div>
+        <div class="header-badge">
+            <span class="material-symbols-outlined">auto_awesome</span>
+            Impulsado por IA
+        </div>
+    </div>
+
+    <!-- Tools Grid -->
+    <div class="ai-tools-grid">
+        @for (tool of aiTools; track tool.id) {
+        <div class="ai-tool-card">
+            <div class="tool-header">
+                <div class="tool-icon" [style.color]="tool.iconColor">
+                    <span class="material-symbols-outlined">{{ tool.icon }}</span>
+                </div>
+                <div class="tool-info">
+                    <h3 class="tool-title">{{ tool.title }}</h3>
+                    <p class="tool-description">{{ tool.description }}</p>
+                </div>
+                @if (tool.badge) {
+                <span class="tool-badge" [style.background]="tool.badgeColor">{{ tool.badge }}</span>
+                }
+            </div>
+            <button class="tool-action-btn" (click)="onExecuteAnalysis(tool.id)">
+                <span class="material-symbols-outlined">auto_awesome</span>
+                Ejecutar Análisis
+            </button>
+        </div>
+        }
+    </div>
+
+    <!-- Performance Summary -->
+    <div class="performance-summary">
+        <div class="summary-header">
+            <div class="summary-icon">
+                <span class="material-symbols-outlined">insights</span>
+            </div>
+            <h3 class="summary-title">Resumen de Rendimiento IA</h3>
+        </div>
+        <div class="summary-metrics">
+            @for (metric of performanceMetrics; track metric.label) {
+            <div class="metric-item">
+                <span class="metric-label">{{ metric.label }}</span>
+                <span class="metric-value">{{ metric.value }}</span>
+                <span class="metric-sublabel">{{ metric.sublabel }}</span>
+            </div>
+            }
+        </div>
+    </div>
+</div>

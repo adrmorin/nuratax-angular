@@ -1,0 +1,364 @@
+h2 {
+  font-size: 40px;
+}
+/* FAQ section visuals to match landing */
+.frame-37-1 {
+    background-color: #cff7d3;
+}
+.image {
+    background-image: url('/assets/img/otros/image.svg');
+    background-position: 50% 50%;
+    background-size: cover;
+}
+//Responsive
+@media (max-width: 1200px) {
+    .subscribe-content {
+        padding: 10px 120px 10px 10px;
+        height: 310px;
+        min-height: 320px;
+        .custom-layout-table {
+            .table-img {
+                width: 100%;
+                min-width: 200px;
+                max-width: 220px;
+            }
+            .table-img1 {
+                width: 70%;
+            }
+        }
+        .newsletter-form {
+            max-width: 500px;
+            .input-newsletter {
+                width: 100%;
+                height: 50px;
+                font-size: 14px;
+                font-weight: 500;
+            }
+        }
+        .default-btn {
+            width: 100%;
+            height: 50px;
+            font-size: 12px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .subscribe-content {
+        padding: 10px 10px 10px 10px;
+        height: 280px;
+        min-height: 270px;
+        .texto {
+            //color: $white-color;
+            max-width: 510px;
+            margin: 0;
+            font-size: 15px;
+            font-weight: 400;
+        }
+        .custom-layout-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+
+            .table-img {
+                width: 100%;
+                min-width: 180px;
+                max-width: 200px;
+            }
+
+            .table-img1 {
+                width: 70%;
+            }
+        }
+
+        .newsletter-form {
+            max-width: 700px;
+            margin: 0 auto;
+
+            .input-newsletter {
+                height: 50px;
+            }
+        }
+        .default-btn {
+            height: 50px;
+            font-size: 12px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .subscribe-content {
+        padding: 0;
+        height: 190px;
+        min-height: 185px;
+
+        .custom-layout-table {
+            width: 100%;
+
+            .table-img {
+                width: 100%;
+                min-width: 100px;
+                max-width: 120px;
+            }
+
+            .table-img1 {
+                width: 50%;
+            }
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+            .col-lg-8,
+            .col-md-8 {
+                width: 60%;
+            }
+            .col-lg-4,
+            .col-md-4 {
+                width: 40%;
+            }
+        }
+
+        .input-newsletter {
+            height: 45px;
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .default-btn {
+            width: 100%;
+            height: 45px;
+            padding: 10px;
+            margin: 0;
+            font-size: 12px;
+
+            i {
+                font-size: 12px;
+            }
+        }
+
+
+    }
+}
+
+@media (max-width: 515px) {
+    .subscribe-content {
+    .bot-image-cell {
+      display: none;
+    }
+
+    .custom-layout-table {
+      .table-img1 {
+        width: 50%;
+      }
+    }
+
+    .texto {
+      font-size: 14px;
+    }
+  }
+}
+
+// New
+
+.content-baner{
+    height: fit-content;
+    padding-bottom: 3rem !important;
+    width: 100%;
+    // background-color: aquamarine;
+    background: linear-gradient(90deg, #ECF2F0 0%, #CCE7D4 72%);
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    padding: 5rem 16rem 0 0;
+    font-family: 'Inter', sans-serif;
+
+}
+.img-header{
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+}
+.logo_header{
+    width: 30vw;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+.titels{
+    display: flex;
+    // width: 50%;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+}
+.titels .default-btn {
+    margin-top: 16px;
+}
+.titels > h1{
+    font-size: 1.8rem;
+    color: #1C2C3C;
+    font-weight: 800;
+}
+
+.titels > h2{
+    font-size: 1.5rem;
+    color: #1C2C3C;
+    font-weight: 400;
+}
+.titels > h3{
+    font-size: 1.8rem;
+    color: #1C2C3C;
+    font-weight: 600;
+}
+.get_free_estimate{
+        background-image: url("/assets/img/otros/vector-11.svg");
+    background-size: 100% 100%;
+    height: 3rem;
+    width: 12vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 0.5rem;
+    color: white;
+    padding: 0.1rem;
+    font-size: small    ;
+}
+
+.slide_info{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.get_free_estimate > img{
+    width: 10% !important;
+    height: 40% !important;
+}
+
+@media (max-width: 1024px) {
+    .content-baner {
+        height: fit-content;
+        padding: 3rem 2rem 0 0;
+
+
+        .titels {
+            > h1 {
+                font-size: 1.6rem;
+            }
+
+            > h2 {
+                font-size: 1.3rem;
+            }
+
+            > h3 {
+                font-size: 1.6rem;
+            }
+        }
+    }
+
+    .logo_header {
+        width: 50vw;
+    }
+
+    .get_free_estimate {
+        width: 12vw !important;
+        height: 2.8rem;
+        font-size: small;
+    }
+
+    .img-header {
+        width: 40%;
+    }
+}
+
+@media (max-width: 480px) {
+    .content-baner {
+        height: fit-content;
+        padding: 2rem 1rem 0 0;
+
+        .titels {
+            > h1 {
+                font-size: 1.4rem;
+            }
+
+            > h2 {
+                font-size: 1.2rem;
+            }
+
+            > h3 {
+                font-size: 1.4rem;
+            }
+        }
+    }
+
+    .logo_header {
+        width: 85vw;
+    }
+    .slide_info{
+        height: 21rem;
+    }
+
+    .get_free_estimate {
+        width: 30vw;
+        height: 2.5rem;
+        font-size: x-small;
+    }
+    .img-header{
+        width: 40%;
+    }
+}
+
+// /* --- Layout fixes to prevent partner overlap with main banner --- */
+// :host ::ng-deep .main-banner {
+//     position: relative;
+//     z-index: 2; /* ensure banner stays above following sections only if overlapping */
+//     min-height: 600px; /* reserve space so next section doesn't climb upward */
+//     padding-bottom: 40px; /* visual separation */
+// }
+
+// :host ::ng-deep .banner-content-slides {
+//     display: block;
+// }
+
+// :host ::ng-deep .banner-content-slides .item {
+//     min-height: 600px; /* unify slide height */
+// }
+
+// /* Normalize partner area stacking & spacing */
+// :host ::ng-deep .partner-area {
+//     position: relative;
+//     z-index: 1;
+//     margin-top: 0; /* remove any accidental negative margins from global styles */
+// }
+
+// /* Responsive adjustments: reduce min-height on smaller screens to avoid excessive empty space */
+// @media (max-width: 992px) {
+//     :host ::ng-deep .main-banner {
+//         min-height: 520px;
+//     }
+//     :host ::ng-deep .banner-content-slides .item {
+//         min-height: 520px;
+//     }
+// }
+// @media (max-width: 768px) {
+//     :host ::ng-deep .main-banner {
+//         min-height: 480px;
+//         padding-bottom: 30px;
+//     }
+//     :host ::ng-deep .banner-content-slides .item {
+//         min-height: 480px;
+//     }
+// }
+// @media (max-width: 576px) {
+//     :host ::ng-deep .main-banner {
+//         min-height: 420px;
+//         padding-bottom: 25px;
+//     }
+//     :host ::ng-deep .banner-content-slides .item {
+//         min-height: 420px;
+//     }
+// }

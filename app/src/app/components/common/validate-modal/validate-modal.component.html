@@ -1,0 +1,65 @@
+@if (modalService.isValidateVisible()) {
+<div class="modal-overlay">
+    <div class="modal-container">
+        <div class="modal-header">
+            <button class="close-btn" (click)="modalService.closeValidate()" aria-label="Close">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="modal-brand">
+                <img src="assets/neuraltax_logo.png" alt="NeuralTax" class="modal-logo">
+            </div>
+            <h2>{{ 'VALIDATION.TITLE' | translate }}</h2>
+            <p>{{ 'VALIDATION.DESC' | translate }}</p>
+        </div>
+
+        <div class="modal-body">
+            <!-- 1. DNI / Licencia -->
+            <div class="upload-section">
+                <h3>{{ 'VALIDATION.DNI_TITLE' | translate }}</h3>
+                <p class="info-text" [innerHTML]="'VALIDATION.DNI_DESC' | translate"></p>
+                <div class="file-input-wrapper" [class.uploaded]="dniFile()">
+                    <input type="file" (change)="onFileSelected($event, 'dni')" accept="image/*,.pdf" id="dni-upload">
+                    <label for="dni-upload">
+                        <span class="material-symbols-outlined">{{ dniFile() ? 'check_circle' : 'cloud_upload' }}</span>
+                        <span>{{ dniFile() ? dniFile()?.name : ('VALIDATION.DNI_UPLOAD' | translate) }}</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 2. W-2 Form -->
+            <div class="upload-section">
+                <h3>{{ 'VALIDATION.W2_TITLE' | translate }}</h3>
+                <p class="info-text" [innerHTML]="'VALIDATION.W2_DESC' | translate"></p>
+                <div class="file-input-wrapper" [class.uploaded]="w2File()">
+                    <input type="file" (change)="onFileSelected($event, 'w2')" accept="image/*,.pdf" id="w2-upload">
+                    <label for="w2-upload">
+                        <span class="material-symbols-outlined">{{ w2File() ? 'check_circle' : 'cloud_upload' }}</span>
+                        <span>{{ w2File() ? w2File()?.name : ('VALIDATION.W2_UPLOAD' | translate) }}</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- 3. SSN -->
+            <div class="upload-section">
+                <h3>{{ 'VALIDATION.SSN_TITLE' | translate }}</h3>
+                <p class="info-text" [innerHTML]="'VALIDATION.SSN_DESC' | translate"></p>
+                <div class="file-input-wrapper" [class.uploaded]="ssnFile()">
+                    <input type="file" (change)="onFileSelected($event, 'ssn')" accept="image/*,.pdf" id="ssn-upload">
+                    <label for="ssn-upload">
+                        <span class="material-symbols-outlined">{{ ssnFile() ? 'check_circle' : 'cloud_upload' }}</span>
+                        <span>{{ ssnFile() ? ssnFile()?.name : ('VALIDATION.SSN_UPLOAD' | translate) }}</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn-validate" (click)="submitValidation()"
+                [disabled]="!dniFile() || !w2File() || !ssnFile() || isSubmitting()">
+                {{ isSubmitting() ? ('VALIDATION.BTN_VERIFYING' | translate) : ('VALIDATION.BTN_VALIDATE' | translate)
+                }}
+            </button>
+        </div>
+    </div>
+</div>
+}

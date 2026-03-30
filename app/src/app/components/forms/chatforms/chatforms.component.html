@@ -1,0 +1,41 @@
+<div class="chatforms-container" [class.open]="isOpen()" [style.top.px]="verticalOffset()">
+    <!-- Toggle Button (Avatar Circle) -->
+    <button class="chat-toggle-btn" (click)="toggleChat()" [class.active]="isOpen()">
+        <div class="avatar-circle">
+            <img src="assets/nerea_avatar.png" alt="Nerea">
+        </div>
+    </button>
+
+    <!-- Chat Window -->
+    @if (isOpen()) {
+    <div class="chat-window">
+        <div class="chat-header">
+            <div class="header-status">
+                <span class="status-dot"></span>
+                <span>Nerea Online</span>
+            </div>
+            <button class="close-btn" (click)="toggleChat()">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+
+        <div class="messages-area">
+            @for (msg of messages(); track msg.timestamp) {
+            <div class="message" [class.user-msg]="msg.isUser" [class.nerea-msg]="!msg.isUser">
+                <div class="msg-bubble">
+                    {{ msg.text }}
+                </div>
+            </div>
+            }
+        </div>
+
+        <div class="input-area">
+            <input type="text" [(ngModel)]="userInput" (keyup.enter)="sendMessage()"
+                placeholder="Escribe tu duda aquí...">
+            <button (click)="sendMessage()" [disabled]="!userInput().trim()">
+                <span class="material-symbols-outlined">send</span>
+            </button>
+        </div>
+    </div>
+    }
+</div>

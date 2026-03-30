@@ -1,0 +1,56 @@
+<aside class="sidebar" [class.collapsed]="isCollapsed">
+  <div class="sidebar-header">
+    <button class="toggle-btn" (click)="toggleSidebar()" [title]="'COMMON.TOGGLE_SIDEBAR' | translate">
+      <span class="material-symbols-outlined">{{ isCollapsed ? 'menu' : 'menu_open' }}</span>
+    </button>
+    @if (!isCollapsed) {
+    <div class="portal-info">
+      <span class="portal-label">{{ 'COMMON.PORTAL_OF' | translate }}</span>
+      <div class="portal-brand">
+        <div class="logo-box">
+          <img src="assets/neuraltax1.png" alt="Neuraltax" class="logo-img-high-contrast">
+        </div>
+        <span class="portal-name">
+          {{ portalLabelKey | translate }}
+        </span>
+        @if (hasAuthenticatedUser) {
+        <button class="profile-trigger-btn" (click)="openProfile()" [title]="'COMMON.PROFILE' | translate">
+          <span class="material-symbols-outlined">account_circle</span>
+        </button>
+        }
+      </div>
+    </div>
+    }
+  </div>
+
+  <div class="sidebar-separator"></div>
+
+  <div class="sidebar-core-nav">
+    <ul class="sidebar-nav-list">
+      <li>
+        <a routerLink="/home" class="nav-link" [title]="'HEADER.BACK_TO_HOME' | translate">
+          <span class="material-symbols-outlined">home</span>
+          @if (!isCollapsed) { <span>{{ 'HEADER.BACK_TO_HOME' | translate }}</span> }
+        </a>
+      </li>
+      <li>
+        <a href="#logout" (click)="logout($event)" class="nav-link logout-link" [title]="'HEADER.LOGOUT' | translate">
+          <span class="material-symbols-outlined">logout</span>
+          @if (!isCollapsed) { <span>{{ 'HEADER.LOGOUT' | translate }}</span> }
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Navigation - Only show for agent or premium portal -->
+  @if (portalType === 'agent' || portalType === 'premium') {
+  <ul class="sidebar-nav">
+  </ul>
+  }
+
+  <div class="sidebar-footer">
+    <div class="lang-switcher-container">
+      <!-- keep space or remove if empty -->
+    </div>
+  </div>
+</aside>

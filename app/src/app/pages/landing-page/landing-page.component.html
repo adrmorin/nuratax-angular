@@ -1,0 +1,69 @@
+<div class="landing-page">
+    <app-header [isLanding]="true"></app-header>
+    <!-- Hero Section -->
+    <section class="hero-new">
+        <video #heroVideo autoplay [muted]="isMuted()" playsinline class="hero-bg-video" oncontextmenu="return false;"
+            controlsList="nodownload nofullscreen" disablePictureInPicture disableRemotePlayback
+            (ended)="onVideoEnded()" (play)="onPlay()" (pause)="onPause()">
+        </video>
+
+        <div class="hero-bg-overlay" [class.dimmed]="isPlaying()"></div>
+        <div class="container hero-container" [class.content-hidden]="isPlaying()"
+            [class.content-visible]="!isPlaying()">
+
+            <div class="hero-content-right">
+                <div class="main-logo-container">
+                    <img src="assets/neuraltax3.png" alt="Neuraltax" class="main-logo-img" />
+                </div>
+
+
+                <div class="hero-value-prop">
+                    <h3>{{ 'HOME.HERO.MAXIMIZE_SAVINGS' | translate }}</h3>
+                    <p [innerHTML]="'HOME.HERO.AI_OPTIMIZATION_DESC' | translate"></p>
+                </div>
+
+                <p class="hero-tagline" [innerHTML]="'HOME.HERO.VALUE_PROP' | translate"></p>
+
+                <div class="hero-actions">
+                    <a routerLink="/wizard" class="btn btn-dark"><span class="material-symbols-outlined"
+                            style="color: #ff4d4d; margin-right: 8px; vertical-align: middle;">bolt</span> {{
+                        'HOME.HERO.GET_ESTIMATE' | translate }}</a>
+                    <button (click)="modalService.openLogin()" class="btn btn-loguin">
+                        <span>{{ 'HEADER.LOGIN' | translate }}</span>
+                        <span class="btn-subtext">{{ 'LANDING.OR_REGISTER' | translate }}</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="video-controls">
+            <button class="btn-video-control" (click)="togglePlay()" [title]="isPlaying() ? 'Pause' : 'Play'">
+                <span class="material-symbols-outlined">{{ isPlaying() ? 'pause' : 'play_arrow' }}</span>
+            </button>
+            <button class="btn-video-control" (click)="toggleMute()" [title]="isMuted() ? 'Unmute' : 'Mute'">
+                <span class="material-symbols-outlined">{{ isMuted() ? 'volume_off' : 'volume_up' }}</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-bar">
+        <div class="container features-grid">
+            <div class="feature-col left">
+                <h3>{{ 'LANDING.WHY_NEURALTAX' | translate }}</h3>
+                <p>{{ 'LANDING.WHY_NEURALTAX_DESC' | translate }}</p>
+            </div>
+            <div class="feature-col right">
+                <h3>{{ 'LANDING.SMART_AUTOMATION' | translate }}</h3>
+                <ul>
+                    <li><strong>{{ 'LANDING.FAST_PROCESSES' | translate }}</strong></li>
+                    <li>{{ 'LANDING.SAVE_TIME' | translate }}</li>
+                    <li>{{ 'LANDING.GUARANTEED_COMPLIANCE' | translate }}</li>
+                    <li><strong>{{ 'LANDING.DISCOVER_TRANSFORM' | translate }}</strong></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- About / FAQ Section -->
+    <app-about-us></app-about-us>
+</div>

@@ -1,0 +1,72 @@
+<div class="chat-widget" [class.embedded]="embedded">
+    <button type="button" class="chat-trigger" (click)="toggleChat()" [attr.aria-label]="'CHATBOT.OPEN_ARIA' | translate">
+        <img src="assets/nerea_avatar.png" alt="Nerea" />
+    </button>
+
+    @if (isOpen()) {
+    <div class="chat-container" style="display: flex">
+        <div class="chat-header">
+            <div class="chat-avatar-container">
+                <img src="assets/nerea_avatar.png" class="chat-avatar" alt="Nerea" />
+                <div class="chat-status-dot"></div>
+            </div>
+            <div class="chat-info">
+                <div class="chat-name">Nerea</div>
+                <div class="chat-role">{{ 'CHATBOT.ROLE' | translate }}</div>
+            </div>
+            <button class="audio-toggle-btn" (click)="toggleAudio()" [class.disabled]="!isAudioEnabled()"
+                [title]="(isAudioEnabled() ? 'CHATBOT.AUDIO_MUTE' : 'CHATBOT.AUDIO_ENABLE') | translate">
+                <span class="material-symbols-outlined">{{ isAudioEnabled() ? 'volume_up' : 'volume_off' }}</span>
+            </button>
+            <button class="close-chat-btn" (click)="closeChat()">&times;</button>
+        </div>
+
+        <div class="chat-messages">
+            @for (msg of messages(); track $index) {
+            <div [class]="msg.type === 'user' ? 'user-message' : 'bot-message'" [innerHTML]="msg.text"></div>
+            }
+            @if (isTyping()) {
+            <div class="typing-indicator">
+                <div class="typing-dots">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+            }
+            <div #messagesEnd></div>
+        </div>
+
+        <div class="quick-replies">
+            @for (option of quickReplies(); track $index) {
+            <button class="quick-reply-btn" (click)="handleQuickReply(option)"
+                [style.animation-delay]="$index * 0.1 + 's'">
+                {{ option }}
+            </button>
+            }
+        </div>
+
+        <div class="chat-input-area">
+            <div class="input-wrapper">
+                <input type="text" class="chat-input"
+                    [placeholder]="'CHATBOT.PLACEHOLDER' | translate"
+                    [ngModel]="inputValue()" (ngModelChange)="inputValue.set($event)" (keypress)="onKeyPress($event)" />
+                <button class="mic-btn" [class.active]="isListening()" (click)="toggleListening()"
+                    [title]="(isListening() ? 'CHATBOT.VOICE_STOP' : 'CHATBOT.VOICE_START') | translate">
+                    <span class="material-symbols-outlined">{{ isListening() ? 'mic' : 'mic_none' }}</span>
+                    @if (isListening()) {
+                    <div class="mic-pulse"></div>
+                    }
+                </button>
+                <button class="send-btn" (click)="handleUserMessage(inputValue())">
+                    <span class="material-symbols-outlined" style="font-size: 1.2rem">send</span>
+                </button>
+            </div>
+            <div class="micro-copy">
+                <span class="material-symbols-outlined" style="font-size: 0.8rem; margin-right: 4px">lock</span>
+                {{ 'CHATBOT.ENCRYPTED' | translate }}
+            </div>
+        </div>
+    </div>
+    }
+</div>

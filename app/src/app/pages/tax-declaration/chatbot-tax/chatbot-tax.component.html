@@ -1,0 +1,242 @@
+<div class="gaia-shell" (click)="triggerAudioUnlock()">
+  <div class="gaia-card">
+    <button type="button" class="close-btn" (click)="handleClose()" title="Cerrar">
+      <span class="material-icons-round">close</span>
+    </button>
+    <div class="gaia-header">
+      <div class="gaia-banner">
+        <img class="banner-bg" [src]="NETWORK_BG" alt="Background" />
+        <div class="header-gradient"></div>
+        <div class="banner-content">
+          <div class="avatar-block">
+            <div class="avatar-frame">
+              <img [src]="ASSISTANT_AVATAR" alt="Neuraltax Gaia"
+                [class.avatar-talking]="isGaiaSpeaking && !isGaiaPaused" />
+            </div>
+            <div *ngIf="isGaiaSpeaking && !isGaiaPaused" class="avatar-ping"></div>
+            <div *ngIf="isGaiaSpeaking || gaiaBannerText" class="inline-controls">
+              <button *ngIf="isGaiaPaused; else pauseBtn" type="button" (click)="handlePlay()" title="Reproducir">
+                <span class="material-icons-round">play_arrow</span>
+              </button>
+              <ng-template #pauseBtn>
+                <button type="button" (click)="handlePause()" [disabled]="!isGaiaSpeaking" title="Pausar">
+                  <span class="material-icons-round">pause</span>
+                </button>
+              </ng-template>
+            </div>
+          </div>
+
+          <div class="banner-textarea">
+            <ng-container *ngIf="gaiaBannerText; else typingState">
+              <p [class.paused]="isGaiaPaused">{{ gaiaBannerText }}</p>
+              <div *ngIf="isGaiaSpeaking && !isGaiaPaused" class="wave">
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <div *ngIf="isGaiaPaused" class="paused-label">Voice Paused</div>
+            </ng-container>
+            <ng-template #typingState>
+              <div class="typing-dots"><span></span><span></span><span></span></div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+      <div class="logo-box">
+        <img [src]="LOGO_URL" alt="Logo" />
+      </div>
+    </div>
+
+    <div class="gaia-body">
+      <input #fileInput type="file" class="hidden-input" multiple accept="application/pdf,image/*"
+        (change)="handleFileChange($event)" />
+
+      <div *ngIf="showUploadOverlay" class="gate-overlay">
+        <div class="gate-card">
+          <div class="gate-icon">
+            <span class="material-icons-round">cloud_upload</span>
+          </div>
+          <h3>Share your documents before chatting</h3>
+    <p>Upload a list of PDFs or photos. You can rename or remove each file before continuing.</p>
+
+          <div class="gate-actions">
+            <button type="button" class="gate-button" (click)="openDesktopPicker(fileInput)">
+        Upload document list
+      </button>
+          </div>
+
+          <div class="gate-list">
+            <button type="button" class="list-header" (click)="toggleDocumentList()">
+              <span class="material-icons-round">{{ documentListExpanded ? 'expand_less' : 'expand_more' }}</span>
+              <span>Document list ({{ activeFiles.length }})</span>
+            </button>
+
+            <div *ngIf="documentListExpanded" class="list-body">
+              <div *ngIf="activeFiles.length === 0" class="empty-list">You haven’t added any files yet.</div>
+
+              <div *ngFor="let file of activeFiles; trackBy: trackByFileId" class="doc-item">
+                <div class="doc-meta">
+                  <span class="material-icons-round">description</span>
+                  <div class="doc-text">
+                    <input *ngIf="editingFileId === file.id" [(ngModel)]="editName" class="rename-input" />
+                    <div *ngIf="editingFileId !== file.id" class="doc-name" [title]="file.name">{{ file.name }}</div>
+                    <div class="doc-type">{{ file.type || 'Archivo' }}</div>
+                  </div>
+                </div>
+                <div class="doc-actions">
+            <button *ngIf="editingFileId === file.id" type="button"
+              (click)="saveDocumentEdit(file)">Save</button>
+            <button *ngIf="editingFileId === file.id" type="button"
+              (click)="cancelEditDocument()">Cancel</button>
+            <button *ngIf="editingFileId !== file.id" type="button"
+              (click)="startEditDocument(file)">Edit</button>
+            <button type="button" class="delete" (click)="handleDeleteFile(file.id)">Delete</button>
+          </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gate-footer">
+            <button type="button" class="gate-button" (click)="proceedAfterDocs()">
+              Open chat
+            </button>
+            <p class="gate-hint">Accepted formats: PDF and images.</p>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="showConfirmModal" class="confirm-modal">
+        <div class="confirm-card">
+          <div class="confirm-header">
+            <span class="material-icons-round">help_outline</span>
+            <h4>Confirm documents</h4>
+          </div>
+          <p class="confirm-text">Are these all the documents you want to send?</p>
+          <div class="confirm-list" *ngIf="activeFiles.length > 0">
+            <div *ngFor="let file of activeFiles; trackBy: trackByFileId" class="confirm-item">
+              <span class="material-icons-round">description</span>
+              <span class="name" [title]="file.name">{{ file.name }}</span>
+            </div>
+          </div>
+          <div class="confirm-actions">
+            <button type="button" class="confirm-primary" (click)="confirmDocumentsToSend()">Yes, send</button>
+            <button type="button" class="confirm-secondary" (click)="cancelDocumentsConfirm()">No</button>
+          </div>
+        </div>
+      </div>
+
+      <div #scrollContainer class="messages">
+        <ng-container *ngFor="let msg of messages; trackBy: trackByMessageId">
+          <ng-container *ngIf="msg.role === 'user'">
+            <div class="msg-row user">
+              <div class="avatar"><img [src]="USER_AVATAR" alt="User" /></div>
+              <div class="msg-bubble user">
+                <p class="text">{{ msg.text }}</p>
+              </div>
+            </div>
+          </ng-container>
+
+          <ng-container *ngIf="msg.role === 'assistant'">
+            <div class="msg-row assistant">
+              <div class="avatar"><img [src]="ASSISTANT_AVATAR" alt="Assistant" /></div>
+              <div class="msg-bubble">
+                <ng-container *ngIf="msg.type === 'files_received'; else assistantText">
+                  <p class="repo-title"><span class="material-icons-round">inventory_2</span>Documents received</p>
+                  <div class="repo-grid">
+                    <div *ngFor="let file of msg.files" class="repo-file">
+                      <div class="repo-file-meta">
+                        <span class="material-icons-round">description</span>
+                        <span class="name" [title]="file.name">{{ file.name }}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text small">{{ msg.text }}</p>
+                </ng-container>
+                <ng-template #assistantText>
+                  <p class="text">{{ msg.text }}</p>
+                </ng-template>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+
+        <div *ngIf="isTyping" class="msg-row assistant typing">
+          <div class="avatar"><img [src]="ASSISTANT_AVATAR" alt="Assistant" /></div>
+          <div class="msg-bubble">
+            <div class="typing-dots"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="composer-area">
+        <div *ngIf="activeFiles.length > 0" class="chips">
+          <div *ngFor="let file of activeFiles; trackBy: trackByFileId" class="chip">
+            <span class="material-icons-round">description</span>
+            <span class="name">{{ file.name }}</span>
+            <button type="button" (click)="handleDeleteFile(file.id)">
+              <span class="material-icons-round">close</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="composer">
+          <div class="composer-left">
+            <div class="avatar small"><img [src]="USER_AVATAR" alt="User" /></div>
+            <div class="upload-control">
+              <button type="button" (click)="toggleUploadOptions()" [class.active]="showUploadOptions"
+                title="Upload documents">
+                <span class="material-icons-round">upload_file</span>
+              </button>
+              <div class="upload-menu" *ngIf="showUploadOptions">
+                <button type="button" (click)="openDesktopPicker(fileInput)">
+                  <span class="material-icons-round">computer</span>
+                  <span>Upload from this device</span>
+                </button>
+                <button type="button" (click)="openMobileQr()">
+                  <span class="material-icons-round">qr_code</span>
+                  <span>Use your phone (QR)</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="composer-actions">
+            <button type="button" (click)="toggleRecording()" [class.active]="isRecording" title="Grabar voz">
+              <span class="material-icons-round">{{ isRecording ? 'mic' : 'mic_none' }}</span>
+            </button>
+            <button type="button" (click)="toggleVoice()" [class.active]="isVoiceEnabled" title="Audio">
+              <span class="material-icons-round">{{ isVoiceEnabled ? 'volume_up' : 'volume_off' }}</span>
+            </button>
+          </div>
+
+          <textarea [(ngModel)]="inputText" [ngModelOptions]="{ standalone: true }"
+            (keydown.enter)="onEnterPress($event)" rows="1" placeholder="Type your question...">
+          </textarea>
+
+          <button type="button" class="send" (click)="handleSendMessage()"
+            [disabled]="!inputText.trim() || isLoading || showUploadOverlay || !isChatReady">
+            <span class="material-icons-round">send</span>
+          </button>
+        </div>
+      </div>
+
+      <div *ngIf="showMobileQr" class="mobile-qr-card">
+        <div class="qr-preview" *ngIf="qrImageUrl; else qrFallback">
+          <img [src]="qrImageUrl" alt="QR to upload from your phone" />
+        </div>
+        <ng-template #qrFallback>
+          <div class="qr-fallback">Open this URL on your phone:</div>
+        </ng-template>
+        <div class="qr-copy">
+          <p>Scan with your phone camera to open the upload page.</p>
+          <code>{{ mobileUploadUrl }}</code>
+          <div class="qr-actions">
+            <button type="button" (click)="copyMobileLink()">Copy link</button>
+            <button type="button" (click)="hideMobileQr()">Close</button>
+          </div>
+          <div class="copy-feedback" *ngIf="copyMessage">{{ copyMessage }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

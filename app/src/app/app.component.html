@@ -1,0 +1,44 @@
+<router-outlet></router-outlet>
+
+ <!-- Global Login Modal Overlay -->
+@if (modalService.isLoginVisible()) {
+<div class="modal-overlay" (click)="modalService.closeLogin()" (keydown.escape)="modalService.closeLogin()"
+    (keyup.enter)="modalService.closeLogin()" tabindex="0" role="dialog" aria-modal="true">
+    <div class="modal-content" (click)="$event.stopPropagation()" (keydown.enter)="$event.stopPropagation()"
+        role="document">
+        <app-login />
+    </div>
+</div>
+}
+ <!-- Global AI chat modal trigger
+<app-chat-modal></app-chat-modal> -->
+
+@if (modalService.isRegisterVisible()) {
+<div class="modal-overlay" (click)="modalService.closeRegister()" (keydown.escape)="modalService.closeRegister()"
+    (keyup.enter)="modalService.closeRegister()" tabindex="0" role="dialog" aria-modal="true">
+    <div class="modal-content" (click)="$event.stopPropagation()" (keydown.enter)="$event.stopPropagation()"
+        role="document">
+        <app-register-modal />
+    </div>
+</div>
+}
+
+@if (modalService.isPlansVisible()) {
+<div class="modal-overlay" (click)="modalService.closePlans()" (keydown.escape)="modalService.closePlans()" tabindex="0"
+    role="dialog" aria-modal="true">
+    <div class="modal-content plans-content" (click)="$event.stopPropagation()"
+        (keydown.enter)="$event.stopPropagation()" role="document">
+        <app-plans-modal />
+    </div>
+</div>
+}
+
+@if (modalService.isProfileVisible()) {
+<div class="modal-overlay profile-overlay" (click)="modalService.closeProfile()"
+    (keydown.escape)="modalService.closeProfile()" tabindex="0" role="dialog" aria-modal="true">
+    <div class="modal-content profile-content" (click)="$event.stopPropagation()"
+        (keydown.enter)="$event.stopPropagation()" role="document">
+        <app-profile-modal />
+    </div>
+</div>
+}

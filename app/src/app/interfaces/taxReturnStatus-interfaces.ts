@@ -1,0 +1,8 @@
+export enum TaxReturnStatus {
+  DRAFT = 'DRAFT',
+  SUBMITTED = 'SUBMITTED',
+  ACK_PENDING = 'ACK_PENDING',
+  ACCEPTED = 'ACCEPTED',
+  REJECTED = 'REJECTED',
+  ERROR = 'ERROR'
+}

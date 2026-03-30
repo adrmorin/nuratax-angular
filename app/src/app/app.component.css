@@ -1,0 +1,42 @@
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.3);
+        /* 30% Transparency / 30% Black */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        /* Extremely high to cover everything */
+        animation: fadeIn 0.2s ease-in-out;
+    }
+
+    .modal-content {
+        width: 100%;
+        max-width: 100%;
+        /* Allow children to control max-width */
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+        outline: none;
+    }
+
+    .plans-content {
+        max-width: 950px;
+        /* Wider for plans modal */
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }

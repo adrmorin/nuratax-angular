@@ -1,0 +1,69 @@
+<!-- Chat is now opened programáticamente (e.g., CTA "Get Free Estimate"). Floating trigger removed. -->
+
+<!-- Modal overlay -->
+<div class="ntx-modal-overlay" *ngIf="isOpen" (click)="close()"></div>
+
+<!-- Modal container -->
+<div class="ntx-modal" *ngIf="isOpen" role="dialog" aria-modal="true" aria-label="Neuraltax AI Chat">
+  <div class="ntx-modal-header">
+    <div class="ntx-title-wrap">
+      <img class="ntx-bot-icon" [src]="botIconUrl" alt="Gaia icon" />
+      <div class="ntx-title">Gaia · Neuraltax AI</div>
+    </div>
+    <button class="ntx-close" (click)="close()" aria-label="Close">×</button>
+  </div>
+
+  <div class="session-banner" *ngIf="sessionExists">
+  <div class="session-text">
+    You reopened the chat. Would you like to continue with the same session?
+  </div>
+  <div class="session-actions">
+    <button type="button" class="pill" (click)="continueSession()">Continue</button>
+    <button type="button" class="pill alt" (click)="startNewSession()">New chat</button>
+  </div>
+</div>
+
+  <div class="ntx-modal-body" id="ntx-chat-messages">
+    <div *ngFor="let m of messages" [ngClass]="['ntx-msg', m.sender]">
+      <!-- Bot message: avatar then bubble -->
+      <ng-container *ngIf="m.sender === 'bot'">
+        <div class="avatar bot">
+          <img [src]="botAvatarUrl" alt="Gaia avatar" />
+        </div>
+        <div class="bubble" [innerText]="m.text"></div>
+      </ng-container>
+
+      <!-- User message: bubble then avatar (placeholder when not logged in) -->
+      <ng-container *ngIf="m.sender === 'user'">
+        <div class="bubble" [innerText]="m.text"></div>
+        <div class="avatar user">
+          <ng-container *ngIf="userAvatarUrl; else userAvatarPlaceholder">
+            <img [src]="userAvatarUrl!" alt="User avatar" />
+          </ng-container>
+          <ng-template #userAvatarPlaceholder>
+            <div class="placeholder" aria-hidden="true">U</div>
+          </ng-template>
+        </div>
+      </ng-container>
+
+      <!-- System message: bubble only -->
+      <ng-container *ngIf="m.sender === 'system'">
+        <div class="bubble" [innerText]="m.text"></div>
+      </ng-container>
+    </div>
+
+    <div class="ntx-msg bot" *ngIf="isLoading">
+      <div class="avatar bot">
+        <img [src]="botAvatarUrl" alt="Gaia avatar" />
+      </div>
+      <div class="bubble loading">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ntx-modal-footer">
+    <input type="text" [(ngModel)]="userInput" (keydown)="onKeyDown($event)" placeholder="Type your message..." />
+    <button class="default-btn" (click)="send()" [disabled]="isLoading || !userInput.trim()">Send</button>
+  </div>
+</div>

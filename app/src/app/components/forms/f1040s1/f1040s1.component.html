@@ -1,0 +1,915 @@
+<div class="irs-form-container">
+    <div class="irs-form-box">
+        <!-- Main Header -->
+        <div class="irs-main-header">
+            <div class="irs-col-1">
+                <div>
+                    <div class="irs-form-id">SCHEDULE 1</div>
+                    <div class="irs-form-sub-id">(Form 1040)</div>
+                </div>
+                <div class="irs-dept-info">
+                    Department of the Treasury<br>
+                    Internal Revenue Service
+                </div>
+            </div>
+            <div class="irs-col-2">
+                <h1>Additional Income and Adjustments to Income</h1>
+                <p>Attach to Form 1040, 1040-SR, or 1040-NR.</p>
+                <p class="irs-instruction">Go to <i>www.irs.gov/Form1040</i> for instructions and the latest
+                    information.</p>
+            </div>
+            <div class="irs-col-3">
+                <div class="irs-omb-box">OMB No. 1545-0074</div>
+                <div class="irs-sequence-box">
+                    <div class="irs-year-box">
+                        <span class="year-outline-20">20</span><span class="year-solid-25">25</span>
+                    </div>
+                    <div class="irs-attachment">
+                        Attachment<br>
+                        Sequence No. <strong>01</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form [formGroup]="scheduleForm" (ngSubmit)="onSubmit()">
+            <!-- Name and SSN -->
+            <div class="irs-row-border" style="border-bottom: 2px solid #000;">
+                <div class="irs-field flex-3 border-right">
+                    <label for="nameShown">Name(s) shown on Form 1040, 1040-SR, or 1040-NR</label>
+                    <input type="text" id="nameShown" formControlName="nameShown">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="ssn">Your social security number</label>
+                    <input type="text" id="ssn" formControlName="ssn">
+                </div>
+            </div>
+
+            <!-- PART I -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part I</span>
+                <span class="irs-part-title">Additional Income</span>
+            </div>
+
+            <table class="irs-table">
+                <!-- Grid Anchor Row -->
+                <tr style="height: 0; line-height: 0;">
+                    <td class="irs-line-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-desc" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-sub-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-intermediate-val" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-main-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-val-cell" style="height: 0; border: none; padding: 0;"></td>
+                </tr>
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Taxable refunds, credits, or offsets of state and local
+                                    income taxes</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">1</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line1"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">2a</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Alimony received</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">2a</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line2a"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">b</td>
+                        <td class="irs-desc" colspan="5">
+                            <div class="irs-desc-content" style="display:flex; align-items:center;">
+                                <span>Date of original divorce or separation agreement (see instructions):</span>
+                                <input type="text" formControlName="line2b"
+                                    style="margin-left:auto; width:150px; background: #e8efff; border-bottom: 1px dotted #888;">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Business income or (loss). Attach Schedule C</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">3</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line3"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Other gains or (losses). Check if any from Form(s):
+                                    4797, 4684</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">4</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line4"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">5</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Rental real estate, royalties, partnerships, S
+                                    corporations, trusts, etc. Attach Schedule E</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">5</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line5"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">6</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Farm income or (loss). Attach Schedule F</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">6</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line6"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">7</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Unemployment compensation</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">7</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line7"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">8</td>
+                        <td class="irs-desc" colspan="5">
+                            <div class="irs-desc-content"><span>Other income:</span></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="irs-line-num">a</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Net operating loss</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8a">8a</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8a"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">b</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Gambling</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8b">8b</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8b"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">c</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Cancellation of debt</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8c">8c</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8c"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">d</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Foreign earned income exclusion from Form 2555</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8d">8d</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8d"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">e</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Income from Form 8853</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8e">8e</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8e"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">f</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Income from Form 8889</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8f">8f</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8f"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">g</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Alaska Permanent Fund dividends</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8g">8g</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8g"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">h</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Jury duty pay</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8h">8h</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8h"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">i</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Prizes and awards</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8i">8i</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8i"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">j</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Activity not engaged in for profit income</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8j">8j</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8j"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">k</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Stock options</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8k">8k</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8k"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">l</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Income from the rental of personal property</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8l">8l</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8l"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">m</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Olympic and Paralympic medals and USOC prize
+                                    money</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8m">8m</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8m"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">n</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Section 951(a) inclusion (see instructions)</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8n">8n</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8n"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">o</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Section 951A(a) inclusion (see instructions)</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8o">8o</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8o"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">p</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Section 461(l) excess business loss adjustment</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8p">8p</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8p"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">q</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Taxable distributions from an ABLE account</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8q">8q</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8q"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">r</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Scholarship and fellowship grants not reported on Form
+                                    W-2</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8r">8r</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8r"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">s</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Nontaxable amount of Medicaid waiver payments</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8s">8s</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8s"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">t</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Pension or annuity from a nonqualified deferred comp
+                                    plan</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8t">8t</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8t"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">u</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Wages earned while incarcerated</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8u">8u</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8u"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">v</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Digital assets received as ordinary income</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8v">8v</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8v"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">z</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Other income. List type and amount</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="8z">8z</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line8z"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">9</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Total other income. Add lines 8a through 8z</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">9</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line9')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">10</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span><strong>Combine lines 1 through 7 and 9. This is your
+                                        additional income. Enter here and on Form 1040, 1040-SR, or 1040-NR, line
+                                        8</strong></span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">10</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell" style="background:#eef2ff !important">
+                            <strong>{{ scheduleForm.get('line10')?.value | number:'1.0-2' }}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PART II -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part II</span>
+                <span class="irs-part-title">Adjustments to Income</span>
+            </div>
+
+            <table class="irs-table">
+                <tr style="height: 0; line-height: 0;">
+                    <td class="irs-line-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-desc" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-sub-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-intermediate-val" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-main-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-val-cell" style="height: 0; border: none; padding: 0;"></td>
+                </tr>
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">11</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Educator expenses</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">11</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line11"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">12</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Certain business expenses of reservists, performing
+                                    artists, and fee-basis government officials. Attach Form 2106</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">12</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line12"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">13</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Health savings account deduction. Attach Form
+                                    8889</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">13</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line13"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">14</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Moving expenses for members of the Armed Forces. Attach
+                                    Form 3903</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">14</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line14"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">15</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Deductible part of self-employment tax. Attach Schedule
+                                    SE</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">15</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line15"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">16</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Self-employed SEP, SIMPLE, and qualified plans</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">16</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line16"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">17</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Self-employed health insurance deduction</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">17</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line17"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">18</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Penalty on early withdrawal of savings</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">18</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line18"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">19a</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Alimony paid</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">19a</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line19a"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">b</td>
+                        <td class="irs-desc" colspan="5">
+                            <div class="irs-desc-content" style="display:flex; align-items:center;">
+                                <span>Recipient's SSN:</span>
+                                <input type="text" formControlName="line19b"
+                                    style="margin-left:auto; width:150px; background: #e8efff; border-bottom: 1px dotted #888;">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">c</td>
+                        <td class="irs-desc" colspan="5">
+                            <div class="irs-desc-content" style="display:flex; align-items:center;">
+                                <span>Date of original divorce or separation agreement (see instructions):</span>
+                                <input type="text" formControlName="line19c"
+                                    style="margin-left:auto; width:150px; background: #e8efff; border-bottom: 1px dotted #888;">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">20</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content" style="display:flex; align-items:center;">
+                                <span>IRA deduction. If you are married filing separately and lived apart from your
+                                    spouse for the entire year (see instructions), check here</span>
+                                <input type="checkbox" style="margin:0 5px; width:auto;">
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">20</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line20"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">21</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Student loan interest deduction</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">21</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line21"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">22</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Reserved for future use</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">22</div>
+                        </td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">23</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Archer MSA deduction</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">23</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line23"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="irs-line-num">24</td>
+                        <td class="irs-desc" colspan="5">
+                            <div class="irs-desc-content"><span>Other adjustments:</span></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">a</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Jury duty pay (see instructions)</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="24a">24a</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line24a"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">b</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Deductible expenses related to income reported on line
+                                    8l</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="24b">24b</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line24b"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">c</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Nontaxable amount of the value of Olympic and Paralympic
+                                    medals</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="24c">24c</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line24c"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">d</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Reforestation amortization and expenses</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="24d">24d</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line24d"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">e</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Repayment of supplemental unemployment benefits under
+                                    the Trade Act of 1974</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="24e">24e</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line24e"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">f</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Contributions to section 501(c)(18)(D) pension
+                                    plans</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="24f">24f</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line24f"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">g</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Contributions by certain chaplains to section 403(b)
+                                    plans</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="24g">24g</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line24g"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">h</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Attorney fees and court costs for actions involving
+                                    certain unlawful discrimination claims</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="24h">24h</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line24h"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">i</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Attorney fees and court costs you paid in connection
+                                    with an award from IRS</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="24i">24i</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line24i"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">j</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Housing deduction from Form 2555</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="24j">24j</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line24j"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">k</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Excess deductions of section 67(e) expenses from
+                                    Schedule K-1 (Form 1041)</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="24k">24k</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line24k"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">z</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Other adjustments. List type and amount</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num" data-line="24z">24z</td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line24z"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="irs-line-num">25</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content"><span>Total other adjustments. Add lines 24a through
+                                    24z</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">25</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line25')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+
+                    <tr>
+                        <td class="irs-line-num">26</td>
+                        <td class="irs-desc" colspan="3">
+                            <div class="irs-desc-content">
+                                <span><strong>Add lines 11 through 23 and 25. These are your adjustments to
+                                        income.</strong> Enter here and on Form 1040, 1040-SR, or 1040-NR, line
+                                    10</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">26</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell" style="background:#eef2ff !important">
+                            <strong>{{ scheduleForm.get('line26')?.value | number:'1.0-2' }}</strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="irs-footer-actions">
+                <button type="submit" class="btn-submit">Guardar Cambios</button>
+            </div>
+        </form>
+
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

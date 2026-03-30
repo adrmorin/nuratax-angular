@@ -1,0 +1,26 @@
+<div class="login-card glass">
+    <button class="close-btn" (click)="modalService.closeLogin()">&times;</button>
+    <div class="login-header">
+        <img src="assets/neuraltax_logo.png" alt="NeuralTax" style="height: 50px" />
+        <h1>{{ 'AUTH.WELCOME' | translate }}</h1>
+        <p>{{ 'AUTH.LOGIN_DESC' | translate }}</p>
+    </div>
+    <form class="login-form" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="email">{{ 'AUTH.EMAIL' | translate }}</label>
+            <input type="email" name="email" [(ngModel)]="email" [placeholder]="'AUTH.EMAIL_PLACEHOLDER' | translate" required />
+        </div>
+        <div class="form-group">
+            <label for="password">{{ 'AUTH.PASSWORD' | translate }}</label>
+            <input type="password" name="password" [(ngModel)]="password" [placeholder]="'AUTH.PASSWORD_PLACEHOLDER' | translate" required />
+        </div>
+        @if (error) {
+        <app-message type="error" [message]="error" />
+        }
+        <button type="submit" class="btn btn-primary" style="width: 100%" [disabled]="loading">
+            {{ (loading ? 'AUTH.LOGGING_IN' : 'AUTH.LOGIN_BTN') | translate }}
+        </button>
+    </form>
+    <p class="login-footer">{{ 'AUTH.NO_ACCOUNT' | translate }} <a href="javascript:void(0)"
+            (click)="modalService.openRegister()">{{ 'AUTH.SIGN_UP' | translate }}</a></p>
+</div>

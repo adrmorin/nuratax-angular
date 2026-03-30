@@ -1,0 +1,150 @@
+<app-header [minimal]="true" />
+<div class="checkout-page">
+    <div class="checkout-container">
+
+        <!-- LEFT COLUMN: Payment Details -->
+        <div class="payment-section">
+            <div class="payment-header">
+                <h2>{{ 'UPDATE.PAYMENT_METHOD' | translate }}</h2>
+                <p>{{ 'UPDATE.SECURE_SSL' | translate }}</p>
+            </div>
+
+            <div class="payment-methods">
+                <div class="method-card" [class.selected]="selectedMethod === 'card'" (click)="selectMethod('card')"
+                    tabindex="0" (keydown.enter)="selectMethod('card')">
+                    <div class="method-icon">
+                        <span class="material-symbols-outlined">credit_card</span>
+                    </div>
+                    <div class="method-info">
+                        <span class="method-title">{{ 'UPDATE.METHODS.CARD' | translate }}</span>
+                        <span class="method-desc">{{ 'UPDATE.METHODS.CARD_DESC' | translate }}</span>
+                    </div>
+                    <div class="radio-check"></div>
+                </div>
+
+                <div class="method-card" [class.selected]="selectedMethod === 'paypal'" (click)="selectMethod('paypal')"
+                    tabindex="0" (keydown.enter)="selectMethod('paypal')">
+                    <div class="method-icon paypal-icon">
+                        <!-- Simple SVG or Icon for PayPal -->
+                        <span class="material-symbols-outlined">account_balance_wallet</span>
+                    </div>
+                    <div class="method-info">
+                        <span class="method-title">{{ 'UPDATE.METHODS.PAYPAL' | translate }}</span>
+                        <span class="method-desc">{{ 'UPDATE.METHODS.PAYPAL_DESC' | translate }}</span>
+                    </div>
+                    <div class="radio-check"></div>
+                </div>
+
+                <div class="method-card" [class.selected]="selectedMethod === 'crypto'" (click)="selectMethod('crypto')"
+                    tabindex="0" (keydown.enter)="selectMethod('crypto')">
+                    <div class="method-icon">
+                        <span class="material-symbols-outlined">currency_bitcoin</span>
+                    </div>
+                    <div class="method-info">
+                        <span class="method-title">{{ 'UPDATE.METHODS.CRYPTO' | translate }}</span>
+                        <span class="method-desc">{{ 'UPDATE.METHODS.CRYPTO_DESC' | translate }}</span>
+                    </div>
+                    <div class="radio-check"></div>
+                </div>
+            </div>
+
+            <!-- FORM (Shows only for Card for demo) -->
+            @if (selectedMethod === 'card') {
+            <form class="payment-form">
+                <div class="form-group">
+                    <label for="cardName">{{ 'UPDATE.FORM.CARDHOLDER' | translate }}</label>
+                    <input type="text" id="cardName" placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="cardNumber">{{ 'UPDATE.FORM.CARD_NUMBER' | translate }}</label>
+                    <div class="input-with-icon">
+                        <span class="material-symbols-outlined icon">credit_card</span>
+                        <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label for="expiry">{{ 'UPDATE.FORM.EXPIRY' | translate }}</label>
+                        <input type="text" id="expiry" placeholder="MM/YY">
+                    </div>
+                    <div class="form-group half">
+                        <label for="cvc">{{ 'UPDATE.FORM.CVC' | translate }}</label>
+                        <div class="input-with-icon">
+                            <span class="material-symbols-outlined icon">lock</span>
+                            <input type="text" id="cvc" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-check">
+                    <input type="checkbox" id="save-card">
+                    <label for="save-card">{{ 'UPDATE.FORM.SAVE_CARD' | translate }}</label>
+                </div>
+
+                <button class="btn-pay">{{ 'UPDATE.FORM.PAY_BIN' | translate }} $12.00</button>
+            </form>
+            }
+
+            @if (selectedMethod === 'paypal') {
+            <div class="method-content">
+                <p>{{ 'UPDATE.PAYPAL_REDIRECT' | translate }}</p>
+                <button class="btn-pay paypal-btn">{{ 'UPDATE.PAY_WITH_PAYPAL' | translate }}</button>
+            </div>
+            }
+
+            @if (selectedMethod === 'crypto') {
+            <div class="method-content">
+                <p>{{ 'UPDATE.CRYPTO_CONNECT' | translate }}</p>
+                <button class="btn-pay crypto-btn">{{ 'UPDATE.CONNECT_WALLET' | translate }}</button>
+            </div>
+            }
+
+        </div>
+
+        <!-- RIGHT COLUMN: Order Summary -->
+        <div class="summary-section">
+            <div class="summary-card">
+                <h3>{{ 'UPDATE.SUMMARY.TITLE' | translate }}</h3>
+
+                <div class="plan-preview">
+                    <div class="plan-icon">
+                        <span class="material-symbols-outlined">verified</span>
+                    </div>
+                    <div class="plan-details">
+                        <h4>{{ 'UPDATE.SUMMARY.PLAN_NAME' | translate }}</h4>
+                        <p>{{ 'UPDATE.SUMMARY.PLAN_FREQ' | translate }}</p>
+                    </div>
+                    <div class="plan-price">$12.00</div>
+                </div>
+
+                <div class="price-breakdown">
+                    <div class="row">
+                        <span>{{ 'UPDATE.SUMMARY.SUBTOTAL' | translate }}</span>
+                        <span>$12.00</span>
+                    </div>
+                    <div class="row">
+                        <span>{{ 'UPDATE.SUMMARY.TAX' | translate }}</span>
+                        <span>$0.00</span>
+                    </div>
+                    <div class="row total">
+                        <span>{{ 'UPDATE.SUMMARY.TOTAL' | translate }}</span>
+                        <span>$12.00</span>
+                    </div>
+                </div>
+
+                <div class="security-badges">
+                    <div class="badge">
+                        <span class="material-symbols-outlined">lock</span>
+                        <span>{{ 'UPDATE.SUMMARY.SECURE_CHECKOUT' | translate }}</span>
+                    </div>
+                    <div class="badge">
+                        <span class="material-symbols-outlined">verified_user</span>
+                        <span>{{ 'UPDATE.SUMMARY.GUARANTEE' | translate }}</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

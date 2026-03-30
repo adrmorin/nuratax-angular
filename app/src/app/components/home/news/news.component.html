@@ -1,0 +1,42 @@
+<section class="latest-news">
+    <div class="container">
+        <div class="section-actions">
+            <button class="btn-view-all" routerLink="/bloginfo">{{ 'HOME.NEWS.VIEW_ALL' | translate }}</button>
+        </div>
+
+        <div class="section-header">
+            <h2 class="section-title">{{ 'HOME.NEWS.TITLE' | translate }}</h2>
+            <p class="section-subtitle">{{ 'HOME.NEWS.SUBTITLE' | translate }}</p>
+        </div>
+
+        <div class="carousel-container">
+            <button class="carousel-btn prev-btn" (click)="scrollLeft()" [attr.aria-label]="'HOME.NEWS.PREVIOUS_ARTICLES' | translate">
+                <span class="material-symbols-outlined">chevron_left</span>
+            </button>
+
+            <div class="news-grid" #carouselTrack>
+                @for (article of articles; track $index) {
+                <article class="news-card">
+                    <div class="card-image">
+                        <img [src]="article.image" [alt]="article.title">
+                        <span class="category-tag">{{ article.tag }}</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="article-meta">
+                            <span class="date">{{ article.date }}</span>
+                            <span class="read-time">{{ article.readTime }}</span>
+                        </div>
+                        <h3 class="article-title">{{ article.title }}</h3>
+                        <p class="article-excerpt">{{ article.excerpt }}</p>
+                        <a [routerLink]="['/bloginfo', article.id]" class="read-more">{{ 'COMMON.READ_MORE' | translate }} &rsaquo;</a>
+                    </div>
+                </article>
+                }
+            </div>
+
+            <button class="carousel-btn next-btn" (click)="scrollRight()" [attr.aria-label]="'HOME.NEWS.NEXT_ARTICLES' | translate">
+                <span class="material-symbols-outlined">chevron_right</span>
+            </button>
+        </div>
+    </div>
+</section>

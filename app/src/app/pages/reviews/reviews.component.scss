@@ -1,0 +1,76 @@
+/* Responsive grid for reviews section */
+.reviews-list {
+  display: grid;
+  /* Desktop & Nest Hub: 3 columns */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-auto-rows: 1fr; /* equal row heights to prevent stacking issues */
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  align-items: stretch;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  min-width: 0; /* allow grid to shrink items without overflow */
+}
+
+/* Ensure the inner card component fills the grid cell */
+app-reviews-cards {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+/* Nest Hub (tight vertical space): reduce gaps to avoid visual overlap */
+@media (max-width: 1024px) and (max-height: 600px) {
+  .reviews-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 992px) {
+  /* Tablet: 2 columns */
+  .reviews-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Mobile: 1 column */
+  .reviews-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+section.reviews {
+  padding: 2rem 0;
+  background-color: #DDEFE8;
+  backdrop-filter: opacity(70%);
+}
+
+.reviews{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.section-title{
+  max-width: fit-content;
+}
+
+
+.section-title > h3 {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: normal;
+  color: #9F9F9F !important;
+}
+
+.row {
+	gap: 1rem;
+}

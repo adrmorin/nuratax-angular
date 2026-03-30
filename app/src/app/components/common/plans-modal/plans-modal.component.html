@@ -1,0 +1,54 @@
+<div class="plans-modal-container">
+    <div class="header">
+        <h2>Upgrade Your Experience</h2>
+        <p>Choose the plan that best fits your professional needs.</p>
+        <button class="close-btn" (click)="modalService.closePlans()">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+    </div>
+
+    <div class="plans-grid">
+        <!-- Smart Saver (Premium/Standard) -->
+        <div class="plan-card featured">
+            <div class="popular-badge">Most Popular</div>
+            <div class="card-header">
+                <h3>Smart Saver</h3>
+                <p>Comprehensive monthly tax management solution</p>
+            </div>
+            <div class="card-price">
+                <span class="price-value">$12/Monthly</span>
+            </div>
+            <ul class="feature-list">
+                <li class="emphasized"><span class="material-symbols-outlined">check</span> Tax declaration fee: $0 (if
+                    +4 months membership)</li>
+                <li><span class="material-symbols-outlined">check</span> Chatbot Assistant (priority support)</li>
+                <li><span class="material-symbols-outlined">check</span> Tax educational resources</li>
+                <li><span class="material-symbols-outlined">check</span> AI form filing automation</li>
+                <li><span class="material-symbols-outlined">check</span> IRS/CISA level security</li>
+            </ul>
+            <button class="btn btn-outline-light" routerLink="/update" (click)="modalService.closePlans()">Update
+                Now</button>
+        </div>
+
+        <!-- Agent Plan -->
+        <div class="plan-card agent">
+            <div class="popular-badge agent-badge">B2B Solution</div>
+            <div class="card-header">
+                <h3>Professional Agent</h3>
+                <p>For tax professionals and accounting firms</p>
+            </div>
+            <div class="card-price">
+                <span class="price-value">Custom Plan</span>
+            </div>
+            <ul class="feature-list">
+                <li class="emphasized green-highlight"><span
+                        class="material-symbols-outlined green-highlight">hub</span> Unlimited Client Management</li>
+                <li><span class="material-symbols-outlined">check</span> Advanced AI Tools for Agents</li>
+                <li><span class="material-symbols-outlined">check</span> Multi-user collaboration</li>
+                <li><span class="material-symbols-outlined">check</span> Wholesale filing rates</li>
+                <li><span class="material-symbols-outlined">check</span> Dedicated account manager</li>
+            </ul>
+            <button class="btn btn-agent">Contact Sales</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="blog-section" data-model-id="1072:1713">
+  <button class="button">
+    <div class="text-wrapper">{{ 'ARTICLES_PAGE.VIEW_ALL' | translate }}</div>
+  </button>
+  <div class="container">
+    <div class="heading">
+      <p class="latest-news-tax">{{ 'ARTICLES_PAGE.TITLE' | translate }}</p>
+    </div>
+    <div class="paragraph">
+      <p class="stay-updated-with">{{ 'ARTICLES_PAGE.SUBTITLE' | translate }}</p>
+    </div>
+  </div>
+  <div class="div list-of-articles">
+    <app-article-card *ngFor="let a of articles" [imageUrl]="a.imageUrl" [categoryLabel]="a.categoryLabel"
+      [title]="a.title" [date]="a.date" [readTime]="a.readTime" [content]="a.content"></app-article-card>
+  </div>
+</div>

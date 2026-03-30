@@ -1,0 +1,189 @@
+<div class="documents-container">
+    <!-- Header matched with Dashboard Style -->
+    <header class="documents-header">
+        <div class="header-content-left">
+            <div class="header-text">
+                <h1 class="header-title">{{ 'UPLOAD.TITLE' | translate }}</h1>
+                <p class="header-subtitle">{{ 'UPLOAD.SUBTITLE' | translate }}</p>
+            </div>
+            <button class="btn-upload" (click)="toggleUploadArea()">
+                <span class="material-symbols-outlined">{{ isUploadAreaVisible() ? 'close' : 'upload_file' }}</span>
+                {{ isUploadAreaVisible() ? ('UPLOAD.BTN_CLOSE' | translate) : ('UPLOAD.BTN_UPLOAD' | translate) }}
+            </button>
+        </div>
+
+        <!-- Right section with User Info and Logo -->
+        <div class="header-right">
+            <!-- User Info -->
+            @if (hasAuthenticatedUser) {
+            <div class="user-info-section" (click)="toggleProfileMenu()" tabindex="0"
+                (keydown.enter)="toggleProfileMenu()" role="button" aria-haspopup="menu"
+                (mouseenter)="cancelMenuClose()" (mouseleave)="closeProfileMenu()">
+                <div class="user-avatar-circle">
+                    @if (userAvatar) {
+                    <img [src]="userAvatar" [alt]="userName" class="user-avatar-img">
+                    } @else {
+                    <span class="user-initials">{{ userInitials }}</span>
+                    }
+                    <span class="status-indicator"></span>
+                </div>
+                <span class="user-name-text">{{ userName }}</span>
+
+                <!-- Dropdown Menu -->
+                @if (isProfileMenuOpen) {
+                <app-user-profile-menu [user]="user" (closeMenu)="closeProfileMenu()"
+                    (cancelCloseMenu)="cancelMenuClose()"></app-user-profile-menu>
+                }
+            </div>
+            }
+
+            <!-- Brand Info -->
+            <div class="brand-info">
+                <div class="brand-name">Neuraltax</div>
+                <div class="brand-subtitle" [style.color]="config.accentColor">{{ config.brandSubtitle | translate }}
+                </div>
+            </div>
+
+            <!-- Logo -->
+            <div class="logo-container">
+                <img src="assets/neuraltax1.png" alt="Neuraltax" class="header-logo">
+            </div>
+        </div>
+
+
+    </header>
+
+    <!-- Upload Area (Toggleable) -->
+    @if (isUploadAreaVisible()) {
+    <section class="upload-section">
+        <div class="upload-drop-zone" tabindex="0" [class.dragging]="isDragging()" (dragover)="onDragOver($event)"
+            (dragleave)="onDragLeave($event)" (drop)="onFileDropped($event)" (click)="fileInput.click()"
+            (keydown.enter)="fileInput.click()">
+            <input type="file" #fileInput (change)="onFileSelected($event)" multiple hidden
+                accept="image/*,application/pdf">
+            <div class="drop-zone-content">
+                <span class="material-symbols-outlined upload-icon">cloud_upload</span>
+                <h3>{{ 'UPLOAD.DROPZONE.TITLE' | translate }}</h3>
+                <p>{{ 'UPLOAD.DROPZONE.SUBTITLE' | translate }}</p>
+                <span class="file-limit">{{ 'UPLOAD.DROPZONE.LIMIT' | translate }}</span>
+            </div>
+        </div>
+
+        <!-- Pending Files Gallery -->
+        @if (pendingFiles().length > 0) {
+        <div class="preview-gallery">
+            <div class="gallery-header">
+                <h4>{{ 'UPLOAD.SELECTED.TITLE' | translate }} ({{ pendingFiles().length }})</h4>
+                <button class="btn-clear" (click)="pendingFiles.set([])">{{ 'UPLOAD.SELECTED.BTN_CLEAR' | translate
+                    }}</button>
+            </div>
+
+            <div class="preview-grid">
+                @for (pf of pendingFiles(); track pf; let i = $index) {
+                <div class="preview-card">
+                    <div class="preview-thumb">
+                        @if (pf.previewUrl) {
+                        <img [src]="pf.previewUrl" alt="Vista previa">
+                        } @else {
+                        <div class="file-icon-placeholder">
+                            <span class="material-symbols-outlined">description</span>
+                            <span class="file-type-label">PDF</span>
+                        </div>
+                        }
+                        <button class="remove-btn" (click)="removePendingFile(i)">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                    </div>
+                    <div class="preview-info">
+                        <span class="file-name">{{ pf.file.name }}</span>
+                        <span class="file-size">{{ formatBytes(pf.file.size) }}</span>
+                    </div>
+                </div>
+                }
+            </div>
+
+            <div class="gallery-actions">
+                <button class="btn-confirm-upload" (click)="uploadFiles()">
+                    <span class="material-symbols-outlined">send</span>
+                    {{ 'UPLOAD.SELECTED.BTN_CONFIRM' | translate }}
+                </button>
+            </div>
+        </div>
+        }
+    </section>
+    }
+
+    <!-- Filters -->
+    <section class="documents-filters">
+        <span class="filter-title">{{ 'UPLOAD.FILTERS.TITLE' | translate }}</span>
+        <div class="filter-chips">
+            <button class="filter-chip" [class.active]="selectedYear() === null" (click)="onYearSelect(null)">
+                {{ 'UPLOAD.FILTERS.ALL' | translate }}
+            </button>
+            @for (year of years(); track year) {
+            <button class="filter-chip" [class.active]="selectedYear() === year" (click)="onYearSelect(year)">
+                {{ year }}
+            </button>
+            }
+        </div>
+    </section>
+
+    <!-- Documents Timeline -->
+    <main class="documents-timeline">
+        @for (group of groupedDocuments(); track group.year) {
+        <div class="timeline-group">
+            <h2 class="year-heading">{{ 'UPLOAD.TIMELINE.YEAR_HEADING' | translate }} {{ group.year }}</h2>
+            <div class="documents-grid">
+                @for (doc of group.documents; track doc.id) {
+                <article class="document-card">
+                    <div class="card-icon">
+                        <span class="material-symbols-outlined">{{ doc.type === 'pdf' ? 'picture_as_pdf' : 'image'
+                            }}</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-main">
+                            <h3 class="document-name">{{ doc.name | translate }}</h3>
+                            <span class="status-badge" [attr.data-status]="doc.status">
+                                {{ doc.status === 'verified' ? ('UPLOAD.CARD.STATUS.VERIFIED' | translate) : (doc.status
+                                === 'pending' ? ('UPLOAD.CARD.STATUS.PENDING' | translate) :
+                                ('UPLOAD.CARD.STATUS.REJECTED' | translate)) }}
+                            </span>
+                        </div>
+                        <div class="card-details">
+                            <div class="detail-item">
+                                <span class="detail-label">{{ 'UPLOAD.CARD.MODEL' | translate }}</span>
+                                <span class="detail-value">{{ doc.irsModel }}</span>
+                            </div>
+                            <div class="detail-divider"></div>
+                            <div class="detail-item">
+                                <span class="detail-label">{{ 'UPLOAD.CARD.SIZE' | translate }}</span>
+                                <span class="detail-value">{{ doc.size }}</span>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <span class="doc-date">
+                                <span class="material-symbols-outlined icon-small">calendar_today</span>
+                                {{ doc.uploadDate | date:'d MMM, y' }}
+                            </span>
+                            <div class="card-actions">
+                                <button class="action-btn" [title]="'UPLOAD.CARD.ACTION_DOWNLOAD' | translate">
+                                    <span class="material-symbols-outlined">download</span>
+                                </button>
+                                <button class="action-btn" [title]="'UPLOAD.CARD.ACTION_VIEW' | translate">
+                                    <span class="material-symbols-outlined">visibility</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                }
+            </div>
+        </div>
+        } @empty {
+        <div class="empty-state">
+            <span class="material-symbols-outlined">folder_open</span>
+            <p>{{ 'UPLOAD.EMPTY_STATE' | translate }}</p>
+        </div>
+        }
+    </main>
+</div>

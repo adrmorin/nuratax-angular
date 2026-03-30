@@ -1,0 +1,192 @@
+.dashboard-header {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.header-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: white;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.header-subtitle {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    font-weight: 400;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+/* User Info Section */
+.user-info-section {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.user-avatar-circle {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #688071 0%, #576b5f 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+    position: relative;
+}
+
+.status-indicator {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-accent-green, #22c55e);
+    border: 2px solid var(--bg-dark-deep, #0f172a);
+    border-radius: 50%;
+}
+
+.user-avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-initials {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: white;
+    text-transform: uppercase;
+}
+
+.user-name-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+}
+
+/* Brand Info */
+.brand-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.125rem;
+}
+
+.brand-name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    line-height: 1;
+}
+
+.brand-subtitle {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+/* Logo */
+.logo-container {
+    width: auto;
+    max-width: 150px;
+    min-height: 56px;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.header-logo {
+    width: 100%;
+    height: 100%;
+    height: auto;
+    max-height: 40px;
+    object-fit: contain;
+    filter: brightness(0) invert(1) brightness(0.95);
+}
+
+
+/* Language Switcher Button */
+.btn-lang {
+    background-color: transparent !important;
+    color: white !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.4rem !important;
+    padding: 0.5rem 0.8rem !important;
+    border-radius: 8px !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    height: 36px;
+    /* Match height of other elements */
+}
+
+.btn-lang:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: var(--accent-green-bright, #00ff88) !important;
+}
+
+.btn-lang .material-symbols-outlined {
+    font-size: 1.2rem !important;
+    color: var(--accent-green-bright, #00ff88) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.25rem 1.5rem;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .header-title {
+        font-size: 1.5rem;
+    }
+
+    .brand-info {
+        align-items: flex-start;
+    }
+
+    .user-name-text {
+        display: none;
+    }
+}

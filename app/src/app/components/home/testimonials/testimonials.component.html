@@ -1,0 +1,32 @@
+<section class="testimonials">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">{{ 'HOME.TESTIMONIALS.TITLE' | translate }}</h2>
+            <p class="section-subtitle">{{ 'HOME.TESTIMONIALS.SUBTITLE' | translate }}</p>
+        </div>
+
+        <div class="testimonials-grid">
+            @for (item of reviews; track $index) {
+            <div class="testimonial-card">
+                <div class="card-header">
+                    <div class="user-info">
+                        <div class="user-avatar">{{ item.initials }}</div>
+                        <div class="user-details">
+                            <h4 class="user-name">{{ item.name }}</h4>
+                            <span class="user-role">{{ 'HOME.TESTIMONIALS.REVIEWS.' + $index + '.ROLE' | translate
+                                }}</span>
+                            <span class="user-company">{{ item.company }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="star-rating">
+                    @for (star of [1,2,3,4,5]; track star) {
+                    <span class="material-symbols-outlined">star</span>
+                    }
+                </div>
+                <p class="testimonial-text">"{{ 'HOME.TESTIMONIALS.REVIEWS.' + $index + '.TEXT' | translate }}"</p>
+            </div>
+            }
+        </div>
+    </div>
+</section>

@@ -1,0 +1,87 @@
+<div class="premium-dashboard">
+    <app-dashboard-header [clientType]="'premium'" [title]="'DASHBOARD.PREMIUM.TITLE' | translate"
+        [subtitle]="'DASHBOARD.PREMIUM.SUBTITLE' | translate" [showLangSwitcher]="true"></app-dashboard-header>
+
+    <!-- Premium Stats Grid -->
+    <div class="premium-stats-grid">
+        @for (stat of premiumStats; track stat.label) {
+        <div class="premium-stat-card">
+            <div class="card-glass-effect"></div>
+            <div class="stat-header">
+                <div class="stat-icon-wrapper">
+                    <span class="material-symbols-outlined">{{ stat.icon }}</span>
+                </div>
+                <span class="stat-trend">{{ stat.trend | translate }}</span>
+            </div>
+            <div class="stat-main">
+                <h3 class="stat-value">{{ stat.value }}</h3>
+                <p class="stat-label">{{ stat.label | translate }}</p>
+            </div>
+            <p class="stat-description">{{ stat.description | translate }}</p>
+        </div>
+        }
+    </div>
+
+    <div class="premium-main-layout">
+        <!-- AI Advanced Modules -->
+        <div class="ai-modules-section">
+            <div class="section-header">
+                <h2>{{ 'DASHBOARD.PREMIUM.AI.TITLE' | translate }}</h2>
+                <span class="premium-badge">{{ 'DASHBOARD.PREMIUM.AI.BADGE' | translate }}</span>
+            </div>
+            <div class="modules-grid">
+                @for (module of aiModules; track module.title) {
+                <div class="module-card">
+                    <div class="module-icon">
+                        <span class="material-symbols-outlined">{{ module.icon }}</span>
+                    </div>
+                    <div class="module-content">
+                        <h3>{{ module.title | translate }}</h3>
+                        <p>{{ module.description | translate }}</p>
+                        <button class="btn-premium-action">
+                            {{ module.action | translate }}
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </button>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+
+        <!-- Priority Sidebar -->
+        <div class="priority-sidebar">
+            <div class="priority-card">
+                <div class="card-header">
+                    <span class="material-symbols-outlined">priority_high</span>
+                    <h3>{{ 'DASHBOARD.PREMIUM.PRIORITY.TITLE' | translate }}</h3>
+                </div>
+                <div class="priority-list">
+                    @for (task of priorityTasks; track task.text) {
+                    <div class="priority-item" [class.completed]="task.status === 'completado'">
+                        <span class="status-dot"></span>
+                        <span class="task-text">{{ task.text | translate }}</span>
+                        @if (task.status === 'completado') {
+                        <span class="material-symbols-outlined check">check_circle</span>
+                        }
+                    </div>
+                    }
+                </div>
+                <button class="btn-support">
+                    <span class="material-symbols-outlined">headset_mic</span>
+                    {{ 'DASHBOARD.PREMIUM.PRIORITY.SUPPORT_BTN' | translate }}
+                </button>
+                <button class="btn-agent-exclusive" routerLink="/agent">
+                    <span class="material-symbols-outlined">support_agent</span>
+                    {{ 'DASHBOARD.PREMIUM.PRIORITY.AGENT_BTN' | translate }}
+                </button>
+            </div>
+
+            <!-- Investment Insight -->
+            <div class="insight-card">
+                <h3>{{ 'DASHBOARD.PREMIUM.PRIORITY.INSIGHT_TITLE' | translate }}</h3>
+                <p>{{ 'DASHBOARD.PREMIUM.PRIORITY.INSIGHT_DESC' | translate }}</p>
+                <a href="#" class="learn-more">{{ 'DASHBOARD.PREMIUM.PRIORITY.LEARN_MORE' | translate }}</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,349 @@
+.checkout-page {
+    padding: 8rem 2rem 4rem;
+    /* Top padding for header */
+    background: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.checkout-container {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+    max-width: 1100px;
+    width: 100%;
+}
+
+/* LEFT COLUMN */
+.payment-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+
+.payment-header h2 {
+    font-size: 2rem;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.payment-header p {
+    color: #64748b;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.payment-methods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.method-card {
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1rem;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.method-card:hover {
+    border-color: #cbd5e1;
+    background: #f8fafc;
+}
+
+.method-card.selected {
+    border-color: #3b82f6;
+    /* Blue brand */
+    background: #eff6ff;
+}
+
+.method-icon {
+    width: 40px;
+    height: 40px;
+    background: #f1f5f9;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #475569;
+}
+
+.method-card.selected .method-icon {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.method-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.method-title {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 0.95rem;
+}
+
+.method-desc {
+    font-size: 0.75rem;
+    color: #64748b;
+}
+
+.radio-check {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #cbd5e1;
+    border-radius: 50%;
+}
+
+.method-card.selected .radio-check {
+    border-color: #3b82f6;
+    background: #3b82f6;
+    box-shadow: inset 0 0 0 4px white;
+}
+
+/* FORM */
+.payment-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #334155;
+}
+
+.form-group input {
+    padding: 0.85rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.input-with-icon {
+    position: relative;
+}
+
+.input-with-icon input {
+    width: 100%;
+    padding-left: 2.75rem;
+}
+
+.input-with-icon .icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.form-group.half {
+    flex: 1;
+}
+
+.form-check {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.form-check label {
+    font-size: 0.9rem;
+    color: #475569;
+    cursor: pointer;
+}
+
+.btn-pay {
+    background: #0f172a;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.2s;
+}
+
+.btn-pay:hover {
+    background: #1e293b;
+}
+
+.paypal-btn {
+    background: #0070ba;
+    /* PayPal Blue */
+}
+
+.paypal-btn:hover {
+    background: #005ea6;
+}
+
+.crypto-btn {
+    background: #f7931a;
+    /* BTC Orange ish */
+}
+
+.method-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* RIGHT COLUMN (Summary) */
+.summary-section {
+    position: sticky;
+    top: 8rem;
+    align-self: start;
+}
+
+.summary-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.summary-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: #1e293b;
+    font-weight: 700;
+}
+
+.plan-preview {
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e2e8f0;
+    margin-bottom: 1.5rem;
+}
+
+.plan-icon {
+    width: 48px;
+    height: 48px;
+    background: #eff6ff;
+    color: #3b82f6;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.plan-details h4 {
+    font-size: 1rem;
+    color: #1e293b;
+    margin: 0 0 0.25rem 0;
+}
+
+.plan-details p {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.plan-price {
+    margin-left: auto;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.price-breakdown .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    color: #475569;
+}
+
+.price-breakdown .row.total {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px dashed #e2e8f0;
+    font-weight: 700;
+    color: #0f172a;
+    font-size: 1.1rem;
+}
+
+.security-badges {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.badge {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.85rem;
+    color: #64748b;
+    background: #f8fafc;
+    padding: 0.75rem;
+    border-radius: 8px;
+}
+
+.badge span.material-symbols-outlined {
+    color: #10b981;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 900px) {
+    .checkout-container {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-section {
+        order: -1;
+        /* Summary first on mobile? Usually better Last or Collapsible. Let's keep naturally or first. */
+        /* Let's keep it naturally second (bottom) or make it top. Typically top for mobile. */
+        position: static;
+    }
+
+    .payment-methods {
+        grid-template-columns: 1fr;
+        /* Stack methods on mobile */
+    }
+}

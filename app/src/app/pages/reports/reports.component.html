@@ -1,0 +1,149 @@
+<div class="reports-container">
+    <!-- Header -->
+    <div class="reports-header">
+        <div class="header-text">
+            <h1 class="reports-title">{{ 'DASHBOARD.REPORTS.TITLE' | translate }}</h1>
+            <p class="reports-subtitle">{{ 'DASHBOARD.REPORTS.SUBTITLE' | translate }}</p>
+        </div>
+        <button class="export-btn" (click)="exportReport()">
+            <span class="material-symbols-outlined">download</span>
+            {{ 'DASHBOARD.REPORTS.EXPORT_BTN' | translate }}
+        </button>
+    </div>
+
+    <!-- Main Chart - Income & Client Growth -->
+    <div class="chart-card main-chart">
+        <div class="chart-header">
+            <div>
+                <h3 class="chart-title">{{ 'DASHBOARD.REPORTS.MAIN_CHART.TITLE' | translate }}</h3>
+                <p class="chart-subtitle">{{ 'DASHBOARD.REPORTS.MAIN_CHART.SUBTITLE' | translate }}</p>
+            </div>
+            <button class="expand-btn">
+                <span class="material-symbols-outlined">open_in_full</span>
+            </button>
+        </div>
+        <div class="line-chart-container">
+            <!-- SVG Line Chart -->
+            <svg viewBox="0 0 600 250" class="line-chart">
+                <!-- Grid Lines -->
+                <g class="grid-lines">
+                    @for (i of [0, 1, 2, 3, 4]; track i) {
+                    <line [attr.x1]="60" [attr.y1]="30 + (i * 45)" [attr.x2]="580" [attr.y2]="30 + (i * 45)"
+                        stroke="#e2e8f0" stroke-dasharray="4,4" />
+                    }
+                </g>
+
+                <!-- Y Axis Labels (Income) -->
+                <g class="y-axis-labels">
+                    @for (label of incomeLabels; track label.value; let i = $index) {
+                    <text [attr.x]="55" [attr.y]="35 + (i * 45)" text-anchor="end" class="axis-label">
+                        {{ label.text }}
+                    </text>
+                    }
+                </g>
+
+                <!-- Y Axis Labels Right (Clients) -->
+                <g class="y-axis-labels-right">
+                    @for (label of clientLabels; track label.value; let i = $index) {
+                    <text [attr.x]="585" [attr.y]="35 + (i * 45)" text-anchor="start" class="axis-label">
+                        {{ label.text }}
+                    </text>
+                    }
+                </g>
+
+                <!-- X Axis Labels -->
+                <g class="x-axis-labels">
+                    @for (data of monthlyData; track data.month; let i = $index) {
+                    <text [attr.x]="90 + (i * 90)" [attr.y]="235" text-anchor="middle" class="axis-label">
+                        {{ data.month | translate }}
+                    </text>
+                    }
+                </g>
+
+                <!-- Income Line (green) -->
+                <polyline [attr.points]="getIncomeLinePoints()" fill="none" stroke="#688071" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round" />
+
+                <!-- Clients Line (darker green) -->
+                <polyline [attr.points]="getClientsLinePoints()" fill="none" stroke="#1e293b" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round" />
+
+                <!-- Data Points - Income -->
+                @for (data of monthlyData; track data.month; let i = $index) {
+                <circle [attr.cx]="90 + (i * 90)" [attr.cy]="getIncomeY(data.income)" r="5" fill="#688071" />
+                }
+
+                <!-- Data Points - Clients -->
+                @for (data of monthlyData; track data.month; let i = $index) {
+                <circle [attr.cx]="90 + (i * 90)" [attr.cy]="getClientsY(data.clients)" r="5" fill="#1e293b" />
+                }
+            </svg>
+
+            <!-- Legend -->
+            <div class="chart-legend">
+                <div class="legend-item">
+                    <span class="legend-dot clients"></span>
+                    <span>{{ 'DASHBOARD.REPORTS.MAIN_CHART.CLIENTS' | translate }}</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-dot income"></span>
+                    <span>{{ 'DASHBOARD.REPORTS.MAIN_CHART.INCOME' | translate }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Charts Grid -->
+    <div class="charts-grid">
+        <!-- Pie Chart - Membership Distribution -->
+        <div class="chart-card">
+            <h3 class="chart-title">{{ 'DASHBOARD.REPORTS.MEMBERSHIP_CHART.TITLE' | translate }}</h3>
+            <p class="chart-subtitle">{{ 'DASHBOARD.REPORTS.MEMBERSHIP_CHART.TOTAL' | translate }}: {{ getTotalClients()
+                }}</p>
+            <div class="pie-chart-container">
+                <svg viewBox="0 0 200 200" class="pie-chart">
+                    <!-- Pie segments -->
+                    @for (segment of pieSegments; track segment.type; let i = $index) {
+                    <circle cx="100" cy="100" r="70" fill="transparent" [attr.stroke]="segment.color" stroke-width="40"
+                        [attr.stroke-dasharray]="getSegmentDashArray(segment.percentage)"
+                        [attr.stroke-dashoffset]="getSegmentOffset(i)" transform="rotate(-90 100 100)" />
+                    }
+                </svg>
+                <div class="pie-labels">
+                    @for (data of membershipData; track data.type) {
+                    <div class="pie-label-item">
+                        <span class="label-dot" [style.background]="data.color"></span>
+                        <span class="label-text">{{ data.type | translate }}: {{ data.percentage }}%</span>
+                    </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Bar Chart - Tasks Completed -->
+        <div class="chart-card">
+            <h3 class="chart-title">{{ 'DASHBOARD.REPORTS.TASKS_CHART.TITLE' | translate }}</h3>
+            <p class="chart-subtitle">{{ 'DASHBOARD.REPORTS.TASKS_CHART.SUBTITLE' | translate }}</p>
+            <div class="bar-chart-container">
+                <svg viewBox="0 0 280 180" class="bar-chart">
+                    <!-- Y Axis Labels -->
+                    <g class="y-axis">
+                        @for (val of [80, 60, 40, 20, 0]; track val; let i = $index) {
+                        <text [attr.x]="25" [attr.y]="25 + (i * 35)" text-anchor="end" class="axis-label">
+                            {{ val }}
+                        </text>
+                        <line x1="30" [attr.y1]="20 + (i * 35)" x2="270" [attr.y2]="20 + (i * 35)" stroke="#e2e8f0"
+                            stroke-dasharray="2,2" />
+                        }
+                    </g>
+
+                    <!-- Bars -->
+                    @for (data of weeklyTaskData; track data.week; let i = $index) {
+                    <rect [attr.x]="45 + (i * 55)" [attr.y]="160 - (data.completed * 1.75)" width="35"
+                        [attr.height]="data.completed * 1.75" fill="#688071" rx="4" />
+                    }
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>

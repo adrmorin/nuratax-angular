@@ -1,0 +1,34 @@
+@if (article(); as art) {
+<div class="article-container">
+    <button class="back-button" (click)="goBack()">
+        <span class="material-symbols-outlined">arrow_back</span>
+        Volver al Inicio
+    </button>
+
+    <article class="full-article">
+        <header class="article-header">
+            <span class="category-tag">{{ art.tag }}</span>
+            <h1 class="article-title">{{ art.title }}</h1>
+
+            <div class="article-meta">
+                <div class="meta-item">
+                    <span class="material-symbols-outlined icon-small">calendar_today</span>
+                    {{ art.date }}
+                </div>
+                <div class="meta-separator">•</div>
+                <div class="meta-item">
+                    <span class="material-symbols-outlined icon-small">schedule</span>
+                    {{ art.readTime }}
+                </div>
+            </div>
+        </header>
+
+        <div class="article-hero-image">
+            <img [src]="art.image" [alt]="art.title" onerror="this.src='assets/neuraltax1.png'">
+        </div>
+
+        <!-- Render the rich HTML content from the service -->
+        <div class="article-content" [innerHTML]="art.content"></div>
+    </article>
+</div>
+}

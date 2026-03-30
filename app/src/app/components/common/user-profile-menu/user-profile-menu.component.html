@@ -1,0 +1,46 @@
+<div class="profile-dropdown-container" (mouseenter)="cancelCloseMenu.emit()" (mouseleave)="closeMenu.emit()">
+    <div class="profile-dropdown">
+        <div class="dropdown-header">
+            <div class="header-profile-row">
+                <div class="header-avatar">{{ userInitials }}</div>
+                <div class="header-info">
+                    <div class="dropdown-name">{{ displayName }}</div>
+                    <div class="dropdown-email">{{ displayEmail }}</div>
+                    <div class="dropdown-role">{{ userRoleCode | translate }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="dropdown-info-list">
+            <div class="info-row">
+                <span class="material-symbols-outlined info-icon">call</span>
+                <span class="info-text">{{ displayPhone | translate }}</span>
+            </div>
+            <div class="info-row">
+                <span class="material-symbols-outlined info-icon">home_pin</span>
+                <span class="info-text truncate">{{ displayAddress | translate }}</span>
+            </div>
+        </div>
+
+        <div class="dropdown-menu">
+            <button (click)="openProfile()" class="dropdown-item" tabindex="0">
+                <span class="material-symbols-outlined icon-profile">person</span>
+                <span class="item-text">{{ 'PROFILE.MY_PROFILE' | translate }}</span>
+            </button>
+
+            @if (user && !user.isValidated) {
+            <button (click)="openValidation()" class="dropdown-item item-warning" tabindex="0">
+                <span class="material-symbols-outlined icon-warning">gpp_maybe</span>
+                <span class="item-text">{{ 'PROFILE.VERIFY_IDENTITY' | translate }}</span>
+            </button>
+            }
+
+            <div class="dropdown-divider"></div>
+
+            <button (click)="logout()" class="dropdown-item item-logout" tabindex="0">
+                <span class="material-symbols-outlined icon-logout">logout</span>
+                <span class="item-text">{{ 'PROFILE.LOGOUT' | translate }}</span>
+            </button>
+        </div>
+    </div>
+</div>

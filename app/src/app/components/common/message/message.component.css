@@ -1,0 +1,71 @@
+.message-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid var(--msg-border, rgba(255, 255, 255, 0.1));
+    background: var(--msg-bg, transparent);
+    color: var(--msg-color, inherit);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.icon {
+    font-size: 1.25rem;
+    color: var(--msg-icon-color);
+}
+
+.text {
+    font-weight: 500;
+}
+
+/* VARIANTS */
+
+/* Error */
+.message-container.error {
+    --msg-bg: rgba(239, 68, 68, 0.15);
+    /* Red-500 optimized opacity */
+    --msg-color: #fca5a5;
+    /* Red-300 */
+    --msg-border: rgba(239, 68, 68, 0.2);
+    --msg-icon-color: #ef4444;
+    /* Red-500 */
+}
+
+/* Success */
+.message-container.success {
+    --msg-bg: rgba(34, 197, 94, 0.15);
+    /* Green-500 */
+    --msg-color: #86efac;
+    /* Green-300 */
+    --msg-border: rgba(34, 197, 94, 0.2);
+    --msg-icon-color: #22c55e;
+    /* Green-500 */
+}
+
+/* Info */
+.message-container.info {
+    --msg-bg: rgba(59, 130, 246, 0.15);
+    /* Blue-500 */
+    --msg-color: #93c5fd;
+    /* Blue-300 */
+    --msg-border: rgba(59, 130, 246, 0.2);
+    --msg-icon-color: #3b82f6;
+    /* Blue-500 */
+}

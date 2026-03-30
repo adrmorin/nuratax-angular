@@ -1,0 +1,969 @@
+<div class="irs-form-container">
+    <div class="irs-form-box">
+        <!-- Main Header -->
+        <div class="irs-main-header">
+            <div class="irs-col-1">
+                <div>
+                    <div class="irs-form-id">SCHEDULE 1-A</div>
+                    <div class="irs-form-sub-id">(Form 1040)</div>
+                </div>
+                <div class="irs-dept-info">
+                    Department of the Treasury<br>
+                    Internal Revenue Service
+                </div>
+            </div>
+            <div class="irs-col-2">
+                <h1>Additional Deductions</h1>
+                <p>Attach to Form 1040, 1040-SR, or 1040-NR.</p>
+                <p class="irs-instruction">Go to <i>www.irs.gov/Form1040</i> for instructions and the latest
+                    information.</p>
+            </div>
+            <div class="irs-col-3">
+                <div class="irs-omb-box">OMB No. 1545-0074</div>
+                <div class="irs-sequence-box">
+                    <div class="irs-year-box">
+                        <span class="year-outline-20">20</span><span class="year-solid-25">25</span>
+                    </div>
+                    <div class="irs-attachment">
+                        Attachment<br>
+                        Sequence No. <strong>1A</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form [formGroup]="scheduleForm" (ngSubmit)="onSubmit()">
+            <!-- Name and SSN -->
+            <div class="irs-row-border" style="border-bottom: 2px solid #000;">
+                <div class="irs-field flex-3 border-right">
+                    <label for="nameShown">Name(s) shown on Form 1040, 1040-SR, or 1040-NR</label>
+                    <input type="text" id="nameShown" formControlName="nameShown">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="ssn">Your social security number</label>
+                    <input type="text" id="ssn" formControlName="ssn">
+                </div>
+            </div>
+
+            <!-- PART I -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part I</span>
+                <span class="irs-part-title">Modified Adjusted Gross Income (MAGI) Amount</span>
+            </div>
+
+            <table class="irs-table">
+                <!-- Grid Anchor Row -->
+                <tr style="height: 0; line-height: 0;">
+                    <td class="irs-line-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-desc" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-sub-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-intermediate-val" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-main-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-val-cell" style="height: 0; border: none; padding: 0;"></td>
+                </tr>
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Enter the amount from Form 1040, 1040-SR, or 1040-NR,
+                                    line 11b</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">1</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line1"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">2a</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Enter any income from Puerto Rico that you
+                                    excluded</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-sub-line-num" data-line="2a"></td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line2a"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">b</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Enter the amount from Form 2555, line 45</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-sub-line-num" data-line="2b"></td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line2b"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">c</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Enter the amount from Form 2555, line 50</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-sub-line-num" data-line="2c"></td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line2c"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">d</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Enter the amount from Form 4563, line 15</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-sub-line-num" data-line="2d"></td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line2d"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">e</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Add lines 2a, b, c, and d</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">2e</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line2e')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span><strong>Add lines 1 and 2e</strong></span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">3</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell"><strong>{{ scheduleForm.get('line3')?.value |
+                                number:'1.0-2' }}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PART II -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part II</span>
+                <span class="irs-part-title">No Tax on Tips</span>
+            </div>
+            <div class="irs-caution">
+                <strong>Caution:</strong> Fill out Part II only if you received qualified tips. These tips must have
+                been received in an occupation listed at <i>IRS.gov/TippedOccupations</i>. You and/or your spouse who
+                received qualified tips must have a valid social security number to claim the deduction. If married, you
+                must file jointly to claim this deduction. See instructions.
+            </div>
+
+            <table class="irs-table">
+                <!-- Grid Anchor Row -->
+                <tr style="height: 0; line-height: 0;">
+                    <td class="irs-line-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-desc" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-sub-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-intermediate-val" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-main-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-val-cell" style="height: 0; border: none; padding: 0;"></td>
+                </tr>
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Qualified tips received as an employee. If you received
+                                    tips as an employee with respect to employment with more than one employer, enter
+                                    -0- on lines 4a and 4b and see the instructions to determine the amount to enter on
+                                    line 4c. If you received tips as an employee in more than one occupation, see the
+                                    instructions.</span></div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-grey-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">a</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Enter qualified tips included on Form W-2, box 7, but
+                                    see the
+                                    instructions if Form W-2, box 5 is more than $176,100 or you received tips that are
+                                    not
+                                    subject to social security and Medicare taxes</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-sub-line-num" data-line="4a"></td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line4a"></td>
+                        <td colspan="2" class="irs-grey-cell irs-thick-left-border"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">b</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Qualified tips included on Form 4137, line 1, row A,
+                                    column (c). If
+                                    Form 4137 is not filed, enter -0-</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-sub-line-num" data-line="4b"></td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line4b"></td>
+                        <td colspan="2" class="irs-grey-cell irs-thick-left-border"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">c</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>If you only received qualified tips as an employee with
+                                    respect to employment with one employer, enter the larger of line 4a or line 4b.
+                                    Otherwise, see the instructions to determine the amount to enter on line 4c.</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">4c</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line4c')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">5</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Qualified tips received in the course of a trade or
+                                    business. Qualified tip amount included in Form 1099-NEC, box 1; Form 1099-MISC, box
+                                    3; or Form 1099-K, box 1a. Do not enter more than the net profit from the trade or
+                                    business. If you received qualified tips in the course of more than one trade or
+                                    business or in more than one occupation, see instructions</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-main-line-num">
+                            <div class="irs-main-line-num-box">5</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line5"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">6</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Add lines 4c and 5</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-main-line-num">
+                            <div class="irs-main-line-num-box">6</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line6')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">7</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Enter the smaller of the amount on line 6 or
+                                    $25,000</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-main-line-num">
+                            <div class="irs-main-line-num-box">7</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line7')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">8</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Enter the amount from line 3</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-main-line-num">
+                            <div class="irs-main-line-num-box">8</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line8')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">9</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Enter $150,000 ($300,000 if married filing
+                                    jointly)</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-main-line-num">
+                            <div class="irs-main-line-num-box">9</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line9"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">10</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Subtract line 9 from line 8. If zero or less, enter the
+                                    amount from line 7 on line 13</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-main-line-num">
+                            <div class="irs-main-line-num-box">10</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line10')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">11</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Divide line 10 by $1,000. If the resulting number isn't
+                                    a whole number, decrease the result to the next lower whole number. (For example,
+                                    decrease 1.5 to 1, and decrease 0.05 to 0.)</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-main-line-num">
+                            <div class="irs-main-line-num-box">11</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line11')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">12</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Multiply line 11 by $100</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-main-line-num">
+                            <div class="irs-main-line-num-box">12</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line12')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">13</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span><strong>Qualified tips deduction.</strong> Subtract line
+                                    12 from line 7. If zero or less, enter -0-</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-main-line-num">
+                            <div class="irs-main-line-num-box">13</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell"><strong>{{ scheduleForm.get('line13')?.value |
+                                number:'1.0-2' }}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PART III -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part III</span>
+                <span class="irs-part-title">No Tax on Overtime</span>
+            </div>
+            <div class="irs-caution">
+                <strong>Caution:</strong> Fill out Part III only if you received qualified overtime compensation. You
+                and/or your spouse who received the qualified overtime compensation must have a valid social security
+                number to claim this deduction. If married, you must file jointly to claim this deduction. See
+                instructions.
+            </div>
+
+            <table class="irs-table">
+                <!-- Grid Anchor Row -->
+                <tr style="height: 0; line-height: 0;">
+                    <td class="irs-line-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-desc" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-sub-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-intermediate-val" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-main-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-val-cell" style="height: 0; border: none; padding: 0;"></td>
+                </tr>
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">14a</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Qualified overtime compensation included in Form W-2,
+                                    box 1. If you received qualified overtime compensation not reported on Form W-2, box
+                                    1, see instructions</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-sub-line-num" data-line="14a"></td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line14a"></td>
+                        <td colspan="2" class="irs-grey-cell irs-thick-left-border"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">b</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Qualified overtime compensation included in Form
+                                    1099-NEC, box 1, or Form 1099-MISC, box 3 (see instructions)</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border"></td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line14b"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">14c</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Add lines 14a and 14b</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">14c</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line14c')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">15</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Enter the smaller of the amount on line 14c or $12,500
+                                    ($25,000 if married filing jointly)</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">15</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line15')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">16</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Enter the amount from line 3</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">16</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line16')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">17</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Enter $150,000 ($300,000 if married filing
+                                    jointly)</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">17</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line17"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">18</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Subtract line 17 from line 16. If zero or less, enter
+                                    the amount from line 15 on line 21</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">18</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line18')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">19</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Divide line 18 by $1,000. If the resulting number isn't
+                                    a whole number, decrease the result to the next lower whole number. (For example,
+                                    decrease 1.5 to 1, and decrease 0.05 to 0.)</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">19</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line19')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">20</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Multiply line 19 by $100</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">20</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line20')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">21</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span><strong>Qualified overtime compensation
+                                        deduction.</strong> Subtract line 20 from line 15. If zero or less, enter
+                                    -0-</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">21</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell"><strong>{{ scheduleForm.get('line21')?.value |
+                                number:'1.0-2' }}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <!-- PART IV -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part IV</span>
+                <span class="irs-part-title">No Tax on Car Loan Interest</span>
+            </div>
+            <div class="irs-caution">
+                <strong>Caution:</strong> Fill out Part IV only if you, or your spouse if married filing jointly, paid
+                or accrued qualified passenger vehicle loan interest (QPVLI). Column (iii) is the total QPVLI paid in
+                2025 less the amounts reported in column (ii). See instructions.
+            </div>
+
+            <table class="irs-table">
+                <colgroup>
+                    <col class="irs-line-num">
+                    <col class="irs-desc">
+                    <col class="irs-col-sub-num">
+                    <col class="irs-col-intermediate-val">
+                    <col class="irs-col-main-num">
+                    <col class="irs-val-cell">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <td class="irs-line-num"
+                            style="border-right: 0 !important; font-weight: bold; vertical-align: top;">22</td>
+                        <td colspan="5" class="irs-desc" style="border-left: 0 !important; padding: 4px 6px;">Applicable
+                            passenger vehicle (see
+                            instructions). If more than two VINs, see instructions.</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" rowspan="2" class="sub-table-header"
+                            style="text-align: center; vertical-align: bottom; padding-bottom: 8px;">
+                            <strong>(i)</strong> Vehicle identification number (VIN)
+                        </td>
+                        <td colspan="3" class="sub-table-header" style="text-align: center; padding: 4px;">Interest for
+                            this loan:</td>
+                    </tr>
+                    <tr>
+                        <td class="sub-table-header" style="text-align: center; padding: 4px; vertical-align: top;">
+                            <strong>(ii)</strong>
+                            Deducted on Schedule C,<br>Schedule E, or Schedule F
+                        </td>
+                        <td colspan="2" class="sub-table-header"
+                            style="text-align: center; padding: 4px; vertical-align: middle;">
+                            <strong>(iii)</strong>
+                            Schedule 1-A
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num"
+                            style="border-right: 0 !important; text-align: center; font-weight: bold;">a</td>
+                        <td colspan="2" class="irs-desc" style="border-left: 0 !important; padding-left: 10px;">
+                            <div class="vin-grid" style="margin: 4px 0;">
+                                @for (char of (scheduleForm.get('vinA')?.value || '').split(''); track $index) {
+                                <div class="vin-box">{{ char }}</div>
+                                }
+                                @for (empty of [].constructor(17 - (scheduleForm.get('vinA')?.value || '').length);
+                                track $index) {
+                                <div class="vin-box"></div>
+                                }
+                            </div>
+                            <input type="text" formControlName="vinA" maxlength="17" class="vin-input-hidden">
+                        </td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line22a_ii"></td>
+                        <td colspan="2" class="irs-val-cell irs-blue-cell"><input type="number"
+                                formControlName="line22a_iii"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num"
+                            style="border-right: 0 !important; text-align: center; font-weight: bold;">b</td>
+                        <td colspan="2" class="irs-desc" style="border-left: 0 !important; padding-left: 10px;">
+                            <div class="vin-grid" style="margin: 4px 0;">
+                                @for (char of (scheduleForm.get('vinB')?.value || '').split(''); track $index) {
+                                <div class="vin-box">{{ char }}</div>
+                                }
+                                @for (empty of [].constructor(17 - (scheduleForm.get('vinB')?.value || '').length);
+                                track $index) {
+                                <div class="vin-box"></div>
+                                }
+                            </div>
+                            <input type="text" formControlName="vinB" maxlength="17" class="vin-input-hidden">
+                        </td>
+                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
+                                formControlName="line22b_ii"></td>
+                        <td colspan="2" class="irs-val-cell irs-blue-cell"><input type="number"
+                                formControlName="line22b_iii"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num" style="border-right: 0 !important;">23</td>
+                        <td colspan="3" class="irs-desc" style="border-left: 0 !important;">
+                            <div class="irs-desc-content"><span>Add lines 22a and 22b, column (iii)</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num">
+                            <div class="irs-main-line-num-box">23</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line23')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num" style="border-right: 0 !important;">24</td>
+                        <td colspan="3" class="irs-desc" style="border-left: 0 !important;">
+                            <div class="irs-desc-content"><span>Enter the smaller of the amount on line 23 or
+                                    $10,000</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num">
+                            <div class="irs-main-line-num-box">24</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line24')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num" style="border-right: 0 !important;">25</td>
+                        <td colspan="3" class="irs-desc" style="border-left: 0 !important;">
+                            <div class="irs-desc-content"><span>Enter the amount from line 3</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num">
+                            <div class="irs-main-line-num-box">25</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line25')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num" style="border-right: 0 !important;">26</td>
+                        <td colspan="3" class="irs-desc" style="border-left: 0 !important;">
+                            <div class="irs-desc-content"><span>Enter $100,000 ($200,000 if married filing
+                                    jointly)</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num">
+                            <div class="irs-main-line-num-box">26</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line26"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num" style="border-right: 0 !important;">27</td>
+                        <td colspan="3" class="irs-desc" style="border-left: 0 !important;">
+                            <div class="irs-desc-content"><span>Subtract line 26 from line 25. If zero or less, enter
+                                    the amount from line 24 on line 30</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num">
+                            <div class="irs-main-line-num-box">27</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line27')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num" style="border-right: 0 !important;">28</td>
+                        <td colspan="3" class="irs-desc" style="border-left: 0 !important;">
+                            <div class="irs-desc-content"><span>Divide line 27 by $1,000. If the resulting number isn't
+                                    a whole number, increase the result to the next higher whole number. (For example,
+                                    increase 1.5 to 2, and increase 0.05 to 1.)</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num">
+                            <div class="irs-main-line-num-box">28</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line28')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num" style="border-right: 0 !important;">29</td>
+                        <td colspan="3" class="irs-desc" style="border-left: 0 !important;">
+                            <div class="irs-desc-content"><span>Multiply line 28 by $200</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num">
+                            <div class="irs-main-line-num-box">29</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line29')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num" style="border-right: 0 !important;">30</td>
+                        <td colspan="3" class="irs-desc" style="border-left: 0 !important;">
+                            <div class="irs-desc-content"><span><strong>Qualified passenger vehicle loan interest
+                                        deduction.</strong> Subtract line 29 from line 24. If zero or less, enter
+                                    -0-</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-main-num">
+                            <div class="irs-main-line-num-box">30</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell"><strong>{{ scheduleForm.get('line30')?.value |
+                                number:'1.0-2' }}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PART V -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part V</span>
+                <span class="irs-part-title">Enhanced Deduction for Seniors</span>
+            </div>
+            <div class="irs-caution">
+                <strong>Caution:</strong> You and/or your spouse must have a valid social security number. If married,
+                you must file jointly to claim this deduction. See instructions.
+            </div>
+
+            <table class="irs-table">
+                <colgroup>
+                    <col class="irs-line-num">
+                    <col class="irs-desc">
+                    <col class="irs-col-sub-num">
+                    <col class="irs-col-intermediate-val">
+                    <col class="irs-col-main-num">
+                    <col class="irs-val-cell">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">31</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Enter the amount from line 3</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">31</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line31')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">32</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Enter $75,000 ($150,000 if married filing
+                                    jointly)</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">32</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line32"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">33</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Subtract line 32 from line 31. If zero or less, enter
+                                    $6,000 on line 35</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">33</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line33')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">34</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Multiply line 33 by 6% (0.06)</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">34</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line34')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">35</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>Subtract line 34 from $6,000. If zero or less, enter
+                                    -0-</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">35</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line35')?.value |
+                            number:'1.0-2' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">36a</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>If you have a valid social security number (see
+                                    instructions) and were born before January 2, 1961, enter the amount from line
+                                    35</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">36a</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line36a"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">b</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span>If you are married filing jointly, your spouse has a
+                                    valid social security number (see instructions), and your spouse was born before
+                                    January 2, 1961, enter the amount from line 35</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">36b</div>
+                        </td>
+                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line36b"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">37</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content"><span><strong>Enhanced deduction for seniors.</strong> Add
+                                    lines 36a and 36b</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">37</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell"><strong>{{ scheduleForm.get('line37')?.value |
+                                number:'1.0-2' }}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PART VI -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part VI</span>
+                <span class="irs-part-title">Total Additional Deductions</span>
+            </div>
+            <table class="irs-table">
+                <!-- Grid Anchor Row -->
+                <tr style="height: 0; line-height: 0;">
+                    <td class="irs-line-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-desc" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-sub-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-intermediate-val" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-col-main-num" style="height: 0; border: none; padding: 0;"></td>
+                    <td class="irs-val-cell" style="height: 0; border: none; padding: 0;"></td>
+                </tr>
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">38</td>
+                        <td class="irs-desc">
+                            <div class="irs-desc-content">
+                                <span><strong>Add lines 13, 21, 30, and 37.</strong> Enter here and on Form 1040 or
+                                    1040-SR, line 13b, or on Form 1040-NR, line 13c</span>
+                                <div class="irs-dots"></div>
+                            </div>
+                        </td>
+                        <td class="irs-col-sub-num"></td>
+                        <td class="irs-col-intermediate-val"></td>
+                        <td class="irs-col-main-num irs-thick-left-border">
+                            <div class="irs-main-line-num-box">38</div>
+                        </td>
+                        <td class="irs-val-cell calculated irs-blue-cell" style="background: #eef2ff !important;">
+                            <strong style="font-size: 1.1rem;">{{ scheduleForm.get('line38')?.value | number:'1.0-0'
+                                }}</strong>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="irs-footer-actions">
+                <button type="submit" class="btn-submit">Guardar Cambios</button>
+            </div>
+        </form>
+
+        <!-- Floating Assistant Integration -->
+        <app-chatforms></app-chatforms>
+    </div>
+</div>
