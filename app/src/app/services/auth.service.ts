@@ -36,29 +36,7 @@ export class AuthService {
     private sessionChecked = false;
     private restoreSessionRequest$: Observable<boolean> | null = null;
 
-<<<<<<< HEAD
-        const token = localStorage.getItem('token');
-        const expiry = localStorage.getItem('token_expiry');
-
-        if (token && expiry && Date.now() < parseInt(expiry, 10)) {
-            return {
-                firstName: localStorage.getItem('fallback_firstName') || '',
-                lastName: localStorage.getItem('fallback_lastName') || '',
-                email: localStorage.getItem('fallback_email') || '',
-                phone: '',
-                password: '',
-                roles: ['ROLE_FREE'],
-                isValidated: false
-            };
-        }
-
-        return null;
-    }
-
-    public currentUser = signal<User | null>(this.getInitialOptimisticUser());
-=======
     public currentUser = signal<User | null>(null);
->>>>>>> b010ee2287c0f3f281777bc740b543e4d3da4330
     public currentUserDashboard = computed(() => {
         const user = this.currentUser();
         if (!user) return '/free-dashboard';
@@ -345,112 +323,7 @@ export class AuthService {
         this.tokenStorage.clearSession();
         this.loggedIn.next(false);
         this.currentUser.set(null);
-<<<<<<< HEAD
-        this.alreadyChecked = false;
-        this.router.navigate(['/']);
-    }
-
-    checkLoginStatus(): boolean {
-        const token = this.getToken();
-        if (!token) {
-            this.loggedIn.next(false);
-            this.alreadyChecked = true;
-            return false;
-        }
-
-        if (!this.alreadyChecked) {
-            if (!this.currentUser()) {
-                this.currentUser.set({
-                    firstName: localStorage.getItem('fallback_firstName') || '',
-                    lastName: localStorage.getItem('fallback_lastName') || '',
-                    email: localStorage.getItem('fallback_email') || '',
-                    phone: '',
-                    password: '',
-                    roles: ['ROLE_FREE'],
-                    isValidated: false
-                });
-            }
-
-            this.validateToken().subscribe({
-                next: () => {
-                    this.loggedIn.next(true);
-                    this.alreadyChecked = true;
-                    this.getUserInfo().subscribe({
-                        next: (user) => {
-                            console.log('User info loaded on app init:', user);
-                            this.currentUser.set(user);
-                        },
-                        error: (err) => {
-                            console.error('Failed to load user info on init:', err);
-                            this.currentUser.set({
-                                firstName: localStorage.getItem('fallback_firstName') || '',
-                                lastName: localStorage.getItem('fallback_lastName') || '',
-                                email: localStorage.getItem('fallback_email') || '',
-                                phone: '',
-                                password: '',
-                                roles: ['ROLE_FREE'],
-                                isValidated: false
-                            });
-                        }
-                    });
-                },
-                error: () => {
-                    this.loggedIn.next(false);
-                    this.logout();
-                }
-            });
-        }
-
-        return this.loggedIn.getValue();
-    }
-
-    validateToken(): Observable<unknown> {
-        return this.http.get(`${this.baseUrl}/validate-token`, { headers: this.getAuthHeaders() });
-    }
-
-    getUserInfo(): Observable<User> {
-        console.log('Calling getUserInfo() - fetching user data from backend...');
-
-        return this.http.get<User & { name?: string }>(`${this.baseUrl}/user-info`, { headers: this.getAuthHeaders() }).pipe(
-            map((data) => {
-                const user: User = {
-                    ...data,
-                    firstName: data.firstName || '',
-                    lastName: data.lastName || '',
-                    email: data.email || '',
-                    phone: data.phone || '',
-                    password: data.password || '',
-                    roles: data.roles || ['ROLE_FREE'],
-                    isValidated: !!data.isValidated
-                };
-
-                if (data.name && !user.firstName) {
-                    const parts = data.name.split(' ');
-                    user.firstName = parts[0] || '';
-                    user.lastName = parts.slice(1).join(' ') || '';
-                }
-
-                if (!user.firstName) {
-                    user.firstName = '';
-                }
-
-                if (!user.roles || user.roles.length === 0) {
-                    user.roles = ['ROLE_FREE'];
-                }
-
-                return user;
-            })
-        );
-    }
-
-    private getAuthHeaders(): Record<string, string> {
-        const token = this.getToken();
-        return {
-            Authorization: `Bearer ${token}`,
-        };
-=======
         this.sessionChecked = false;
         this.restoreSessionRequest$ = null;
->>>>>>> b010ee2287c0f3f281777bc740b543e4d3da4330
     }
 }
