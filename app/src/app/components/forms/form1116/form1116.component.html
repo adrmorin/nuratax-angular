@@ -1,0 +1,93 @@
+<div class="irs-unified-container">
+    <header class="irs-form-header">
+        <div class="irs-dept-info">
+            Department of the Treasury<br>
+            Internal Revenue Service
+        </div>
+        <div class="irs-form-title">
+            <h1 class="irs-form-id">Form 1116</h1>
+            <p class="irs-form-name">Foreign Tax Credit</p>
+            <p class="irs-form-instruction">(Individual, Estate, or Trust)</p>
+            <p class="irs-form-link">Go to <i>www.irs.gov/Form1116</i> for instructions and the latest information.
+            </p>
+        </div>
+        <div class="irs-omb-box">
+            OMB No. 1545-0121
+            <div class="irs-year-box">2024</div>
+        </div>
+    </header>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Personal Info -->
+        <div class="irs-row-line-unified">
+            <div class="irs-section-sidebar" style="width: 70%;">Name</div>
+            <div class="irs-amount-input-box" style="flex: 1;">
+                <input type="text" formControlName="name" placeholder="Enter your name">
+            </div>
+            <div class="irs-section-sidebar" style="width: 15%;">SSN</div>
+            <div class="irs-amount-input-box" style="flex: 1;">
+                <input type="text" formControlName="ssn" placeholder="XXX-XX-XXXX">
+            </div>
+        </div>
+
+        <!-- Part I Section Header -->
+        <div class="irs-section-title-bar">
+            <span class="irs-part-box">PART I</span>
+            <span class="irs-part-text">Taxable Income or Loss From Sources Outside the United States</span>
+        </div>
+
+        <!-- Line 1a -->
+        <div class="irs-row-line-unified">
+            <div class="irs-line-number">1a</div>
+            <div class="irs-instruction-text">Gross income from sources within country or US possession:</div>
+            <div class="irs-dotted-line-leader"></div>
+            <div class="irs-amount-input-box">
+                <input type="number" formControlName="line1a">
+            </div>
+        </div>
+
+        <!-- Line 1b -->
+        <div class="irs-row-line-unified">
+            <div class="irs-line-number">1b</div>
+            <div class="irs-instruction-text">Other expenses related to gross income:</div>
+            <div class="irs-dotted-line-leader"></div>
+            <div class="irs-amount-input-box">
+                <input type="number" formControlName="line1b">
+            </div>
+        </div>
+
+        <!-- Part II Section Header -->
+        <div class="irs-section-title-bar">
+            <span class="irs-part-box">PART II</span>
+            <span class="irs-part-text">Foreign Taxes Paid or Accrued</span>
+        </div>
+
+        <div class="irs-row-line-unified">
+            <div class="irs-line-number">8</div>
+            <div class="irs-instruction-text">Foreign taxes paid or accrued in US dollars:</div>
+            <div class="irs-dotted-line-leader"></div>
+            <div class="irs-amount-input-box">
+                <input type="number" formControlName="line8">
+            </div>
+        </div>
+
+        <!-- Part III Section Header -->
+        <div class="irs-section-title-bar">
+            <span class="irs-part-box">PART III</span>
+            <span class="irs-part-text">Figuring the Credit</span>
+        </div>
+
+        <div class="irs-row-line-unified">
+            <div class="irs-line-number">24</div>
+            <div class="irs-instruction-text">Total foreign tax credit. Add all Parts III:</div>
+            <div class="irs-dotted-line-leader"></div>
+            <div class="irs-amount-input-box calculated-box">
+                {{ totalPartI() | currency:'USD':'symbol':'1.0-2' }}
+            </div>
+        </div>
+
+        <div class="irs-footer-actions">
+            <button type="submit" class="irs-btn-submit">Save Form 1116</button>
+        </div>
+    </form>
+</div>

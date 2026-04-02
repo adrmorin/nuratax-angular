@@ -1,0 +1,77 @@
+.irs-unified-container {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #fff;
+  border: 4px solid #000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #000;
+}
+
+.irs-col-left { flex: 3; padding: 5px 10px; }
+.irs-col-right { flex: 1; padding: 5px 10px; }
+.irs-col-full { flex: 1; padding: 10px; }
+.irs-col-letter { width: 150px; padding: 10px; font-weight: 950; font-size: 0.9rem; }
+.irs-col-desc { flex: 1; padding: 10px; font-weight: 950; font-size: 0.9rem; }
+
+.irs-section-title-bar {
+  background: #000;
+  color: #fff;
+  padding: 3px 10px;
+  display: flex;
+  font-weight: 850;
+  font-size: 0.95rem;
+}
+
+.irs-input-borderless {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 4px 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.irs-textarea-borderless {
+  width: 100%;
+  border: none;
+  background: transparent;
+  resize: none;
+  font-size: 0.9rem;
+  padding: 4px;
+}
+
+.irs-input-underline {
+  border: none;
+  border-bottom: 1px dotted #000;
+  background: transparent;
+  text-align: center;
+  font-weight: 700;
+}
+
+.border-r { border-right: 2px solid #000; }
+.border-b { border-bottom: 2px solid #000; }
+.padding-sm { padding: 10px; }
+.padding-b-10 { padding-bottom: 10px; }
+.margin-t-10 { margin-top: 10px; }
+.margin-b-10 { margin-bottom: 10px; }
+.margin-l-20 { margin-left: 20px; }
+.gap-20 { gap: 20px; }
+
+.irs-flex-row { display: flex; }
+.text-center { text-align: center; }
+
+.grey-bg { background: #fdfdfd; }
+
+.irs-btn-submit {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  font-weight: 950;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 20px;
+}

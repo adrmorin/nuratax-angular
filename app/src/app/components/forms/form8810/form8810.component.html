@@ -1,0 +1,79 @@
+<div class="irs-unified-container">
+  <!-- Header Section -->
+  <div class="irs-form-header">
+    <div class="irs-header-left">
+      <div class="irs-form-id-box">
+        <span class="irs-id-sub-small">Form</span>
+        <span class="irs-id-main-large">8810</span>
+      </div>
+      <div class="irs-dept-irs-box">
+        Department of the Treasury<br>
+        Internal Revenue Service
+      </div>
+    </div>
+    <div class="irs-header-center">
+      <h1>Corporate Passive Activity Loss and Credit Limitations</h1>
+      <p class="irs-attach-note">Attach to your tax return (personal service and closely held corporations only).</p>
+      <p class="irs-instruction-note">Go to <strong>www.irs.gov/Form8810</strong> for instructions and the latest information.</p>
+    </div>
+    <div class="irs-header-right">
+      <div class="irs-omb-container">OMB No. 1545-0123</div>
+      <div class="irs-year-display">
+        <span class="irs-year-20">20</span><span class="irs-year-solid">25</span>
+      </div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- Info Grid -->
+    <div class="irs-input-grid-box border-b">
+      <div class="irs-row-line-unified">
+        <div class="irs-col-name border-r">
+          <label for="name" class="irs-label-small">Name</label>
+          <input id="name" type="text" formControlName="name" class="irs-input-borderless">
+        </div>
+        <div class="irs-col-tin">
+          <label for="ein" class="irs-label-small">Employer identification number</label>
+          <input id="ein" type="text" formControlName="ein" class="irs-input-borderless">
+        </div>
+      </div>
+    </div>
+
+    <!-- Part I -->
+    <div class="irs-section-title-bar margin-t-10">
+      <span class="irs-section-letter">Part I</span>
+      <span class="irs-section-text">2025 Passive Activity Loss</span>
+    </div>
+
+    <div class="irs-line-item-container">
+      <div class="irs-row-line-unified">
+        <div class="irs-line-num">1a</div>
+        <div class="irs-line-desc">Current year income (from Worksheet 2, column (a))</div>
+        <div class="irs-amount-box border-l irs-blue-cell">
+          <input type="number" formControlName="l1a" class="irs-input-borderless text-right">
+        </div>
+        <div class="irs-line-num-right border-l">1a</div>
+      </div>
+      <div class="irs-row-line-unified">
+        <div class="irs-line-num">1b</div>
+        <div class="irs-line-desc">Current year deductions and losses (from Worksheet 2, column (b))</div>
+        <div class="irs-amount-box border-l irs-blue-cell">
+          <input type="number" formControlName="l1b" class="irs-input-borderless text-right">
+        </div>
+        <div class="irs-line-num-right border-l">1b</div>
+      </div>
+      <div class="irs-row-line-unified bg-light">
+        <div class="irs-line-num">1d</div>
+        <div class="irs-line-desc"><strong>Combine lines 1a, 1b, and 1c.</strong> If the result is net income or zero, see instructions</div>
+        <div class="irs-amount-box border-l irs-blue-cell flex flex-align-center padding-l-20">
+          <span class="irs-bold-large">${{ line1d() | number:'1.2-2' }}</span>
+        </div>
+        <div class="irs-line-num-right border-l">1d</div>
+      </div>
+    </div>
+
+    <div class="irs-footer-actions">
+      <button type="submit" class="irs-btn-submit">Submit Form 8810</button>
+    </div>
+  </form>
+</div>

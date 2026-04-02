@@ -1,0 +1,82 @@
+<div class="irs-unified-container">
+  <!-- Header Section -->
+  <div class="irs-form-header">
+    <div class="irs-header-left">
+      <div class="irs-form-id-box">
+        <span class="irs-id-sub-small">Form</span>
+        <span class="irs-id-main-large">8582-CR</span>
+        <span class="irs-id-sub-small">(Rev. December 2024)</span>
+      </div>
+      <div class="irs-dept-irs-box">
+        Department of the Treasury<br>
+        Internal Revenue Service
+      </div>
+    </div>
+    <div class="irs-header-center">
+      <h1>Passive Activity Credit Limitations</h1>
+      <p class="irs-attach-note">Attach to Form 1040, 1040-SR, or 1041.</p>
+      <p class="irs-instruction-note">Go to <strong>www.irs.gov/Form8582CR</strong> for instructions and the latest information.</p>
+    </div>
+    <div class="irs-header-right">
+      <div class="irs-omb-container">OMB No. 1545-1034</div>
+      <div class="irs-attachment">Attachment <br> Sequence No. <strong>89</strong></div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- Info Grid -->
+    <div class="irs-input-grid-box border-b">
+      <div class="irs-row-line-unified">
+        <div class="irs-col-name border-r">
+          <label for="name" class="irs-label-small">Name(s) shown on return</label>
+          <input id="name" type="text" formControlName="name" class="irs-input-borderless">
+        </div>
+        <div class="irs-col-tin">
+          <label for="tin" class="irs-label-small">Identifying number</label>
+          <input id="tin" type="text" formControlName="tin" class="irs-input-borderless">
+        </div>
+      </div>
+    </div>
+
+    <!-- Part I -->
+    <div class="irs-section-title-bar margin-t-10">
+      <span class="irs-section-letter">Part I</span>
+      <span class="irs-section-text">Passive Activity Credits</span>
+    </div>
+
+    <div class="irs-line-item-container">
+      <div class="irs-row-line-unified border-b bg-light">
+          <div class="irs-line-desc">Credits From Rental Real Estate Activities ... Participate</div>
+          <div class="irs-amount-box border-l"></div>
+      </div>
+      <div class="irs-row-line-unified">
+          <div class="irs-line-num">1a</div>
+          <div class="irs-line-desc">Credits from Worksheet 1, column (a)</div>
+          <div class="irs-amount-box border-l irs-blue-cell">
+             <input type="number" formControlName="line1a" class="irs-input-borderless text-right">
+          </div>
+          <div class="irs-line-num-right border-l">1a</div>
+      </div>
+      <div class="irs-row-line-unified">
+          <div class="irs-line-num">1b</div>
+          <div class="irs-line-desc">Prior year unallowed credits from Worksheet 1, column (b)</div>
+          <div class="irs-amount-box border-l irs-blue-cell">
+             <input type="number" formControlName="line1b" class="irs-input-borderless text-right">
+          </div>
+          <div class="irs-line-num-right border-l">1b</div>
+      </div>
+      <div class="irs-row-line-unified bg-light">
+          <div class="irs-line-num">1c</div>
+          <div class="irs-line-desc">Add lines 1a and 1b</div>
+          <div class="irs-amount-box border-l irs-blue-cell flex flex-align-center padding-l-20">
+             <span class="irs-bold-large">${{ line1c() | number:'1.2-2' }}</span>
+          </div>
+          <div class="irs-line-num-right border-l">1c</div>
+      </div>
+    </div>
+
+    <div class="irs-footer-actions">
+      <button type="submit" class="irs-btn-submit">Submit Form 8582-CR</button>
+    </div>
+  </form>
+</div>

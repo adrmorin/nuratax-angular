@@ -1,0 +1,112 @@
+<div class="irs-unified-container">
+  <!-- Header Section -->
+  <div class="irs-form-header">
+    <div class="irs-header-left">
+      <div class="irs-form-id-box">
+        <span class="irs-id-sub-small">Form</span>
+        <span class="irs-id-main-large">637</span>
+        <span class="irs-id-sub-small">(Rev. December 2025)</span>
+      </div>
+      <div class="irs-dept-irs-box">
+        Department of the Treasury<br>
+        Internal Revenue Service
+      </div>
+    </div>
+    <div class="irs-header-center">
+      <h1>Application for Registration</h1>
+      <h2>(For Certain Excise Tax Activities)</h2>
+      <p class="irs-instruction-note">Go to <strong>www.irs.gov/Form637</strong> for the latest information.</p>
+    </div>
+    <div class="irs-header-right">
+      <div class="irs-omb-container">OMB No. 1545-1835</div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- Part I -->
+    <div class="irs-section-title-bar">
+      <span class="irs-section-letter">Part I</span>
+      <span class="irs-section-text">Identification of Applicant</span>
+    </div>
+    <div class="irs-input-grid-box border-b">
+      <div class="irs-row-line-unified">
+        <div class="irs-col-left border-r">
+          <label for="legal_name" class="irs-label-small">Legal name of entity (or individual) for which the employer identification number (EIN) was secured</label>
+          <input id="legal_name" type="text" formControlName="legal_name" class="irs-input-borderless">
+        </div>
+        <div class="irs-col-right">
+          <label for="ein" class="irs-label-small">Employer identification number (EIN)</label>
+          <input id="ein" type="text" formControlName="ein" class="irs-input-borderless">
+        </div>
+      </div>
+      <div class="irs-row-line-unified">
+        <div class="irs-col-left border-r">
+          <label for="trade_name" class="irs-label-small">Trade name of business if different from above</label>
+          <input id="trade_name" type="text" formControlName="trade_name" class="irs-input-borderless">
+        </div>
+        <div class="irs-col-right">
+          <label for="phone" class="irs-label-small">Telephone number</label>
+          <input id="phone" type="text" formControlName="phone" class="irs-input-borderless">
+        </div>
+      </div>
+      <div class="irs-row-line-unified">
+        <div class="irs-col-left border-r">
+          <label for="address" class="irs-label-small">Mailing address (number, street, and room or suite no.; if P.O. box, see instructions)</label>
+          <input id="address" type="text" formControlName="address" class="irs-input-borderless">
+        </div>
+        <div class="irs-col-right">
+          <label for="fax" class="irs-label-small">Fax number</label>
+          <input id="fax" type="text" formControlName="fax" class="irs-input-borderless">
+        </div>
+      </div>
+      <div class="irs-row-line-unified">
+        <div class="irs-col-full">
+          <label for="city_state_zip" class="irs-label-small">City or town, state or province, country, and ZIP or foreign postal code</label>
+          <input id="city_state_zip" type="text" formControlName="city_state_zip" class="irs-input-borderless">
+        </div>
+      </div>
+    </div>
+
+    <!-- Part II -->
+    <div class="irs-section-title-bar margin-t-10">
+      <span class="irs-section-letter">Part II</span>
+      <span class="irs-section-text">Activities</span>
+    </div>
+    <div class="irs-input-grid-box border-b grey-bg">
+      <div class="irs-row-line-unified border-b">
+        <div class="irs-col-letter border-r">Activity letter</div>
+        <div class="irs-col-desc text-center">Activity description</div>
+      </div>
+      <div class="irs-row-line-unified">
+        <div class="irs-col-letter border-r">
+          <input type="text" formControlName="activity1_letter" class="irs-input-borderless text-center">
+        </div>
+        <div class="irs-col-desc">
+          <textarea formControlName="activity1_desc" class="irs-textarea-borderless" rows="2"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Part III -->
+    <div class="irs-section-title-bar margin-t-10">
+      <span class="irs-section-letter">Part III</span>
+      <span class="irs-section-text">General Information</span>
+    </div>
+    <div class="irs-id-section padding-sm border-b">
+      <p class="irs-label-small padding-b-10"><strong>1a</strong> Are you filing, or will you be required to file, Form 720, Quarterly Federal Excise Tax Return?</p>
+      <div class="irs-radio-group margin-b-10">
+        <label><input type="radio" [value]="true" formControlName="q1a"> Yes</label>
+        <label class="margin-l-20"><input type="radio" [value]="false" formControlName="q1a"> No</label>
+      </div>
+      <p class="irs-label-small padding-b-10"><strong>2a</strong> List the date your business started:</p>
+      <div class="irs-flex-row gap-20">
+        <div>Month: <input type="text" formControlName="business_start_month" class="irs-input-underline" style="width: 80px;"></div>
+        <div>Year: <input type="text" formControlName="business_start_year" class="irs-input-underline" style="width: 100px;"></div>
+      </div>
+    </div>
+
+    <div class="irs-footer-actions">
+      <button type="submit" class="irs-btn-submit">Submit Form 637</button>
+    </div>
+  </form>
+</div>

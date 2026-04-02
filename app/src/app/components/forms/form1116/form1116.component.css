@@ -1,0 +1,5 @@
+/* Form 1116 Specific Styles (most are inheriting from global unified system) */
+:host {
+    display: block;
+    width: 100%;
+}

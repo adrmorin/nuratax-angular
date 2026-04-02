@@ -1,0 +1,46 @@
+<div class="irs-unified-container">
+    <header class="irs-form-header">
+        <div class="irs-dept-info">
+            Department of the Treasury<br>
+            Internal Revenue Service
+        </div>
+        <div class="irs-form-title">
+            <h1 class="irs-form-id">Form 7204</h1>
+            <p class="irs-form-name">Consent To Extend the Time To Assess Tax Related to Contested Foreign Income Taxes</p>
+            <p class="irs-form-instruction">(Rev. Jan 2024)</p>
+            <p class="irs-form-link">Go to <i>www.irs.gov/Form7204</i> for instructions.</p>
+        </div>
+        <div class="irs-omb-box">
+            OMB No. 1545-2144
+            <div class="irs-year-box">2024</div>
+        </div>
+    </header>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="irs-row-line-unified">
+            <div class="irs-section-sidebar" style="width: 70%;">Taxpayer Name</div>
+            <div class="irs-amount-input-box" style="flex: 1;">
+                <input type="text" formControlName="taxpayerName" placeholder="Enter name">
+            </div>
+            <div class="irs-section-sidebar" style="width: 15%;">SSN / EIN</div>
+            <div class="irs-amount-input-box" style="flex: 1;">
+                <input type="text" formControlName="ssnOrEin" placeholder="XXX-XX-XXXX">
+            </div>
+        </div>
+
+        <div class="irs-row-line-unified">
+            <div class="irs-section-sidebar" style="width: 70%;">Street Address</div>
+            <div class="irs-amount-input-box" style="flex: 1;">
+                <input type="text" formControlName="address" placeholder="Address">
+            </div>
+            <div class="irs-section-sidebar" style="width: 15%;">Tax Year</div>
+            <div class="irs-amount-input-box" style="flex: 1;">
+                <input type="text" formControlName="taxYear" placeholder="2024">
+            </div>
+        </div>
+
+        <div class="irs-footer-actions">
+            <button type="submit" class="irs-btn-submit">Save Form 7204</button>
+        </div>
+    </form>
+</div>

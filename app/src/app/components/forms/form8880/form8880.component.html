@@ -1,0 +1,87 @@
+<div class="irs-unified-container">
+  <!-- Header Section -->
+  <div class="irs-form-header">
+    <div class="irs-header-left">
+      <div class="irs-form-id-box">
+        <span class="irs-id-sub-small">Form</span>
+        <span class="irs-id-main-large">8880</span>
+      </div>
+      <div class="irs-dept-irs-box">
+        Department of the Treasury<br>
+        Internal Revenue Service
+      </div>
+    </div>
+    <div class="irs-header-center">
+      <h1>Credit for Qualified Retirement Savings Contributions</h1>
+      <p class="irs-attach-note">Attach to Form 1040, 1040-SR, or 1040-NR.</p>
+      <p class="irs-instruction-note">Go to <strong>www.irs.gov/Form8880</strong> for the latest information.</p>
+    </div>
+    <div class="irs-header-right">
+      <div class="irs-omb-container">OMB No. 1545-0074</div>
+      <div class="irs-year-display">
+        <span class="irs-year-20">20</span><span class="irs-year-solid">25</span>
+      </div>
+      <div class="irs-attachment">Attachment <br> Sequence No. <strong>54</strong></div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- Info Grid -->
+    <div class="irs-input-grid-box border-b">
+      <div class="irs-row-line-unified">
+        <div class="irs-col-name border-r">
+          <label for="name" class="irs-label-small">Name(s) shown on return</label>
+          <input id="name" type="text" formControlName="name" class="irs-input-borderless">
+        </div>
+        <div class="irs-col-tin">
+          <label for="ssn" class="irs-label-small">Your social security number</label>
+          <input id="ssn" type="text" formControlName="ssn" class="irs-input-borderless">
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Section with Two Columns -->
+    <div class="irs-line-item-container margin-t-10">
+      <div class="irs-row-line-unified border-b bg-light">
+          <div class="irs-line-num"></div>
+          <div class="irs-line-desc"></div>
+          <div class="irs-col-user border-l text-center">(a) You</div>
+          <div class="irs-col-spouse border-l text-center">(b) Your spouse</div>
+      </div>
+      <div class="irs-row-line-unified">
+          <div class="irs-line-num">1</div>
+          <div class="irs-line-desc">IRA contributions, and ABLE account contributions ...</div>
+          <div class="irs-col-user border-l irs-blue-cell">
+             <input type="number" formControlName="l1a" class="irs-input-borderless text-right">
+          </div>
+          <div class="irs-col-spouse border-l irs-blue-cell">
+             <input type="number" formControlName="l1b" class="irs-input-borderless text-right">
+          </div>
+      </div>
+      <div class="irs-row-line-unified">
+          <div class="irs-line-num">2</div>
+          <div class="irs-line-desc">Elective deferrals to a 401(k) or other qualified employer plan ...</div>
+          <div class="irs-col-user border-l irs-blue-cell">
+             <input type="number" formControlName="l2a" class="irs-input-borderless text-right">
+          </div>
+          <div class="irs-col-spouse border-l irs-blue-cell">
+             <input type="number" formControlName="l2b" class="irs-input-borderless text-right">
+          </div>
+      </div>
+      <div class="irs-row-line-unified bg-light">
+          <div class="irs-line-num">3</div>
+          <div class="irs-line-desc"><strong>Add lines 1 and 2</strong></div>
+          <div class="irs-col-user border-l text-right padding-r-10 font-bold">
+             ${{ l3a() | number:'1.2-2' }}
+          </div>
+          <div class="irs-col-spouse border-l text-right padding-r-10 font-bold">
+             ${{ l3b() | number:'1.2-2' }}
+          </div>
+      </div>
+    </div>
+
+    <div class="irs-footer-actions">
+      <button type="submit" class="irs-btn-submit">Submit Form 8880</button>
+    </div>
+  </form>
+</div>

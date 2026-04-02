@@ -1,0 +1,89 @@
+<div class="irs-unified-container">
+  <!-- Header Section -->
+  <div class="irs-form-header">
+    <div class="irs-header-left">
+      <div class="irs-form-id-box">
+        <span class="irs-id-main-large">Schedule K-3</span>
+        <span class="irs-id-sub-small">(Form 1065)</span>
+      </div>
+      <div class="irs-dept-irs-box">
+        Department of the Treasury<br>
+        Internal Revenue Service
+      </div>
+    </div>
+    <div class="irs-header-center">
+      <h1>Partner’s Share of Income, Deductions, Credits, etc.—International</h1>
+      <p class="irs-attach-note">For calendar year 2025, or tax year beginning ... , ending ...</p>
+      <p class="irs-instruction-note">Go to <strong>www.irs.gov/Form1065</strong> for instructions and the latest information.</p>
+    </div>
+    <div class="irs-header-right">
+      <div class="irs-omb-container">OMB No. 1545-0123</div>
+      <div class="irs-year-display">
+        <span class="irs-year-20">20</span><span class="irs-year-solid">25</span>
+      </div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- Part A & B Summary -->
+    <div class="irs-section-title-bar">
+      <span class="irs-section-part">Information About the Partnership</span>
+      <span class="irs-section-part border-l">Information About the Partner</span>
+    </div>
+
+    <!-- Info Grid -->
+    <div class="irs-input-grid-box">
+      <div class="irs-row-line-unified">
+        <div class="irs-col-half border-r">
+          <label for="partnership_ein" class="irs-label-small">A Partnership’s employer identification number (EIN)</label>
+          <input id="partnership_ein" type="text" formControlName="partnership_ein" class="irs-input-borderless">
+        </div>
+        <div class="irs-col-half">
+          <label for="partner_tin" class="irs-label-small">C Partner’s social security number (SSN) or TIN</label>
+          <input id="partner_tin" type="text" formControlName="partner_tin" class="irs-input-borderless">
+        </div>
+      </div>
+      <div class="irs-row-line-unified">
+        <div class="irs-col-half border-r">
+          <label for="partnership_name_address" class="irs-label-small">B Partnership's name, address, city, state, and ZIP code</label>
+          <textarea id="partnership_name_address" formControlName="partnership_name_address" class="irs-textarea-borderless" rows="3"></textarea>
+        </div>
+        <div class="irs-col-half">
+          <label for="partner_name_address" class="irs-label-small">D Name, address, city, state, and ZIP code for partner</label>
+          <textarea id="partner_name_address" formControlName="partner_name_address" class="irs-textarea-borderless" rows="3"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Part E Checklist -->
+    <div class="irs-section-title-bar margin-t-10">
+      <span class="irs-section-letter">Part E</span>
+      <span class="irs-section-text">Check to indicate the parts of Schedule K-3 that apply.</span>
+    </div>
+
+    <div class="irs-checklist-table">
+      <div class="irs-check-row border-b" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13]">
+        <div class="irs-check-num">{{i}}</div>
+        <div class="irs-check-desc">Does Part {{i}} apply? If "Yes," complete and attach Part {{i}}.</div>
+        <div class="irs-check-boxes">
+          <label class="irs-check-box-label">
+            <input type="checkbox" [formControlName]="'check_p' + i"> Yes
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Part F -->
+    <div class="irs-row-line-unified border-t margin-t-10">
+      <div class="irs-col-full padding-sm">
+        <label class="irs-label-medium">
+          <input type="checkbox" formControlName="is_amended"> F Check if Amended K-3
+        </label>
+      </div>
+    </div>
+
+    <div class="irs-footer-actions">
+      <button type="submit" class="irs-btn-submit">Submit Schedule K-3</button>
+    </div>
+  </form>
+</div>

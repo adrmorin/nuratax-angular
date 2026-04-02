@@ -1,0 +1,58 @@
+<div class="irs-unified-container">
+    <header class="irs-form-header">
+        <div class="irs-dept-info">
+            Department of the Treasury<br>
+            Internal Revenue Service
+        </div>
+        <div class="irs-form-title">
+            <h1 class="irs-form-id">Form 5713</h1>
+            <p class="irs-form-name">International Boycott Report</p>
+            <p class="irs-form-instruction">(Rev. December 2024)</p>
+            <p class="irs-form-link">Go to <i>www.irs.gov/Form5713</i> for instructions.</p>
+        </div>
+        <div class="irs-omb-box">
+            OMB No. 1545-0216
+            <div class="irs-year-box">2024</div>
+        </div>
+    </header>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="irs-row-line-unified">
+            <div class="irs-section-sidebar" style="width: 70%;">Name</div>
+            <div class="irs-amount-input-box" style="flex: 1;">
+                <input type="text" formControlName="name" placeholder="Enter name">
+            </div>
+            <div class="irs-section-sidebar" style="width: 15%;">Id Number</div>
+            <div class="irs-amount-input-box" style="flex: 1;">
+                <input type="text" formControlName="taxId" placeholder="XX-XXXXXXX">
+            </div>
+        </div>
+
+        <div class="irs-section-title-bar">
+            <span class="irs-part-box">QUEST</span>
+            <span class="irs-part-text">Boycott Questions</span>
+        </div>
+
+        <div class="irs-row-line-unified">
+            <div class="irs-line-number">1</div>
+            <div class="irs-instruction-text">List of boycotting countries:</div>
+            <div class="irs-dotted-line-leader"></div>
+            <div class="irs-amount-input-box">
+                <input type="text" formControlName="boycottingCountry" placeholder="Country names">
+            </div>
+        </div>
+
+        <div class="irs-row-line-unified">
+            <div class="irs-line-number">2</div>
+            <div class="irs-instruction-text">Total operations in boycotting countries:</div>
+            <div class="irs-dotted-line-leader"></div>
+            <div class="irs-amount-input-box">
+                <input type="number" formControlName="line1">
+            </div>
+        </div>
+
+        <div class="irs-footer-actions">
+            <button type="submit" class="irs-btn-submit">Save Form 5713</button>
+        </div>
+    </form>
+</div>

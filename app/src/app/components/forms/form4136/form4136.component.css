@@ -1,0 +1,93 @@
+.irs-unified-container {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #fff;
+  border: 4px solid #000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #000;
+}
+
+.irs-col-name { flex: 3; padding: 5px 10px; }
+.irs-col-tin { flex: 1; padding: 5px 10px; }
+
+.irs-section-title-bar {
+  background: #000;
+  color: #fff;
+  padding: 4px 10px;
+  display: flex;
+  font-weight: 850;
+  font-size: 0.95rem;
+}
+
+.border-l { border-left: 2px solid #000; }
+.border-r { border-right: 2px solid #000; }
+.border-b { border-bottom: 2px solid #000; }
+.border-t { border-top: 2px solid #000; }
+
+.irs-table-box {
+  border: 1px solid #000;
+  border-top: none;
+}
+
+.irs-table-header-row {
+  display: flex;
+  background: #f0f0f0;
+  font-weight: 900;
+  padding: 4px 0;
+  border-bottom: 2px solid #000;
+}
+
+.irs-cell-num { width: 30px; text-align: center; font-weight: 950; }
+.irs-cell-desc { flex: 1; padding-left: 10px; font-size: 0.85rem; }
+.irs-cell-val-label { width: 140px; text-align: center; font-weight: 950; }
+.irs-cell-val-box { width: 140px; padding: 0; position: relative; }
+
+.irs-blue-cell { background: #e8f0fe !important; }
+.grey-bg { background: #fdfdfd; }
+
+.irs-input-borderless {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 4px 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.text-right { text-align: right; }
+
+.irs-input-underline {
+  border: none;
+  border-bottom: 1px dotted #000;
+  background: transparent;
+  text-align: center;
+  font-weight: 700;
+}
+
+.irs-bold-large { font-size: 1.25rem; font-weight: 950; color: #1a73e8; }
+
+.padding-sm { padding: 10px; }
+.margin-t-10 { margin-top: 10px; }
+.margin-t-20 { margin-top: 20px; }
+.margin-b-10 { margin-bottom: 10px; }
+.margin-l-20 { margin-left: 20px; }
+.padding-l-20 { padding-left: 20px; }
+
+.irs-col-60 { flex: 3; }
+.irs-col-40 { flex: 2; }
+
+.flex { display: flex; }
+.flex-align-center { align-items: center; }
+
+.irs-btn-submit {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  font-weight: 950;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+}

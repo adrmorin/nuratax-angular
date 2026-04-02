@@ -18,24 +18,24 @@
 
     <!-- Identity Row -->
     <div class="irs-identity-row">
-       <div class="irs-id-section border-b">
-          <label>Name of person filing Form 5471</label>
-          <input type="text" formControlName="nameOfPerson" class="irs-borderless-input">
-       </div>
-       <div class="irs-id-section border-l border-b">
-          <label>Identifying number</label>
-          <input type="text" formControlName="identNumber" class="irs-borderless-input">
-       </div>
+        <div class="irs-id-section border-b">
+           <label for="nameOfPerson">Name of person filing Form 5471</label>
+           <input id="nameOfPerson" type="text" formControlName="nameOfPerson" class="irs-borderless-input">
+        </div>
+        <div class="irs-id-section border-l border-b">
+           <label for="identNumber">Identifying number</label>
+           <input id="identNumber" type="text" formControlName="identNumber" class="irs-borderless-input">
+        </div>
     </div>
     <div class="irs-identity-row">
-       <div class="irs-id-section">
-          <label>Name of foreign corporation</label>
-          <input type="text" formControlName="nameOfForeignCorp" class="irs-borderless-input">
-       </div>
-       <div class="irs-id-section border-l">
-          <label>Reference ID number (see instructions)</label>
-          <input type="text" formControlName="corpTin" class="irs-borderless-input">
-       </div>
+        <div class="irs-id-section">
+           <label for="nameOfForeignCorp">Name of foreign corporation</label>
+           <input id="nameOfForeignCorp" type="text" formControlName="nameOfForeignCorp" class="irs-borderless-input">
+        </div>
+        <div class="irs-id-section border-l">
+           <label for="corpTin">Reference ID number (see instructions)</label>
+           <input id="corpTin" type="text" formControlName="corpTin" class="irs-borderless-input">
+        </div>
     </div>
 
     <form [formGroup]="form" (ngSubmit)="onSubmit()">

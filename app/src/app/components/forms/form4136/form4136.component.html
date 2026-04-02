@@ -1,0 +1,122 @@
+<div class="irs-unified-container">
+  <!-- Header Section -->
+  <div class="irs-form-header">
+    <div class="irs-header-left">
+      <div class="irs-form-id-box">
+        <span class="irs-id-sub-small">Form</span>
+        <span class="irs-id-main-large">4136</span>
+      </div>
+      <div class="irs-dept-irs-box">
+        Department of the Treasury<br>
+        Internal Revenue Service
+      </div>
+    </div>
+    <div class="irs-header-center">
+      <h1>Credit for Federal Tax Paid on Fuels</h1>
+      <p class="irs-instruction-note">Go to <strong>www.irs.gov/Form4136</strong> for instructions and the latest information.</p>
+    </div>
+    <div class="irs-header-right">
+      <div class="irs-omb-container">OMB No. 1545-0074</div>
+      <div class="irs-year-display">
+        <span class="irs-year-20">20</span><span class="irs-year-solid">25</span>
+      </div>
+      <div class="irs-attachment">Attachment <br> Sequence No. <strong>79</strong></div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- Info Grid -->
+    <div class="irs-input-grid-box border-b">
+      <div class="irs-row-line-unified">
+        <div class="irs-col-name border-r">
+          <label for="name" class="irs-label-small">Name (as shown on your income tax return)</label>
+          <input id="name" type="text" formControlName="name" class="irs-input-borderless">
+        </div>
+        <div class="irs-col-tin">
+          <label for="tin" class="irs-label-small">Taxpayer identification number</label>
+          <input id="tin" type="text" formControlName="tin" class="irs-input-borderless">
+        </div>
+      </div>
+    </div>
+
+    <!-- Part I -->
+    <div class="irs-section-title-bar margin-t-10">
+      <span class="irs-section-letter">Part I</span>
+      <span class="irs-section-text">Information About Your Business</span>
+    </div>
+    <div class="irs-input-grid-box padding-sm border-b">
+      <p class="irs-label-small"><strong>(A)</strong> Do you have a qualifying business or business activity with qualifying usage of qualifying fuels eligible for the fuel tax credit?</p>
+      <div class="irs-radio-group margin-b-10">
+        <label><input type="radio" [value]="true" formControlName="p1a"> Yes</label>
+        <label class="margin-l-20"><input type="radio" [value]="false" formControlName="p1a"> No</label>
+      </div>
+      <p class="irs-label-small">If "Yes," how many different business activities do you have that qualify for this credit? <input type="number" formControlName="p1b_count" class="irs-input-underline" style="width: 60px;"></p>
+    </div>
+
+    <!-- Part II -->
+    <div class="irs-section-title-bar margin-t-10">
+      <span class="irs-section-letter">Part II</span>
+      <span class="irs-section-text">Credits</span>
+    </div>
+
+    <div class="irs-table-box">
+      <div class="irs-table-header-row">
+        <div class="irs-cell-num">1</div>
+        <div class="irs-cell-desc">Nontaxable Use of Gasoline</div>
+        <div class="irs-cell-val-label">(c) Gallons</div>
+        <div class="irs-cell-val-label">(e) Credit</div>
+      </div>
+      <div class="irs-row-line-unified grey-bg">
+        <div class="irs-cell-num">a</div>
+        <div class="irs-cell-desc">Off-highway business use</div>
+        <div class="irs-cell-val-box border-l">
+          <input type="number" formControlName="line1a_gallons" class="irs-input-borderless text-right">
+        </div>
+        <div class="irs-cell-val-box border-l irs-blue-cell">
+          <input type="number" formControlName="line1a_credit" class="irs-input-borderless text-right">
+        </div>
+      </div>
+      <div class="irs-row-line-unified">
+        <div class="irs-cell-num">b</div>
+        <div class="irs-cell-desc">Use on a farm for farming purposes</div>
+        <div class="irs-cell-val-box border-l">
+          <input type="number" formControlName="line1b_gallons" class="irs-input-borderless text-right">
+        </div>
+        <div class="irs-cell-val-box border-l irs-blue-cell">
+          <input type="number" formControlName="line1b_credit" class="irs-input-borderless text-right">
+        </div>
+      </div>
+
+      <div class="irs-table-header-row margin-t-10">
+        <div class="irs-cell-num">2</div>
+        <div class="irs-cell-desc">Nontaxable Use of Aviation Gasoline</div>
+        <div class="irs-cell-val-label">(c) Gallons</div>
+        <div class="irs-cell-val-label">(e) Credit</div>
+      </div>
+      <div class="irs-row-line-unified grey-bg">
+        <div class="irs-cell-num">a</div>
+        <div class="irs-cell-desc">Use in commercial aviation (other than foreign trade)</div>
+        <div class="irs-cell-val-box border-l">
+          <input type="number" formControlName="line2a_gallons" class="irs-input-borderless text-right">
+        </div>
+        <div class="irs-cell-val-box border-l irs-blue-cell">
+          <input type="number" formControlName="line2a_credit" class="irs-input-borderless text-right">
+        </div>
+      </div>
+    </div>
+
+    <!-- Total Row -->
+    <div class="irs-row-line-unified border-t border-b margin-t-20">
+      <div class="irs-col-60 padding-sm">
+        <strong>Total fuel tax credit.</strong> Add lines 1 through 17 in column (e).
+      </div>
+      <div class="irs-col-40 irs-blue-cell flex flex-align-center padding-l-20">
+        <span class="irs-bold-large">${{ totalCredit() | number:'1.2-2' }}</span>
+      </div>
+    </div>
+
+    <div class="irs-footer-actions">
+      <button type="submit" class="irs-btn-submit">Submit Form 4136</button>
+    </div>
+  </form>
+</div>

@@ -368,7 +368,7 @@
                         </td>
                         <td class="irs-val-cell calculated irs-blue-cell"
                             style="display:flex; align-items:center; justify-content:flex-end; padding-right:8px; font-weight:700;">
-                            {{ scheduleForm.get('line7')?.value | number:'1.0-2' }}
+                            {{ line7() | number:'1.0-2' }}
                         </td>
                     </tr>
                     <tr style="border-bottom: 2px solid #000;">
@@ -385,7 +385,7 @@
                         </td>
                         <td class="irs-val-cell calculated irs-blue-cell"
                             style="display:flex; align-items:center; justify-content:flex-end; padding-right:8px; font-weight:700;">
-                            {{ scheduleForm.get('line8')?.value | number:'1.0-2' }}
+                            {{ line8() | number:'1.0-2' }}
                         </td>
                     </tr>
                 </tbody>
@@ -526,7 +526,7 @@
                         </td>
                         <td class="irs-val-cell calculated irs-blue-cell"
                             style="display:flex; align-items:center; justify-content:flex-end; padding-right:8px; font-weight:700; border-bottom: 2px solid #000 !important;">
-                            {{ scheduleForm.get('line15')?.value | number:'1.0-2' }}
+                            {{ line15() | number:'1.0-2' }}
                         </td>
                     </tr>
                 </tbody>

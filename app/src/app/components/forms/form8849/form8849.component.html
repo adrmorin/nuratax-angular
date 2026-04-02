@@ -1,0 +1,97 @@
+<div class="irs-unified-container">
+  <!-- Header Section -->
+  <div class="irs-form-header">
+    <div class="irs-header-left">
+      <div class="irs-form-id-box">
+        <span class="irs-id-sub-small">Form</span>
+        <span class="irs-id-main-large">8849</span>
+        <span class="irs-id-sub-small">(Rev. August 2025)</span>
+      </div>
+      <div class="irs-dept-irs-box">
+        Department of the Treasury<br>
+        Internal Revenue Service
+      </div>
+    </div>
+    <div class="irs-header-center">
+      <h1>Claim for Refund of Excise Taxes</h1>
+      <p class="irs-instruction-note">Go to <strong>www.irs.gov/Form8849</strong> for instructions and the latest information.</p>
+    </div>
+    <div class="irs-header-right">
+      <div class="irs-omb-container">OMB No. 1545-1420</div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- Info Grid -->
+    <div class="irs-input-grid-box border-b">
+      <div class="irs-row-line-unified">
+        <div class="irs-col-name border-r">
+          <label for="name" class="irs-label-small">Name of claimant</label>
+          <input id="name" type="text" formControlName="name" class="irs-input-borderless">
+        </div>
+        <div class="irs-col-tin">
+          <label for="ein" class="irs-label-small">Employer identification number (EIN)</label>
+          <input id="ein" type="text" formControlName="ein" class="irs-input-borderless">
+        </div>
+      </div>
+      <div class="irs-row-line-unified">
+        <div class="irs-col-name border-r">
+          <label for="address" class="irs-label-small">Address (number, street, and room or suite no.)</label>
+          <input id="address" type="text" formControlName="address" class="irs-input-borderless">
+        </div>
+        <div class="irs-col-tin">
+          <label for="ssn" class="irs-label-small">Social security number (SSN)</label>
+          <input id="ssn" type="text" formControlName="ssn" class="irs-input-borderless">
+        </div>
+      </div>
+      <div class="irs-row-line-unified">
+        <div class="irs-col-name border-r">
+          <label for="city_state_zip" class="irs-label-small">City or town, and state or province. If you have a foreign address, see instructions.</label>
+          <input id="city_state_zip" type="text" formControlName="city_state_zip" class="irs-input-borderless">
+        </div>
+        <div class="irs-col-tin">
+          <label for="phone" class="irs-label-small">Daytime telephone number (optional)</label>
+          <input id="phone" type="text" formControlName="phone" class="irs-input-borderless">
+        </div>
+      </div>
+    </div>
+
+    <!-- Schedules Attached -->
+    <div class="irs-section-title-bar margin-t-10">
+      <span class="irs-section-text">Schedules Attached</span>
+    </div>
+    <div class="irs-checklist-box padding-sm border-b grey-bg">
+      <p class="irs-label-small">Check (✓) the appropriate box(es) for the schedule(s) you attach to Form 8849.</p>
+      <div class="irs-check-list margin-t-10">
+        <label class="irs-check-item">
+          <span>Schedule 1</span> <span>Nontaxable Use of Fuels</span>
+          <input type="checkbox" formControlName="sched1">
+        </label>
+        <label class="irs-check-item">
+          <span>Schedule 2</span> <span>Sales by Registered Ultimate Vendors</span>
+          <input type="checkbox" formControlName="sched2">
+        </label>
+        <label class="irs-check-item">
+          <span>Schedule 3</span> <span>Certain Fuel Mixtures and the Alternative Fuel Credit</span>
+          <input type="checkbox" formControlName="sched3">
+        </label>
+        <label class="irs-check-item">
+          <span>Schedule 5</span> <span>Section 4081(e) Claims</span>
+          <input type="checkbox" formControlName="sched5">
+        </label>
+        <label class="irs-check-item">
+          <span>Schedule 6</span> <span>Other Claims</span>
+          <input type="checkbox" formControlName="sched6">
+        </label>
+        <label class="irs-check-item">
+          <span>Schedule 8</span> <span>Registered Credit Card Issuers</span>
+          <input type="checkbox" formControlName="sched8">
+        </label>
+      </div>
+    </div>
+
+    <div class="irs-footer-actions">
+      <button type="submit" class="irs-btn-submit">Submit Form 8849</button>
+    </div>
+  </form>
+</div>

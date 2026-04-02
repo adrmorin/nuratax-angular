@@ -1,0 +1,110 @@
+<div class="irs-unified-container">
+  <!-- Header Section -->
+  <div class="irs-form-header">
+    <div class="irs-header-left">
+      <div class="irs-form-id-box">
+        <span class="irs-id-sub-small">Form</span>
+        <span class="irs-id-main-large">720</span>
+        <span class="irs-id-sub-small">(Rev. December 2025)</span>
+      </div>
+      <div class="irs-dept-irs-box">
+        Department of the Treasury<br>
+        Internal Revenue Service
+      </div>
+    </div>
+    <div class="irs-header-center">
+      <h1>Quarterly Federal Excise Tax Return</h1>
+      <p class="irs-instruction-note">Go to <strong>www.irs.gov/Form720</strong> for instructions and the latest information.</p>
+    </div>
+    <div class="irs-header-right">
+      <div class="irs-omb-container">OMB No. 1545-0023</div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- Info Grid -->
+    <div class="irs-input-grid-box border-b">
+      <div class="irs-row-line-unified">
+        <div class="irs-col-name border-r">
+          <label for="name" class="irs-label-small">Name</label>
+          <input id="name" type="text" formControlName="name" class="irs-input-borderless">
+          <label for="address" class="irs-label-small margin-t-10">Number, street, and room or suite no.</label>
+          <input id="address" type="text" formControlName="address" class="irs-input-borderless">
+        </div>
+        <div class="irs-col-quarter">
+          <label for="quarter_ending" class="irs-label-small">Quarter ending</label>
+          <input id="quarter_ending" type="text" formControlName="quarter_ending" class="irs-input-borderless">
+          <label for="ein" class="irs-label-small margin-t-10">Employer identification number</label>
+          <input id="ein" type="text" formControlName="ein" class="irs-input-borderless">
+        </div>
+      </div>
+    </div>
+
+    <!-- Part I -->
+    <div class="irs-section-title-bar margin-t-10">
+      <span class="irs-section-letter">Part I</span>
+    </div>
+
+    <div class="irs-table-box border-b">
+       <div class="irs-row-line-unified border-b bg-light">
+          <div class="irs-cell-irs-no">IRS No.</div>
+          <div class="irs-cell-desc-large">Environmental Taxes</div>
+          <div class="irs-cell-tax-val">Tax</div>
+          <div class="irs-cell-irs-no-right">IRS No.</div>
+       </div>
+       <div class="irs-row-line-unified">
+          <div class="irs-cell-irs-no">53</div>
+          <div class="irs-cell-desc-large">Domestic petroleum superfund tax*</div>
+          <div class="irs-cell-tax-val border-l irs-blue-cell">
+             <input type="number" formControlName="line53" class="irs-input-borderless text-right">
+          </div>
+          <div class="irs-cell-irs-no-right">53</div>
+       </div>
+       <div class="irs-row-line-unified">
+          <div class="irs-cell-irs-no">18</div>
+          <div class="irs-cell-desc-large">Domestic petroleum oil spill tax</div>
+          <div class="irs-cell-tax-val border-l irs-blue-cell">
+             <input type="number" formControlName="line18" class="irs-input-borderless text-right">
+          </div>
+          <div class="irs-cell-irs-no-right">18</div>
+       </div>
+       <div class="irs-row-line-unified">
+          <div class="irs-cell-irs-no">16</div>
+          <div class="irs-cell-desc-large">Imported petroleum products superfund tax</div>
+          <div class="irs-cell-tax-val border-l irs-blue-cell">
+             <input type="number" formControlName="line16" class="irs-input-borderless text-right">
+          </div>
+          <div class="irs-cell-irs-no-right">16</div>
+       </div>
+
+       <div class="irs-row-line-unified border-t border-b bg-light">
+          <div class="irs-cell-irs-no"></div>
+          <div class="irs-cell-desc-large">Communications and Air Transportation Taxes</div>
+          <div class="irs-cell-tax-val">Tax</div>
+          <div class="irs-cell-irs-no-right"></div>
+       </div>
+       <div class="irs-row-line-unified">
+          <div class="irs-cell-irs-no">22</div>
+          <div class="irs-cell-desc-large">Local telephone service and teletypewriter exchange service</div>
+          <div class="irs-cell-tax-val border-l irs-blue-cell">
+             <input type="number" formControlName="line22" class="irs-input-borderless text-right">
+          </div>
+          <div class="irs-cell-irs-no-right">22</div>
+       </div>
+    </div>
+
+    <!-- Total Row -->
+    <div class="irs-row-line-unified border-b margin-t-10">
+      <div class="irs-col-name padding-sm">
+        <strong>Subtotal Part I.</strong> Add all items in the Tax column.
+      </div>
+      <div class="irs-col-quarter irs-blue-cell flex flex-align-center padding-l-20">
+        <span class="irs-bold-large">${{ totalPartI() | number:'1.2-2' }}</span>
+      </div>
+    </div>
+
+    <div class="irs-footer-actions">
+      <button type="submit" class="irs-btn-submit">Submit Form 720</button>
+    </div>
+  </form>
+</div>
