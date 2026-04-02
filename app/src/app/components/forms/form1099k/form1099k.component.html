@@ -1,0 +1,146 @@
+<div class="irs-form-container">
+    <div class="k1099-box">
+        <form [formGroup]="form1099k" (ngSubmit)="onSubmit()">
+            
+            <div class="k1099-grid">
+                
+                <!-- Left Column -->
+                <div class="k1099-left">
+                    <div class="k1099-cell h-filer">
+                        <div class="k1099-cell-header">FILER’S name, street address, city or town, state or province, country, ZIP or foreign postal code, and telephone no.</div>
+                        <textarea formControlName="filerInfo" class="k1099-textarea"></textarea>
+                    </div>
+                    
+                    <div class="k1099-row">
+                        <div class="k1099-cell half">
+                            <div class="k1099-cell-header">FILER’S TIN</div>
+                            <input type="text" formControlName="filerTIN" class="k1099-input">
+                        </div>
+                        <div class="k1099-cell half">
+                            <div class="k1099-cell-header">PAYEE’S TIN</div>
+                            <input type="text" formControlName="payeeTIN" class="k1099-input">
+                        </div>
+                    </div>
+                    
+                    <div class="k1099-cell h-double">
+                        <div class="k1099-cell-header">PAYEE’S name</div>
+                        <input type="text" formControlName="payeeName" class="k1099-input">
+                    </div>
+                    
+                    <div class="k1099-cell h-double">
+                        <div class="k1099-cell-header">Street address (including apt. no.)</div>
+                        <input type="text" formControlName="payeeAddress" class="k1099-input">
+                    </div>
+                    
+                    <div class="k1099-cell h-double">
+                        <div class="k1099-cell-header">City or town, state or province, country, and ZIP or foreign postal code</div>
+                        <input type="text" formControlName="payeeCityStateZip" class="k1099-input">
+                    </div>
+                    
+                    <div class="k1099-row">
+                        <div class="k1099-cell half">
+                            <div class="k1099-cell-header">Account number (see instructions)</div>
+                            <input type="text" formControlName="accountNumber" class="k1099-input">
+                        </div>
+                        <div class="k1099-cell half radio-cell">
+                            <label class="k1099-radio"><input type="radio" formControlName="paysecType" value="paymentCard"> Payment card</label><br>
+                            <label class="k1099-radio"><input type="radio" formControlName="paysecType" value="thirdPartyNetwork"> Third party network</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="k1099-right">
+                    <div class="k1099-header-right">
+                        <div class="k1099-omb">OMB No. 1545-2205</div>
+                        <div class="k1099-maintitle">
+                            <div class="k1099-form-name">Form <strong>1099-K</strong></div>
+                            <div class="k1099-title-text">Payment Card and<br>Third Party<br>Network Transactions</div>
+                        </div>
+                    </div>
+
+                    <div class="k1099-row">
+                        <div class="k1099-cell full">
+                            <div class="k1099-cell-header"><strong style="font-size: 1rem;">1a</strong> Gross amount of payment card/third party network transactions</div>
+                            <input type="number" formControlName="box1a" class="k1099-input num">
+                        </div>
+                    </div>
+
+                    <div class="k1099-row">
+                        <div class="k1099-cell half">
+                            <div class="k1099-cell-header"><strong>1b</strong> Card Not Present transactions</div>
+                            <input type="number" formControlName="box1b" class="k1099-input num">
+                        </div>
+                        <div class="k1099-cell half">
+                            <div class="k1099-cell-header"><strong>2</strong> Merchant category code (MCC)</div>
+                            <input type="text" formControlName="box2" class="k1099-input">
+                        </div>
+                    </div>
+
+                    <div class="k1099-row">
+                        <div class="k1099-cell half">
+                            <div class="k1099-cell-header"><strong>3</strong> Number of payment transactions</div>
+                            <input type="number" formControlName="box3" class="k1099-input num">
+                        </div>
+                        <div class="k1099-cell half">
+                            <div class="k1099-cell-header"><strong>4</strong> Federal income tax withheld</div>
+                            <input type="number" formControlName="box4" class="k1099-input num">
+                        </div>
+                    </div>
+
+                    <!-- Months 5a to 5d -->
+                    <div class="k1099-row">
+                        <div class="k1099-cell quarter"><div class="k1099-cell-header"><strong>5a</strong> January</div><input type="number" formControlName="box5a" class="k1099-input num"></div>
+                        <div class="k1099-cell quarter"><div class="k1099-cell-header"><strong>5b</strong> February</div><input type="number" formControlName="box5b" class="k1099-input num"></div>
+                        <div class="k1099-cell quarter"><div class="k1099-cell-header"><strong>5c</strong> March</div><input type="number" formControlName="box5c" class="k1099-input num"></div>
+                        <div class="k1099-cell quarter"><div class="k1099-cell-header"><strong>5d</strong> April</div><input type="number" formControlName="box5d" class="k1099-input num"></div>
+                    </div>
+
+                    <!-- Months 5e to 5h -->
+                    <div class="k1099-row">
+                        <div class="k1099-cell quarter"><div class="k1099-cell-header"><strong>5e</strong> May</div><input type="number" formControlName="box5e" class="k1099-input num"></div>
+                        <div class="k1099-cell quarter"><div class="k1099-cell-header"><strong>5f</strong> June</div><input type="number" formControlName="box5f" class="k1099-input num"></div>
+                        <div class="k1099-cell quarter"><div class="k1099-cell-header"><strong>5g</strong> July</div><input type="number" formControlName="box5g" class="k1099-input num"></div>
+                        <div class="k1099-cell quarter"><div class="k1099-cell-header"><strong>5h</strong> August</div><input type="number" formControlName="box5h" class="k1099-input num"></div>
+                    </div>
+
+                    <!-- Months 5i to 5l -->
+                    <div class="k1099-row">
+                        <div class="k1099-cell quarter"><div class="k1099-cell-header"><strong>5i</strong> September</div><input type="number" formControlName="box5i" class="k1099-input num"></div>
+                        <div class="k1099-cell quarter"><div class="k1099-cell-header"><strong>5j</strong> October</div><input type="number" formControlName="box5j" class="k1099-input num"></div>
+                        <div class="k1099-cell quarter"><div class="k1099-cell-header"><strong>5k</strong> November</div><input type="number" formControlName="box5k" class="k1099-input num"></div>
+                        <div class="k1099-cell quarter"><div class="k1099-cell-header"><strong>5l</strong> December</div><input type="number" formControlName="box5l" class="k1099-input num"></div>
+                    </div>
+
+                    <!-- State Section -->
+                    <div class="k1099-row bg-gray">
+                        <div class="k1099-cell thin"><div class="k1099-cell-header"><strong>6</strong> State</div><input type="text" formControlName="box6State1" class="k1099-input"></div>
+                        <div class="k1099-cell"><div class="k1099-cell-header"><strong>7</strong> State identification no.</div><input type="text" formControlName="box7StateId1" class="k1099-input"></div>
+                        <div class="k1099-cell"><div class="k1099-cell-header"><strong>8</strong> State income tax</div><input type="number" formControlName="box8StateTax1" class="k1099-input num"></div>
+                    </div>
+                    <div class="k1099-row bg-gray">
+                        <div class="k1099-cell thin"><input type="text" formControlName="box6State2" class="k1099-input"></div>
+                        <div class="k1099-cell"><input type="text" formControlName="box7StateId2" class="k1099-input"></div>
+                        <div class="k1099-cell"><input type="number" formControlName="box8StateTax2" class="k1099-input num"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Footer Details -->
+            <div class="k1099-footer">
+                <div class="k1099-copy-text">Copy <strong>C</strong><br>For Payee</div>
+                <div class="k1099-instructions">
+                    This is important tax information and is being furnished to the Internal Revenue Service. If you are required to file a return, a negligence penalty or other sanction may be imposed on you if this income is taxable and the IRS determines that it has not been reported.
+                </div>
+            </div>
+
+            <div class="k1099-dts-footer">
+                <span>Form <strong>1099-K</strong></span>
+                <span>(Keep for your records)</span>
+                <span>Department of the Treasury - Internal Revenue Service</span>
+            </div>
+
+        </form>
+    </div>
+</div>

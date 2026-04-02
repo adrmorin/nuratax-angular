@@ -1,0 +1,103 @@
+<div class="irs-form-container">
+  <div class="irs-form-box">
+    <!-- Header -->
+    <div class="irs-main-header">
+      <div class="irs-col-form-id">
+        <div class="irs-form-num">Form <span class="num-large">4255</span></div>
+        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
+      </div>
+      <div class="irs-col-title">
+        <h1>Certain Credit Recapture, Excessive Payments, and Penalties</h1>
+        <p class="irs-instruction">Go to <strong>www.irs.gov/Form4255</strong> for instructions and the latest information.</p>
+        <p class="irs-attach">Attach to your tax return.</p>
+      </div>
+      <div class="irs-col-omb">
+        <div class="irs-omb">OMB No. 1545-0103</div>
+        <div class="irs-year-box">
+          <div class="irs-year">2025</div>
+          <div class="irs-attachment">Attachment<br>Sequence No. <strong>172</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Name/EIN Row -->
+    <div class="irs-name-ssn-row">
+        <div class="irs-name-box">
+          <label for="name">Name(s) shown on return</label>
+          <input id="name" type="text" formControlName="name" class="irs-borderless-input">
+        </div>
+        <div class="irs-ssn-box">
+          <label for="ein">Identifying number (SSN or EIN)</label>
+          <input id="ein" type="text" formControlName="ein" class="irs-borderless-input">
+        </div>
+      </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      
+      <!-- Part I Header -->
+      <div class="irs-part-header">
+        <span class="part-label">Part I</span>
+        <span class="part-title">Summary</span>
+      </div>
+
+      <!-- Part I Table (Horizontal Scroll) -->
+      <div class="irs-scroll-container">
+        <table class="irs-complex-table">
+          <thead>
+            <tr class="irs-header-row">
+              <th rowspan="2">Line</th>
+              <th rowspan="2">Source</th>
+              <th>(a)</th>
+              <th>(b)</th>
+              <th>(c)</th>
+              <th>(d)</th>
+              <th>(e)</th>
+              <th>(f)</th>
+              <th>(g)</th>
+              <th colspan="2" class="irs-th-group">Recapture</th>
+              <th colspan="3" class="irs-th-group">Portions of Recapture</th>
+            </tr>
+            <tr class="irs-subheader-row">
+              <th class="irs-label-th">Prior year credit/deduction</th>
+              <th class="irs-label-th">Gross EPE amount</th>
+              <th class="irs-label-th">EPE applied tax</th>
+              <th class="irs-label-th">Net EPE amount</th>
+              <th class="irs-label-th">Non-EPE credit applied tax</th>
+              <th class="irs-label-th">Carryover amount</th>
+              <th class="irs-label-th">%</th>
+              <th class="irs-label-th">(h) Amount recaptured</th>
+              <th class="irs-label-th">(i) Carryover reduction</th>
+              <th class="irs-label-th">(j) Non-EPE credit recapture</th>
+              <th class="irs-label-th">(k) Gross EPE tax recapture</th>
+              <th class="irs-label-th">(l) Net EPE amount recapture</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (row of rows.controls; track $index; let i = $index) {
+              <tr [formGroup]="row">
+                <td class="irs-td-line">{{ row.get('line')?.value }}</td>
+                <td class="irs-td-source">{{ row.get('source')?.value }}</td>
+                <td><input type="number" formControlName="colA"></td>
+                <td><input type="number" formControlName="colB"></td>
+                <td><input type="number" formControlName="colC"></td>
+                <td><input type="number" formControlName="colD"></td>
+                <td><input type="number" formControlName="colE"></td>
+                <td><input type="number" formControlName="colF"></td>
+                <td><input type="text" formControlName="colG"></td>
+                <td><input type="number" formControlName="colH"></td>
+                <td><input type="number" formControlName="colI"></td>
+                <td><input type="number" formControlName="colJ"></td>
+                <td><input type="number" formControlName="colK"></td>
+                <td><input type="number" formControlName="colL"></td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+
+      <div class="irs-footer-actions">
+        <button type="submit" class="btn-submit">Submit Form 4255</button>
+      </div>
+    </form>
+  </div>
+</div>

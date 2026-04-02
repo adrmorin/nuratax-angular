@@ -1,0 +1,96 @@
+<div class="irs-form-container">
+  <div class="irs-form-box">
+    <!-- Header -->
+    <div class="irs-main-header">
+      <div class="irs-col-form-id">
+        <div class="irs-form-num">Form <span class="num-large">8609-A</span></div>
+        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
+      </div>
+      <div class="irs-col-title">
+        <h1>Annual Statement for Low-Income Housing Credit</h1>
+        <p class="irs-instruction">Go to <strong>www.irs.gov/Form8609A</strong> for instructions and the latest information.</p>
+      </div>
+      <div class="irs-col-omb">
+        <div class="irs-omb">OMB No. 1545-0988</div>
+        <div class="irs-year-box">
+          <div class="irs-attachment">Attachment<br>Sequence No. <strong>36</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Name/ID Row -->
+    <div class="irs-name-ssn-row">
+      <div class="irs-name-box">
+        <label for="name">Name(s) shown on return</label>
+        <input id="name" type="text" formControlName="name" class="irs-borderless-input">
+      </div>
+      <div class="irs-ssn-box">
+        <label for="idn">Identifying number</label>
+        <input id="idn" type="text" formControlName="identNumber" class="irs-borderless-input">
+      </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Part I -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part I</span>
+        <span class="part-title">Compliance Information</span>
+      </div>
+
+      <div class="irs-id-grid">
+        <div class="id-row">
+            <div class="id-label">A</div>
+            <div class="id-field"><label for="bin">Building identification number (BIN)</label> <input id="bin" type="text" formControlName="bin"></div>
+        </div>
+      </div>
+
+      <div class="irs-compliance-grid">
+        <div class="grid-header-row">
+            <div class="q-empty"></div>
+            <div class="q-desc"></div>
+            <div class="q-check">Yes</div>
+            <div class="q-check">No</div>
+        </div>
+        <div class="q-row">
+            <div class="q-num">1</div>
+            <div class="q-text">Has the building, or an interest therein, been transferred during the tax year?</div>
+            <div class="q-input"><input type="radio" value="yes" formControlName="q1"></div>
+            <div class="q-input"><input type="radio" value="no" formControlName="q1"></div>
+        </div>
+        <div class="q-row zebra-light">
+            <div class="q-num">2</div>
+            <div class="q-text">Did the building qualify as a low-income building at the close of the tax year?</div>
+            <div class="q-input"><input type="radio" value="yes" formControlName="q2"></div>
+            <div class="q-input"><input type="radio" value="no" formControlName="q2"></div>
+        </div>
+      </div>
+
+      <!-- Part II -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part II</span>
+        <span class="part-title">Computation of Credit</span>
+      </div>
+
+      <div class="irs-form-body">
+        <div class="irs-line-item">
+          <div class="irs-line-num">1</div>
+          <div class="irs-line-desc"><label for="line1">Eligible basis of building from Form 8609, Part II, line 7</label></div>
+          <div class="irs-dots"></div>
+          <div class="irs-line-val-num">1</div>
+          <div class="irs-input-box no-shade"><input id="line1" type="number" formControlName="line1"></div>
+        </div>
+        <div class="irs-line-item zebra-light-border">
+            <div class="irs-line-num">18</div>
+            <div class="irs-line-desc"><strong>Taxpayer’s credit.</strong> Carry this amount to Form 8586</div>
+            <div class="irs-dots"></div>
+            <div class="irs-line-val-num">18</div>
+            <div class="irs-input-box"><input id="line18" type="number" formControlName="line18"></div>
+        </div>
+      </div>
+
+      <div class="irs-footer-actions">
+        <button type="submit" class="btn-submit">Submit Form 8609-A</button>
+      </div>
+    </form>
+  </div>
+</div>

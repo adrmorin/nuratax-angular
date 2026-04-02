@@ -1,0 +1,74 @@
+<div class="irs-form-container">
+  <div class="irs-form-box">
+    <!-- Header -->
+    <div class="irs-main-header">
+      <div class="irs-col-form-id">
+        <div class="irs-form-num">SCHEDULE J <br>(Form 5471)</div>
+        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
+      </div>
+      <div class="irs-col-title">
+        <h1>Accumulated Earnings and Profits of Foreign Corporation</h1>
+        <p class="irs-instruction">Go to <strong>www.irs.gov/Form5471</strong> for instructions and the latest information.</p>
+        <p class="irs-attach">Attach to Form 5471.</p>
+      </div>
+      <div class="irs-col-omb">
+        <div class="irs-omb">OMB No. 1545-0704</div>
+      </div>
+    </div>
+
+    <!-- Identity Row -->
+    <div class="irs-identity-row">
+       <div class="irs-id-section border-b">
+          <label>Name of person filing Form 5471</label>
+          <input type="text" formControlName="nameOfPerson" class="irs-borderless-input">
+       </div>
+       <div class="irs-id-section border-l border-b">
+          <label>Identifying number</label>
+          <input type="text" formControlName="identNumber" class="irs-borderless-input">
+       </div>
+    </div>
+    <div class="irs-identity-row">
+       <div class="irs-id-section">
+          <label>Name of foreign corporation</label>
+          <input type="text" formControlName="nameOfForeignCorp" class="irs-borderless-input">
+       </div>
+       <div class="irs-id-section border-l">
+          <label>Reference ID number (see instructions)</label>
+          <input type="text" formControlName="corpTin" class="irs-borderless-input">
+       </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Part I -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part I</span>
+        <span class="part-title">Accumulated Earnings and Profits of Foreign Corporation</span>
+      </div>
+
+      <div class="irs-table-container">
+         <div class="irs-table-header-grid">
+            <div class="cell-head cell-row-num"></div>
+            <div class="cell-head">(a) Post-2017 Undistributed Earnings</div>
+            <div class="cell-head">(b) Section 959(c)(1) E&P</div>
+            <div class="cell-head">(c) Section 959(c)(2) E&P</div>
+            <div class="cell-head">(d) Section 959(c)(3) E&P</div>
+            <div class="cell-head">(e) Floating Column</div>
+            <div class="cell-head">(f) Total Section 964(a) E&P</div>
+         </div>
+         <div class="irs-table-row">
+            <div class="cell-val cell-row-num">1</div>
+            <div class="cell-input"><input type="number" formControlName="p1_row1a"></div>
+            <div class="cell-input"><input type="number" formControlName="p1_row1b"></div>
+            <div class="cell-input"><input type="number" formControlName="p1_row1c"></div>
+            <div class="cell-input"><input type="number" formControlName="p1_row1d"></div>
+            <div class="cell-input"><input type="number" formControlName="p1_row1e"></div>
+            <div class="cell-input"><input type="number" formControlName="p1_row1f"></div>
+         </div>
+      </div>
+
+      <div class="irs-footer-actions">
+        <button type="submit" class="btn-submit">Submit Schedule J</button>
+      </div>
+    </form>
+  </div>
+</div>

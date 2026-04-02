@@ -1,0 +1,223 @@
+<div class="irs-form-container" style="position: relative;">
+    <div class="irs-header">
+        <div class="irs-header-left">
+            <div class="form-title">Formulario 8606 2026</div>
+        </div>
+        <div class="irs-header-right">
+            <span>Página 1</span>
+        </div>
+    </div>
+
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1">
+                <span class="irs-form-id">8606</span>
+                <span class="irs-form-sub-id">2026</span>
+            </div>
+            <div class="irs-col-2">
+                <h1>IRAs No Deducibles</h1>
+                <p>(Nondeductible IRAs)</p>
+                <p class="irs-instruction">▶ Adjunte al Formulario 1040, 1040-SR, o 1040-NR.</p>
+            </div>
+            <div class="irs-col-3">
+                <div class="irs-sequence-box">
+                    <span>Secuencia No. de</span>
+                    <span class="irs-sequence-num">48</span>
+                </div>
+            </div>
+        </div>
+
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <div class="irs-row-border">
+                <div class="irs-field flex-3 border-right">
+                    <label for="ownerName">Nombre. Si es casado, archivo separado para cada uno</label>
+                    <input id="ownerName" type="text" formControlName="ownerName">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="ssn">Número de Seguro Social</label>
+                    <input id="ssn" type="text" formControlName="ssn">
+                </div>
+            </div>
+
+            <!-- PART I: Traditional IRA Contributions -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part I</span>
+                <span class="irs-part-title">Traditional IRA Contributions</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part1 }}
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-desc"><label for="totalTraditionalContributions">Total traditional IRA contributions for 2026 . . . . .</label></td>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-val-cell"><input id="totalTraditionalContributions" type="number" formControlName="totalTraditionalContributions"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">2</td>
+                        <td class="irs-desc"><label for="deductibleContributions">Deductible contributions . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">2</td>
+                        <td class="irs-val-cell"><input id="deductibleContributions" type="number" formControlName="deductibleContributions"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-desc"><label for="nondeductibleContributions">Nondeductible contributions . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-val-cell"><input id="nondeductibleContributions" type="number" formControlName="nondeductibleContributions"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-desc"><label for="priorYearBasis">Total basis in traditional IRAs (prior years) . . . . . . . . .</label></td>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-val-cell"><input id="priorYearBasis" type="number" formControlName="priorYearBasis"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">5</td>
+                        <td class="irs-desc"><strong>Total basis in traditional IRAs (after 2026) . . . . . . . . . .</strong></td>
+                        <td class="irs-line-num">5</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('totalBasisAfter')?.value | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PART II: Roth IRA Contributions -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part II</span>
+                <span class="irs-part-title">Roth IRA Contributions</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part2 }}
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">6</td>
+                        <td class="irs-desc"><label for="rothContributions">Roth IRA contributions for 2026 . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">6</td>
+                        <td class="irs-val-cell"><input id="rothContributions" type="number" formControlName="rothContributions"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">7</td>
+                        <td class="irs-desc"><label for="rothContributionLimit">Roth IRA contribution limit . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">7</td>
+                        <td class="irs-val-cell"><input id="rothContributionLimit" type="number" formControlName="rothContributionLimit"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">8</td>
+                        <td class="irs-desc"><label for="modifiedAGI">Modified AGI . . . . . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">8</td>
+                        <td class="irs-val-cell"><input id="modifiedAGI" type="number" formControlName="modifiedAGI"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">9</td>
+                        <td class="irs-desc"><label for="rothLimitReduced">Roth IRA contribution limit reduced . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">9</td>
+                        <td class="irs-val-cell"><input id="rothLimitReduced" type="number" formControlName="rothLimitReduced"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">10</td>
+                        <td class="irs-desc"><label for="rothContributionsIfNotFull">Roth IRA contributions (if not full amount) . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">10</td>
+                        <td class="irs-val-cell"><input id="rothContributionsIfNotFull" type="number" formControlName="rothContributionsIfNotFull"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PART III: Conversions -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part III</span>
+                <span class="irs-part-title">Conversions</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part3 }}
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">11</td>
+                        <td class="irs-desc"><label for="amountConverted">Total amount converted to Roth IRA in 2026 . . . . . . .</label></td>
+                        <td class="irs-line-num">11</td>
+                        <td class="irs-val-cell"><input id="amountConverted" type="number" formControlName="amountConverted"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">12</td>
+                        <td class="irs-desc"><label for="amountIncludible">Amount includible in income . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">12</td>
+                        <td class="irs-val-cell"><input id="amountIncludible" type="number" formControlName="amountIncludible"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">13</td>
+                        <td class="irs-desc"><label for="basisInConverted">Basis in converted amount . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">13</td>
+                        <td class="irs-val-cell"><input id="basisInConverted" type="number" formControlName="basisInConverted"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">14</td>
+                        <td class="irs-desc"><strong>Taxable amount. Line 12 menos línea 13 . . . . . . . . . . . . . .</strong></td>
+                        <td class="irs-line-num">14</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('taxableAmount')?.value | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PART V: Distributions -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part V</span>
+                <span class="irs-part-title">Distributions From Traditional IRAs</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part4 }}
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">18</td>
+                        <td class="irs-desc"><label for="totalDistributionsTraditional">Total distributions from traditional IRAs . . . . . . . . .</label></td>
+                        <td class="irs-line-num">18</td>
+                        <td class="irs-val-cell"><input id="totalDistributionsTraditional" type="number" formControlName="totalDistributionsTraditional"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">19</td>
+                        <td class="irs-desc"><label for="amountPreviouslyTaxed">Amount previously taxed . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">19</td>
+                        <td class="irs-val-cell"><input id="amountPreviouslyTaxed" type="number" formControlName="amountPreviouslyTaxed"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">20</td>
+                        <td class="irs-desc"><strong>Taxable amount. Línea 18 menos línea 19 . . . . . . . . . . . . .</strong></td>
+                        <td class="irs-line-num">20</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('taxableAmountDistribution')?.value | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="irs-footer-actions">
+                <button type="submit" class="btn-irs-submit">Guardar Formulario 8606</button>
+            </div>
+        </form>
+
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

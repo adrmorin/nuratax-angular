@@ -1,0 +1,116 @@
+<div class="irs-form-container">
+  <div class="irs-form-box">
+    <!-- Header -->
+    <div class="irs-main-header">
+      <div class="irs-col-form-id">
+        <div class="irs-form-num">Form <span class="num-large">8606</span></div>
+        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
+      </div>
+      <div class="irs-col-title">
+        <h1>Nondeductible IRAs</h1>
+        <p class="irs-instruction">Go to <strong>www.irs.gov/Form8606</strong> for instructions and the latest information.</p>
+        <p class="irs-attach">Attach to Form 1040, 1040-SR, or 1040-NR.</p>
+      </div>
+      <div class="irs-col-omb">
+        <div class="irs-omb">OMB No. 1545-0074</div>
+        <div class="irs-year-box">
+          <div class="irs-year">2025</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Name/ID Row -->
+    <div class="irs-name-ssn-row">
+      <div class="irs-name-box">
+        <label for="name">Name. If married filing jointly, see instructions.</label>
+        <input id="name" type="text" formControlName="name" class="irs-borderless-input">
+      </div>
+      <div class="irs-ssn-box">
+        <label for="ssn">Your social security number</label>
+        <input id="ssn" type="text" formControlName="ssn" class="irs-borderless-input">
+      </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Part I -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part I</span>
+        <span class="part-title">Nondeductible Contributions to Traditional IRAs and Distributions From Traditional, SEP, and SIMPLE IRAs</span>
+      </div>
+
+      <div class="irs-form-body">
+        <div class="irs-line-item">
+          <div class="irs-line-num">1</div>
+          <div class="irs-line-desc"><label for="line1">Enter your nondeductible contributions to traditional IRAs for 2025 (see instructions)</label></div>
+          <div class="irs-dots"></div>
+          <div class="irs-line-val-num">1</div>
+          <div class="irs-input-box"><input id="line1" type="number" formControlName="line1"></div>
+        </div>
+        <div class="irs-line-item zebra-light-border">
+          <div class="irs-line-num">2</div>
+          <div class="irs-line-desc"><label for="line2">Enter your total basis in traditional IRAs (see instructions)</label></div>
+          <div class="irs-dots"></div>
+          <div class="irs-line-val-num">2</div>
+          <div class="irs-input-box"><input id="line2" type="number" formControlName="line2"></div>
+        </div>
+        <div class="irs-line-item">
+          <div class="irs-line-num">3</div>
+          <div class="irs-line-desc"><label for="line3">Add lines 1 and 2</label></div>
+          <div class="irs-dots"></div>
+          <div class="irs-line-val-num">3</div>
+          <div class="irs-input-box"><input id="line3" type="number" formControlName="line3"></div>
+        </div>
+
+        <div class="irs-decision-row">
+           <div class="decision-text">In 2025, did you take a distribution from traditional, SEP, or SIMPLE IRAs, or make a Roth IRA conversion?</div>
+           <div class="decision-options">
+               <span><strong>No.</strong> Enter amount from line 3 on line 14.</span><br>
+               <span><strong>Yes.</strong> Go to line 4.</span>
+           </div>
+        </div>
+
+        <div class="irs-line-item zebra-light-border">
+            <div class="irs-line-num">14</div>
+            <div class="irs-line-desc"><label for="line14">Total basis in traditional IRAs for 2025 and prior years. Subtract line 13 from line 3</label></div>
+            <div class="irs-dots"></div>
+            <div class="irs-line-val-num">14</div>
+            <div class="irs-input-box"><input id="line14" type="number" formControlName="line14"></div>
+          </div>
+          <div class="irs-line-item">
+            <div class="irs-line-num">15</div>
+            <div class="irs-line-desc"><label for="line15"><strong>Taxable amount.</strong> Subtract line 12 from line 7. If more than zero, also include this amount on 2025 Form 1040, line 4b</label></div>
+            <div class="irs-dots"></div>
+            <div class="irs-line-val-num">15</div>
+            <div class="irs-input-box"><input id="line15" type="number" formControlName="line15"></div>
+          </div>
+      </div>
+
+      <!-- Part II -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part II</span>
+        <span class="part-title">2025 Conversions from Traditional, SEP, or SIMPLE IRAs to Roth IRAs</span>
+      </div>
+
+      <div class="irs-form-body">
+        <div class="irs-line-item zebra-dark-border">
+          <div class="irs-line-num">16</div>
+          <div class="irs-line-desc"><label for="line16">If you completed Part I, enter the amount from line 8. Otherwise, enter the net amount you converted to Roth IRAs in 2025</label></div>
+          <div class="irs-dots"></div>
+          <div class="irs-line-val-num">16</div>
+          <div class="irs-input-box"><input id="line16" type="number" formControlName="line16"></div>
+        </div>
+        <div class="irs-line-item">
+          <div class="irs-line-num">18</div>
+          <div class="irs-line-desc"><label for="line18"><strong>Taxable amount.</strong> Subtract line 17 from line 16. Also include this amount on 2025 Form 1040, line 4b</label></div>
+          <div class="irs-dots"></div>
+          <div class="irs-line-val-num">18</div>
+          <div class="irs-input-box"><input id="line18" type="number" formControlName="line18"></div>
+        </div>
+      </div>
+
+      <div class="irs-footer-actions">
+        <button type="submit" class="btn-submit">Submit Form 8606</button>
+      </div>
+    </form>
+  </div>
+</div>

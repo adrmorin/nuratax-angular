@@ -1,0 +1,79 @@
+/* form8960.component.css */
+
+.irs-form-container {
+  background: #f8fafc;
+  padding: 2rem;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.irs-form-box {
+  background: #fff;
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  border: 1px solid #000;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+
+/* Header */
+.irs-main-header { display: grid; grid-template-columns: 180px 1fr 180px; border-bottom: 2px solid #000; }
+.irs-col-form-id { border-right: 1px solid #000; padding: 0.5rem; font-weight: 800; font-size: 1.1rem; }
+.num-large { font-size: 2.22rem; display: block; font-weight: 900; }
+
+.irs-col-title { padding: 0.5rem 1rem; text-align: center; border-right: 1px solid #000; }
+.irs-col-title h1 { font-size: 1.35rem; font-weight: 900; margin: 0; line-height: 1.2; }
+.irs-instruction { font-size: 0.8rem; margin: 10px 0; }
+.irs-col-omb { padding: 0.5rem; text-align: right; display: flex; align-items: center; justify-content: flex-end; }
+.irs-omb { font-size: 0.75rem; font-weight: 600; }
+
+/* Identity Row */
+.irs-id-section { padding: 0.5rem 1rem; display: flex; flex-direction: column; flex-grow: 1; }
+.irs-id-num { border-left: 1px solid #000; width: 250px; flex-grow: 0; }
+.border-b { border-bottom: 1px solid #000; }
+.border-r { border-right: 1px solid #000; }
+.irs-id-section label { font-size: 0.8rem; font-weight: 900; }
+.irs-borderless-input { border: none; background: #f8fafc; padding: 4px; font-size: 1rem; font-weight: 600; width: 100%; }
+
+/* Elections */
+.padding-sm { padding: 10px 15px; }
+.irs-checkbox-group { display: flex; gap: 30px; flex-wrap: wrap; }
+.irs-checkbox-group label { font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; gap: 8px; cursor: pointer; }
+
+/* Part Header */
+.irs-part-header-full { background: #000; color: #fff; padding: 10px 15px; display: flex; align-items: center; border-bottom: 2px solid #000; }
+.part-label { font-weight: 900; font-size: 1.25rem; margin-right: 2rem; min-width: 60px; }
+.part-title { font-weight: 700; font-size: 1.05rem; }
+
+/* Computation Lines */
+.irs-form-body { display: flex; flex-direction: column; }
+.irs-line-item {
+  display: grid;
+  grid-template-columns: 45px 1fr auto 45px 160px;
+  align-items: end;
+  border-bottom: 1px solid #ccc;
+  min-height: 50px;
+}
+.irs-line-num { font-weight: 900; text-align: center; padding-bottom: 10px; width: 45px; }
+.irs-line-desc { padding: 10px 10px; font-size: 0.95rem; line-height: 1.4; }
+.irs-dots { border-bottom: 1px dotted #888; flex-grow: 1; margin: 0 10px 10px; min-width: 40px; }
+.irs-line-val-num { border-left: 1px solid #000; width: 45px; text-align: center; padding-bottom: 10px; font-weight: 800; display: flex; align-self: stretch; align-items: flex-end; justify-content: center; }
+.irs-input-box { border-left: 1px solid #000; width: 160px; display: flex; align-items: center; min-height: 50px; background: #fff; }
+.irs-input-box.shaded { background: #e2e8f0; }
+.irs-input-box input { width: 100%; border: none; background: transparent; text-align: right; padding-right: 10px; font-size: 1.1rem; font-weight: bold; }
+
+/* Line 4 Complex Row with sub-inputs */
+.irs-line-complex { padding: 10px 15px; display: grid; grid-template-columns: 45px 1fr 300px; gap: 10px; align-items: flex-start; }
+.irs-line-complex .irs-line-num { width: auto; font-weight: 900; text-align: left; padding: 0; }
+.irs-sub-inputs { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.sub-in { font-size: 0.75rem; font-weight: bold; display: flex; flex-direction: column; }
+.sub-in input { border: 1px solid #ccc; background: #fff; padding: 4px; font-size: 0.9rem; margin-top: 2px; text-align: right; }
+
+/* Footer */
+.irs-footer-actions { padding: 2rem; display: flex; justify-content: flex-end; border-top: 1px solid #000; }
+.btn-submit { background: #000; color: #fff; padding: 14px 28px; font-weight: 700; border: none; cursor: pointer; }
+
+@media (max-width: 800px) {
+    .irs-main-header { grid-template-columns: 1fr; }
+    .irs-checkbox-group { flex-direction: column; gap: 10px; }
+}

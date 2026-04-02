@@ -1,0 +1,103 @@
+<div class="irs-form-container">
+  <div class="irs-form-box">
+    <!-- Header -->
+    <div class="irs-main-header">
+      <div class="irs-col-form-id">
+        <div class="irs-form-num">Form <span class="num-large">1120</span></div>
+        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
+      </div>
+      <div class="irs-col-title">
+        <h1>U.S. Corporation Income Tax Return</h1>
+        <p class="irs-instruction">Go to <strong>www.irs.gov/Form1120</strong> for instructions and the latest information.</p>
+        <p class="irs-tax-year">For calendar year 2024 or tax year beginning ...</p>
+      </div>
+      <div class="irs-col-omb">
+        <div class="irs-omb">OMB No. 1545-0123</div>
+        <div class="irs-year-box">
+          <div class="irs-year">2025</div>
+        </div>
+      </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Entity Info Grid -->
+      <div class="irs-entity-grid">
+        <div class="irs-section-a">
+          <span class="irs-header-label">A Check if:</span>
+          <div class="check-group">
+            <input type="checkbox" id="c1" formControlName="consolidatedReturn"> <label for="c1">1 Consolidated return</label><br>
+            <input type="checkbox" id="c2" formControlName="personalHoldingCo"> <label for="c2">2 Personal holding co.</label><br>
+            <input type="checkbox" id="c3" formControlName="personalServiceCorp"> <label for="c3">3 Personal service corp.</label><br>
+            <input type="checkbox" id="c4" formControlName="schM3Attached"> <label for="c4">4 Schedule M-3 attached</label>
+          </div>
+        </div>
+        <div class="irs-entity-info">
+          <label for="name">Name</label>
+          <input id="name" type="text" formControlName="name" class="irs-borderless-input">
+          <label for="address">Number, street, and room or suite no.</label>
+          <input id="address" type="text" formControlName="address" class="irs-borderless-input">
+          <label for="city">City or town, state, country, and ZIP</label>
+          <input id="city" type="text" formControlName="cityStateZip" class="irs-borderless-input">
+        </div>
+        <div class="irs-sections-bde">
+          <div class="box-b"><label for="ein">B EIN</label> <input id="ein" type="text" formControlName="ein"></div>
+          <div class="box-c"><label for="incorp">C Date incorp.</label> <input id="incorp" type="text" formControlName="dateIncorporated"></div>
+          <div class="box-d"><label for="assets">D Total assets</label> <input id="assets" type="number" formControlName="totalAssets"></div>
+        </div>
+      </div>
+
+      <!-- Income Section -->
+      <div class="irs-main-body-with-label">
+        <div class="irs-vertical-label">Income</div>
+        <div class="irs-form-body flex-grow">
+          <div class="irs-line-item">
+            <div class="irs-line-num">1a</div>
+            <div class="irs-line-desc"><label for="1a">Gross receipts or sales</label></div>
+            <div class="irs-input-box-mid"><input id="1a" type="number" formControlName="line1a"></div>
+            <div class="irs-line-num-2">1c</div>
+            <div class="irs-input-box"><input id="1c" type="number" formControlName="line1c"></div>
+          </div>
+          <div class="irs-line-item zebra-light-border">
+            <div class="irs-line-num">2</div>
+            <div class="irs-line-desc"><label for="2">Cost of goods sold (attach Form 1125-A)</label></div>
+            <div class="irs-dots"></div>
+            <div class="irs-line-num-2">2</div>
+            <div class="irs-input-box"><input id="2" type="number" formControlName="line2"></div>
+          </div>
+          <div class="irs-line-item zebra-dark-border">
+            <div class="irs-line-num">11</div>
+            <div class="irs-line-desc"><strong>Total income.</strong> Add lines 3 through 10</div>
+            <div class="irs-dots"></div>
+            <div class="irs-line-num-2">11</div>
+            <div class="irs-input-box"><input id="11" type="number" formControlName="line11"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Deductions Section -->
+      <div class="irs-main-body-with-label">
+        <div class="irs-vertical-label">Deductions</div>
+        <div class="irs-form-body flex-grow">
+          <div class="irs-line-item">
+            <div class="irs-line-num">12</div>
+            <div class="irs-line-desc"><label for="12">Compensation of officers (attach Form 1125-E)</label></div>
+            <div class="irs-dots"></div>
+            <div class="irs-line-num-2">12</div>
+            <div class="irs-input-box"><input id="12" type="number" formControlName="line12"></div>
+          </div>
+          <div class="irs-line-item zebra-light-border">
+            <div class="irs-line-num">27</div>
+            <div class="irs-line-desc"><strong>Total deductions.</strong> Add lines 12 through 26</div>
+            <div class="irs-dots"></div>
+            <div class="irs-line-num-2">27</div>
+            <div class="irs-input-box"><input id="27" type="number" formControlName="line27"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="irs-footer-actions">
+        <button type="submit" class="btn-submit">Submit Form 1120</button>
+      </div>
+    </form>
+  </div>
+</div>

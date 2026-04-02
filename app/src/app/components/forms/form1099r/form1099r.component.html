@@ -1,0 +1,70 @@
+<div class="irs-form-container">
+  <div class="irs-1099r-layout">
+    <div class="irs-header-row">
+      <div class="header-left">
+          <div class="irs-void-box"><input type="checkbox" id="void"> <label for="void">VOID</label></div>
+          <div class="irs-cor-box"><input type="checkbox" id="corrected"> <label for="corrected">CORRECTED</label></div>
+      </div>
+      <div class="header-right">
+          <div class="irs-omb">OMB No. 1545-0119</div>
+          <div class="irs-year">2025</div>
+          <div class="irs-form-id">Form 1099-R</div>
+      </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-boxes-grid">
+      <!-- Left Column: Payer & Recipient -->
+      <div class="irs-col-left">
+        <div class="irs-box payer-box">
+          <label for="pname">PAYER’S name, street address, city or town, state or province, country, and ZIP or foreign postal code</label>
+          <textarea id="pname" formControlName="payerName" rows="4"></textarea>
+        </div>
+        <div class="irs-row-tin">
+          <div class="irs-box tin-box"><label for="ptin">PAYER’S TIN</label><input id="ptin" type="text" formControlName="payerTin"></div>
+          <div class="irs-box tin-box"><label for="rtin">RECIPIENT’S TIN</label><input id="rtin" type="text" formControlName="recipientTin"></div>
+        </div>
+        <div class="irs-box recipient-box">
+          <label for="rname">RECIPIENT’S name</label>
+          <input id="rname" type="text" formControlName="recipientName">
+        </div>
+        <div class="irs-box address-box">
+          <label for="raddr">Street address (including apt. no.)</label>
+          <input id="raddr" type="text" formControlName="recipientAddress">
+        </div>
+        <div class="irs-box city-box">
+          <label for="rcity">City or town, state or province, country, and ZIP or foreign postal code</label>
+          <input id="rcity" type="text" formControlName="recipientCityStateZip">
+        </div>
+      </div>
+
+      <!-- Right Column: Boxes 1-13 -->
+      <div class="irs-col-right">
+        <div class="irs-row-financial">
+          <div class="irs-box box-1"><label for="b1">1 Gross distribution</label><div class="amount-line">$ <input id="b1" type="number" formControlName="box1"></div></div>
+          <div class="irs-box box-2a"><label for="b2a">2a Taxable amount</label><div class="amount-line">$ <input id="b2a" type="number" formControlName="box2a"></div></div>
+        </div>
+        <div class="irs-box box-2b">
+           <label for="b2b1">2b Taxable amount not determined</label> <input type="checkbox" id="b2b1" formControlName="box2bTaxNotDet"><br>
+           <label for="b2b2">Total distribution</label> <input type="checkbox" id="b2b2" formControlName="box2bTotalDist">
+        </div>
+        <div class="irs-row-financial">
+           <div class="irs-box box-3"><label for="b3">3 Capital gain (included in Box 2a)</label><div class="amount-line">$ <input id="b3" type="number" formControlName="box3"></div></div>
+           <div class="irs-box box-4"><label for="b4">4 Federal income tax withheld</label><div class="amount-line">$ <input id="b4" type="number" formControlName="box4"></div></div>
+        </div>
+        <div class="irs-row-financial">
+           <div class="irs-box box-5"><label for="b5">5 Employee contributions / Designated Roth contributions or insurance premiums</label><div class="amount-line">$ <input id="b5" type="number" formControlName="box5"></div></div>
+           <div class="irs-box box-6"><label for="b6">6 Net unrealized appreciation in employer's securities</label><div class="amount-line">$ <input id="b6" type="number" formControlName="box6"></div></div>
+        </div>
+        <div class="irs-row-box7">
+            <div class="irs-box box-7"><label for="b7c">7 Distribution code(s)</label><input id="b7c" type="text" formControlName="box7Code"></div>
+            <div class="irs-box box-7-check"><label for="b7ira">IRA/SEP/SIMPLE</label> <input type="checkbox" id="b7ira" formControlName="box7IraSepSimple"></div>
+        </div>
+        <div class="irs-box box-8"><label for="b8">8 Other</label><div class="amount-line">$ <input id="b8" type="number" formControlName="box8"></div></div>
+      </div>
+    </form>
+
+    <div class="irs-footer-actions">
+      <button type="submit" class="btn-submit">Submit Form 1099-R</button>
+    </div>
+  </div>
+</div>

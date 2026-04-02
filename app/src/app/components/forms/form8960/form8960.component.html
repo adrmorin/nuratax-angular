@@ -1,0 +1,94 @@
+<div class="irs-form-container">
+  <div class="irs-form-box">
+    <!-- Header -->
+    <div class="irs-main-header">
+      <div class="irs-col-form-id">
+        <div class="irs-form-num">Form <span class="num-large">8960</span></div>
+        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
+      </div>
+      <div class="irs-col-title">
+        <h1>Net Investment Income Tax—Individuals, Estates, and Trusts</h1>
+        <p class="irs-instruction">Go to <strong>www.irs.gov/Form8960</strong> for instructions and the latest information.</p>
+      </div>
+      <div class="irs-col-omb">
+        <div class="irs-omb">OMB No. 1545-2227</div>
+      </div>
+    </div>
+
+    <!-- Identity Row -->
+    <div class="irs-identity-row border-b">
+       <div class="irs-id-section border-r">
+          <label for="sn">Name(s) shown on your tax return</label>
+          <input id="sn" type="text" formControlName="name" class="irs-borderless-input">
+       </div>
+       <div class="irs-id-section irs-id-num">
+          <label for="tin">Identifying number</label>
+          <input id="tin" type="text" formControlName="tin" class="irs-borderless-input">
+       </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Elections -->
+      <div class="irs-election-box padding-sm border-b">
+         <div class="irs-checkbox-group">
+            <label><input type="checkbox" formControlName="elect_6013g"> Section 6013(g) election</label>
+            <label><input type="checkbox" formControlName="elect_6013h"> Section 6013(h) election</label>
+            <label><input type="checkbox" formControlName="elect_Reg11411"> Regulations section 1.1411-10(g) election</label>
+         </div>
+      </div>
+
+      <!-- Part I -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part I</span>
+        <span class="part-title">Investment Income</span>
+      </div>
+
+      <div class="irs-form-body">
+         <div class="irs-line-item">
+            <div class="irs-line-num">1</div>
+            <div class="irs-line-desc">Taxable interest</div>
+            <div class="irs-dots"></div>
+            <div class="irs-line-val-num">1</div>
+            <div class="irs-input-box no-shade"><input type="number" formControlName="line1"></div>
+         </div>
+         <div class="irs-line-item zebra-light-border">
+            <div class="irs-line-num">2</div>
+            <div class="irs-line-desc">Ordinary dividends</div>
+            <div class="irs-dots"></div>
+            <div class="irs-line-val-num">2</div>
+            <div class="irs-input-box no-shade"><input type="number" formControlName="line2"></div>
+         </div>
+
+         <!-- Line 4 (Sub-fields) -->
+         <div class="irs-line-complex border-b">
+            <div class="irs-line-num">4a</div>
+            <div class="irs-line-desc">Rental real estate, royalties, etc...</div>
+            <div class="irs-sub-inputs">
+                <div class="sub-in">4a <input type="number" formControlName="line4a"></div>
+                <div class="sub-in">4b <input type="number" formControlName="line4b"></div>
+                <div class="sub-in">4c <input type="number" formControlName="line4c"></div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Part III Tax Computation -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part III</span>
+        <span class="part-title">Tax Computation</span>
+      </div>
+      <div class="irs-form-body">
+         <div class="irs-line-item">
+            <div class="irs-line-num">21</div>
+            <div class="irs-line-desc"><strong>Net investment income tax.</strong> Multiply line 20 by 3.8% (0.038)</div>
+            <div class="irs-dots"></div>
+            <div class="irs-line-val-num">21</div>
+            <div class="irs-input-box shaded"><input type="number" formControlName="line21"></div>
+         </div>
+      </div>
+
+      <div class="irs-footer-actions">
+        <button type="submit" class="btn-submit">Submit Form 8960</button>
+      </div>
+    </form>
+  </div>
+</div>

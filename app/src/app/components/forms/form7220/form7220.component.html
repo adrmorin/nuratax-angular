@@ -1,0 +1,105 @@
+<div class="irs-form-container">
+  <div class="irs-form-box">
+    <!-- Header -->
+    <div class="irs-main-header">
+      <div class="irs-col-form-id">
+        <div class="irs-form-num">Form <span class="num-large">7220</span></div>
+        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
+      </div>
+      <div class="irs-col-title">
+        <h1>Prevailing Wage and Apprenticeship (PWA) Verification and Corrections</h1>
+        <p class="irs-instruction">Go to <strong>www.irs.gov/Form7220</strong> for instructions and the latest information.</p>
+        <p class="irs-attach">Attach to your tax return.</p>
+      </div>
+      <div class="irs-col-omb">
+        <div class="irs-omb">OMB No. 1545-2310</div>
+        <div class="irs-year-box">
+          <div class="irs-year">2025</div>
+          <div class="irs-attachment">Attachment<br>Sequence No. <strong>220</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Name/ID Row -->
+    <div class="irs-name-ssn-row">
+      <div class="irs-name-box">
+        <label for="name">Name(s) shown on return</label>
+        <input id="name" type="text" formControlName="name" class="irs-borderless-input">
+      </div>
+      <div class="irs-ssn-box">
+        <label for="identifyingNumber">Identifying number</label>
+        <input id="identifyingNumber" type="text" formControlName="identifyingNumber" class="irs-borderless-input">
+      </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Part I -->
+      <div class="irs-part-header-bar">
+        <span class="part-label">Part I</span>
+        <span class="part-title">Facility/Project Information</span>
+      </div>
+
+      <div class="irs-form-body">
+        <div class="irs-line-item">
+          <div class="irs-line-num">1</div>
+          <div class="irs-line-desc"><label for="regNumber">IRS registration number of the facility or project (if applicable)</label></div>
+          <div class="irs-dots"></div>
+          <div class="irs-input-box-mid"><input id="regNumber" type="text" formControlName="regNumber"></div>
+        </div>
+
+        <div class="irs-line-item">
+            <div class="irs-line-num">2</div>
+            <div class="irs-line-desc"><label for="projDesc">Brief description of the facility or project</label></div>
+            <div class="irs-dots"></div>
+            <div class="irs-input-box-wide"><input id="projDesc" type="text" formControlName="projectDesc"></div>
+          </div>
+
+        <div class="irs-line-item">
+          <div class="irs-line-num">3</div>
+          <div class="irs-line-desc">Identify the precise location of the facility or project:</div>
+          <div class="irs-geo-box">
+            <div class="lat-long-row">
+               <label for="lat">Latitude (±XX.XXXXXX):</label>
+               <input id="lat" type="text" formControlName="latitude" class="irs-comb-box" placeholder="±__.__ _ _ _ _">
+            </div>
+            <div class="lat-long-row">
+               <label for="long">Longitude (±XXX.XXXXXX):</label>
+               <input id="long" type="text" formControlName="longitude" class="irs-comb-box" placeholder="±___.__ _ _ _ _">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part II -->
+      <div class="irs-part-header-bar">
+        <span class="part-label">Part II</span>
+        <span class="part-title">Labor Data (Summary)</span>
+      </div>
+
+      <div class="irs-form-body">
+        <div class="irs-line-item zebra-light-border">
+          <div class="irs-line-num">4</div>
+          <div class="irs-line-desc"><label for="cat">Main labor category of laborers and mechanics</label></div>
+          <div class="irs-dots"></div>
+          <div class="irs-input-box-mid"><input id="cat" type="text" formControlName="laborCategory"></div>
+        </div>
+        <div class="irs-line-item">
+            <div class="irs-line-num">5</div>
+            <div class="irs-line-desc"><label for="rate">Weighted average hourly wage rate paid</label></div>
+            <div class="irs-dots"></div>
+            <div class="irs-input-box"><input id="rate" type="number" formControlName="wageRate"></div>
+          </div>
+          <div class="irs-line-item zebra-light-border">
+            <div class="irs-line-num">6</div>
+            <div class="irs-line-desc"><label for="hours">Total hours worked by laborers/mechanics for the facility</label></div>
+            <div class="irs-dots"></div>
+            <div class="irs-input-box"><input id="hours" type="number" formControlName="hoursWorked"></div>
+          </div>
+      </div>
+
+      <div class="irs-footer-actions">
+        <button type="submit" class="btn-submit">Submit Form 7220</button>
+      </div>
+    </form>
+  </div>
+</div>

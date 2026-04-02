@@ -1,0 +1,80 @@
+<div class="irs-form-container">
+  <div class="irs-form-box">
+    <!-- Header -->
+    <div class="irs-main-header">
+       <div class="irs-col-form-id">
+          <div class="irs-form-num">Form <span class="num-large">965-C</span></div>
+          <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
+       </div>
+       <div class="irs-col-title">
+          <h1>Transfer Agreement Under Section 965(h)(3)</h1>
+          <p class="irs-instruction">Go to <strong>www.irs.gov/Form965C</strong> for instructions and the latest information.</p>
+       </div>
+       <div class="irs-col-omb">
+          <div class="irs-omb">OMB No. 1545-0074</div>
+       </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Part I -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part I</span>
+        <span class="part-title">Transferor Information</span>
+      </div>
+      <div class="irs-id-grid-965 padding-sm border-b">
+         <div class="irs-id-row">
+            <div class="irs-cell">
+               <label for="trn">Name of transferor</label>
+               <input id="trn" type="text" formControlName="transferor_name" class="irs-borderless-input">
+            </div>
+            <div class="irs-cell border-l">
+               <label for="trin">Identifying number (TIN)</label>
+               <input id="trin" type="text" formControlName="transferor_tin" class="irs-borderless-input">
+            </div>
+         </div>
+      </div>
+
+      <!-- Part II -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part II</span>
+        <span class="part-title">Transferee Information</span>
+      </div>
+      <div class="irs-id-grid-965 padding-sm border-b">
+         <div class="irs-id-row">
+            <div class="irs-cell">
+               <label for="ten">Name of transferee</label>
+               <input id="ten" type="text" formControlName="transferee_name" class="irs-borderless-input">
+            </div>
+            <div class="irs-cell border-l">
+               <label for="tein">Identifying number (TIN)</label>
+               <input id="tein" type="text" formControlName="transferee_tin" class="irs-borderless-input">
+            </div>
+         </div>
+      </div>
+
+      <!-- Part III -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part III</span>
+        <span class="part-title">Acceleration Event</span>
+      </div>
+      <div class="irs-checkbox-grid padding-sm border-b">
+         <p class="irs-bold">Check the box(es) that describe the acceleration event:</p>
+         <div class="irs-check-list margin-t-10">
+            <label><input type="radio" value="liquidated" formControlName="accel_event"> The transferor is liquidated etc...</label>
+            <label><input type="radio" value="sale" formControlName="accel_event"> The transferor sells or etc...</label>
+         </div>
+         <div class="irs-date-row margin-t-20">
+            <label>Date of event: <input type="date" formControlName="event_date" class="irs-inline-date"></label>
+         </div>
+         <div class="irs-desc-row margin-t-20">
+            <label>Detailed description:</label>
+            <textarea formControlName="event_desc" rows="4" class="irs-textarea"></textarea>
+         </div>
+      </div>
+
+      <div class="irs-footer-actions">
+        <button type="submit" class="btn-submit">Submit Form 965-C</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,101 @@
+<div class="irs-form-container">
+  <div class="irs-form-box">
+    <!-- Header -->
+    <div class="irs-main-header">
+      <div class="irs-col-form-id">
+        <div class="irs-form-num">Form <span class="num-large">8621-A</span></div>
+        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
+      </div>
+      <div class="irs-col-title">
+        <h1>Return by a Shareholder Making Certain Late Elections To End Treatment as a Passive Foreign Investment Company</h1>
+        <p class="irs-instruction">Go to <strong>www.irs.gov/Form8621A</strong> for instructions and the latest information.</p>
+      </div>
+      <div class="irs-col-omb">
+        <div class="irs-omb">OMB No. 1545-1002</div>
+        <div class="irs-attachment">Attachment<br>Sequence No. <strong>69A</strong></div>
+      </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Identification Grid -->
+      <div class="irs-id-grid-8621a">
+         <div class="irs-grid-row-ident">
+            <div class="irs-grid-cell-ident border-r">
+               <label for="sn">Name of shareholder making late election</label>
+               <input id="sn" type="text" formControlName="shareholder_name">
+            </div>
+            <div class="irs-grid-cell-ident irs-half">
+               <label for="stin">Identifying number (see instructions)</label>
+               <input id="stin" type="text" formControlName="shareholder_tin">
+            </div>
+         </div>
+         <div class="irs-grid-row-ident border-t">
+            <div class="irs-grid-cell-ident">
+               <label for="saddr">Number, street, and room or suite no. (If a P.O. box, see instructions.)</label>
+               <input id="saddr" type="text" formControlName="shareholder_addr">
+            </div>
+         </div>
+      </div>
+
+      <!-- Type of Shareholder Checkboxes -->
+      <div class="irs-sh-type-box border-b padding-sm">
+         <span class="irs-group-header">Type of shareholder filing this return (check one):</span>
+         <div class="irs-checkbox-group-grid">
+            <label><input type="radio" value="individual" formControlName="shareholder_type"> Individual</label>
+            <label><input type="radio" value="corporation" formControlName="shareholder_type"> Corporation</label>
+            <label><input type="radio" value="s-corp" formControlName="shareholder_type"> S corporation</label>
+            <label><input type="radio" value="trust" formControlName="shareholder_type"> Nongrantor Trust</label>
+            <label><input type="radio" value="partnership" formControlName="shareholder_type"> Partnership</label>
+            <label><input type="radio" value="estate" formControlName="shareholder_type"> Estate</label>
+         </div>
+      </div>
+
+      <!-- Part I -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part I</span>
+        <span class="part-title">Elections</span>
+      </div>
+
+      <div class="irs-election-rows">
+         <div class="irs-elect-row-complex border-b">
+            <div class="irs-elect-check"><input type="checkbox" formControlName="elect_a"></div>
+            <div class="irs-elect-text">
+               <strong>A Late Deemed Dividend Election.</strong> I, a shareholder of a PFIC, make a late deemed dividend election...
+               <p class="irs-subtext">(Enter information in Part II below.)</p>
+            </div>
+         </div>
+         <div class="irs-elect-row-complex zebra-light border-b">
+            <div class="irs-elect-check"><input type="checkbox" formControlName="elect_b"></div>
+            <div class="irs-elect-text">
+               <strong>B Late Deemed Sale Election.</strong> I, a shareholder of a PFIC, make a late deemed sale election...
+            </div>
+         </div>
+      </div>
+
+      <!-- Part II -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part II</span>
+        <span class="part-title">Information for Elections (Former PFICs)</span>
+      </div>
+
+      <div class="irs-form-body">
+         <div class="irs-line-item">
+            <div class="irs-line-num">1</div>
+            <div class="irs-line-desc">Enter the termination date of the former PFIC</div>
+            <div class="irs-dots"></div>
+            <div class="irs-input-box-mid"><input type="date" formControlName="line1_date"></div>
+         </div>
+         <div class="irs-line-item zebra-light-border">
+            <div class="irs-line-num">3</div>
+            <div class="irs-line-desc">Enter your pro rata share of the post-1986 E&P...</div>
+            <div class="irs-dots"></div>
+            <div class="irs-input-box-mid"><input type="number" formControlName="line3_amount"></div>
+         </div>
+      </div>
+
+      <div class="irs-footer-actions">
+        <button type="submit" class="btn-submit">Submit Form 8621-A</button>
+      </div>
+    </form>
+  </div>
+</div>

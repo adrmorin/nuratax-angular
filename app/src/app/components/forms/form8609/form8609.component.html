@@ -1,0 +1,94 @@
+<div class="irs-form-container">
+  <div class="irs-form-box">
+    <!-- Header -->
+    <div class="irs-main-header">
+      <div class="irs-col-form-id">
+        <div class="irs-form-num">Form <span class="num-large">8609</span></div>
+        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
+      </div>
+      <div class="irs-col-title">
+        <h1>Low-Income Housing Credit Allocation and Certification</h1>
+        <p class="irs-instruction">Go to <strong>www.irs.gov/Form8609</strong> for instructions and the latest information.</p>
+      </div>
+      <div class="irs-col-omb">
+        <div class="irs-omb">OMB No. 1545-0988</div>
+        <div class="irs-year-box">
+          <div class="irs-year">2025</div>
+        </div>
+      </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Part I -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part I</span>
+        <span class="part-title">Allocation of Credit – To Be Completed by Housing Credit Agency Only</span>
+      </div>
+
+      <div class="irs-id-grid">
+        <div class="id-row">
+            <div class="id-label">A</div>
+            <div class="id-field"><label for="baddr">Address of building (as shown on Form 8609)</label> <input id="baddr" type="text" formControlName="buildingAddr"></div>
+        </div>
+        <div class="id-row">
+            <div class="id-label">B</div>
+            <div class="id-field"><label for="aname">Name and address of housing credit agency</label> <input id="aname" type="text" formControlName="agencyName"></div>
+        </div>
+        <div class="id-row">
+            <div class="id-label">C</div>
+            <div class="id-field"><label for="oname">Name and address of building owner</label> <input id="oname" type="text" formControlName="ownerName"></div>
+            <div class="id-label">D</div>
+            <div class="id-field id-half"><label for="otin">Owner’s TIN</label> <input id="otin" type="text" formControlName="ownerTin"></div>
+        </div>
+        <div class="id-row">
+            <div class="id-label">E</div>
+            <div class="id-field"><label for="bin">Building identification number (BIN)</label> <input id="bin" type="text" formControlName="bin"></div>
+        </div>
+      </div>
+
+      <div class="irs-form-body">
+         <div class="irs-line-item">
+            <div class="irs-line-num">1a</div>
+            <div class="irs-line-desc">Date of allocation</div>
+            <div class="irs-dots"></div>
+            <div class="irs-line-val-num">1a</div>
+            <div class="irs-input-box no-shade"><input type="text" formControlName="line1a"></div>
+         </div>
+         <div class="irs-line-item zebra-light-border">
+            <div class="irs-line-num">1b</div>
+            <div class="irs-line-desc">Housing credit dollar amount allocated</div>
+            <div class="irs-dots"></div>
+            <div class="irs-line-val-num">1b</div>
+            <div class="irs-input-box no-shade"><input type="number" formControlName="line1b"></div>
+         </div>
+      </div>
+
+      <!-- Part II -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part II</span>
+        <span class="part-title">First-Year Certification – To Be Completed by Building Owner</span>
+      </div>
+
+      <div class="irs-form-body">
+        <div class="irs-line-item zebra-dark-border">
+          <div class="irs-line-num">7</div>
+          <div class="irs-line-desc"><label for="line7">Eligible basis of building (see instructions)</label></div>
+          <div class="irs-dots"></div>
+          <div class="irs-line-val-num">7</div>
+          <div class="irs-input-box"><input id="line7" type="number" formControlName="line7"></div>
+        </div>
+        <div class="irs-line-item">
+            <div class="irs-line-num">8a</div>
+            <div class="irs-line-desc"><label for="line8a">Original qualified basis of the building at the close of the first year of the credit period</label></div>
+            <div class="irs-dots"></div>
+            <div class="irs-line-val-num">8a</div>
+            <div class="irs-input-box"><input id="line8a" type="number" formControlName="line8a"></div>
+          </div>
+      </div>
+
+      <div class="irs-footer-actions">
+        <button type="submit" class="btn-submit">Submit Form 8609</button>
+      </div>
+    </form>
+  </div>
+</div>

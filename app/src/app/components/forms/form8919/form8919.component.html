@@ -1,0 +1,86 @@
+<div class="irs-form-container">
+  <div class="irs-form-box">
+    <!-- Header -->
+    <div class="irs-main-header">
+      <div class="irs-col-form-id">
+        <div class="irs-form-num">Form <span class="num-large">8919</span></div>
+        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
+      </div>
+      <div class="irs-col-title">
+        <h1>Uncollected Social Security and Medicare Tax on Wages</h1>
+        <p class="irs-instruction">Go to <strong>www.irs.gov/Form8919</strong> for instructions and the latest information.</p>
+      </div>
+      <div class="irs-col-omb">
+        <div class="irs-omb">OMB No. 1545-0074</div>
+        <div class="irs-attachment">Attachment<br>Sequence No. <strong>61</strong></div>
+      </div>
+    </div>
+
+    <!-- Name/SSN Row -->
+    <div class="irs-name-ssn-row">
+      <div class="irs-name-box">
+        <label for="name">Name of person who must file this form</label>
+        <input id="name" type="text" formControlName="name" class="irs-borderless-input">
+      </div>
+      <div class="irs-ssn-box">
+        <label for="ssn">Social security number</label>
+        <input id="ssn" type="text" formControlName="ssn" class="irs-borderless-input">
+      </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Part I -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part I</span>
+        <span class="part-title">Reason Codes</span>
+      </div>
+      <div class="irs-instruction-box padding-sm border-b">
+         <p><strong>A</strong> I filed Form SS-8 and received a determination from the IRS...</p>
+         <p><strong>G</strong> I filed Form SS-8 and have not received a reply etc...</p>
+      </div>
+
+      <!-- Part II -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part II</span>
+        <span class="part-title">Calculation</span>
+      </div>
+
+      <div class="irs-table-container">
+         <div class="irs-table-header-grid">
+            <div class="cell-head cell-col-a">(a) Name of firm</div>
+            <div class="cell-head cell-col-b">(b) Firm's EIN</div>
+            <div class="cell-head cell-col-c">(c) Reason code</div>
+            <div class="cell-head cell-col-f">(f) Total wages</div>
+         </div>
+         <div class="irs-table-row">
+            <div class="cell-input"><input type="text" formControlName="p2_row1a"></div>
+            <div class="cell-input"><input type="text" formControlName="p2_row1b"></div>
+            <div class="cell-input"><input type="text" formControlName="p2_row1c"></div>
+            <div class="cell-input"><input type="number" formControlName="p2_row1f"></div>
+         </div>
+      </div>
+
+      <!-- Computational Lines -->
+      <div class="irs-form-body">
+         <div class="irs-line-item">
+            <div class="irs-line-num">6</div>
+            <div class="irs-line-desc">Total wages. Add lines 1 through 5 in column (f)</div>
+            <div class="irs-dots"></div>
+            <div class="irs-line-val-num">6</div>
+            <div class="irs-input-box no-shade"><input type="number" formControlName="line6"></div>
+         </div>
+         <div class="irs-line-item zebra-light-border">
+            <div class="irs-line-num">8</div>
+            <div class="irs-line-desc">Maximum amount of wages subject to social security tax</div>
+            <div class="irs-dots"></div>
+            <div class="irs-line-val-num">8</div>
+            <div class="irs-input-box shaded"><input type="number" formControlName="line8" readonly></div>
+         </div>
+      </div>
+
+      <div class="irs-footer-actions">
+        <button type="submit" class="btn-submit">Submit Form 8919</button>
+      </div>
+    </form>
+  </div>
+</div>

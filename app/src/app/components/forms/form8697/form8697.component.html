@@ -1,0 +1,96 @@
+<div class="irs-form-container">
+  <div class="irs-form-box">
+    <!-- Header -->
+    <div class="irs-main-header">
+      <div class="irs-col-form-id">
+        <div class="irs-form-num">Form <span class="num-large">8697</span></div>
+        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
+      </div>
+      <div class="irs-col-title">
+        <h1>Interest Computation Under the Look-Back Method for Completed Long-Term Contracts</h1>
+        <p class="irs-instruction">Go to <strong>www.irs.gov/Form8697</strong> for instructions and the latest information.</p>
+      </div>
+      <div class="irs-col-omb">
+        <div class="irs-omb">OMB No. 1545-1031</div>
+      </div>
+    </div>
+
+    <!-- Identity Grid -->
+    <div class="irs-id-grid">
+       <div class="irs-ident-row flex">
+          <div class="irs-ident-cell border-r flex-grow">
+             <label for="tn">Name</label>
+             <input id="tn" type="text" formControlName="taxpayer_name" class="irs-borderless-input">
+          </div>
+          <div class="irs-ident-cell irs-id-num">
+             <label for="ttin">Identifying number</label>
+             <input id="ttin" type="text" formControlName="taxpayer_tin" class="irs-borderless-input">
+          </div>
+       </div>
+       <div class="irs-ident-row border-t border-b padding-sm">
+          <span class="irs-bold-text">Section B—Check the box for the type of taxpayer:</span>
+          <div class="irs-checkbox-group-grid">
+             <label><input type="radio" value="individual" formControlName="filing_type"> Individual</label>
+             <label><input type="radio" value="corporation" formControlName="filing_type"> Corporation</label>
+             <label><input type="radio" value="s-corp" formControlName="filing_type"> S corporation</label>
+             <label><input type="radio" value="partnership" formControlName="filing_type"> Partnership</label>
+          </div>
+       </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Part I -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part I</span>
+        <span class="part-title">Regular Method</span>
+      </div>
+
+      <div class="irs-table-3col">
+         <div class="table-header border-b">
+            <div class="cell-num"></div>
+            <div class="cell-desc"></div>
+            <div class="cell-col">(a) Filing year</div>
+            <div class="cell-col">(b) Redetermination years</div>
+            <div class="cell-col">(c) Totals</div>
+         </div>
+
+         <!-- Line 1 -->
+         <div class="table-row">
+            <div class="cell-num">1</div>
+            <div class="cell-desc">Taxable income (or loss) etc...</div>
+            <div class="cell-input"><input type="number" formControlName="p1_l1a"></div>
+            <div class="cell-input"><input type="number" formControlName="p1_l1b"></div>
+            <div class="cell-input shaded"><input type="text" readonly></div>
+         </div>
+
+         <!-- Line 2 -->
+         <div class="table-row zebra-light">
+            <div class="cell-num">2</div>
+            <div class="cell-desc">Amount of tax etc...</div>
+            <div class="cell-input"><input type="number" formControlName="p1_l2a"></div>
+            <div class="cell-input"><input type="number" formControlName="p1_l2b"></div>
+            <div class="cell-input shaded"><input type="text" readonly></div>
+         </div>
+      </div>
+
+      <!-- Refund Info Line 9 -->
+      <div class="irs-refund-block padding-sm border-t">
+         <strong>9 Refund of interest.</strong> If Line 8 is etc...
+         <div class="irs-bank-grid margin-t-10">
+            <div class="bank-cell">
+               <label for="rn">Routing number</label>
+               <input id="rn" type="text" formControlName="routing_number">
+            </div>
+            <div class="bank-cell">
+               <label for="an">Account number</label>
+               <input id="an" type="text" formControlName="account_number">
+            </div>
+         </div>
+      </div>
+
+      <div class="irs-footer-actions">
+        <button type="submit" class="btn-submit">Submit Form 8697</button>
+      </div>
+    </form>
+  </div>
+</div>

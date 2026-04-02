@@ -1,0 +1,101 @@
+<div class="irs-form-container">
+  <div class="irs-form-box">
+    <!-- Header -->
+    <div class="irs-main-header">
+      <div class="irs-col-form-id">
+        <div class="irs-form-num">Form <span class="num-large">5329</span></div>
+        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
+      </div>
+      <div class="irs-col-title">
+        <h1>Additional Taxes on Qualified Plans (Including IRAs) and Other Tax-Favored Accounts</h1>
+        <p class="irs-instruction">Go to <strong>www.irs.gov/Form5329</strong> for instructions and the latest information.</p>
+        <p class="irs-attach">Attach to Form 1040, 1040-SR, or 1040-NR.</p>
+      </div>
+      <div class="irs-col-omb">
+        <div class="irs-omb">OMB No. 1545-0074</div>
+        <div class="irs-year-box">
+          <div class="irs-year">2025</div>
+          <div class="irs-attachment">Attachment<br>Sequence No. <strong>29</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Name/ID Row -->
+    <div class="irs-name-ssn-row">
+      <div class="irs-name-box">
+        <label for="name">Name of individual subject to additional tax. If married filing jointly, see instructions.</label>
+        <input id="name" type="text" formControlName="name" class="irs-borderless-input">
+      </div>
+      <div class="irs-ssn-box">
+        <label for="ssn">Your social security number</label>
+        <input id="ssn" type="text" formControlName="ssn" class="irs-borderless-input">
+      </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Part I -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part I</span>
+        <span class="part-title">Additional Tax on Early Distributions</span>
+      </div>
+
+      <div class="irs-form-body">
+        <div class="irs-line-item zebra-light-border">
+          <div class="irs-line-num">1</div>
+          <div class="irs-line-desc"><label for="line1">Early distributions included in income. For qualified retirement plans (including IRAs), see instructions</label></div>
+          <div class="irs-dots"></div>
+          <div class="irs-line-val-num">1</div>
+          <div class="irs-input-box"><input id="line1" type="number" formControlName="line1"></div>
+        </div>
+        <div class="irs-line-item">
+          <div class="irs-line-num">2</div>
+          <div class="irs-line-desc"><label for="line2">Early distributions included on line 1 that are not subject to the additional tax (see instructions). Enter the appropriate exception number from the instructions</label></div>
+          <div class="irs-dots"></div>
+          <div class="irs-line-val-num">2</div>
+          <div class="irs-input-box"><input id="line2" type="number" formControlName="line2"></div>
+        </div>
+        <div class="irs-line-item zebra-light-border">
+          <div class="irs-line-num">3</div>
+          <div class="irs-line-desc"><label for="line3">Amount subject to additional tax. Subtract line 2 from line 1</label></div>
+          <div class="irs-dots"></div>
+          <div class="irs-line-val-num">3</div>
+          <div class="irs-input-box"><input id="line3" type="number" formControlName="line3"></div>
+        </div>
+        <div class="irs-line-item">
+          <div class="irs-line-num">4</div>
+          <div class="irs-line-desc"><label for="line4"><strong>Additional tax.</strong> Multiply line 3 by 10% (0.10). Include this amount on Schedule 2 (Form 1040), line 8</label></div>
+          <div class="irs-dots"></div>
+          <div class="irs-line-val-num">4</div>
+          <div class="irs-input-box"><input id="line4" type="number" formControlName="line4"></div>
+        </div>
+      </div>
+
+      <!-- Part II -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part II</span>
+        <span class="part-title">Additional Tax on Certain Distributions From Education Accounts and ABLE Accounts</span>
+      </div>
+
+      <div class="irs-form-body">
+        <div class="irs-line-item zebra-dark-border">
+          <div class="irs-line-num">5</div>
+          <div class="irs-line-desc"><label for="line5">Distributions included in income from Coverdell ESAs, QTPs, or ABLE accounts (see instructions)</label></div>
+          <div class="irs-dots"></div>
+          <div class="irs-line-val-num">5</div>
+          <div class="irs-input-box"><input id="line5" type="number" formControlName="line5"></div>
+        </div>
+        <div class="irs-line-item">
+          <div class="irs-line-num">8</div>
+          <div class="irs-line-desc"><label for="line8"><strong>Additional tax.</strong> Multiply line 7 by 10% (0.10). Include this amount on Schedule 2 (Form 1040), line 8</label></div>
+          <div class="irs-dots"></div>
+          <div class="irs-line-val-num">8</div>
+          <div class="irs-input-box"><input id="line8" type="number" formControlName="line8"></div>
+        </div>
+      </div>
+
+      <div class="irs-footer-actions">
+        <button type="submit" class="btn-submit">Submit Form 5329</button>
+      </div>
+    </form>
+  </div>
+</div>

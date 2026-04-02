@@ -1,0 +1,88 @@
+<div class="irs-form-container">
+  <div class="irs-form-box">
+    <!-- Header -->
+    <div class="irs-main-header">
+      <div class="irs-col-form-id">
+        <div class="irs-form-num">Form <span class="num-large">8586</span></div>
+        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
+      </div>
+      <div class="irs-col-title">
+        <h1>Low-Income Housing Credit</h1>
+        <p class="irs-instruction">Go to <strong>www.irs.gov/Form8586</strong> for instructions and the latest information.</p>
+      </div>
+      <div class="irs-col-omb">
+        <div class="irs-omb">OMB No. 1545-0984</div>
+        <div class="irs-year-box">
+          <div class="irs-attachment">Attachment<br>Sequence No. <strong>36a</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Name/ID Row -->
+    <div class="irs-name-ssn-row">
+      <div class="irs-name-box">
+        <label for="name">Name(s) shown on return</label>
+        <input id="name" type="text" formControlName="name" class="irs-borderless-input">
+      </div>
+      <div class="irs-ssn-box">
+        <label for="idn">Identifying number</label>
+        <input id="idn" type="text" formControlName="identNumber" class="irs-borderless-input">
+      </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="irs-form-body">
+        <div class="irs-line-item">
+          <div class="irs-line-num">1</div>
+          <div class="irs-line-desc"><label for="line1">Number of Forms 8609-A attached for buildings (see instructions)</label></div>
+          <div class="irs-dots"></div>
+          <div class="irs-line-val-num">1</div>
+          <div class="irs-input-box no-shade"><input id="line1" type="number" formControlName="line1"></div>
+        </div>
+
+        <!-- Line 2 Grid -->
+        <div class="irs-line-item-grid-container">
+          <div class="irs-line-num align-top">2</div>
+          <div class="grid-main-desc">
+            Has there been a decrease in the qualified basis of any buildings since the close of the preceding tax year? 
+            If "Yes," enter the building identification number (BIN) of the building(s) that had a decrease. 
+            If "No," check the box. See instructions.
+          </div>
+          <div class="building-decrease-grid">
+            <div class="grid-header">Building:</div>
+            <div class="grid-col"><span>(i)</span> <input type="checkbox" formControlName="line2i"></div>
+            <div class="grid-col"><span>(ii)</span> <input type="checkbox" formControlName="line2ii"></div>
+            <div class="grid-col"><span>(iii)</span> <input type="checkbox" formControlName="line2iii"></div>
+            <div class="grid-col"><span>(iv)</span> <input type="checkbox" formControlName="line2iv"></div>
+          </div>
+        </div>
+
+        <div class="irs-line-item zebra-light-border">
+          <div class="irs-line-num">3</div>
+          <div class="irs-line-desc"><label for="line3">Current year credit from attached Form(s) 8609-A (see instructions)</label></div>
+          <div class="irs-dots"></div>
+          <div class="irs-line-val-num">3</div>
+          <div class="irs-input-box"><input id="line3" type="number" formControlName="line3"></div>
+        </div>
+        <div class="irs-line-item">
+          <div class="irs-line-num">4</div>
+          <div class="irs-line-desc"><label for="line4">Low-income housing credit from partnerships, S corporations, estates, and trusts</label></div>
+          <div class="irs-dots"></div>
+          <div class="irs-line-val-num">4</div>
+          <div class="irs-input-box"><input id="line4" type="number" formControlName="line4"></div>
+        </div>
+        <div class="irs-line-item zebra-light-border">
+          <div class="irs-line-num">5</div>
+          <div class="irs-line-desc"><strong>Add lines 3 and 4.</strong> Estates and trusts, go to line 6. All others, report this amount on Form 3800, Part III, line 4</div>
+          <div class="irs-dots"></div>
+          <div class="irs-line-val-num">5</div>
+          <div class="irs-input-box"><input id="line5" type="number" formControlName="line5"></div>
+        </div>
+      </div>
+
+      <div class="irs-footer-actions">
+        <button type="submit" class="btn-submit">Submit Form 8586</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="irs-form-container">
+  <div class="irs-form-box">
+    <!-- Header -->
+    <div class="irs-main-header">
+      <div class="irs-col-form-id">
+        <div class="irs-form-num">Form <span class="num-large">8915-F</span></div>
+        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
+      </div>
+      <div class="irs-col-title">
+        <h1>Qualified Disaster Retirement Plan Distributions and Repayments</h1>
+        <p class="irs-instruction">Go to <strong>www.irs.gov/Form8915F</strong> for instructions and the latest information.</p>
+        <p class="irs-attach">Attach to Form 1040, 1040-SR, or 1040-NR.</p>
+      </div>
+      <div class="irs-col-omb">
+        <div class="irs-omb">OMB No. 1545-0074</div>
+        <div class="irs-year-box">
+          <div class="irs-year">2025</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Name/ID Row -->
+    <div class="irs-name-ssn-row">
+      <div class="irs-name-box">
+        <label for="name">Name. If married filing jointly, see instructions.</label>
+        <input id="name" type="text" formControlName="name" class="irs-borderless-input">
+      </div>
+      <div class="irs-ssn-box">
+        <label for="ssn">Your social security number</label>
+        <input id="ssn" type="text" formControlName="ssn" class="irs-borderless-input">
+      </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Part I -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part I</span>
+        <span class="part-title">Disaster Information</span>
+      </div>
+
+      <div class="irs-form-body">
+        <p class="irs-intro-text">Identify the qualified disaster(s) to which this form relates (see instructions).</p>
+        <div class="irs-disaster-table">
+          <div class="table-header">
+            <span>FEMA Number</span>
+            <span>Date Disaster Started</span>
+            <span>Location of Disaster</span>
+          </div>
+          <div class="table-row">
+            <input type="text" formControlName="femaNumber" placeholder="e.g., FEMA-45XX-DR">
+            <input type="date" formControlName="disasterStartDate">
+            <input type="text" formControlName="disasterLocation">
+          </div>
+        </div>
+      </div>
+
+      <!-- Part II -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part II</span>
+        <span class="part-title">Qualified Disaster Distributions From Retirement Plans (Other Than IRAs)</span>
+      </div>
+
+      <div class="irs-form-body">
+        <div class="irs-line-item zebra-light-border">
+          <div class="irs-line-num">1</div>
+          <div class="irs-line-desc"><label for="line1">Total qualified disaster distributions from retirement plans (other than IRAs) made in 2025 (see instructions)</label></div>
+          <div class="irs-dots"></div>
+          <div class="irs-line-val-num">1</div>
+          <div class="irs-input-box"><input id="line1" type="number" formControlName="line1"></div>
+        </div>
+        <div class="irs-line-item">
+          <div class="irs-line-num">5</div>
+          <div class="irs-line-desc"><label for="line5"><strong>Taxable amount.</strong> Subtract line 4 from line 3. Also include this amount on 2025 Form 1040, line 5b</label></div>
+          <div class="irs-dots"></div>
+          <div class="irs-line-val-num">5</div>
+          <div class="irs-input-box"><input id="line5" type="number" formControlName="line5"></div>
+        </div>
+      </div>
+
+      <div class="irs-footer-actions">
+        <button type="submit" class="btn-submit">Submit Form 8915-F</button>
+      </div>
+    </form>
+  </div>
+</div>

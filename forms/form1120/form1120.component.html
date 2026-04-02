@@ -1,0 +1,324 @@
+<div class="irs-form-container" style="position: relative;">
+    <!-- IRS Page Header -->
+    <div class="irs-header">
+        <div class="irs-header-left">
+            <div class="form-title">Formulario 1120 2026</div>
+        </div>
+        <div class="irs-header-right">
+            <span>Página 1</span>
+        </div>
+    </div>
+
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1">
+                <span class="irs-form-id">1120</span>
+                <span class="irs-form-sub-id">2026</span>
+            </div>
+            <div class="irs-col-2">
+                <h1>Declaración de Impuestos sobre la Renta Corporativa de EE. UU.</h1>
+                <p>(U.S. Corporation Income Tax Return)</p>
+                <p class="irs-instruction">▶ Vaya a www.irs.gov/Form1120 para instrucciones y la información más reciente.</p>
+            </div>
+            <div class="irs-col-3">
+                <div class="irs-sequence-box">
+                    <span>Secuencia No. de</span>
+                    <span class="irs-sequence-num">---</span>
+                </div>
+            </div>
+        </div>
+
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <!-- Header Information -->
+            <div class="irs-row-border">
+                <div class="irs-field flex-full">
+                    <label for="name">Nombre de la corporación</label>
+                    <input id="name" type="text" formControlName="name">
+                </div>
+            </div>
+
+            <div class="irs-row-border">
+                <div class="irs-field flex-3 border-right">
+                    <label for="address">Dirección de la corporación</label>
+                    <input id="address" type="text" formControlName="address">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="ein">EIN</label>
+                    <input id="ein" type="text" formControlName="ein">
+                </div>
+            </div>
+
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right">
+                    <label for="cityStateZip">Ciudad, Estado, Código Postal</label>
+                    <input id="cityStateZip" type="text" formControlName="cityStateZip">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="stateOfIncorporation">Estado de incorporación</label>
+                    <input id="stateOfIncorporation" type="text" formControlName="stateOfIncorporation">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="dateIncorporated">Fecha de incorporación</label>
+                    <input id="dateIncorporated" type="text" formControlName="dateIncorporated">
+                </div>
+            </div>
+
+            <!-- PART I: Income -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part I</span>
+                <span class="irs-part-title">Income</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part1 }}
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-desc">
+                            <label for="grossReceipts">Gross receipts or sales . . . . . . . . . . . . . . . . . . . . . . . .</label>
+                        </td>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-val-cell"><input id="grossReceipts" type="number" formControlName="grossReceipts"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">2</td>
+                        <td class="irs-desc">
+                            <label for="costOfGoodsSold">Cost of goods sold. Vea las instrucciones . . . . . . . . . . . . . . .</label>
+                        </td>
+                        <td class="irs-line-num">2</td>
+                        <td class="irs-val-cell"><input id="costOfGoodsSold" type="number" formControlName="costOfGoodsSold"></td>
+                    </tr>
+                    <tr class="irs-shaded-row">
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-desc">Gross profit. Reste la línea 2 de la línea 1 . . . . . . . . . . . . . . . .</td>
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('grossProfit')?.value | currency }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-desc">
+                            <label for="dividendsInclude">Dividends and inclusions . . . . . . . . . . . . . . . . . . . . . . . . .</label>
+                        </td>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-val-cell"><input id="dividendsInclude" type="number" formControlName="dividendsInclude"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">5</td>
+                        <td class="irs-desc"><strong>Gross income.</strong> Sume las líneas 3 y 4 . . . . . . . . . . . . . . . . .</td>
+                        <td class="irs-line-num">5</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('grossIncome')?.value | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PART II: Deductions -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part II</span>
+                <span class="irs-part-title">Deductions</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part2 }}
+                </div>
+            </div>
+
+            <table class="irs-table" formGroupName="deductions">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">8</td>
+                        <td class="irs-desc"><label for="compensationOfficers">Compensation of officers . . . . .</label></td>
+                        <td class="irs-line-num">8</td>
+                        <td class="irs-val-cell"><input id="compensationOfficers" type="number" formControlName="compensationOfficers"></td>
+                        <td class="irs-line-num">19</td>
+                        <td class="irs-desc"><label for="pensionPlans">Pension, profit-sharing, etc. .</label></td>
+                        <td class="irs-line-num">19</td>
+                        <td class="irs-val-cell"><input id="pensionPlans" type="number" formControlName="pensionPlans"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">9</td>
+                        <td class="irs-desc"><label for="salariesWages">Salaries and wages . . . . .</label></td>
+                        <td class="irs-line-num">9</td>
+                        <td class="irs-val-cell"><input id="salariesWages" type="number" formControlName="salariesWages"></td>
+                        <td class="irs-line-num">20</td>
+                        <td class="irs-desc"><label for="employeeBenefits">Employee benefit programs .</label></td>
+                        <td class="irs-line-num">20</td>
+                        <td class="irs-val-cell"><input id="employeeBenefits" type="number" formControlName="employeeBenefits"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">10</td>
+                        <td class="irs-desc"><label for="repairsMaintenance">Repairs and maintenance . . . .</label></td>
+                        <td class="irs-line-num">10</td>
+                        <td class="irs-val-cell"><input id="repairsMaintenance" type="number" formControlName="repairsMaintenance"></td>
+                        <td class="irs-line-num">26</td>
+                        <td class="irs-desc"><label for="otherDeductions">Other deductions. Vea las instr. .</label></td>
+                        <td class="irs-line-num">26</td>
+                        <td class="irs-val-cell"><input id="otherDeductions" type="number" formControlName="otherDeductions"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">11</td>
+                        <td class="irs-desc"><label for="badDebts">Bad debts . . . . . . . .</label></td>
+                        <td class="irs-line-num">11</td>
+                        <td class="irs-val-cell"><input id="badDebts" type="number" formControlName="badDebts"></td>
+                        <td class="irs-line-num"></td>
+                        <td class="irs-desc"></td>
+                        <td class="irs-line-num"></td>
+                        <td class="irs-val-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">12</td>
+                        <td class="irs-desc"><label for="rentLease">Rents or lease expense . . . .</label></td>
+                        <td class="irs-line-num">12</td>
+                        <td class="irs-val-cell"><input id="rentLease" type="number" formControlName="rentLease"></td>
+                        <td class="irs-line-num"></td>
+                        <td class="irs-desc"></td>
+                        <td class="irs-line-num"></td>
+                        <td class="irs-val-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">13</td>
+                        <td class="irs-desc"><label for="taxesLicenses">Taxes and licenses . . . . . .</label></td>
+                        <td class="irs-line-num">13</td>
+                        <td class="irs-val-cell"><input id="taxesLicenses" type="number" formControlName="taxesLicenses"></td>
+                        <td class="irs-line-num"></td>
+                        <td class="irs-desc"></td>
+                        <td class="irs-line-num"></td>
+                        <td class="irs-val-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">14</td>
+                        <td class="irs-desc"><label for="interestExpense">Interest expense . . . . . .</label></td>
+                        <td class="irs-line-num">14</td>
+                        <td class="irs-val-cell"><input id="interestExpense" type="number" formControlName="interestExpense"></td>
+                        <td class="irs-line-num"></td>
+                        <td class="irs-desc"></td>
+                        <td class="irs-line-num"></td>
+                        <td class="irs-val-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">15</td>
+                        <td class="irs-desc"><label for="charitableContributions">Charitable contributions . . .</label></td>
+                        <td class="irs-line-num">15</td>
+                        <td class="irs-val-cell"><input id="charitableContributions" type="number" formControlName="charitableContributions"></td>
+                        <td class="irs-line-num"></td>
+                        <td class="irs-desc"></td>
+                        <td class="irs-line-num"></td>
+                        <td class="irs-val-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">16</td>
+                        <td class="irs-desc"><label for="amortization">Amortization . . . . . . .</label></td>
+                        <td class="irs-line-num">16</td>
+                        <td class="irs-val-cell"><input id="amortization" type="number" formControlName="amortization"></td>
+                        <td class="irs-line-num"></td>
+                        <td class="irs-desc"></td>
+                        <td class="irs-line-num"></td>
+                        <td class="irs-val-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">17</td>
+                        <td class="irs-desc"><label for="depreciation">Depreciation . . . . . . . .</label></td>
+                        <td class="irs-line-num">17</td>
+                        <td class="irs-val-cell"><input id="depreciation" type="number" formControlName="depreciation"></td>
+                        <td class="irs-line-num"></td>
+                        <td class="irs-desc"></td>
+                        <td class="irs-line-num"></td>
+                        <td class="irs-val-cell"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">18</td>
+                        <td class="irs-desc"><label for="advertising">Advertising . . . . . . . .</label></td>
+                        <td class="irs-line-num">18</td>
+                        <td class="irs-val-cell"><input id="advertising" type="number" formControlName="advertising"></td>
+                        <td class="irs-line-num"></td>
+                        <td class="irs-desc"></td>
+                        <td class="irs-line-num"></td>
+                        <td class="irs-val-cell"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="irs-profit-section">
+                <div class="irs-profit-row">
+                    <div class="irs-line-num bold">27</div>
+                    <div class="irs-desc"><strong>Total deductions.</strong> Sume las líneas 8 a 26</div>
+                    <div class="irs-line-num">27</div>
+                    <div class="irs-val-cell calculated text-right">{{ taxForm.get('totalDeductions')?.value | currency }}</div>
+                </div>
+                <div class="irs-profit-row irs-result-row">
+                    <div class="irs-line-num bold">28</div>
+                    <div class="irs-desc"><strong>Taxable income.</strong> Reste la línea 27 de la línea 5</div>
+                    <div class="irs-line-num">28</div>
+                    <div class="irs-val-cell calculated text-right bold">{{ taxForm.get('taxableIncome')?.value | currency }}</div>
+                </div>
+            </div>
+
+            <!-- PART III: Tax and Payments -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part III</span>
+                <span class="irs-part-title">Tax and Payments</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part3 }}
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">29</td>
+                        <td class="irs-desc">Taxable income (de la línea 28) . . . . . . . . . . . . . . . . . . . . .</td>
+                        <td class="irs-line-num">29</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('taxableIncome')?.value | currency }}</td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">30</td>
+                        <td class="irs-desc"><strong>Tax.</strong> Multiplique la línea 29 por 21% (0.21)</td>
+                        <td class="irs-line-num">30</td>
+                        <td class="irs-val-cell calculated text-right bold">{{ taxForm.get('taxLiability')?.value | currency }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">31</td>
+                        <td class="irs-desc">
+                            <label for="federalIncomeTaxPaid">Federal income tax paid . . . . . . . . . . . . . . . . . . . . .</label>
+                        </td>
+                        <td class="irs-line-num">31</td>
+                        <td class="irs-val-cell"><input id="federalIncomeTaxPaid" type="number" formControlName="federalIncomeTaxPaid"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">33</td>
+                        <td class="irs-desc">
+                            <label for="overpayment">Overpayment . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .</label>
+                        </td>
+                        <td class="irs-line-num">33</td>
+                        <td class="irs-val-cell"><input id="overpayment" type="number" formControlName="overpayment"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">34</td>
+                        <td class="irs-desc">
+                            <label for="refundAmount">Amount to be refunded . . . . . . . . . . . . . . . . . . . . . . .</label>
+                        </td>
+                        <td class="irs-line-num">34</td>
+                        <td class="irs-val-cell"><input id="refundAmount" type="number" formControlName="refundAmount"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="irs-footer-actions">
+                <button type="submit" class="btn-irs-submit">Guardar Formulario 1120</button>
+            </div>
+        </form>
+
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

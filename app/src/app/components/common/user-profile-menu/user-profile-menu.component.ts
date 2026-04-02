@@ -22,11 +22,7 @@ export class UserProfileMenuComponent {
     private translate = inject(TranslateService);
 
     get displayName(): string {
-<<<<<<< HEAD
         if (!this.user) return this.translate.instant('AUTH.USER');
-=======
-        if (!this.user) return '';
->>>>>>> b010ee2287c0f3f281777bc740b543e4d3da4330
         if (this.user.firstName && this.user.lastName) {
             return `${this.user.firstName} ${this.user.lastName}`.trim();
         }
@@ -36,14 +32,7 @@ export class UserProfileMenuComponent {
         if (this.user.email) {
             return this.user.email.split('@')[0];
         }
-<<<<<<< HEAD
         return this.translate.instant('AUTH.USER');
-=======
-        if (this.user.username) {
-            return this.user.username.includes('@') ? this.user.username.split('@')[0] : this.user.username;
-        }
-        return '';
->>>>>>> b010ee2287c0f3f281777bc740b543e4d3da4330
     }
 
     get userInitials(): string {

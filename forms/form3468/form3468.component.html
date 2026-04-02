@@ -1,0 +1,353 @@
+<div class="irs-form-container" style="position: relative;">
+    <!-- IRS Page Header -->
+    <div class="irs-header">
+        <div class="irs-header-left">
+            <div class="form-title">Formulario 3468 2026</div>
+        </div>
+        <div class="irs-header-right">
+            <span>Página 1</span>
+        </div>
+    </div>
+
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1">
+                <span class="irs-form-id">3468</span>
+                <span class="irs-form-sub-id">2026</span>
+            </div>
+            <div class="irs-col-2">
+                <h1>Crédito de Inversión</h1>
+                <p>(Investment Credit)</p>
+                <p class="irs-instruction">▶ Vaya a www.irs.gov/Form3468 para instrucciones y la información más reciente.</p>
+                <p class="irs-instruction">▶ Adjunte al Formulario 1040, 1040-SR, o 1041.</p>
+            </div>
+            <div class="irs-col-3">
+                <div class="irs-sequence-box">
+                    <span>Secuencia No. de</span>
+                    <span class="irs-sequence-num">174</span>
+                </div>
+            </div>
+        </div>
+
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <!-- Name & SSN Section -->
+            <div class="irs-row-border">
+                <div class="irs-field flex-3 border-right">
+                    <label for="ownerName">Nombre(s) shown on return</label>
+                    <input id="ownerName" type="text" formControlName="ownerName">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="ssn">Identifying number</label>
+                    <input id="ssn" type="text" formControlName="ssn">
+                </div>
+            </div>
+
+            <!-- PART I: Investment Credit Carried Forward -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part I</span>
+                <span class="irs-part-title">Investment Credit Carried Forward From Prior Year</span>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-desc">
+                            <label for="carryforwardPrior">
+                                Investment credit carryforward from prior year. Vea las instrucciones . . . . . . . . . . .
+                            </label>
+                        </td>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-val-cell"><input id="carryforwardPrior" type="number" formControlName="carryforwardPrior"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">2</td>
+                        <td class="irs-desc">
+                            <label for="currentYearCredit">
+                                Current year investment credit. If none, entre -0- . . . . . . . . . . . . . . . . . .
+                            </label>
+                        </td>
+                        <td class="irs-line-num">2</td>
+                        <td class="irs-val-cell"><input id="currentYearCredit" type="number" formControlName="currentYearCredit"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PART II: Rehabilitation Credit -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part II</span>
+                <span class="irs-part-title">Rehabilitation Credit</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part1 }}
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-desc">
+                            <label for="qualifiedRehabBuildings">
+                                Qualified rehabilitation expenditures (buildings) . . . . . . . . . . . . . . . . . .
+                            </label>
+                        </td>
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-val-cell"><input id="qualifiedRehabBuildings" type="number" formControlName="qualifiedRehabBuildings"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-desc">
+                            <label for="qualifiedRehabHistoric">
+                                Qualified rehabilitation expenditures (certified historic structures) . . . . . . . .
+                            </label>
+                        </td>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-val-cell"><input id="qualifiedRehabHistoric" type="number" formControlName="qualifiedRehabHistoric"></td>
+                    </tr>
+                    <tr class="irs-shaded-row">
+                        <td class="irs-line-num">5</td>
+                        <td class="irs-desc">Total rehabilitation credit. Sume las líneas 3 y 4 . . . . . . . . . . . . . . . .</td>
+                        <td class="irs-line-num">5</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('totalRehabCredit')?.value | currency }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">6</td>
+                        <td class="irs-desc">
+                            <label for="rehabCreditPercentage">
+                                Entre 30% (20% para estructuras históricas certificadas) . . . . . . . . . . . . . .
+                            </label>
+                        </td>
+                        <td class="irs-line-num">6</td>
+                        <td class="irs-val-cell"><input id="rehabCreditPercentage" type="number" formControlName="rehabCreditPercentage"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">7</td>
+                        <td class="irs-desc"><strong>Rehabilitation credit.</strong> Multiplique la línea 5 por la línea 6 (0.30 o 0.20)</td>
+                        <td class="irs-line-num">7</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('rehabilitationCredit')?.value | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PART III: Energy Credit -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part III</span>
+                <span class="irs-part-title">Energy Credit</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part2 }}
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">8</td>
+                        <td class="irs-desc">
+                            <label for="qualifiedEnergyProperty">
+                                Qualified energy property. Vea las instrucciones . . . . . . . . . . . . . . . . . . .
+                            </label>
+                        </td>
+                        <td class="irs-line-num">8</td>
+                        <td class="irs-val-cell"><input id="qualifiedEnergyProperty" type="number" formControlName="qualifiedEnergyProperty"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">9</td>
+                        <td class="irs-desc">
+                            <label for="energyPropertyBasis">
+                                Basis of energy property. Vea las instrucciones . . . . . . . . . . . . . . . . . . . .
+                            </label>
+                        </td>
+                        <td class="irs-line-num">9</td>
+                        <td class="irs-val-cell"><input id="energyPropertyBasis" type="number" formControlName="energyPropertyBasis"></td>
+                    </tr>
+                    <tr class="irs-shaded-row">
+                        <td class="irs-line-num">10</td>
+                        <td class="irs-desc">Energy credit. Multiplique la línea 9 por el porcentaje de la línea 10a . . . . .</td>
+                        <td class="irs-line-num">10</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('energyCredit')?.value | currency }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">10a</td>
+                        <td class="irs-desc">
+                            <label for="energyCreditPercentage">
+                                Entre 30% para energía solar, eólica, geotérmica, etc. . . . . . . . . . . . . . . . . . .
+                            </label>
+                        </td>
+                        <td class="irs-line-num">10a</td>
+                        <td class="irs-val-cell"><input id="energyCreditPercentage" type="number" formControlName="energyCreditPercentage"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PART IV: Advanced Manufacturing Investment Credit -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part IV</span>
+                <span class="irs-part-title">Advanced Manufacturing Investment Credit</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part3 }}
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">11</td>
+                        <td class="irs-desc">
+                            <label for="advancedMfgBasis">
+                                Advanced manufacturing investment credit basis. Vea las instrucciones . . . . . . . .
+                            </label>
+                        </td>
+                        <td class="irs-line-num">11</td>
+                        <td class="irs-val-cell"><input id="advancedMfgBasis" type="number" formControlName="advancedMfgBasis"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">12</td>
+                        <td class="irs-desc">
+                            <label for="advancedMfgPercentage">
+                                Credit percentage. Entre 25% . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                            </label>
+                        </td>
+                        <td class="irs-line-num">12</td>
+                        <td class="irs-val-cell"><input id="advancedMfgPercentage" type="number" formControlName="advancedMfgPercentage"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">13</td>
+                        <td class="irs-desc"><strong>Advanced manufacturing credit.</strong> Multiplique la línea 11 por la línea 12</td>
+                        <td class="irs-line-num">13</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('advancedMfgCredit')?.value | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PART V: Clean Electricity Investment Credit -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part V</span>
+                <span class="irs-part-title">Clean Electricity Investment Credit</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part4 }}
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">14</td>
+                        <td class="irs-desc">
+                            <label for="cleanElectricityBasis">
+                                Clean electricity investment credit basis. Vea las instrucciones . . . . . . . . . .
+                            </label>
+                        </td>
+                        <td class="irs-line-num">14</td>
+                        <td class="irs-val-cell"><input id="cleanElectricityBasis" type="number" formControlName="cleanElectricityBasis"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">15</td>
+                        <td class="irs-desc">
+                            <label for="cleanElectricityPercentage">
+                                Credit percentage. Entre 30% . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                            </label>
+                        </td>
+                        <td class="irs-line-num">15</td>
+                        <td class="irs-val-cell"><input id="cleanElectricityPercentage" type="number" formControlName="cleanElectricityPercentage"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">16</td>
+                        <td class="irs-desc"><strong>Clean electricity credit.</strong> Multiplique la línea 14 por la línea 15</td>
+                        <td class="irs-line-num">16</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('cleanElectricityCredit')?.value | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PART VI: Other Credits -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part VI</span>
+                <span class="irs-part-title">Other Investment Credits</span>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">17</td>
+                        <td class="irs-desc">
+                            <label for="otherInvestmentCredits">
+                                Other investment credits. Vea las instrucciones . . . . . . . . . . . . . . . . . . . .
+                            </label>
+                        </td>
+                        <td class="irs-line-num">17</td>
+                        <td class="irs-val-cell"><input id="otherInvestmentCredits" type="number" formControlName="otherInvestmentCredits"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">18</td>
+                        <td class="irs-desc"><strong>Total investment credit.</strong> Sume las líneas 7, 10, 13, 16 y 17</td>
+                        <td class="irs-line-num">18</td>
+                        <td class="irs-val-cell calculated text-right bold">{{ taxForm.get('totalInvestmentCredit')?.value | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PART VII: Apply Credit -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part VII</span>
+                <span class="irs-part-title">Apply Credit</span>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">19</td>
+                        <td class="irs-desc">
+                            <label for="creditCarriedForward">
+                                Credit carried forward to next year . . . . . . . . . . . . . . . . . . . . . . . . . .
+                            </label>
+                        </td>
+                        <td class="irs-line-num">19</td>
+                        <td class="irs-val-cell"><input id="creditCarriedForward" type="number" formControlName="creditCarriedForward"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">20</td>
+                        <td class="irs-desc">
+                            <label for="creditUsedCurrent">
+                                Credit to be used in current year . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                            </label>
+                        </td>
+                        <td class="irs-line-num">20</td>
+                        <td class="irs-val-cell"><input id="creditUsedCurrent" type="number" formControlName="creditUsedCurrent"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">21</td>
+                        <td class="irs-desc">
+                            <label for="amountCredited8621">
+                                Amount credited to Form 8621 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+                            </label>
+                        </td>
+                        <td class="irs-line-num">21</td>
+                        <td class="irs-val-cell"><input id="amountCredited8621" type="number" formControlName="amountCredited8621"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="irs-footer-actions">
+                <button type="submit" class="btn-irs-submit">Guardar Formulario 3468</button>
+            </div>
+        </form>
+
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

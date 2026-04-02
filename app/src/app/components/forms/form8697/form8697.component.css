@@ -1,0 +1,77 @@
+/* form8697.component.css */
+
+.irs-form-container {
+  background: #f8fafc;
+  padding: 2rem;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.irs-form-box {
+  background: #fff;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  border: 1px solid #000;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+
+/* Header */
+.irs-main-header { display: grid; grid-template-columns: 180px 1fr 180px; border-bottom: 2px solid #000; }
+.irs-col-form-id { border-right: 1px solid #000; padding: 0.5rem; font-weight: 800; font-size: 1.1rem; }
+.num-large { font-size: 2.22rem; display: block; font-weight: 900; }
+.irs-dept { font-size: 0.75rem; margin-top: 5px; }
+
+.irs-col-title { padding: 0.5rem 1rem; text-align: center; border-right: 1px solid #000; }
+.irs-col-title h1 { font-size: 1.25rem; font-weight: 900; margin: 0; line-height: 1.2; }
+.irs-instruction { font-size: 0.8rem; margin: 10px 0; }
+.irs-col-omb { padding: 0.5rem; text-align: right; display: flex; align-items: center; justify-content: flex-end; }
+.irs-omb { font-size: 0.75rem; font-weight: 800; }
+
+/* Identity Grid Section B */
+.irs-ident-row { display: flex; border-bottom: 1px solid #000; }
+.irs-ident-cell { padding: 8px 15px; display: flex; flex-direction: column; }
+.irs-id-num { width: 300px; border-left: 1px solid #000; }
+.irs-ident-cell label { font-size: 0.8rem; font-weight: 900; }
+.irs-borderless-input { border: none; background: #f8fafc; padding: 4px; font-size: 1.05rem; font-weight: 600; }
+
+.padding-sm { padding: 10px 15px; }
+.border-t { border-top: 1px solid #000; }
+.border-b { border-bottom: 1px solid #000; }
+.irs-bold-text { font-size: 0.85rem; font-weight: 900; }
+.irs-checkbox-group-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 8px; }
+.irs-checkbox-group-grid label { font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; gap: 8px; cursor: pointer; }
+
+/* Part Header */
+.irs-part-header-full {
+  background: #000; color: #fff; padding: 10px 15px; display: flex; align-items: center; border-bottom: 2px solid #000;
+}
+.part-label { font-weight: 900; font-size: 1.25rem; margin-right: 2rem; min-width: 60px; }
+.part-title { font-weight: 700; font-size: 1.05rem; }
+
+/* Table 3-Column Regular Method */
+.irs-table-3col { display: flex; flex-direction: column; }
+.table-header { display: grid; grid-template-columns: 45px 1fr 150px 150px 150px; background: #f1f5f9; font-weight: 900; font-size: 0.8rem; border-bottom: 2px solid #000; }
+.cell-num { text-align: center; border-right: 1px solid #000; height: 100%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+.cell-desc { padding: 10px; border-right: 1px solid #000; }
+.cell-col { padding: 10px; border-right: 1px solid #000; text-align: center; }
+
+.table-row { display: grid; grid-template-columns: 45px 1fr 150px 150px 150px; border-bottom: 1px solid #eee; min-height: 50px; }
+.cell-input { border-right: 1px solid #eee; background: #fff; display: flex; align-items: center; }
+.cell-input input { border: none; width: 100%; height: 100%; text-align: right; padding: 10px; font-size: 1rem; font-weight: bold; background: #f8fafc; }
+.cell-input.shaded { background: #e2e8f0; } /* Non-fillable column C in some rows */
+
+/* Refund Info */
+.irs-bank-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; border: 1px dashed #000; padding: 15px; background: #fdf2f8; }
+.bank-cell { display: flex; flex-direction: column; }
+.bank-cell label { font-size: 0.75rem; font-weight: bold; margin-bottom: 5px; }
+.bank-cell input { border-bottom: 1px solid #000; border-top: none; border-left: none; border-right: none; background: transparent; padding: 5px; font-weight: 900; }
+
+/* Footer */
+.irs-footer-actions { padding: 2rem; display: flex; justify-content: flex-end; border-top: 1px solid #000; }
+.btn-submit { background: #000; color: #fff; padding: 14px 28px; font-weight: 700; border: none; cursor: pointer; }
+
+@media (max-width: 800px) {
+    .irs-main-header { grid-template-columns: 1fr; }
+    .irs-checkbox-group-grid { grid-template-columns: 1fr 1fr; }
+}

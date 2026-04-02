@@ -1,0 +1,80 @@
+<div class="irs-form-container">
+  <div class="irs-form-box">
+    <!-- Header -->
+    <div class="irs-main-header">
+      <div class="irs-col-form-id">
+        <div class="irs-form-num">Form <span class="num-large">8833</span></div>
+        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
+      </div>
+      <div class="irs-col-title">
+        <h1>Treaty-Based Return Position Disclosure Under Section 6114 or 7701(b)</h1>
+        <p class="irs-instruction">Go to <strong>www.irs.gov/Form8833</strong> for instructions and the latest information.</p>
+        <p class="irs-attach">Attach to your tax return.</p>
+      </div>
+      <div class="irs-col-omb">
+        <div class="irs-omb">OMB No. 1545-1354</div>
+      </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Identification Grid -->
+      <div class="irs-id-grid-8833">
+         <div class="irs-id-row">
+            <div class="irs-id-cell border-r">
+               <label for="tn">Name of taxpayer</label>
+               <input id="tn" type="text" formControlName="taxpayer_name" class="irs-borderless-input">
+            </div>
+            <div class="irs-id-cell border-r">
+               <label for="tin">Identifying number</label>
+               <input id="tin" type="text" formControlName="taxpayer_tin" class="irs-borderless-input">
+            </div>
+            <div class="irs-id-cell">
+               <label for="rid">Reference ID number</label>
+               <input id="rid" type="text" formControlName="reference_id" class="irs-borderless-input">
+            </div>
+         </div>
+         <div class="irs-id-row border-t">
+            <div class="irs-id-cell border-r">
+               <label for="af">Address in country of residence</label>
+               <input id="af" type="text" formControlName="addr_foreign" class="irs-borderless-input">
+            </div>
+            <div class="irs-id-cell">
+               <label for="aus">Address in the United States</label>
+               <input id="aus" type="text" formControlName="addr_us" class="irs-borderless-input">
+            </div>
+         </div>
+      </div>
+
+      <!-- Part I -->
+      <div class="irs-part-instructions padding-sm border-b">
+         <p class="irs-bold">Check one or both of the following boxes as applicable.</p>
+         <div class="irs-checkbox-group margin-t-10">
+            <label><input type="checkbox" formControlName="elect_6114"> The taxpayer is disclosing a treaty-based return position as required by section 6114</label>
+            <label><input type="checkbox" formControlName="elect_7701"> The taxpayer is a dual-resident taxpayer disclosing a treaty-based return position...</label>
+         </div>
+      </div>
+
+      <!-- Part II -->
+      <div class="irs-form-body">
+         <div class="irs-line-item-input border-b">
+            <div class="l-num">1a</div>
+            <div class="l-desc">Enter treaty country <input type="text" formControlName="treaty_country" class="inline-input"></div>
+            <div class="l-num border-l">1b</div>
+            <div class="l-desc">Article(s) <input type="text" formControlName="treaty_article" class="inline-input"></div>
+         </div>
+
+         <div class="irs-explanation-block padding-sm">
+            <div class="l-num">6</div>
+            <div class="l-desc">
+               <strong>Explain</strong> the treaty-based return position. Include a brief summary etc...
+               <textarea formControlName="explanation" rows="8" class="irs-textarea"></textarea>
+            </div>
+         </div>
+      </div>
+
+      <div class="irs-footer-actions">
+        <button type="submit" class="btn-submit">Submit Form 8833</button>
+      </div>
+    </form>
+  </div>
+</div>

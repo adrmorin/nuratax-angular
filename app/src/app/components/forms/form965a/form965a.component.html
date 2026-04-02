@@ -1,0 +1,78 @@
+<div class="irs-form-container">
+  <div class="irs-form-box">
+    <!-- Header -->
+    <div class="irs-main-header">
+      <div class="irs-col-form-id">
+        <div class="irs-form-num">Form <span class="num-large">965-A</span></div>
+        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
+      </div>
+      <div class="irs-col-title">
+        <h1>Individual Report of Net 965 Tax Liability</h1>
+        <p class="irs-instruction">Go to <strong>www.irs.gov/Form965A</strong> for instructions and the latest information.</p>
+      </div>
+      <div class="irs-col-omb">
+        <div class="irs-omb">OMB No. 1545-0074</div>
+      </div>
+    </div>
+
+    <!-- Identity Row -->
+    <div class="irs-identity-row border-b">
+       <div class="irs-id-section border-r">
+          <label for="tn">Name of taxpayer</label>
+          <input id="tn" type="text" formControlName="taxpayer_name" class="irs-borderless-input">
+       </div>
+       <div class="irs-id-section irs-id-num">
+          <label for="ssn">Social security number</label>
+          <input id="ssn" type="text" formControlName="taxpayer_ssn" class="irs-borderless-input">
+       </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Part I -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part I</span>
+        <span class="part-title">Report of Net 965 Tax Liability and Election To Pay in Installments</span>
+      </div>
+
+      <div class="irs-form-body">
+         <div class="irs-line-item">
+            <div class="irs-line-num">1</div>
+            <div class="irs-line-desc">Total net section 965 tax liability etc...</div>
+            <div class="irs-dots"></div>
+            <div class="irs-line-val-num">1</div>
+            <div class="irs-input-box no-shade"><input type="number" formControlName="line1"></div>
+         </div>
+         <div class="irs-line-item-full border-b padding-sm shading-light">
+            <label><input type="checkbox" formControlName="installment_elect"> <strong>Checkbox:</strong> I elect to pay my net section 965 tax liability in installments...</label>
+         </div>
+      </div>
+
+      <!-- Part II -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part II</span>
+        <span class="part-title">Record of Amount of Net 965 Tax Liability Paid by the Taxpayer</span>
+      </div>
+
+      <div class="irs-matrix-container overflow-x">
+         <div class="irs-matrix-header">
+            <div class="c-head">Year</div>
+            <div class="c-head">(m) Liability</div>
+            <div class="c-head">(n) Paid</div>
+            <div class="c-head">(o) Date</div>
+            <div class="c-head">(p) Bal</div>
+         </div>
+         <div class="irs-matrix-row">
+            <div class="c-num">Year 1</div>
+            <div class="c-in"><input type="number" formControlName="p2_y1_m"></div>
+            <div class="c-in"><input type="number" formControlName="p2_y1_n"></div>
+            <div class="c-in"><input type="date" formControlName="p2_y1_o"></div>
+            <div class="c-in shaded"><input type="number" formControlName="p2_y1_p" readonly></div>
+         </div>
+      </div>
+
+      <div class="irs-footer-actions">
+        <button type="submit" class="btn-submit">Submit Form 965-A</button>
+      </div>
+    </form>
+  </div>
+</div>

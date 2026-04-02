@@ -1,0 +1,90 @@
+<div class="irs-form-container">
+  <div class="irs-form-box">
+    <!-- Header -->
+    <div class="irs-main-header">
+      <div class="irs-col-form-id">
+        <div class="irs-form-num">Form <span class="num-large">8621</span></div>
+        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
+      </div>
+      <div class="irs-col-title">
+        <h1>Information Return by a Shareholder of a Passive Foreign Investment Company or Qualified Electing Fund</h1>
+        <p class="irs-instruction">Go to <strong>www.irs.gov/Form8621</strong> for instructions and the latest information.</p>
+      </div>
+      <div class="irs-col-omb">
+        <div class="irs-omb">OMB No. 1545-1002</div>
+      </div>
+    </div>
+
+    <!-- Shareholder Info -->
+    <div class="irs-shareholder-row">
+       <div class="irs-sh-box">
+          <label for="sn">Name of shareholder</label>
+          <input id="sn" type="text" formControlName="shareholderName" class="irs-borderless-input">
+       </div>
+       <div class="irs-sh-box border-l">
+          <label for="stin">Identifying number (see instructions)</label>
+          <input id="stin" type="text" formControlName="shareholderTin" class="irs-borderless-input">
+       </div>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Type of Shareholder -->
+      <div class="irs-type-row padding-x border-b">
+         <span class="irs-group-header">Type of shareholder filing this return:</span>
+         <div class="irs-radio-grid">
+            <label><input type="radio" value="individual" formControlName="shareholderType"> Individual</label>
+            <label><input type="radio" value="corporation" formControlName="shareholderType"> Corporation</label>
+            <label><input type="radio" value="partnership" formControlName="shareholderType"> Partnership</label>
+            <label><input type="radio" value="s-corp" formControlName="shareholderType"> S corporation</label>
+         </div>
+      </div>
+
+      <!-- Part I -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part I</span>
+        <span class="part-title">Summary of Annual Information</span>
+      </div>
+
+      <div class="irs-form-body">
+         <div class="irs-line-item">
+            <div class="irs-line-num">1</div>
+            <div class="irs-line-desc">Description of each class of stock held by the shareholder:</div>
+            <div class="irs-dots"></div>
+            <div class="irs-input-box-wide"><input type="text" formControlName="line1"></div>
+         </div>
+         <div class="irs-line-item zebra-light-border">
+            <div class="irs-line-num">5</div>
+            <div class="irs-line-desc">Value of shares at end of tax year</div>
+            <div class="irs-dots"></div>
+            <div class="irs-line-val-num">5</div>
+            <div class="irs-input-box"><input type="number" formControlName="line5"></div>
+         </div>
+      </div>
+
+      <!-- Part II -->
+      <div class="irs-part-header-full">
+        <span class="part-label">Part II</span>
+        <span class="part-title">Elections</span>
+      </div>
+
+      <div class="irs-election-grid">
+         <div class="elect-row">
+            <div class="elect-box"><input type="checkbox" id="electA" formControlName="electA"></div>
+            <div class="elect-label"><label for="electA"><strong>A Election To Treat the PFIC as a QEF.</strong> I, a shareholder of a PFIC, elect to treat the PFIC as a QEF...</label></div>
+         </div>
+         <div class="elect-row zebra-light">
+            <div class="elect-box"><input type="checkbox" id="electB" formControlName="electB"></div>
+            <div class="elect-label"><label for="electB"><strong>B Election To Extend Time For Payment of Tax.</strong> I, a shareholder of a QEF, elect to extend the time for payment...</label></div>
+         </div>
+         <div class="elect-row">
+            <div class="elect-box"><input type="checkbox" id="electC" formControlName="electC"></div>
+            <div class="elect-label"><label for="electC"><strong>C Mark-to-Market Election.</strong> I, a shareholder of a PFIC, elect to mark to market the stock...</label></div>
+         </div>
+      </div>
+
+      <div class="irs-footer-actions">
+        <button type="submit" class="btn-submit">Submit Form 8621</button>
+      </div>
+    </form>
+  </div>
+</div>

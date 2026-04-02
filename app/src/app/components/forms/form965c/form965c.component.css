@@ -1,0 +1,58 @@
+/* form965c.component.css */
+
+.irs-form-container {
+  background: #f8fafc;
+  padding: 2rem;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.irs-form-box {
+  background: #fff;
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  border: 1px solid #000;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+
+/* Header */
+.irs-main-header { display: grid; grid-template-columns: 180px 1fr 180px; border-bottom: 2px solid #000; }
+.irs-col-form-id { border-right: 1px solid #000; padding: 0.5rem; font-weight: 800; font-size: 1.1rem; }
+.num-large { font-size: 2.22rem; display: block; font-weight: 900; }
+
+.irs-col-title { padding: 0.5rem 1rem; text-align: center; border-right: 1px solid #000; }
+.irs-col-title h1 { font-size: 1.35rem; font-weight: 900; margin: 0; line-height: 1.2; }
+.irs-instruction { font-size: 0.8rem; margin: 10px 0; }
+.irs-col-omb { padding: 0.5rem; text-align: right; display: flex; align-items: center; justify-content: flex-end; }
+.irs-omb { font-size: 0.75rem; font-weight: 600; }
+
+/* Part Headers */
+.irs-part-header-full { background: #000; color: #fff; padding: 10px 15px; display: flex; align-items: center; border-bottom: 2px solid #000; }
+.part-label { font-weight: 900; font-size: 1.25rem; margin-right: 2rem; min-width: 60px; }
+.part-title { font-weight: 700; font-size: 1.05rem; }
+
+.padding-sm { padding: 15px; }
+.border-b { border-bottom: 1px solid #000; }
+.border-l { border-left: 1px solid #000; }
+
+/* Identity Grid 965-C */
+.irs-id-grid-965 { display: flex; flex-direction: column; }
+.irs-id-row { display: grid; grid-template-columns: 1fr 300px; gap: 0; border: 1px solid #000; }
+.irs-cell { padding: 8px 15px; display: flex; flex-direction: column; }
+.irs-cell label { font-size: 0.8rem; font-weight: 800; margin-bottom: 3px; }
+.irs-borderless-input { border: none; background: #f1f5f9; padding: 4px; font-size: 1.05rem; font-weight: 600; width: 100%; }
+
+/* Checkboxes and Narrative Part III */
+.irs-check-list label { font-size: 0.85rem; font-weight: 700; display: block; margin-bottom: 12px; cursor: pointer; }
+.irs-inline-date { border: none; border-bottom: 1px solid #000; background: #fdf2f8; padding: 4px 10px; font-weight: bold; }
+.irs-textarea { width: 100%; padding: 15px; border: 1px dotted #000; background: #f8fafc; font-size: 1rem; margin-top: 10px; }
+
+/* Footer */
+.irs-footer-actions { padding: 2rem; display: flex; justify-content: flex-end; border-top: 1px solid #000; }
+.btn-submit { background: #000; color: #fff; padding: 14px 28px; font-weight: 700; border: none; cursor: pointer; }
+
+@media (max-width: 800px) {
+    .irs-id-row { grid-template-columns: 1fr; }
+    .irs-cell.border-l { border-left: none; border-top: 1px solid #000; }
+}
