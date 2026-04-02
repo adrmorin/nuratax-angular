@@ -62,15 +62,17 @@
     </div>
 
     <div class="irs-checklist-table">
-      <div class="irs-check-row border-b" *ngFor="let i of [1,2,3,4,5,6,7,8,9,10,11,12,13]">
-        <div class="irs-check-num">{{i}}</div>
-        <div class="irs-check-desc">Does Part {{i}} apply? If "Yes," complete and attach Part {{i}}.</div>
-        <div class="irs-check-boxes">
-          <label class="irs-check-box-label">
-            <input type="checkbox" [formControlName]="'check_p' + i"> Yes
-          </label>
+      @for (i of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]; track i) {
+        <div class="irs-check-row border-b">
+          <div class="irs-check-num">{{i}}</div>
+          <div class="irs-check-desc">Does Part {{i}} apply? If "Yes," complete and attach Part {{i}}.</div>
+          <div class="irs-check-boxes">
+            <label class="irs-check-box-label">
+              <input type="checkbox" [formControlName]="'check_p' + i"> Yes
+            </label>
+          </div>
         </div>
-      </div>
+      }
     </div>
 
     <!-- Part F -->

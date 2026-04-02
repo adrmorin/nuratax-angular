@@ -32,12 +32,12 @@
         <form [formGroup]="form4137" (ngSubmit)="onSubmit()">
             <div class="irs-header-row">
                 <div class="irs-name-box">
-                    <label>Name of person who received tips. If married, complete a separate Form 4137 for each spouse with unreported tips.</label>
-                    <input type="text" formControlName="name" class="irs-borderless-input">
+                    <label for="person_name">Name of person who received tips. If married, complete a separate Form 4137 for each spouse with unreported tips.</label>
+                    <input id="person_name" type="text" formControlName="name" class="irs-borderless-input">
                 </div>
                 <div class="irs-ssn-box">
-                    <label>Social security number</label>
-                    <input type="text" formControlName="ssn" class="irs-borderless-input">
+                    <label for="person_ssn">Social security number</label>
+                    <input id="person_ssn" type="text" formControlName="ssn" class="irs-borderless-input">
                 </div>
             </div>
 
@@ -56,12 +56,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let emp of employers.controls; let i = index" [formGroupName]="i">
-                                    <td><input type="text" formControlName="name" class="irs-table-input"></td>
-                                    <td><input type="text" formControlName="ein" class="irs-table-input"></td>
-                                    <td><input type="number" formControlName="totalReceived" class="irs-table-input num"></td>
-                                    <td><input type="number" formControlName="totalReported" class="irs-table-input num"></td>
-                                </tr>
+                                @for (emp of employers.controls; track $index) {
+                                    <tr [formGroupName]="$index">
+                                        <td><input type="text" formControlName="name" class="irs-table-input"></td>
+                                        <td><input type="text" formControlName="ein" class="irs-table-input"></td>
+                                        <td><input type="number" formControlName="totalReceived" class="irs-table-input num"></td>
+                                        <td><input type="number" formControlName="totalReported" class="irs-table-input num"></td>
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                     </div>
