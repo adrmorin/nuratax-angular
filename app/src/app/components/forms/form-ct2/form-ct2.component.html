@@ -1,0 +1,108 @@
+<div class="irs-unified-container">
+  <!-- Header Section -->
+  <div class="irs-header-strip">
+    <div class="irs-id-box">
+      <div class="irs-id-main">Form <span style="font-size: 3.5rem; font-weight: 950; letter-spacing: -2px;">CT-2</span></div>
+      <p style="font-size: 0.75rem; font-weight: 850; margin-top: 5px;">(Rev. January 2025)</p>
+    </div>
+    <div class="irs-title-center">
+      <h1>Employee Representative's Quarterly Railroad Tax Return</h1>
+      <p style="font-size: 0.8rem; font-weight: 700; margin-top: 10px;">(Section 3211 of the Internal Revenue Code)</p>
+      <p style="font-size: 0.75rem; font-weight: 600;">Attach to your tax return if required.</p>
+    </div>
+    <div class="irs-omb-right">
+      <div style="font-size: 0.65rem; font-weight: 700; text-align: right;">OMB No. 1545-0001</div>
+      <div style="margin-top: 20px; text-align: right;">
+        <span class="bold">Quarter ending</span><br>
+        <input type="text" formControlName="quarterEnding" class="irs-input-field" style="width: 150px; border: 2px solid #000; text-align: center;" placeholder="MM/DD/YYYY">
+      </div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- INFO BLOCK -->
+    <div class="irs-info-block">
+      <div class="irs-info-cell" style="border-bottom: 2px solid #000;">
+        <label class="irs-label-small">Name of employee representative</label>
+        <input type="text" formControlName="representativeName" class="irs-input-field" style="text-align: left;">
+      </div>
+      <div class="irs-info-cell" style="border-bottom: 2px solid #000;">
+        <label class="irs-label-small">Social Security Number</label>
+        <input type="text" formControlName="representativeSSN" class="irs-input-field" style="text-align: left;">
+      </div>
+      <div class="irs-info-cell">
+        <label class="irs-label-small">Name of labor organization for which services are performed</label>
+        <input type="text" formControlName="laborOrgName" class="irs-input-field" style="text-align: left;">
+      </div>
+    </div>
+
+    <!-- PART I CALCULATIONS -->
+    <div class="irs-section-label">Part I: Computation of Taxes</div>
+    
+    <div class="irs-line-row">
+      <div class="irs-line-num">1</div>
+      <div class="irs-line-desc">Compensation subject to Tier 1 tax. (Rate: 12.4%)</div>
+      <div class="irs-input-wrap irs-blue-bg">
+        <input type="number" formControlName="tier1Comp" class="irs-input-field">
+      </div>
+    </div>
+    <div class="irs-line-row">
+      <div class="irs-line-num"></div>
+      <div class="irs-line-desc bold padding-l-20">Tier 1 tax liability. Multiply Line 1 by 0.124</div>
+      <div class="irs-result-display">${{ tier1Tax() | number:'1.2-2' }}</div>
+    </div>
+
+    <div class="irs-line-row">
+      <div class="irs-line-num">2</div>
+      <div class="irs-line-desc">Compensation subject to Tier 1 Medicare tax. (Rate: 2.9%)</div>
+      <div class="irs-input-wrap irs-blue-bg">
+        <input type="number" formControlName="tier1MedComp" class="irs-input-field">
+      </div>
+    </div>
+    <div class="irs-line-row">
+      <div class="irs-line-num"></div>
+      <div class="irs-line-desc bold padding-l-20">Tier 1 Medicare tax liability. Multiply Line 2 by 0.029</div>
+      <div class="irs-result-display">${{ tier1MedTax() | number:'1.2-2' }}</div>
+    </div>
+
+    <div class="irs-line-row">
+      <div class="irs-line-num">4</div>
+      <div class="irs-line-desc">Compensation subject to Tier 2 tax. (Rate: 13.1%)</div>
+      <div class="irs-input-wrap irs-blue-bg">
+        <input type="number" formControlName="tier2Comp" class="irs-input-field">
+      </div>
+    </div>
+    <div class="irs-line-row" style="margin-bottom: 20px;">
+      <div class="irs-line-num"></div>
+      <div class="irs-line-desc bold padding-l-20">Tier 2 tax liability. Multiply Line 4 by 0.131</div>
+      <div class="irs-result-display">${{ tier2Tax() | number:'1.2-2' }}</div>
+    </div>
+
+    <div class="irs-line-row bg-light-grey" style="border-top: 4px solid #000; border-bottom: 4px solid #000;">
+      <div class="irs-line-num">7</div>
+      <div class="irs-line-desc bold" style="font-size: 1.1rem;">Total Tax. Add Lines 1 liability, 2 liability, 3 liability, 4 liability, and 6</div>
+      <div class="irs-result-display bold" style="font-size: 1.3rem;">${{ totalAdjustedTax() | number:'1.2-2' }}</div>
+    </div>
+
+    <!-- BALANCE -->
+    <div class="irs-line-row" style="margin-top: 15px;">
+      <div class="irs-line-num">9</div>
+      <div class="irs-line-desc bold">Balance Due. Subtract Line 8 from Line 7. Pay in full via EFTPS.</div>
+      <div class="irs-result-display bold" style="background: #ffffde; border: 2.5px solid #000;">${{ balanceDue() | number:'1.2-2' }}</div>
+    </div>
+
+    <!-- VOUCHER -->
+    <div class="irs-voucher-box">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; padding-bottom: 5px; margin-bottom: 10px;">
+        <span class="bold">Form CT-2(V)</span>
+        <span class="bold">Railroad Retirement Tax Payment Voucher</span>
+        <span class="bold">2025</span>
+      </div>
+      <div style="font-size: 0.7rem; color: #555;">Use this voucher only if making a payment by check or money order. Do not use if paying via EFTPS.</div>
+    </div>
+
+    <div style="margin-top: 40px; display: flex; justify-content: flex-end;">
+      <button type="submit" class="irs-btn-submit" style="background: #000; color: #fff; padding: 15px 40px; font-weight: 950; border: none; cursor: pointer; text-transform: uppercase;">Submit Form CT-2</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,112 @@
+<div class="irs-unified-container">
+  <!-- Header Section -->
+  <div class="irs-header">
+    <div class="irs-header-left">
+      <div class="irs-id-large">Form <span style="font-size: 3rem; font-weight: 950; line-height: 1;">8959</span></div>
+      <p style="font-size: 0.7rem; font-weight: 850; margin-top: 5px;">OMB No. 1545-2270</p>
+    </div>
+    <div class="irs-title-center">
+      <h1>Additional Medicare Tax</h1>
+      <p style="font-size: 0.8rem; font-weight: 700; margin-top: 5px;">(Section 3101(b)(2), 3201(a), or 1401(b)(2))</p>
+      <p style="font-size: 0.75rem;">(See instructions for filing requirements and thresholds.)</p>
+    </div>
+    <div class="irs-header-right">
+      <div class="irs-attachment" style="font-size: 0.8rem; font-weight: 950;">Attachment <br> Sequence No. <strong>71</strong></div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- INFO BLOCK -->
+    <div class="irs-row-line-unified border-b" style="display: flex; border-top: 3.5px solid #000; border-bottom: 3px solid #000; margin-bottom: 25px;">
+      <div class="irs-id-col" style="flex: 2; padding: 6px 12px; border-right: 2px solid #000;">
+        <label class="irs-label-small">Name(s) shown on return</label>
+        <input type="text" formControlName="name" class="irs-input-field" style="text-align: left;">
+      </div>
+      <div class="irs-id-col" style="flex: 1; padding: 6px 12px;">
+        <label class="irs-label-small">Your social security number</label>
+        <input type="text" formControlName="ssn" class="irs-input-field" style="text-align: left;">
+      </div>
+    </div>
+
+    <!-- PART I -->
+    <div class="irs-part-bar">
+      <span>Part I: Additional Medicare Tax on Medicare Wages</span>
+      <span>Threshold: ${{ threshold() | number }}</span>
+    </div>
+
+    <div class="irs-line-row">
+      <div class="irs-line-num">1</div>
+      <div class="irs-line-desc">Medicare wages and tips from Form W-2, box 5. (If you have more than one Form W-2, combine amounts)</div>
+      <div class="irs-input-wrap irs-blue-bg">
+        <input type="number" formControlName="medicareWages" class="irs-input-field">
+      </div>
+    </div>
+
+    <div class="irs-line-row">
+      <div class="irs-line-num">2</div>
+      <div class="irs-line-desc">Unreported tips from Form 4137, line 6</div>
+      <div class="irs-input-wrap irs-blue-bg">
+        <input type="number" formControlName="unreportedTips" class="irs-input-field">
+      </div>
+    </div>
+
+    <div class="irs-line-row bg-light-yellow">
+      <div class="irs-line-num">4</div>
+      <div class="irs-line-desc bold">Total wages. Add lines 1, 2, and 3.</div>
+      <div class="irs-total-display">${{ totalWages() | number:'1.2-2' }}</div>
+    </div>
+
+    <div class="irs-line-row" style="background: #eefbff;">
+      <div class="irs-line-num">7</div>
+      <div class="irs-line-desc bold">Additional Medicare Tax on Medicare Wages. 0.9% of excess over threshold</div>
+      <div class="irs-total-display bold" style="color: #004286;">${{ part1Tax() | number:'1.2-2' }}</div>
+    </div>
+
+    <!-- PART II -->
+    <div class="irs-part-bar">
+      <span>Part II: Additional Medicare Tax on Self-Employment Income</span>
+    </div>
+
+    <div class="irs-line-row">
+      <div class="irs-line-num">8</div>
+      <div class="irs-line-desc">Self-employment income from Schedule SE (Form 1040), Part I, line 6</div>
+      <div class="irs-input-wrap irs-blue-bg">
+        <input type="number" formControlName="seIncome" class="irs-input-field">
+      </div>
+    </div>
+
+    <div class="irs-line-row" style="background: #eefbff;">
+      <div class="irs-line-num">13</div>
+      <div class="irs-line-desc bold">Additional Medicare Tax on Self-Employment Income. 0.9% of excess over remaining threshold</div>
+      <div class="irs-total-display bold" style="color: #004286;">${{ part2Tax() | number:'1.2-2' }}</div>
+    </div>
+
+    <!-- TOTAL -->
+    <div class="irs-part-bar" style="background: #333;">
+      <span>Part IV: Total Additional Medicare Tax</span>
+    </div>
+    
+    <div class="irs-line-row" style="background: #ffffde; border-bottom: 4px solid #000;">
+      <div class="irs-line-num">18</div>
+      <div class="irs-line-desc bold" style="font-size: 1.1rem;">TOTAL ADDITIONAL MEDICARE TAX. Add lines 7, 13, and 17.</div>
+      <div class="irs-total-display bold" style="font-size: 1.3rem;">${{ totalTax() | number:'1.2-2' }}</div>
+    </div>
+
+    <div style="margin-top: 40px; display: flex; justify-content: space-between; align-items: flex-end;">
+      <div style="font-size: 0.7rem; color: #444; max-width: 600px;">
+        For 2025, if your employer withheld more Additional Medicare Tax than you owe, you may be entitled to a credit on your tax return. 
+        Reconcile your withholding in Part V (not shown in this summary but implemented in logic).
+      </div>
+      <button type="submit" class="irs-btn-submit" style="background: #000; color: #fff; padding: 15px 40px; font-weight: 950; border: none; cursor: pointer; text-transform: uppercase;">Submit Form 8959</button>
+    </div>
+  </form>
+</div>
+
+<div style="margin-top: 20px; text-align: center;">
+  <label class="irs-label-small">Select Filing Status for Threshold Calculation:</label>
+  <select formControlName="filingStatus" class="irs-input-field" style="width: auto; height: 35px; border: 2px solid #000; text-align: left; padding: 0 10px;">
+    <option value="single">Single / Head of Household</option>
+    <option value="mfj">Married Filing Jointly ($250k)</option>
+    <option value="mfs">Married Filing Separately ($125k)</option>
+  </select>
+</div>

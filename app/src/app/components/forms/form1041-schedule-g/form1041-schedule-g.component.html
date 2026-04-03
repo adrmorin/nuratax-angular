@@ -1,0 +1,200 @@
+<div class="irs-unified-container">
+  <!-- Header Section -->
+  <div class="irs-form-header">
+    <div class="irs-header-left">
+      <div class="irs-form-id-box">
+        <p class="irs-id-sub-small" style="margin:0">SCHEDULE G</p>
+        <span class="irs-id-main-large">(Form 1041)</span>
+        <p class="irs-id-sub-small">(Rev. December 2024)</p>
+      </div>
+      <div class="irs-dept-irs-box">
+        Department of the Treasury<br>
+        Internal Revenue Service
+      </div>
+    </div>
+    <div class="irs-header-center">
+      <h1>Tax Computation and Payments</h1>
+      <p class="irs-attach-note">Attach to Form 1041.</p>
+    </div>
+    <div class="irs-header-right">
+      <div class="irs-omb-box">OMB No. 1545-0092</div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- INFO BLOCK -->
+    <div class="irs-row-line-unified border-b" style="display: flex; border-top: 2px solid #000; border-bottom: 2px solid #000;">
+      <div class="irs-col border-r" style="flex: 2; padding: 5px 10px; border-right: 2px solid #000;">
+        <label for="name" class="irs-label-small">Name of estate or trust</label>
+        <input id="name" type="text" formControlName="name" class="irs-input-field" style="text-align: left;">
+      </div>
+      <div class="irs-col" style="flex: 1; padding: 5px 10px;">
+        <label for="tin" class="irs-label-small">Employer identification number</label>
+        <input id="tin" type="text" formControlName="ein" class="irs-input-field" style="text-align: left;">
+      </div>
+    </div>
+
+    <!-- PART I -->
+    <div class="irs-section-tab">
+      <span>Part I</span>
+      <span>Tax Computation</span>
+    </div>
+
+    <div class="irs-row-line">
+      <div class="irs-line-num">1a</div>
+      <div class="irs-line-desc">Tax on taxable income (see instructions)</div>
+      <div class="irs-input-box irs-blue-bg">
+        <input type="number" formControlName="l1a" class="irs-input-field">
+      </div>
+      <div class="irs-line-num-end">1a</div>
+    </div>
+
+    <div class="irs-row-line">
+      <div class="irs-line-num">1b</div>
+      <div class="irs-line-desc">Alternative minimum tax (from Schedule I, Form 1041, line 54)</div>
+      <div class="irs-input-box irs-blue-bg">
+        <input type="number" formControlName="l1b" class="irs-input-field">
+      </div>
+      <div class="irs-line-num-end">1b</div>
+    </div>
+
+    <div class="irs-row-line">
+      <div class="irs-line-num">1c</div>
+      <div class="irs-line-desc">Income tax recapture (see instructions; check if from: <input type="checkbox"> 4255 <input type="checkbox"> 8611)</div>
+      <div class="irs-input-box irs-blue-bg">
+        <input type="number" formControlName="l1c" class="irs-input-field">
+      </div>
+      <div class="irs-line-num-end">1c</div>
+    </div>
+
+    <div class="irs-row-line bg-light">
+      <div class="irs-line-num">1d</div>
+      <div class="irs-line-desc bold">Total Tax Computation. Add lines 1a through 1c</div>
+      <div class="irs-input-box">
+        <span class="bold padding-l-10" style="padding-left: 10px;">${{ l1d() | number:'1.2-2' }}</span>
+      </div>
+      <div class="irs-line-num-end">1d</div>
+    </div>
+
+    <!-- PART II -->
+    <div class="irs-section-tab">
+      <span>Part II</span>
+      <span>Credits</span>
+    </div>
+
+    <div class="irs-row-line">
+      <div class="irs-line-num">2a</div>
+      <div class="irs-line-desc">Foreign tax credit (attach Form 1116)</div>
+      <div class="irs-input-box irs-blue-bg">
+        <input type="number" formControlName="l2a" class="irs-input-field">
+      </div>
+      <div class="irs-line-num-end">2a</div>
+    </div>
+
+    <div class="irs-row-line">
+      <div class="irs-line-num">2b</div>
+      <div class="irs-line-desc">General business credit (attach Form 3800)</div>
+      <div class="irs-input-box irs-blue-bg">
+        <input type="number" formControlName="l2b" class="irs-input-field">
+      </div>
+      <div class="irs-line-num-end">2b</div>
+    </div>
+
+    <div class="irs-row-line">
+      <div class="irs-line-num">2c</div>
+      <div class="irs-line-desc">Credit for prior year minimum tax (attach Form 8801)</div>
+      <div class="irs-input-box irs-blue-bg">
+        <input type="number" formControlName="l2c" class="irs-input-field">
+      </div>
+      <div class="irs-line-num-end">2c</div>
+    </div>
+
+    <div class="irs-row-line">
+      <div class="irs-line-num">2d</div>
+      <div class="irs-line-desc">Bond credits (attach Form 8912)</div>
+      <div class="irs-input-box irs-blue-bg">
+        <input type="number" formControlName="l2d" class="irs-input-field">
+      </div>
+      <div class="irs-line-num-end">2d</div>
+    </div>
+
+    <div class="irs-row-line">
+      <div class="irs-line-num">2e</div>
+      <div class="irs-line-desc bold">Total Credits. Add lines 2a through 2d</div>
+      <div class="irs-input-box bg-light">
+        <span class="bold padding-l-10" style="padding-left: 10px;">${{ l2e() | number:'1.2-2' }}</span>
+      </div>
+      <div class="irs-line-num-end">2e</div>
+    </div>
+
+    <div class="irs-row-line">
+      <div class="irs-line-num">3</div>
+      <div class="irs-line-desc bold">Balance. Subtract line 2e from line 1d. If zero or less, enter -0-</div>
+      <div class="irs-input-box bg-light">
+        <span class="bold padding-l-10" style="padding-left: 10px;">${{ l3() | number:'1.2-2' }}</span>
+      </div>
+      <div class="irs-line-num-end">3</div>
+    </div>
+
+    <!-- PART III -->
+    <div class="irs-section-tab">
+      <span>Part III</span>
+      <span>Other Taxes</span>
+    </div>
+
+    <div class="irs-row-line">
+      <div class="irs-line-num">4</div>
+      <div class="irs-line-desc">Tax on ESBT portion of trust (see instructions)</div>
+      <div class="irs-input-box irs-blue-bg">
+        <input type="number" formControlName="l4" class="irs-input-field">
+      </div>
+      <div class="irs-line-num-end">4</div>
+    </div>
+
+    <div class="irs-row-line">
+      <div class="irs-line-num">5</div>
+      <div class="irs-line-desc">Net Investment Income Tax (attach Form 8960)</div>
+      <div class="irs-input-box irs-blue-bg">
+        <input type="number" formControlName="l5" class="irs-input-field">
+      </div>
+      <div class="irs-line-num-end">5</div>
+    </div>
+
+    <div class="irs-row-line">
+      <div class="irs-line-num">10</div>
+      <div class="irs-line-desc bold">Total Tax. Add lines 3 and 9 (Part III sum)</div>
+      <div class="irs-input-box bg-light">
+        <span class="bold padding-l-10" style="padding-left: 10px;">${{ l10() | number:'1.2-2' }}</span>
+      </div>
+      <div class="irs-line-num-end">10</div>
+    </div>
+
+    <!-- PART IV -->
+    <div class="irs-section-tab">
+      <span>Part IV</span>
+      <span>Payments</span>
+    </div>
+
+    <div class="irs-row-line">
+      <div class="irs-line-num">11</div>
+      <div class="irs-line-desc">2024 estimated tax payments and 2023 carryover</div>
+      <div class="irs-input-box irs-blue-bg">
+        <input type="number" formControlName="l11" class="irs-input-field">
+      </div>
+      <div class="irs-line-num-end">11</div>
+    </div>
+
+    <div class="irs-row-line">
+      <div class="irs-line-num">17</div>
+      <div class="irs-line-desc bold">Total Payments. Add lines 13 through 16</div>
+      <div class="irs-input-box bg-light">
+        <span class="bold padding-l-10" style="padding-left: 10px;">${{ l17() | number:'1.2-2' }}</span>
+      </div>
+      <div class="irs-line-num-end">17</div>
+    </div>
+
+    <div class="irs-footer">
+      <button type="submit" class="irs-btn-submit">Submit Schedule G</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,71 @@
+<div class="irs-unified-container">
+  <!-- Header -->
+  <div class="irs-header-container">
+    <div class="irs-id-box">
+      <span class="irs-id-main" style="font-size: 2.5rem;">SCHEDULE B</span>
+      <span class="irs-id-sub">(Form 1040)</span>
+      <p style="font-size: 0.6rem; margin-top: 5px;">(Rev. 2024)</p>
+    </div>
+    <div class="irs-title-box">
+      <h1>Interest and Ordinary Dividends</h1>
+      <p style="font-size: 0.8rem; font-weight: 700; margin-top: 10px;">Go to www.irs.gov/ScheduleB for instructions and the latest information.</p>
+    </div>
+    <div class="irs-omb-box">
+      <div style="font-weight: 950; font-size: 1.1rem;">2024</div>
+      <div style="margin-top: 5px; font-size: 0.75rem;">Attachment <br> Sequence No. <strong>08</strong></div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- INFO BLOCK -->
+    <div class="irs-row-line-unified border-b" style="display: flex; border-top: 3.5px solid #000; border-bottom: 3.5px solid #000; margin-bottom: 25px;">
+      <div class="irs-id-col" style="flex: 2; padding: 6px 12px; border-right: 2px solid #000;">
+        <label style="display: block; font-size: 0.65rem; font-weight: 900;">Name(s) shown on return</label>
+        <input type="text" formControlName="name" class="irs-input-field" style="text-align: left;">
+      </div>
+      <div class="irs-id-col" style="flex: 1; padding: 6px 12px;">
+        <label style="display: block; font-size: 0.65rem; font-weight: 900;">Social security number</label>
+        <input type="text" formControlName="ssn" class="irs-input-field" style="text-align: left;">
+      </div>
+    </div>
+
+    <!-- PART I: Interest -->
+    <div class="irs-part-header">
+      <span class="irs-part-num">Part I</span>
+      <span class="irs-part-title">Interest</span>
+    </div>
+    <p style="font-size: 0.7rem; margin-bottom: 10px;">(See instructions and the instructions for Form 1040, line 2b.)</p>
+    
+    <div class="irs-list-container">
+      <div class="irs-list-header">
+        <div class="irs-col-payer">List name of payer</div>
+        <div class="irs-col-amount">Amount</div>
+      </div>
+      <div formArrayName="interestItems">
+        @for (item of interestItems.controls; track $index) {
+          <div [formGroupName]="$index" class="irs-list-row">
+            <div class="irs-col-payer"><input type="text" formControlName="payer" class="irs-input-field-list"></div>
+            <div class="irs-col-amount"><input type="number" formControlName="amount" class="irs-input-field"></div>
+          </div>
+        }
+      </div>
+      <button type="button" (click)="addInterestItem()" class="irs-btn-add-mini">+ Add Payer</button>
+    </div>
+
+    <!-- PART III: Foreign Accounts -->
+    <div class="irs-part-header" style="margin-top: 30px;">
+      <span class="irs-part-num">Part III</span>
+      <span class="irs-part-title">Foreign Accounts and Trusts</span>
+    </div>
+    
+    <div class="irs-check-row">
+      <div class="irs-ln-num">7a</div>
+      <div class="irs-ln-desc">At any time during 2024, did you have a financial interest in or signature authority over a financial account (such as a bank account, securities account, or other financial account) in a foreign country?</div>
+      <div class="irs-check-box"><input type="checkbox" formControlName="hasForeignAccount"></div>
+    </div>
+
+    <div style="margin-top: 40px; text-align: right;">
+      <button type="submit" class="irs-btn-submit">Submit Schedule B</button>
+    </div>
+  </form>
+</div>

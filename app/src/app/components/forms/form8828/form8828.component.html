@@ -1,0 +1,76 @@
+<div class="irs-unified-container">
+  <!-- Header -->
+  <div class="irs-header-container">
+    <div class="irs-id-box">
+      <span class="irs-id-main" style="font-size: 3rem;">8828</span>
+      <span class="irs-id-sub">Form</span>
+      <p style="font-size: 0.65rem; font-weight: 850;">(Rev. 2024)</p>
+    </div>
+    <div class="irs-title-box">
+      <h1>Recapture of Federal Mortgage Subsidy</h1>
+      <p style="font-size: 0.85rem; font-weight: 700; margin-top: 10px;">Go to www.irs.gov/Form8828 for instructions and the latest information.</p>
+    </div>
+    <div class="irs-omb-box">
+      <span style="font-size: 0.7rem;">OMB No. 1545-1153</span>
+      <div style="margin-top: 15px; font-weight: 950; font-size: 0.9rem;">2024</div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- INFO BLOCK -->
+    <div class="irs-row-line-unified border-b" style="display: flex; border-top: 3.5px solid #000; border-bottom: 3.5px solid #000; margin-bottom: 25px;">
+      <div class="irs-id-col" style="flex: 2; padding: 6px 12px; border-right: 2px solid #000;">
+        <label style="display: block; font-size: 0.65rem; font-weight: 900; text-transform: uppercase;">Name shown on return</label>
+        <input type="text" formControlName="name" class="irs-input-field" style="text-align: left;">
+      </div>
+      <div class="irs-id-col" style="flex: 1; padding: 6px 12px;">
+        <label style="display: block; font-size: 0.65rem; font-weight: 900; text-transform: uppercase;">Social security number</label>
+        <input type="text" formControlName="ssn" class="irs-input-field" style="text-align: left;">
+      </div>
+    </div>
+
+    <!-- PART III -->
+    <div class="irs-section-header-bar">
+      <span>Part III: Computation of Recapture Tax</span>
+    </div>
+    
+    <div class="irs-field-row">
+      <div class="irs-ln-num">16</div>
+      <div class="irs-ln-desc">Federally subsidized amount. (See Part I)...</div>
+      <div class="irs-ln-sub">16</div>
+      <div class="irs-in-wrap-amounts">
+        <input type="number" formControlName="l16_subsidizedAmount" class="irs-input-field">
+      </div>
+    </div>
+
+    <div class="irs-field-row">
+      <div class="irs-ln-num">17</div>
+      <div class="irs-ln-desc">Holding period percentage. (From table in instructions)...</div>
+      <div class="irs-ln-sub">17</div>
+      <div class="irs-in-wrap-amounts">
+        <input type="number" formControlName="l17_holdingPeriodPct" class="irs-input-field" step="0.01">
+      </div>
+    </div>
+
+    <div class="irs-field-row" style="background: #fafbff;">
+      <div class="irs-ln-num">18</div>
+      <div class="irs-ln-desc">Multiply line 16 by line 17...</div>
+      <div class="irs-ln-sub">18</div>
+      <div class="irs-result-box">
+        ${{ recaptureAmount() | number:'1.2-2' }}
+      </div>
+    </div>
+
+    <div class="irs-field-row" style="background: #eef1ff; border-top: 3.5px solid #000; border-bottom: 3.5px solid #000; margin-top: 30px;">
+      <div class="irs-ln-num">25</div>
+      <div class="irs-ln-desc bold" style="font-size: 1.1rem;">Recapture Tax. Enter the smaller of Line 23 or Line 24.</div>
+      <div class="irs-result-box bold" style="font-size: 1.3rem;">
+        ${{ finalRecaptureTax() | number:'1.2-2' }}
+      </div>
+    </div>
+
+    <div style="margin-top: 40px; text-align: right;">
+      <button type="submit" class="irs-btn-submit">Submit Form 8828</button>
+    </div>
+  </form>
+</div>

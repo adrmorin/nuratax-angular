@@ -1,0 +1,88 @@
+.irs-unified-container {
+  padding: 2.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border: 4px solid #000;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.irs-header-container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 5px solid #000;
+  padding-bottom: 10px;
+  margin-bottom: 25px;
+}
+
+.irs-id-large { font-size: 2rem; font-weight: 950; text-transform: uppercase; }
+.irs-title-center { flex: 1; text-align: center; padding: 0 40px; }
+.irs-title-center h1 { font-size: 1.15rem; font-weight: 950; margin: 0; text-transform: uppercase; }
+
+.irs-part-bar {
+  background: #f0f0f0;
+  border: 2.5px solid #000;
+  padding: 6px 15px;
+  font-weight: 950;
+  font-size: 0.85rem;
+  margin: 25px 0 5px;
+  text-transform: uppercase;
+}
+
+.irs-line-row {
+  display: flex;
+  min-height: 48px;
+  border-bottom: 1px solid #000;
+}
+
+.irs-line-num {
+  width: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 12px;
+  font-weight: 950;
+  border-right: 2px solid #000;
+}
+
+.irs-line-desc {
+  flex: 1;
+  padding: 12px 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.irs-input-wrap {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  border-left: 2px solid #000;
+}
+
+.irs-blue-bg { background: #e8f0fe !important; }
+
+.irs-input-field {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 5px 10px;
+  text-align: right;
+  font-weight: 900;
+  font-size: 1.1rem;
+  outline: none;
+}
+
+.irs-total-display {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border-left: 2px solid #000;
+  padding-right: 12px;
+  font-weight: 950;
+  background: #f9fbff;
+}
+
+.bold { font-weight: 950; }
+.bg-light-yellow { background: #ffffde; }

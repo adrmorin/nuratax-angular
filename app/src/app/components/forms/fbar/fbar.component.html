@@ -1,0 +1,76 @@
+<div class="irs-unified-container">
+  <!-- Header -->
+  <div class="irs-header-container fbar-header" style="background: #003366; color: #fff; padding: 30px; border-bottom: 5px solid #ffcc00; margin-bottom: 30px;">
+    <div style="flex: 1;">
+      <h3 style="font-size: 1rem; font-weight: 700; text-transform: uppercase; margin: 0;">FinCEN Form 114</h3>
+      <h1 style="font-size: 1.4rem; font-weight: 950; margin: 5px 0;">Report of Foreign Bank and Financial Accounts</h1>
+    </div>
+    <div style="flex: 0.5; text-align: right; border-left: 1.5px solid #fff; padding-left: 20px;">
+      <p style="font-size: 0.65rem; font-weight: 700;">Department of the Treasury</p>
+      <p style="font-size: 0.65rem; font-weight: 700;">Financial Crimes Enforcement Network</p>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- Part I -->
+    <div class="irs-section-header-bar fbar-part">
+      <span>Part I: Filer Information</span>
+    </div>
+    
+    <div class="fbar-grid-row">
+      <div class="fbar-grid-box">
+        <label>1. Filer name (First, Middle, Last)</label>
+        <input type="text" formControlName="filerName" class="fbar-input">
+      </div>
+      <div class="fbar-grid-box">
+        <label>2. TIN (SSN or ITIN)</label>
+        <input type="text" formControlName="tin" class="fbar-input">
+      </div>
+      <div class="fbar-grid-box">
+        <label>3. Date of birth (mm/dd/yyyy)</label>
+        <input type="date" formControlName="dob" class="fbar-input">
+      </div>
+    </div>
+
+    <!-- Part II -->
+    <div class="irs-section-header-bar fbar-part" style="margin-top: 30px;">
+      <span>Part II: Financial Account(s) Owned Separately</span>
+    </div>
+
+    <div formArrayName="accounts" class="fbar-accounts-list">
+      @for (account of accounts.controls; track $index) {
+        <div [formGroupName]="$index" class="fbar-account-card">
+          <div class="fbar-grid-row">
+            <div class="fbar-grid-box">
+              <label>15. Max value of account</label>
+              <input type="number" formControlName="maxValue" class="fbar-input">
+            </div>
+            <div class="fbar-grid-box">
+              <label>16. Type of account</label>
+              <select formControlName="accountType" class="fbar-input">
+                <option value="bank">Bank</option>
+                <option value="securities">Securities</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="fbar-grid-row">
+            <div class="fbar-grid-box" style="flex: 2;">
+              <label>17. Financial institution name</label>
+              <input type="text" formControlName="institutionName" class="fbar-input">
+            </div>
+            <div class="fbar-grid-box" style="flex: 1;">
+              <label>18. Account number</label>
+              <input type="text" formControlName="accountNumber" class="fbar-input">
+            </div>
+          </div>
+        </div>
+      }
+      <button type="button" (click)="addAccount()" class="fbar-btn-add">+ Add Foreign Account</button>
+    </div>
+
+    <div style="margin-top: 50px; text-align: right;">
+      <button type="submit" class="irs-btn-submit" style="background: #003366;">File FBAR</button>
+    </div>
+  </form>
+</div>

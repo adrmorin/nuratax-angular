@@ -1,0 +1,151 @@
+.irs-unified-container {
+  max-width: 950px;
+  margin: 20px auto;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #1a1a1a;
+  background: #fff;
+  padding: 40px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.irs-header-container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 4px solid #000;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.irs-id-box {
+  flex: 1;
+  text-align: left;
+}
+
+.irs-id-main {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.irs-id-sub {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.irs-title-box {
+  flex: 3;
+  text-align: center;
+}
+
+.irs-title-box h1 {
+  font-size: 1.8rem;
+  font-weight: 950;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.irs-omb-box {
+  flex: 1;
+  text-align: right;
+  line-height: 1.2;
+}
+
+.irs-form-body {
+  margin-top: 20px;
+}
+
+.irs-section-header-bar {
+  background: #333;
+  color: #fff;
+  padding: 8px 15px;
+  font-size: 1.1rem;
+  font-weight: 950;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.irs-field-row {
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+  min-height: 40px;
+}
+
+.irs-ln-num {
+  width: 35px;
+  font-weight: 950;
+  font-size: 0.85rem;
+  padding-bottom: 3px;
+}
+
+.irs-ln-desc {
+  flex: 1;
+  font-size: 0.9rem;
+  padding-right: 20px;
+  line-height: 1.4;
+}
+
+.irs-ln-subnum {
+  width: 25px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: center;
+  color: #666;
+}
+
+.irs-in-wrap {
+  width: 160px;
+  border-left: 2px solid #000;
+  padding: 0 10px;
+}
+
+.irs-result-box {
+  width: 160px;
+  border-left: 2px solid #000;
+  background: #f4f6ff;
+  padding: 5px 10px;
+  text-align: right;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+}
+
+.irs-input-field {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: right;
+  outline: none;
+}
+
+.irs-input-field:focus {
+  background: #fff;
+  box-shadow: 0 0 0 2px #0056b3;
+}
+
+.irs-btn-submit {
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.irs-btn-submit:hover {
+  background: #333;
+}
+
+.bold { font-weight: 950; }
+.border-b { border-bottom: 2px solid #000; }

@@ -1,0 +1,109 @@
+<div class="irs-unified-container">
+  <!-- Header Copy Marker -->
+  <div class="irs-copy-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; padding-bottom: 5px; margin-bottom: 20px;">
+    <span style="font-size: 1.2rem; font-weight: 950; color: #cc0000; font-family: 'Roboto Mono', monospace;">VOID <input type="checkbox" style="margin-left:5px;"></span>
+    <span style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase;">CORRECTED <input type="checkbox" style="margin-left:5px;"></span>
+  </div>
+
+  <div class="irs-top-grid">
+    <!-- BROKER BOX -->
+    <div class="irs-info-box border-b border-r" style="flex: 1.5; padding: 10px;">
+      <label class="irs-box-num">BROKER'S name, address, and ZIP code</label>
+      <textarea formControlName="brokerName" class="irs-input-field" style="height: 60px;"></textarea>
+    </div>
+
+    <!-- TIN BOXES -->
+    <div style="flex: 1; display: flex; flex-direction: column;">
+      <div class="irs-info-box border-b" style="padding: 10px;">
+        <label class="irs-box-num">BROKER'S TIN</label>
+        <input type="text" formControlName="brokerTIN" class="irs-input-field">
+      </div>
+      <div class="irs-info-box border-b" style="padding: 10px;">
+        <label class="irs-box-num">PAYEE'S TIN</label>
+        <input type="text" formControlName="payeeTIN" class="irs-input-field">
+      </div>
+    </div>
+
+    <!-- YEAR BOX -->
+    <div class="irs-info-box border-b" style="flex: 0.5; text-align: center; border-left: 2px solid #000;">
+      <div style="font-size: 1.5rem; font-weight: 950; line-height: 1;">2024<br><span style="font-size: 1rem;">1099-DA</span></div>
+    </div>
+  </div>
+
+  <div class="irs-top-grid" style="border-top: none; margin-top: 0;">
+    <div class="irs-info-box border-b border-r" style="flex: 1.5; padding: 10px;">
+      <label class="irs-box-num">PAYEE'S name, address, and ZIP code</label>
+      <textarea formControlName="payeeName" class="irs-input-field" style="height: 60px;"></textarea>
+    </div>
+    <div class="irs-info-box border-b" style="flex: 1.5; padding: 10px;">
+      <label class="irs-box-num">Account number (see instructions)</label>
+      <input type="text" formControlName="accountNum" class="irs-input-field">
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- Box 1a -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-b" style="flex: 1;">
+        <label class="irs-box-num">1a Description of digital asset and quantity</label>
+        <input type="text" formControlName="digitalAssetType" class="irs-input-field">
+      </div>
+    </div>
+
+    <!-- Box 1b & 1c -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">1b Date acquired</label>
+        <input type="date" formControlName="box1b_dateAcquired" class="irs-input-field">
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">1c Date sold or disposed</label>
+        <input type="date" formControlName="box1c_dateSold" class="irs-input-field">
+      </div>
+    </div>
+
+    <!-- Box 1d & 1e -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">1d Proceeds</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box1d_proceeds" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">1e Cost or other basis</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box1e_costBasis" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- Box 1f & 2 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">1f Wash sale loss disallowed</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box1f_washSaleLoss" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">2 Federal income tax withheld</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box2_federalTaxWithheld" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px; text-align: left; font-size: 0.65rem; color: #555;">
+      <strong>Copy B—For Payee</strong>. This information is being furnished to the Internal Revenue Service.
+    </div>
+
+    <div style="margin-top: 40px; display: flex; justify-content: flex-end;">
+      <button type="submit" class="irs-btn-submit">Submit Form 1099-DA</button>
+    </div>
+  </form>
+</div>

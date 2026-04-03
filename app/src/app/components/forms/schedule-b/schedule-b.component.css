@@ -1,0 +1,111 @@
+.irs-unified-container {
+  max-width: 900px;
+  margin: 20px auto;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #1a1a1a;
+  background: #fff;
+  padding: 40px;
+  border: 1px solid #e0e0e0;
+}
+
+.irs-header-container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 4px solid #000;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.irs-id-box { flex: 1.2; display: flex; flex-direction: column; }
+.irs-id-main { font-weight: 950; font-size: 2.2rem; line-height: 1; }
+.irs-id-sub { font-size: 0.9rem; font-weight: 700; text-transform: uppercase; }
+
+.irs-title-box { flex: 3; text-align: center; }
+.irs-title-box h1 { font-size: 1.4rem; font-weight: 950; margin: 0; text-transform: uppercase; }
+
+.irs-part-header {
+  background: #333;
+  color: #fff;
+  padding: 10px 15px;
+  font-size: 1.1rem;
+  font-weight: 950;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.irs-part-num { margin-right: 15px; }
+
+.irs-list-container {
+  display: flex;
+  flex-direction: column;
+  border: 1.5px solid #000;
+}
+
+.irs-list-header {
+  display: flex;
+  border-bottom: 1.5px solid #000;
+  background: #f0f0f0;
+  font-weight: 900;
+  font-size: 0.8rem;
+  padding: 5px 0;
+}
+
+.irs-col-payer { flex: 3; padding-left: 15px; }
+.irs-col-amount { flex: 1.2; padding-right: 15px; border-left: 1.5px solid #000; text-align: right; }
+
+.irs-list-row {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+
+.irs-input-field {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: right;
+  outline: none;
+}
+
+.irs-input-field-list {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding-left: 5px;
+}
+
+.irs-btn-add-mini {
+  background: #f4f6ff;
+  border: 1px solid #ccc;
+  padding: 5px 15px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+.irs-btn-submit {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.irs-check-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+.irs-ln-num { width: 35px; font-weight: 950; font-size: 0.9rem; }
+.irs-ln-desc { flex: 1; font-size: 0.9rem; line-height: 1.4; padding-right: 20px; }
+.irs-check-box { width: 30px; text-align: right; }

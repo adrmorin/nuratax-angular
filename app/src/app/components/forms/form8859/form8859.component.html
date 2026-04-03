@@ -1,0 +1,72 @@
+<div class="irs-unified-container">
+  <!-- Header Section -->
+  <div class="irs-header-container">
+    <div class="irs-id-box">
+      <span class="irs-id-main">8859</span>
+      <span class="irs-id-sub">Form</span>
+      <span style="font-size: 0.7rem; font-weight: 700; color: #555;">(Rev. December 2024)</span>
+    </div>
+    <div class="irs-title-box">
+      <h1>Carryforward of the District of Columbia First-Time Homebuyer Credit</h1>
+      <p style="font-size: 0.75rem; margin-top: 5px;">Attach to your tax return.</p>
+    </div>
+    <div class="irs-omb-box" style="text-align: right;">
+      <span style="font-size: 0.65rem; font-weight: 700;">OMB No. 1545-1647</span><br>
+      <div style="margin-top: 10px; font-weight: 950; font-size: 0.8rem;">Attachment <br> Sequence No. <strong>112</strong></div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- INFO BLOCK -->
+    <div class="irs-row-line-unified border-b" style="display: flex; border-top: 3.5px solid #000; border-bottom: 3px solid #000; margin-bottom: 25px;">
+      <div class="irs-id-col" style="flex: 2; padding: 6px 12px; border-right: 2px solid #000;">
+        <label style="display: block; font-size: 0.65rem; font-weight: 900; text-transform: uppercase;">Name(s) shown on return</label>
+        <input type="text" formControlName="name" class="irs-input-field" style="text-align: left;">
+      </div>
+      <div class="irs-id-col" style="flex: 1; padding: 6px 12px;">
+        <label style="display: block; font-size: 0.65rem; font-weight: 900; text-transform: uppercase;">Your social security number</label>
+        <input type="text" formControlName="ssn" class="irs-input-field" style="text-align: left;">
+      </div>
+    </div>
+
+    <!-- Line 1 -->
+    <div class="irs-field-row">
+      <div class="irs-ln-num">1</div>
+      <div class="irs-ln-desc">District of Columbia first-time homebuyer credit carryforward from previous tax year. Enter the amount from your previous Form 8859, line 4...</div>
+      <div class="irs-in-wrap">
+        <input type="number" formControlName="carryforwardPrev" class="irs-input-field">
+      </div>
+    </div>
+
+    <!-- Line 2 -->
+    <div class="irs-field-row">
+      <div class="irs-ln-num">2</div>
+      <div class="irs-ln-desc">Limitation based on tax liability (Enter the amount from the Tax Liability Limit Worksheet; see instructions)...</div>
+      <div class="irs-in-wrap">
+        <input type="number" formControlName="taxLimit" class="irs-input-field">
+      </div>
+    </div>
+
+    <!-- Line 3 -->
+    <div class="irs-field-row" style="background: #fafbff;">
+      <div class="irs-ln-num">3</div>
+      <div class="irs-ln-desc bold">Current year credit. Enter the smaller of line 1 or line 2. Also include this amount on your current tax return (e.g., Schedule 3, Line 6h)...</div>
+      <div class="irs-result-box bold">
+        ${{ currentYearCredit() | number:'1.2-2' }}
+      </div>
+    </div>
+
+    <!-- Line 4 -->
+    <div class="irs-field-row" style="border-bottom: 3.5px solid #000; margin-top: 5px;">
+      <div class="irs-ln-num">4</div>
+      <div class="irs-ln-desc bold">Credit carryforward to next tax year. Subtract line 3 from line 1...</div>
+      <div class="irs-result-box bold" style="background: #e8f0fe;">
+        ${{ carryforwardNext() | number:'1.2-2' }}
+      </div>
+    </div>
+
+    <div style="margin-top: 40px; text-align: right;">
+      <button type="submit" class="irs-btn-submit">Submit Form 8859</button>
+    </div>
+  </form>
+</div>

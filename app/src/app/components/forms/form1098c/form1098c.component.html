@@ -1,0 +1,93 @@
+<div class="irs-unified-container">
+  <!-- Header Copy Marker -->
+  <div class="irs-copy-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; padding-bottom: 5px; margin-bottom: 20px;">
+    <span style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase;">CORRECTED (if checked) <input type="checkbox" style="margin-left:5px;"></span>
+    <span style="font-size: 1.1rem; font-weight: 950; color: #cc0000; font-family: 'Roboto Mono', monospace;">VOID <input type="checkbox" style="margin-left:5px;"></span>
+  </div>
+
+  <div class="irs-top-grid">
+    <!-- DONEE BOX -->
+    <div class="irs-info-box border-b border-r" style="flex: 1.5; padding: 10px;">
+      <label class="irs-box-num">DONEE'S name, street address, city or town, state or province, country, and ZIP or foreign postal code</label>
+      <textarea formControlName="doneeName" class="irs-input-field" style="height: 60px;"></textarea>
+    </div>
+
+    <!-- TIN BOXES -->
+    <div style="flex: 1; display: flex; flex-direction: column;">
+      <div class="irs-info-box border-b" style="padding: 10px;">
+        <label class="irs-box-num">DONEE'S TIN</label>
+        <input type="text" formControlName="doneeTIN" class="irs-input-field">
+      </div>
+      <div class="irs-info-box border-b" style="padding: 10px;">
+        <label class="irs-box-num">DONOR'S TIN</label>
+        <input type="text" formControlName="donorTIN" class="irs-input-field">
+      </div>
+    </div>
+
+    <!-- YEAR BOX -->
+    <div class="irs-info-box border-b" style="flex: 0.5; text-align: center; display: flex; align-items: center; justify-content: center;">
+      <div style="font-size: 1.5rem; font-weight: 950; line-height: 1;">2025<br><span style="font-size: 0.6rem; text-transform: uppercase;">Form</span><br><span style="font-size: 1.2rem;">1098-C</span></div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- Row 1: Vehicle Info -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">1 Date of contribution</label>
+        <input type="date" formControlName="dateContribution" class="irs-input-field irs-blue-bg">
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">2 Odometer reading</label>
+        <input type="text" formControlName="odometer" class="irs-input-field irs-blue-bg">
+      </div>
+    </div>
+
+    <!-- Row 2: VIN, Year, Make, Model -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">3 Year, make, and model of vehicle</label>
+        <div style="display: flex; gap: 10px;">
+          <input type="text" formControlName="year" class="irs-input-field" style="width: 50px;" placeholder="Year">
+          <input type="text" formControlName="make" class="irs-input-field" placeholder="Make">
+          <input type="text" formControlName="model" class="irs-input-field" placeholder="Model">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">4 Vehicle identification number (VIN)</label>
+        <input type="text" formControlName="vin" class="irs-input-field irs-blue-bg">
+      </div>
+    </div>
+
+    <!-- Row 3: Certification -->
+    <div class="irs-row-grid bg-light-grey" style="min-height: 150px; border-bottom: 2px solid #000;">
+      <div class="irs-grid-box" style="flex: 1; padding: 15px;">
+        <label class="irs-box-num">5a Donee certifies that vehicle was sold in arm's length transaction to unrelated party</label>
+        <input type="checkbox" formControlName="isGrossProceedsOnly" style="margin-top: 10px;">
+        
+        <label class="irs-box-num" style="display: block; margin-top: 15px;">5b Date of sale</label>
+        <input type="date" class="irs-input-field-small">
+
+        <label class="irs-box-num" style="display: block; margin-top: 15px;">5c Gross proceeds from sale</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="grossProceeds" class="irs-input-field-small" style="font-weight: 900;">
+        </div>
+      </div>
+    </div>
+
+    <!-- DONOR BOX -->
+    <div class="irs-id-box" style="border: 2px solid #000; border-top: none; padding: 10px;">
+      <label class="irs-box-num">DONOR'S name and street address (including apt. no.)</label>
+      <textarea formControlName="donorName" class="irs-input-field" style="height: 50px;"></textarea>
+    </div>
+
+    <div style="margin-top: 30px; text-align: left; font-size: 0.65rem; line-height: 1.4; color: #555;">
+      <strong>Copy B—For Donor</strong>. Keep this copy for your records. You must attach this copy to your federal income tax return to claim a deduction for a contribution of a motor vehicle, boat, or airplane that has a claimed value of more than $500.
+    </div>
+
+    <div style="margin-top: 40px; display: flex; justify-content: flex-end;">
+      <button type="submit" class="irs-btn-submit">Submit Form 1098-C</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,146 @@
+<div class="irs-unified-container">
+  <!-- Header Copy Marker -->
+  <div class="irs-copy-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; padding-bottom: 5px; margin-bottom: 20px;">
+    <span style="font-size: 1.2rem; font-weight: 950; color: #cc0000; font-family: 'Roboto Mono', monospace;">VOID <input type="checkbox" style="margin-left:5px;"></span>
+    <span style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase;">CORRECTED <input type="checkbox" style="margin-left:5px;"></span>
+  </div>
+
+  <div class="irs-top-grid">
+    <!-- PAYER BOX -->
+    <div class="irs-info-box border-b border-r" style="flex: 1.5; padding: 10px;">
+      <label class="irs-box-num">PAYER'S name, address, and ZIP code</label>
+      <textarea formControlName="payerName" class="irs-input-field" style="height: 60px;"></textarea>
+    </div>
+
+    <!-- TIN BOX -->
+    <div class="irs-info-box border-b" style="flex: 1; padding: 10px;">
+      <label class="irs-box-num">PAYER'S TIN</label>
+      <input type="text" formControlName="payerTIN" class="irs-input-field">
+    </div>
+
+    <!-- YEAR BOX -->
+    <div class="irs-info-box border-b" style="flex: 0.5; text-align: center; border-left: 2px solid #000;">
+      <div style="font-size: 1.5rem; font-weight: 950; line-height: 1;">2024<br><span style="font-size: 1.2rem;">1099-OID</span></div>
+    </div>
+  </div>
+
+  <!-- PAYEE Box -->
+  <div class="irs-top-grid" style="border-top: none; margin-top: 0;">
+    <div class="irs-info-box border-b border-r" style="flex: 1.5; padding: 10px;">
+      <label class="irs-box-num">PAYEE'S name</label>
+      <textarea formControlName="payeeName" class="irs-input-field" style="height: 60px;"></textarea>
+    </div>
+    <div class="irs-info-box border-b" style="flex: 1.5; padding: 10px;">
+      <label class="irs-box-num">PAYEE'S TIN</label>
+      <input type="text" formControlName="payeeTIN" class="irs-input-field">
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- Box 1 & 2 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">1 Original issue discount for 2024</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box1_oid" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">2 Other periodic interest</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box2_otherPeriodicInterest" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- Box 3 & 4 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">3 Early withdrawal penalty</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box3_earlyWithdrawalPenalty" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">4 Federal income tax withheld</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box4_federalTaxWithheld" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- Box 5 & 6 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">5 Market discount</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box5_marketDiscount" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">6 Acquisition premium</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box6_acquisitionPremium" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- Box 7 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-b" style="flex: 1;">
+        <label class="irs-box-num">7 Description</label>
+        <textarea formControlName="box7_description" class="irs-input-field" style="height: 40px;"></textarea>
+      </div>
+    </div>
+
+    <!-- Box 8 & 9 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">8 OID on U.S. Treasury obligations</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box8_oidOnTreasury" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">9 Investment expenses</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box9_investmentExpenses" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- Box 10 & 11 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">10 Bond premium</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box10_bondPremium" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">11 Tax-exempt OID</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box11_taxExemptOid" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px; text-align: left; font-size: 0.65rem; color: #555;">
+      <strong>Copy B—For Recipient</strong>. This information is being furnished to the Internal Revenue Service.
+    </div>
+
+    <div style="margin-top: 40px; display: flex; justify-content: flex-end;">
+      <button type="submit" class="irs-btn-submit">Submit Form 1099-OID</button>
+    </div>
+  </form>
+</div>

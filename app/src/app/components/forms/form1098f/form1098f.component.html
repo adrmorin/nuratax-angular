@@ -1,0 +1,113 @@
+<div class="irs-unified-container">
+  <!-- Header Copy Marker -->
+  <div class="irs-copy-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; padding-bottom: 5px; margin-bottom: 20px;">
+    <span style="font-size: 1.2rem; font-weight: 950; color: #cc0000; font-family: 'Roboto Mono', monospace;">VOID <input type="checkbox" style="margin-left:5px;"></span>
+    <span style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase;">CORRECTED <input type="checkbox" style="margin-left:5px;"></span>
+  </div>
+
+  <div class="irs-top-grid">
+    <!-- FILER BOX -->
+    <div class="irs-info-box border-b border-r" style="flex: 1.5; padding: 10px;">
+      <label class="irs-box-num">FILER'S name, address, and ZIP code</label>
+      <textarea formControlName="filerName" class="irs-input-field" style="height: 60px;"></textarea>
+    </div>
+
+    <!-- TIN BOXES -->
+    <div style="flex: 1; display: flex; flex-direction: column;">
+      <div class="irs-info-box border-b" style="padding: 10px;">
+        <label class="irs-box-num">FILER'S TIN</label>
+        <input type="text" formControlName="filerTIN" class="irs-input-field">
+      </div>
+      <div class="irs-info-box border-b" style="padding: 10px;">
+        <label class="irs-box-num">PAYER'S TIN</label>
+        <input type="text" formControlName="payerTIN" class="irs-input-field">
+      </div>
+    </div>
+
+    <!-- YEAR BOX -->
+    <div class="irs-info-box border-b" style="flex: 0.5; text-align: center; border-left: 2px solid #000;">
+      <div style="font-size: 1.5rem; font-weight: 950; line-height: 1;">2024<br><span style="font-size: 1.2rem;">1098-F</span></div>
+    </div>
+  </div>
+
+  <div class="irs-top-grid" style="border-top: none; margin-top: 0;">
+    <div class="irs-info-box border-b border-r" style="flex: 1.5; padding: 10px;">
+      <label class="irs-box-num">PAYER'S name, address, and ZIP code</label>
+      <textarea formControlName="payerName" class="irs-input-field" style="height: 60px;"></textarea>
+    </div>
+    <div class="irs-info-box border-b" style="flex: 1.5; padding: 10px;">
+      <label class="irs-box-num">Account number (see instructions)</label>
+      <input type="text" formControlName="accountNum" class="irs-input-field">
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- Box 1 & 2 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">1 Total amount required to be paid</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box1_totalAmount" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">2 Amount paid for violation/potential violation</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box2_violationAmount" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- Box 3 & 4 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">3 Restitution/remediation amount</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box3_restitutionAmount" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">4 Compliance amount</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box4_complianceAmount" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- Box 5 & 6 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">5 Multiple payers</label>
+        <input type="checkbox" formControlName="box5_multiplePayers">
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">6 Multiple payees</label>
+        <input type="checkbox" formControlName="box6_multiplePayees">
+      </div>
+    </div>
+
+    <!-- Box 7 & 8 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">7 Code</label>
+        <input type="text" formControlName="box7_code" class="irs-input-field">
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">8 Date of agreement or order</label>
+        <input type="date" formControlName="box8_dateOfAgreement" class="irs-input-field">
+      </div>
+    </div>
+
+    <div style="margin-top: 40px; text-align: left; font-size: 0.65rem; color: #555;">
+      <strong>Copy B—For Payer</strong>. This information is being furnished to the Internal Revenue Service.
+    </div>
+
+    <div style="margin-top: 40px; display: flex; justify-content: flex-end;">
+      <button type="submit" class="irs-btn-submit">Submit Form 1098-F</button>
+    </div>
+  </form>
+</div>

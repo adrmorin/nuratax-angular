@@ -1,0 +1,128 @@
+<div class="irs-unified-container">
+  <div class="irs-header-title">
+    <div style="font-size: 0.8rem; font-weight: 850;">DEPARTAMENTO DE HACIENDA DE PUERTO RICO</div>
+    <div style="font-size: 1.5rem; letter-spacing: -1px;">COMPROBANTE DE RETENCIÓN / WITHHOLDING STATEMENT</div>
+    <div style="font-size: 1.1rem; font-weight: 950; margin-top: 5px;">499R-2/W-2PR</div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <div class="irs-grid-w2pr">
+      <!-- Row 1: SSN, EIN, Year -->
+      <div class="irs-box">
+        <span class="irs-box-num">1</span>
+        <div class="irs-label-bilingual">
+          <span class="irs-label-es">Número de Seguro Social del Empleado</span>
+          <span class="irs-label-en">Employee's Social Security Number</span>
+        </div>
+        <input type="text" formControlName="employeeSSN" class="irs-input-field">
+      </div>
+      <div class="irs-box">
+        <span class="irs-box-num">2</span>
+        <div class="irs-label-bilingual">
+          <span class="irs-label-es">Número Identificación Patronal (Hacienda)</span>
+          <span class="irs-label-en">Employer's Identification Number</span>
+        </div>
+        <input type="text" formControlName="employerEIN" class="irs-input-field">
+      </div>
+      <div class="irs-box" style="background: #fff5f5;">
+        <span class="irs-box-num">3</span>
+        <div class="irs-label-bilingual">
+          <span class="irs-label-es">Año Contributivo</span>
+          <span class="irs-label-en">Tax Year</span>
+        </div>
+        <input type="text" formControlName="taxYear" class="irs-input-field" style="font-size: 1.4rem; text-align: center;">
+      </div>
+
+      <!-- Row 2: Names -->
+      <div class="irs-box irs-two-col-box">
+        <span class="irs-box-num">4</span>
+        <div class="irs-label-bilingual">
+          <span class="irs-label-es">Nombre y Dirección del Patrono</span>
+          <span class="irs-label-en">Employer's Name and Address</span>
+        </div>
+        <textarea formControlName="employerName" class="irs-input-field" style="height: 40px; font-weight: 700;"></textarea>
+      </div>
+      <div class="irs-box">
+        <span class="irs-box-num">5</span>
+        <div class="irs-label-bilingual">
+          <span class="irs-label-es">Nombre y Dirección del Empleado</span>
+          <span class="irs-label-en">Employee's Name and Address</span>
+        </div>
+        <textarea formControlName="employeeName" class="irs-input-field" style="height: 40px; font-weight: 700;"></textarea>
+      </div>
+
+      <!-- Row 3: Salaries Desglose -->
+      <div class="irs-box">
+        <span class="irs-box-num">7</span>
+        <div class="irs-label-es">Sueldos</div>
+        <div class="irs-label-en">Wages</div>
+        <input type="number" formControlName="wages" class="irs-input-field irs-input-currency">
+      </div>
+      <div class="irs-box">
+        <span class="irs-box-num">8</span>
+        <div class="irs-label-es">Comisiones</div>
+        <div class="irs-label-en">Commissions</div>
+        <input type="number" formControlName="commissions" class="irs-input-field irs-input-currency">
+      </div>
+      <div class="irs-box">
+        <span class="irs-box-num">9</span>
+        <div class="irs-label-es">Concesiones</div>
+        <div class="irs-label-en">Allowances</div>
+        <input type="number" formControlName="allowances" class="irs-input-field irs-input-currency">
+      </div>
+
+      <!-- Row 4: Totals & Tax -->
+      <div class="irs-box" style="background: #fffafa;">
+        <span class="irs-box-num">11</span>
+        <div class="irs-label-es bold">TOTAL SUELDOS, COMISIONES... (Sum of 7-10)</div>
+        <div class="irs-label-en">TOTAL WAGES, COMMISSIONS...</div>
+        <div class="irs-input-field irs-input-currency bold" style="color: #C41E3A;">
+          ${{ totalIncome() | number:'1.2-2' }}
+        </div>
+      </div>
+      <div class="irs-box" style="background: #fff5f5;">
+        <span class="irs-box-num">13</span>
+        <div class="irs-label-es bold">Contribución sobre Ingresos Retenida</div>
+        <div class="irs-label-en">Income Tax Withheld</div>
+        <input type="number" formControlName="taxWithheld" class="irs-input-field irs-input-currency" style="color: #C41E3A; font-size: 1.2rem;">
+      </div>
+      <div class="irs-box">
+        <span class="irs-box-num">15</span>
+        <div class="irs-label-es">Contribuciones a Planes Calificados (CODA)</div>
+        <div class="irs-label-en">Retirement Plan Contributions</div>
+        <input type="number" formControlName="codaContributions" class="irs-input-field irs-input-currency">
+      </div>
+
+      <!-- Row 5: FICA (Federal) -->
+      <div class="irs-box">
+        <span class="irs-box-num">20</span>
+        <div class="irs-label-es">Salarios Sujetos a Seguro Social</div>
+        <div class="irs-label-en">Social Security Wages</div>
+        <input type="number" formControlName="ssWages" class="irs-input-field irs-input-currency" style="color: #444;">
+      </div>
+      <div class="irs-box">
+        <span class="irs-box-num">21</span>
+        <div class="irs-label-es">Seguro Social Retenido</div>
+        <div class="irs-label-en">Social Security Tax Withheld</div>
+        <input type="number" formControlName="ssTax" class="irs-input-field irs-input-currency" style="color: #444;">
+      </div>
+      <div class="irs-box">
+        <span class="irs-box-num">23</span>
+        <div class="irs-label-es">Seguro Medicare Retenido</div>
+        <div class="irs-label-en">Medicare Tax Withheld</div>
+        <input type="number" formControlName="medTax" class="irs-input-field irs-input-currency" style="color: #444;">
+      </div>
+    </div>
+
+    <div style="margin-top: 25px; display: flex; justify-content: space-between; align-items: center;">
+      <div style="font-size: 0.7rem; color: #444; max-width: 500px;">
+        Esta forma sustituye a la Forma W-2 Federal para ingresos devengados en Puerto Rico. 
+        Reporte las cajas 20-26 de acuerdo a las guías de la SSA.
+      </div>
+      <div style="display: flex; gap: 15px;">
+        <button type="button" (click)="calculateFICA()" class="irs-btn-calculate" style="background: #333;">Calculate FICA</button>
+        <button type="submit" class="irs-btn-calculate">Submit Form W-2PR</button>
+      </div>
+    </div>
+  </form>
+</div>

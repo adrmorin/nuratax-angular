@@ -1,0 +1,91 @@
+<div class="irs-unified-container">
+  <!-- Header Section -->
+  <div class="irs-header-container">
+    <div class="irs-id-box" style="display:flex; flex-direction:column;">
+      <span class="irs-id-large">2210</span>
+      <span style="font-size: 0.7rem; font-weight: 950; text-transform: uppercase;">Form</span>
+      <p style="font-size: 0.7rem; font-weight: 850; margin-top: 5px;">OMB No. 1545-0140</p>
+    </div>
+    <div class="irs-title-center">
+      <h1>Underpayment of Estimated Tax by Individuals, Estates, and Trusts</h1>
+      <p style="font-size: 0.75rem; font-weight: 700; margin-top: 5px;">Attach to your tax return.</p>
+    </div>
+    <div class="irs-header-right">
+      <div style="font-size: 0.8rem; font-weight: 950; text-align: right;">Attachment <br> Sequence No. <strong>06</strong></div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- INFO BLOCK -->
+    <div class="irs-row-line-unified border-b" style="display: flex; border-top: 3.5px solid #000; border-bottom: 3px solid #000; margin-bottom: 25px;">
+      <div class="irs-id-col" style="flex: 2; padding: 6px 12px; border-right: 2px solid #000;">
+        <label style="display: block; font-size: 0.65rem; font-weight: 900;">Name(s) shown on return</label>
+        <input type="text" formControlName="name" class="irs-input-field" style="text-align: left;">
+      </div>
+      <div class="irs-id-col" style="flex: 1; padding: 6px 12px;">
+        <label style="display: block; font-size: 0.65rem; font-weight: 900;">Social security number</label>
+        <input type="text" formControlName="ssn" class="irs-input-field" style="text-align: left;">
+      </div>
+    </div>
+
+    <!-- PART I CALCULATIONS -->
+    <div class="irs-part-header">Part I: Required Annual Payment</div>
+    
+    <div class="irs-line-row">
+      <div class="irs-line-num">1</div>
+      <div class="irs-line-desc">Current year tax shown on your return (after credits)</div>
+      <div class="irs-input-wrap irs-blue-bg">
+        <input type="number" formControlName="taxShown" class="irs-input-field">
+      </div>
+    </div>
+
+    <div class="irs-line-row">
+      <div class="irs-line-num">2</div>
+      <div class="irs-line-desc">Withholding taxes from your current year's return</div>
+      <div class="irs-input-wrap irs-blue-bg">
+        <input type="number" formControlName="withholding" class="irs-input-field">
+      </div>
+    </div>
+
+    <div class="irs-line-row bg-light-yellow">
+      <div class="irs-line-num">3</div>
+      <div class="irs-line-desc bold">Net tax liability. Subtract Line 2 from Line 1. If less than $1,000, you don't owe a penalty; do not file Form 2210.</div>
+      <div class="irs-result-display">${{ netTax() | number:'1.2-2' }}</div>
+    </div>
+
+    <div class="irs-line-row">
+      <div class="irs-line-num">8</div>
+      <div class="irs-line-desc">Prior year tax shown on return. (Check if AGI > $150k <input type="checkbox" formControlName="isHighIncome" style="margin-left: 10px;">)</div>
+      <div class="irs-input-wrap irs-blue-bg">
+        <input type="number" formControlName="priorYearTax" class="irs-input-field">
+      </div>
+    </div>
+
+    <div class="irs-line-row" style="background: #eefbff; border-top: 3px solid #000; border-bottom: 4px solid #000;">
+      <div class="irs-line-num">9</div>
+      <div class="irs-line-desc bold" style="font-size: 1rem;">Required annual payment. Enter the smaller of Line 5 or Line 8.</div>
+      <div class="irs-result-display bold" style="font-size: 1.25rem;">${{ requiredAnnualPayment() | number:'1.2-2' }}</div>
+    </div>
+
+    <!-- PART II REASONS -->
+    <div class="irs-part-header">Part II: Reasons for Filing</div>
+    <div class="irs-checkbox-grid">
+      <label class="irs-checkbox-item"><input type="checkbox" formControlName="requestWaiver"> <span>A. You request a waiver of part or all of your penalty (see instructions).</span></label>
+      <label class="irs-checkbox-item"><input type="checkbox" formControlName="annualizedIncome"> <span>B. You are using the annualized income installment method in Schedule AI.</span></label>
+      <label class="irs-checkbox-item"><input type="checkbox" formControlName="specialRules"> <span>C. You are a farmer or fisherman and your income varied throughout the year.</span></label>
+    </div>
+
+    <!-- STATUS DISPLAY -->
+    <div *ngIf="owePenalty()" style="margin-top: 25px; border: 4px solid #C41E3A; padding: 15px; background: #fff5f5; color: #C41E3A; font-weight: 950; text-transform: uppercase; text-align: center;">
+      ⚠️ Underpayment Penalty Possible. Complete Part III to calculate penalty.
+    </div>
+
+    <div style="margin-top: 40px; display: flex; justify-content: space-between; align-items: flex-end;">
+      <div style="font-size: 0.65rem; color: #444; max-width: 550px;">
+        High-income taxpayers (AGI over $150,000) must pay 110% of prior year's tax to avoid penalty. 
+        Refer to Pub. 505 for Tax Withholding and Estimated Tax rules.
+      </div>
+      <button type="submit" class="irs-btn-submit" style="background: #000; color: #fff; padding: 15px 40px; font-weight: 950; border: none; cursor: pointer; text-transform: uppercase;">Submit Form 2210</button>
+    </div>
+  </form>
+</div>

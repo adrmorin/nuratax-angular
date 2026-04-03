@@ -1,0 +1,188 @@
+<div class="irs-unified-container">
+  <!-- Header Section -->
+  <div class="irs-form-header">
+    <div class="irs-header-left">
+      <div class="irs-form-id-box">
+        <span class="irs-id-sub-small">SCHEDULE A</span>
+        <span class="irs-id-main-large">Form 8911</span>
+        <span class="irs-id-sub-small">(Rev. December 2024)</span>
+      </div>
+      <div class="irs-dept-irs-box">
+        Department of the Treasury<br>
+        Internal Revenue Service
+      </div>
+    </div>
+    <div class="irs-header-center">
+      <h1>Alternative Fuel Vehicle Refueling Property Credit</h1>
+      <p class="irs-attach-note">Attach to your tax return.</p>
+      <p class="irs-instruction-note">Go to <strong>www.irs.gov/Form8911</strong> for instructions and the latest information.</p>
+    </div>
+    <div class="irs-header-right">
+      <div class="irs-omb-container">OMB No. 1545-0123</div>
+      <div class="irs-attachment">Attachment <br> Sequence No. <strong>151</strong></div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- INFO BLOCK -->
+    <div class="irs-input-grid-box border-b">
+      <div class="irs-row-line-unified">
+        <div class="irs-col border-r">
+          <label for="name" class="irs-label-small">Name(s) shown on return</label>
+          <input id="name" type="text" formControlName="ownerName" class="irs-input-borderless">
+        </div>
+        <div class="irs-col border-r" style="flex: 0.5;">
+          <label for="tin" class="irs-label-small">Identifying number</label>
+          <input id="tin" type="text" formControlName="ownerTIN" class="irs-input-borderless">
+        </div>
+      </div>
+    </div>
+
+    <!-- PART I -->
+    <div class="irs-section-title-bar">
+      <span class="irs-section-letter">Part I</span>
+      <span class="irs-section-text">Identification of Property</span>
+    </div>
+
+    <div class="irs-line-item-container">
+      <!-- Line 1: Registration Number -->
+      <div class="irs-row-line-unified border-b">
+        <div class="irs-line-num">1</div>
+        <div class="irs-line-desc">
+          IRS-issued registration number for the refueling property (if applicable)
+        </div>
+        <div class="irs-amount-box irs-blue-cell">
+          <input type="text" formControlName="registrationNumber" class="irs-input-borderless">
+        </div>
+        <div class="irs-line-num-right">1</div>
+      </div>
+
+      <!-- Line 2: Address/Location -->
+      <div class="irs-row-line-unified border-b">
+        <div class="irs-line-num">2</div>
+        <div class="irs-line-desc">
+          Street address of property (including unit number)
+        </div>
+        <div class="irs-amount-box irs-blue-cell" style="flex: 1;">
+          <input type="text" formControlName="streetAddress" class="irs-input-borderless">
+        </div>
+        <div class="irs-line-num-right">2</div>
+      </div>
+
+      <div class="irs-row-line-unified border-b">
+        <div class="irs-line-num"></div>
+        <div class="irs-line-desc" style="display: flex; gap: 10px;">
+          <div style="flex: 2;">
+            <label class="irs-label-small">City or town</label>
+            <input type="text" formControlName="city" class="irs-input-borderless border-b">
+          </div>
+          <div style="flex: 1;">
+            <label class="irs-label-small">State</label>
+            <input type="text" formControlName="state" class="irs-input-borderless border-b">
+          </div>
+          <div style="flex: 1;">
+            <label class="irs-label-small">ZIP code</label>
+            <input type="text" formControlName="zipCode" class="irs-input-borderless border-b">
+          </div>
+        </div>
+      </div>
+
+      <!-- Line 3: Latitude/Longitude -->
+      <div class="irs-row-line-unified border-b">
+        <div class="irs-line-num">3</div>
+        <div class="irs-line-desc">
+          Latitude and Longitude of property (if address not available)
+        </div>
+        <div class="irs-amount-box irs-blue-cell">
+          <input type="text" formControlName="latitude" placeholder="Latitude" class="irs-input-borderless">
+        </div>
+        <div class="irs-amount-box irs-blue-cell border-l">
+          <input type="text" formControlName="longitude" placeholder="Longitude" class="irs-input-borderless">
+        </div>
+        <div class="irs-line-num-right">3</div>
+      </div>
+
+      <!-- Line 4 & 5: Dates -->
+      <div class="irs-row-line-unified border-b">
+        <div class="irs-line-num">4</div>
+        <div class="irs-line-desc">Date construction began</div>
+        <div class="irs-amount-box irs-blue-cell">
+          <input type="date" formControlName="dateConstruction" class="irs-input-borderless">
+        </div>
+        <div class="irs-line-num-right">4</div>
+      </div>
+      <div class="irs-row-line-unified border-b">
+        <div class="irs-line-num">5</div>
+        <div class="irs-line-desc">Date property was placed in service</div>
+        <div class="irs-amount-box irs-blue-cell">
+          <input type="date" formControlName="datePlacedInService" class="irs-input-borderless">
+        </div>
+        <div class="irs-line-num-right">5</div>
+      </div>
+    </div>
+
+    <!-- PART II -->
+    <div class="irs-section-title-bar">
+      <span class="irs-section-letter">Part II</span>
+      <span class="irs-section-text">Cost Calculation and Eligibility</span>
+    </div>
+
+    <div class="irs-line-item-container">
+      <div class="irs-row-line-unified border-b">
+        <div class="irs-line-num">6a</div>
+        <div class="irs-line-desc">Is the property located in an eligible census tract? (See instructions)</div>
+        <div class="irs-amount-box padding-l-10">
+          <input type="checkbox" formControlName="eligibleCensusTract"> <span class="irs-label-small">Yes</span>
+        </div>
+        <div class="irs-line-num-right">6a</div>
+      </div>
+      <div class="irs-row-line-unified border-b">
+        <div class="irs-line-num">6b</div>
+        <div class="irs-line-desc">Enter the 11-digit GEOID for the census tract</div>
+        <div class="irs-amount-box irs-blue-cell">
+          <input type="text" formControlName="geoid" maxlength="11" class="irs-input-borderless">
+        </div>
+        <div class="irs-line-num-right">6b</div>
+      </div>
+
+      <!-- Costs -->
+      <div class="irs-row-line-unified border-b">
+        <div class="irs-line-num">7</div>
+        <div class="irs-line-desc">Cost of hardware and equipment</div>
+        <div class="irs-amount-box irs-blue-cell">
+          <input type="number" formControlName="hardwareCost" (input)="calculateTotal()" class="irs-input-borderless text-right">
+        </div>
+        <div class="irs-line-num-right">7</div>
+      </div>
+      <div class="irs-row-line-unified border-b">
+        <div class="irs-line-num">8</div>
+        <div class="irs-line-desc">Cost of wiring and electrical equipment</div>
+        <div class="irs-amount-box irs-blue-cell">
+          <input type="number" formControlName="wiringCost" (input)="calculateTotal()" class="irs-input-borderless text-right">
+        </div>
+        <div class="irs-line-num-right">8</div>
+      </div>
+      <div class="irs-row-line-unified border-b">
+        <div class="irs-line-num">9</div>
+        <div class="irs-line-desc">Cost of conduit and other property</div>
+        <div class="irs-amount-box irs-blue-cell">
+          <input type="number" formControlName="conduitCost" (input)="calculateTotal()" class="irs-input-borderless text-right">
+        </div>
+        <div class="irs-line-num-right">9</div>
+      </div>
+
+      <div class="irs-row-line-unified bg-light">
+        <div class="irs-line-num">10</div>
+        <div class="irs-line-desc bold">Total cost of refueling property. Add lines 7, 8, and 9</div>
+        <div class="irs-amount-box padding-l-10">
+          <span class="bold">${{ totalCost() | number:'1.2-2' }}</span>
+        </div>
+        <div class="irs-line-num-right">10</div>
+      </div>
+    </div>
+
+    <div class="irs-footer-actions">
+      <button type="submit" class="irs-btn-submit">Submit Schedule A</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,112 @@
+<div class="irs-unified-container">
+  <!-- Header -->
+  <div class="irs-header-w2">
+    <div class="irs-id-box">
+      <span class="irs-id-large">W-2c</span>
+      <p style="font-size: 0.7rem; font-weight: 850; margin-top: 5px;">OMB No. 1545-0008</p>
+    </div>
+    <div class="irs-title-center">
+      <h1>Corrected Wage and Tax Statement</h1>
+      <p style="font-size: 0.75rem; font-weight: 700; margin-top: 5px;">Attach to your tax return if required.</p>
+    </div>
+    <div class="irs-header-right">
+      <div style="font-size: 1rem; font-weight: 950; text-align: right;">2025</div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- IDENTIFIER GRID (a-i) -->
+    <div class="irs-field-grid">
+      <div class="irs-field-box" style="grid-column: 1 / 3;">
+        <label for="taxYear" class="irs-label-small">Box (a) Tax year being corrected</label>
+        <input id="taxYear" type="text" formControlName="taxYear" class="irs-input-field" style="text-align: left; font-size: 1.4rem;">
+      </div>
+      
+      <div class="irs-field-box">
+        <label for="employerEIN" class="irs-label-small">Box (b) Employer's EIN</label>
+        <input id="employerEIN" type="text" formControlName="employerEIN" class="irs-input-field">
+      </div>
+      <div class="irs-field-box">
+        <label for="employerName" class="irs-label-small">Box (c) Employer's name, address, and ZIP code</label>
+        <textarea id="employerName" formControlName="employerName" class="irs-input-field" style="height: 60px;"></textarea>
+      </div>
+
+      <div class="irs-field-box">
+        <label for="employeeSSN_Prev" class="irs-label-small">Box (d) Employee's SSN (previously reported)</label>
+        <input id="employeeSSN_Prev" type="text" formControlName="employeeSSN_Prev" class="irs-input-field">
+      </div>
+      <div class="irs-field-box">
+        <label for="employeeSSN_Correct" class="irs-label-small">Box (e) Employee's SSN (correct information)</label>
+        <input id="employeeSSN_Correct" type="text" formControlName="employeeSSN_Correct" class="irs-input-field irs-blue-bg">
+      </div>
+
+      <div class="irs-field-box">
+        <label for="employeeName_Prev" class="irs-label-small">Box (f) Employee's name (previously reported)</label>
+        <input id="employeeName_Prev" type="text" formControlName="employeeName_Prev" class="irs-input-field">
+      </div>
+      <div class="irs-field-box">
+        <label for="employeeName_Correct" class="irs-label-small">Box (g) Correct name (first, middle initial, last)</label>
+        <input id="employeeName_Correct" type="text" formControlName="employeeName_Correct" class="irs-input-field irs-blue-bg">
+      </div>
+    </div>
+
+    <!-- CORRECTION TABLE -->
+    <table class="irs-correction-table">
+      <thead>
+        <tr>
+          <th class="irs-box-num-col">Box</th>
+          <th class="irs-box-label-col">Description</th>
+          <th class="irs-amount-col">Previously reported</th>
+          <th class="irs-amount-col correct">Correct information</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Wage Boxes (1-5) -->
+        <tr>
+          <td class="irs-box-num-col">1</td>
+          <td class="irs-box-label-col">Wages, tips, other compensation</td>
+          <td class="irs-amount-col"><input type="number" formControlName="box1_prev" class="irs-input-field" style="text-align: right;"></td>
+          <td class="irs-amount-col correct"><input type="number" formControlName="box1_correct" class="irs-input-field" style="text-align: right; background: #eefbff;"></td>
+        </tr>
+        <tr>
+          <td class="irs-box-num-col">2</td>
+          <td class="irs-box-label-col">Federal income tax withheld</td>
+          <td class="irs-amount-col"><input type="number" formControlName="box2_prev" class="irs-input-field" style="text-align: right;"></td>
+          <td class="irs-amount-col correct"><input type="number" formControlName="box2_correct" class="irs-input-field" style="text-align: right; background: #eefbff;"></td>
+        </tr>
+        <tr>
+          <td class="irs-box-num-col">3</td>
+          <td class="irs-box-label-col">Social security wages</td>
+          <td class="irs-amount-col"><input type="number" formControlName="box3_prev" class="irs-input-field" style="text-align: right;"></td>
+          <td class="irs-amount-col correct"><input type="number" formControlName="box3_correct" class="irs-input-field" style="text-align: right; background: #eefbff;"></td>
+        </tr>
+        <tr>
+          <td class="irs-box-num-col">4</td>
+          <td class="irs-box-label-col">Social security tax withheld</td>
+          <td class="irs-amount-col"><input type="number" formControlName="box4_prev" class="irs-input-field" style="text-align: right;"></td>
+          <td class="irs-amount-col correct"><input type="number" formControlName="box4_correct" class="irs-input-field" style="text-align: right; background: #eefbff;"></td>
+        </tr>
+        <tr>
+          <td class="irs-box-num-col">5</td>
+          <td class="irs-box-label-col">Medicare wages and tips</td>
+          <td class="irs-amount-col"><input type="number" formControlName="box5_prev" class="irs-input-field" style="text-align: right;"></td>
+          <td class="irs-amount-col correct"><input type="number" formControlName="box5_correct" class="irs-input-field" style="text-align: right; background: #eefbff;"></td>
+        </tr>
+        <tr>
+          <td class="irs-box-num-col">6</td>
+          <td class="irs-box-label-col">Medicare tax withheld</td>
+          <td class="irs-amount-col"><input type="number" formControlName="box6_prev" class="irs-input-field" style="text-align: right;"></td>
+          <td class="irs-amount-col correct"><input type="number" formControlName="box6_correct" class="irs-input-field" style="text-align: right; background: #eefbff;"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: 40px; display: flex; justify-content: space-between; align-items: flex-end;">
+      <div style="font-size: 0.65rem; color: #444; max-width: 600px;">
+        This corrected statement identifies errors in your previous W-2 return. 
+        Only corrected lines are shown here; all other boxes on the original W-2 remain as reported.
+      </div>
+      <button type="submit" class="irs-btn-submit" style="background: #000; color: #fff; padding: 15px 40px; font-weight: 950; border: none; cursor: pointer; text-transform: uppercase;">Submit W-2c Correction</button>
+    </div>
+  </form>
+</div>

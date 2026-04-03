@@ -1,0 +1,146 @@
+<div class="irs-unified-container">
+  <!-- Header Section -->
+  <div class="irs-form-header">
+    <div class="irs-header-left">
+      <div class="irs-id-large">Form <span style="font-size: 2.8rem; font-weight: 950; line-height: 1;">5695</span></div>
+      <p style="font-size: 0.7rem; font-weight: 850; margin-top: 5px;">OMB No. 1545-0074</p>
+    </div>
+    <div class="irs-title-center">
+      <h1>Residential Energy Credits</h1>
+      <p style="font-size: 0.8rem; font-weight: 700; margin-top: 5px;">(Section 25D and 25C of the Internal Revenue Code)</p>
+      <p style="font-size: 0.75rem;">(See instructions for filing requirements and limits.)</p>
+    </div>
+    <div class="irs-header-right">
+      <div class="irs-attachment" style="font-size: 0.8rem; font-weight: 950;">Attachment <br> Sequence No. <strong>158</strong></div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- ADDRESS SECTION -->
+    <div class="irs-section-bar">Home Where You Installed the Property</div>
+    <div class="irs-address-box">
+      <div class="irs-input-wrap">
+        <label class="irs-label-small">Street address (number and street, including apartment no., or P.O. box)</label>
+        <input type="text" formControlName="streetAddress" class="irs-input-border">
+      </div>
+      <div class="irs-input-wrap">
+        <label class="irs-label-small">City, town, or post office</label>
+        <input type="text" formControlName="city" class="irs-input-border">
+      </div>
+      <div class="irs-input-wrap" style="display: flex; gap: 10px;">
+        <div style="flex: 1;">
+          <label class="irs-label-small">State</label>
+          <input type="text" formControlName="state" class="irs-input-border">
+        </div>
+        <div style="flex: 2;">
+          <label class="irs-label-small">ZIP code</label>
+          <input type="text" formControlName="zip" class="irs-input-border">
+        </div>
+      </div>
+    </div>
+
+    <!-- PART I SECTION -->
+    <div class="irs-section-bar">Part I: Residential Clean Energy Credit (Section 25D)</div>
+    
+    <div class="irs-line-item">
+      <div class="irs-line-num">1</div>
+      <div class="irs-line-desc">Qualified solar electric property costs</div>
+      <div class="irs-input-col irs-blue-bg">
+        <input type="number" formControlName="solarElectric" class="irs-input-field">
+      </div>
+    </div>
+
+    <div class="irs-line-item">
+      <div class="irs-line-num">2</div>
+      <div class="irs-line-desc">Qualified solar water heating property costs</div>
+      <div class="irs-input-col irs-blue-bg">
+        <input type="number" formControlName="solarWater" class="irs-input-field">
+      </div>
+    </div>
+
+    <div class="irs-line-item">
+      <div class="irs-line-num">3</div>
+      <div class="irs-line-desc">Qualified small wind energy property costs</div>
+      <div class="irs-input-col irs-blue-bg">
+        <input type="number" formControlName="windEnergy" class="irs-input-field">
+      </div>
+    </div>
+
+    <div class="irs-line-item">
+      <div class="irs-line-num">4</div>
+      <div class="irs-line-desc">Qualified geothermal heat pump property costs</div>
+      <div class="irs-input-col irs-blue-bg">
+        <input type="number" formControlName="geothermal" class="irs-input-field">
+      </div>
+    </div>
+
+    <div class="irs-line-item">
+      <div class="irs-line-num">5</div>
+      <div class="irs-line-desc">Qualified battery storage technology costs
+        <div class="irs-check-box-wrap">
+          <input type="checkbox" formControlName="hasMinBattery">
+          <span style="font-size: 0.75rem; font-weight: 700;">Check if battery capacity is >= 3 kilowatt-hours</span>
+        </div>
+      </div>
+      <div class="irs-input-col irs-blue-bg">
+        <input type="number" formControlName="batteryStorage" class="irs-input-field">
+      </div>
+    </div>
+
+    <div class="irs-line-item bg-light-yellow">
+      <div class="irs-line-num">6a</div>
+      <div class="irs-line-desc bold">Add Lines 1 through 5. (Total Qualified Energy Property Costs)</div>
+      <div class="irs-input-col">
+        <div class="irs-total-display">${{ majorEquipmentSum() | number:'1.2-2' }}</div>
+      </div>
+    </div>
+
+    <div class="irs-line-item">
+      <div class="irs-line-num">6b</div>
+      <div class="irs-line-desc bold">Multiply Line 6a by 30% (0.30)</div>
+      <div class="irs-input-col bg-light-yellow">
+        <div class="irs-total-display" style="color: #004286;">${{ baseCredit() | number:'1.2-2' }}</div>
+      </div>
+    </div>
+
+    <!-- Fuel Cell Section -->
+    <div style="border: 2px solid #000; padding: 15px; margin-top: 15px; background: #fafafa;">
+      <p class="irs-text-bold" style="margin-top: 0;">Fuel Cell Property Section</p>
+      <div class="irs-line-item" style="border-top: 1px solid #000;">
+        <div class="irs-line-num">7</div>
+        <div class="irs-line-desc">Qualified fuel cell property costs (Main Home only).
+          <label style="display:flex; align-items:center; gap:10px; margin-top:5px; font-weight: 700;">
+            <input type="checkbox" formControlName="isMainHome"> Check if this is your principal residence
+          </label>
+        </div>
+        <div class="irs-input-col irs-blue-bg">
+          <input type="number" formControlName="fuelCellCost" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-line-item">
+        <div class="irs-line-num">8</div>
+        <div class="irs-line-desc">Enter the kilowatt capacity of the qualified fuel cell property</div>
+        <div class="irs-input-col irs-blue-bg">
+          <input type="number" formControlName="fuelCellKW" class="irs-input-field" placeholder="kW">
+        </div>
+      </div>
+    </div>
+
+    <!-- Final Part -->
+    <div class="irs-line-item" style="background: #eefbff; margin-top: 20px;">
+      <div class="irs-line-num">15</div>
+      <div class="irs-line-desc bold" style="font-size: 1rem;">Residential Clean Energy Credit. (Smaller of tentative credit or tax liability limit)</div>
+      <div class="irs-input-col" style="border: 4px solid #000;">
+        <div class="irs-total-display" style="font-size: 1.4rem;">${{ finalCredit() | number:'1.2-2' }}</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px; display: flex; justify-content: space-between; align-items: center;">
+      <div style="font-size: 0.7rem; color: #444; max-width: 600px;">
+        For 2025 energy credits, you must ensure the manufacturer is qualified and provides a certification statement. 
+        Unused credits on line 16 can be carried forward to the 2026 tax return.
+      </div>
+      <button type="submit" class="irs-btn-submit" style="background: #000; color: #fff; padding: 15px 40px; font-weight: 950; border: none; cursor: pointer;">SUBMIT FORM 5695</button>
+    </div>
+  </form>
+</div>

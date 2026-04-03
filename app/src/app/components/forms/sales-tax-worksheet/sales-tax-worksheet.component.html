@@ -1,0 +1,48 @@
+<div class="irs-worksheet-container">
+  <div class="irs-worksheet-header">
+    <h2>State and Local General Sales Tax Deduction Worksheet—Line 5a</h2>
+    <p>Keep for Your Records</p>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- Row 1 -->
+    <div class="irs-field-row">
+      <div class="irs-ln-num">1</div>
+      <div class="irs-ln-desc">State general sales taxes from Optional State Sales Tax Tables...</div>
+      <div class="irs-in-wrap-amounts">
+        <input type="number" formControlName="l1_stateSalesTaxTable" class="irs-input-field">
+      </div>
+    </div>
+
+    <!-- Row 6 -->
+    <div class="irs-field-row">
+      <div class="irs-ln-num">6</div>
+      <div class="irs-ln-desc">Local general sales taxes from Optional Local Sales Tax Tables...</div>
+      <div class="irs-in-wrap-amounts">
+        <input type="number" formControlName="l6_localSalesTax" class="irs-input-field">
+      </div>
+    </div>
+
+    <!-- Row 7 -->
+    <div class="irs-field-row">
+      <div class="irs-ln-num">7</div>
+      <div class="irs-ln-desc">General sales taxes paid on specified items (motor vehicles, etc.)...</div>
+      <div class="irs-in-wrap-amounts">
+        <input type="number" formControlName="l7_specifiedItemsTax" class="irs-input-field">
+      </div>
+    </div>
+
+    <!-- Row 8 (Total) -->
+    <div class="irs-field-row" style="background: #eef1ff; border-top: 2px solid #000; border-bottom: 2px solid #000; margin-top: 15px;">
+      <div class="irs-ln-num">8</div>
+      <div class="irs-ln-desc bold">Add lines 1, 6, and 7. Enter here and on Schedule A, line 5a...</div>
+      <div class="irs-result-box bold">
+        ${{ totalSalesTax() | number:'1.2-2' }}
+      </div>
+    </div>
+
+    <div style="margin-top: 30px; text-align: right;">
+      <button type="submit" class="irs-btn-submit">Submit Worksheet</button>
+    </div>
+  </form>
+</div>

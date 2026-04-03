@@ -1,0 +1,85 @@
+<div class="irs-unified-container">
+  <!-- Header -->
+  <div class="irs-header-container">
+    <div class="irs-id-box">
+      <span class="irs-id-main">8453</span>
+      <span class="irs-id-sub">Form</span>
+      <p style="font-size: 0.6rem; margin-top: 5px;">(Rev. 2024)</p>
+    </div>
+    <div class="irs-title-box">
+      <h1>Individual Income Tax Transmittal for an IRS e-file Return</h1>
+      <p style="font-size: 0.8rem; font-weight: 700; margin-top: 8px;">Use this form explicitly to transmit paper documents that are required for your e-filed return.</p>
+    </div>
+    <div class="irs-omb-box">
+      <span style="font-size: 0.7rem;">OMB No. 1545-0074</span>
+      <div style="margin-top: 15px; font-weight: 950; font-size: 0.9rem;">2024</div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- INFO BLOCK -->
+    <div class="irs-row-line-unified border-b" style="display: flex; border-top: 3.5px solid #000; border-bottom: 3.5px solid #000; margin-bottom: 25px;">
+      <div class="irs-id-col" style="flex: 2; padding: 6px 12px; border-right: 2px solid #000;">
+        <label style="display: block; font-size: 0.65rem; font-weight: 900;">Donor's name (as shown on return)</label>
+        <input type="text" formControlName="donorName" class="irs-input-field" style="text-align: left;">
+      </div>
+      <div class="irs-id-col" style="flex: 1; padding: 6px 12px;">
+        <label style="display: block; font-size: 0.65rem; font-weight: 900;">Identifying number (SSN/ITIN)</label>
+        <input type="text" formControlName="donorSSN" class="irs-input-field" style="text-align: left;">
+      </div>
+    </div>
+
+    <div class="irs-instruction-box">
+      Check the applicable box(es) to identify the paper document(s) you are attaching and transmitting with this form.
+    </div>
+
+    <!-- CHECKLIST GRID -->
+    <div class="irs-checklist-grid">
+      <div class="irs-check-row">
+        <div class="irs-check-num">1</div>
+        <div class="irs-check-desc">Form 1098-C, Contributions of Motor Vehicles, Boats, and Airplanes</div>
+        <div class="irs-check-box"><input type="checkbox" formControlName="hasForm1098C"></div>
+      </div>
+      <div class="irs-check-row">
+        <div class="irs-check-num">2</div>
+        <div class="irs-check-desc">Form 2848, Power of Attorney and Declaration of Representative</div>
+        <div class="irs-check-box"><input type="checkbox" formControlName="hasForm2848"></div>
+      </div>
+      <div class="irs-check-row">
+        <div class="irs-check-num">3</div>
+        <div class="irs-check-desc">Form 3115, Application for Change in Accounting Method</div>
+        <div class="irs-check-box"><input type="checkbox" formControlName="hasForm3115"></div>
+      </div>
+      <div class="irs-check-row">
+        <div class="irs-check-num">4</div>
+        <div class="irs-check-desc">Form 3468, Investment Credit (if owner of historic structure)</div>
+        <div class="irs-check-box"><input type="checkbox" formControlName="hasForm3468"></div>
+      </div>
+      <div class="irs-check-row">
+        <div class="irs-check-num">5</div>
+        <div class="irs-check-desc">Form 8283, Noncash Charitable Contributions (Part IV Section B)</div>
+        <div class="irs-check-box"><input type="checkbox" formControlName="hasForm8283"></div>
+      </div>
+      <div class="irs-check-row">
+        <div class="irs-check-num">6</div>
+        <div class="irs-check-desc">Form 8332, Release/Revocation of Release of Claim to Exemption for Child by Custodial Parent</div>
+        <div class="irs-check-box"><input type="checkbox" formControlName="hasForm8332"></div>
+      </div>
+    </div>
+
+    <!-- SIGNATURE AREA -->
+    <div class="irs-signature-block">
+      <div class="irs-sign-title">Taxpayer's Signature</div>
+      <div style="display: flex; gap: 30px; margin-top: 10px;">
+        <div style="flex: 2; border-bottom: 2px solid #000; height: 40px;"></div>
+        <div style="flex: 1; border-bottom: 2px solid #000; height: 40px; position: relative;">
+          <span style="position: absolute; top: -15px; font-size: 0.6rem; font-weight: 700;">Date</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 50px; text-align: right;">
+      <button type="submit" class="irs-btn-submit">Submit Transmittal</button>
+    </div>
+  </form>
+</div>

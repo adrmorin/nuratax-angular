@@ -1,0 +1,110 @@
+.irs-unified-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #fff;
+  border: 4px solid #000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #000;
+}
+
+.irs-form-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 4px solid #000;
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+
+.irs-source-box {
+  display: flex;
+  gap: 20px;
+  border: 2px solid #000;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.irs-year-grid {
+  display: grid;
+  grid-template-columns: 2fr repeat(4, 1fr) 40px;
+  border-top: 2px solid #000;
+}
+
+.irs-grid-header {
+  background: #f0f0f0;
+  border-bottom: 2px solid #000;
+  font-weight: 950;
+  text-align: center;
+  padding: 8px;
+  font-size: 0.8rem;
+  border-right: 1px solid #000;
+}
+
+.irs-row {
+  display: contents;
+}
+
+.irs-label-cell {
+  padding: 8px 15px;
+  border-bottom: 1px solid #000;
+  border-right: 2px solid #000;
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+
+.irs-input-cell {
+  background: #eef2ff;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  display: flex;
+  align-items: center;
+}
+
+.irs-input-field {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 4px 10px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-align: right;
+  outline: none;
+}
+
+.irs-total-cell {
+  background: #f8faff;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  font-weight: 950;
+}
+
+.irs-line-num-col {
+  border-bottom: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 950;
+}
+
+.irs-section-tab {
+  background: #000;
+  color: #fff;
+  padding: 6px 12px;
+  font-weight: 950;
+  text-transform: uppercase;
+}
+
+.irs-footer-box {
+  margin-top: 30px;
+  border: 4px solid #000;
+  padding: 15px;
+}
+
+.bold { font-weight: 950; }
+.bg-light { background: #fafafa; }

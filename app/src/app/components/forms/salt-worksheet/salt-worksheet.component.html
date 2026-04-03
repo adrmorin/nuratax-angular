@@ -1,0 +1,63 @@
+<div class="irs-worksheet-container">
+  <div class="irs-worksheet-header">
+    <h2>State and Local Income Tax Limitation Worksheet—Lines 5a, 5b, 5c, and 5e</h2>
+    <p>Keep for Your Records</p>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- Row 1 -->
+    <div class="irs-field-row">
+      <div class="irs-ln-num">1</div>
+      <div class="irs-ln-desc">Enter the total of the amounts on Schedule A, lines 5a, 5b, and 5c...</div>
+      <div class="irs-in-wrap-amounts">
+        <input type="number" formControlName="l1_stateLocalTaxes" class="irs-input-field">
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="irs-field-row">
+      <div class="irs-ln-num">2</div>
+      <div class="irs-ln-desc">Enter the amount on Schedule A, line 5d...</div>
+      <div class="irs-in-wrap-amounts">
+        <input type="number" formControlName="l2_otherTaxes" class="irs-input-field">
+      </div>
+    </div>
+
+    <!-- Row 3 -->
+    <div class="irs-field-row" style="background: #fafbff;">
+      <div class="irs-ln-num">3</div>
+      <div class="irs-ln-desc">Add lines 1 and 2...</div>
+      <div class="irs-result-box">
+        ${{ totalTaxes() | number:'1.2-2' }}
+      </div>
+    </div>
+
+    <!-- Row 4 -->
+    <div class="irs-field-row">
+      <div class="irs-ln-num">4</div>
+      <div class="irs-ln-desc">
+        Enter <strong>$10,000</strong> ($5,000 if married filing separately).
+        <select formControlName="filingStatus" class="irs-input-inline" style="margin-left: 10px;">
+          <option value="single">Single / Joint ($10,000)</option>
+          <option value="mfs">Married Filing Separately ($5,000)</option>
+        </select>
+      </div>
+      <div class="irs-result-box">
+        ${{ limitation() | number:'1.2-2' }}
+      </div>
+    </div>
+
+    <!-- Row 5 -->
+    <div class="irs-field-row" style="background: #eef1ff; border-top: 2px solid #000; border-bottom: 2px solid #000; margin-top: 15px;">
+      <div class="irs-ln-num">5</div>
+      <div class="irs-ln-desc bold">Smaller of line 3 or line 4. Enter here and on Schedule A, line 5e...</div>
+      <div class="irs-result-box bold">
+        ${{ finalDeduction() | number:'1.2-2' }}
+      </div>
+    </div>
+
+    <div style="margin-top: 30px; text-align: right;">
+      <button type="submit" class="irs-btn-submit">Close Worksheet</button>
+    </div>
+  </form>
+</div>

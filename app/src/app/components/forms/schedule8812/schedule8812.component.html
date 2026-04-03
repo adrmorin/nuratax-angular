@@ -1,0 +1,145 @@
+<div class="irs-unified-container">
+  <!-- Header Section -->
+  <div class="irs-form-header">
+    <div class="irs-header-left">
+      <div class="irs-form-id-box">
+        <span class="irs-id-sub-small">SCHEDULE 8812</span>
+        <span class="irs-id-main-large">(Form 1040)</span>
+        <span class="irs-id-sub-small">(Rev. December 2024)</span>
+      </div>
+    </div>
+    <div class="irs-header-center">
+      <h1>Credits for Qualifying Children and Other Dependents</h1>
+      <p class="irs-attach-note">Attach to Form 1040, 1040-SR, or 1040-NR.</p>
+    </div>
+    <div class="irs-header-right">
+      <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 700;">OMB No. 1545-0074</div>
+      <div class="irs-attachment" style="font-size: 0.75rem; font-weight: 800;">Attachment <br> Sequence No. <strong>04</strong></div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- INFO BLOCK -->
+    <div class="irs-row-line-unified border-b" style="display: flex; border-top: 2px solid #000; border-bottom: 2px solid #000;">
+      <div class="irs-id-col" style="flex: 2; padding: 5px 10px; border-right: 2px solid #000;">
+        <label class="irs-label-small">Name(s) shown on return</label>
+        <input type="text" formControlName="name" class="irs-input-field" style="text-align: left;">
+      </div>
+      <div class="irs-id-col" style="flex: 1; padding: 5px 10px;">
+        <label class="irs-label-small">Your social security number</label>
+        <input type="text" formControlName="ssn" class="irs-input-field" style="text-align: left;">
+      </div>
+    </div>
+
+    <!-- PART I -->
+    <div class="irs-section-title-bar">
+      <span>Part I</span>
+      <span>Child Tax Credit and Credit for Other Dependents</span>
+    </div>
+
+    <div class="irs-line-item">
+      <div class="irs-line-num">1</div>
+      <div class="irs-line-desc">Enter the amount from Form 1040, line 11 (AGI)</div>
+      <div class="irs-input-box irs-blue-bg">
+        <input type="number" formControlName="agi" class="irs-input-field">
+      </div>
+      <div class="irs-line-num-end">1</div>
+    </div>
+
+    <div class="irs-line-item">
+      <div class="irs-line-num">2</div>
+      <div class="irs-line-desc">Number of qualifying children under age 17 (Multiply by $2,200)</div>
+      <div class="irs-input-box irs-blue-bg">
+        <input type="number" formControlName="numChildren" class="irs-input-field">
+      </div>
+      <div class="irs-line-num-end">2</div>
+    </div>
+
+    <div class="irs-line-item">
+      <div class="irs-line-num">3</div>
+      <div class="irs-line-desc">Number of other dependents (Multiply by $500)</div>
+      <div class="irs-input-box irs-blue-bg">
+        <input type="number" formControlName="numOtherDependents" class="irs-input-field">
+      </div>
+      <div class="irs-line-num-end">3</div>
+    </div>
+
+    <div class="irs-line-item bg-light">
+      <div class="irs-line-num">4</div>
+      <div class="irs-line-desc bold">Total Potential Credit. Add Line 2 and Line 3 calculations</div>
+      <div class="irs-input-box">
+        <span class="bold padding-l-10" style="padding-left: 10px;">${{ totalPotential() | number:'1.2-2' }}</span>
+      </div>
+      <div class="irs-line-num-end">4</div>
+    </div>
+
+    <div class="irs-line-item">
+      <div class="irs-line-num">5</div>
+      <div class="irs-line-desc">Select Filing Status: 
+        <select formControlName="filingStatus" class="irs-input-field" style="width: auto; height: 30px; text-align: left;">
+          <option value="single">Single / Head of Household</option>
+          <option value="mfj">Married Filing Jointly</option>
+        </select>
+      </div>
+      <div class="irs-input-box bg-light">
+        <span class="bold padding-l-10" style="padding-left: 10px;">${{ threshold() | number }}</span>
+      </div>
+      <div class="irs-line-num-end">5</div>
+    </div>
+
+    <div class="irs-line-item">
+      <div class="irs-line-num">6</div>
+      <div class="irs-line-desc">Phase-out amount (Subtract Line 5 from Line 1; see instructions)</div>
+      <div class="irs-input-box bg-light">
+        <span class="bold padding-l-10" style="padding-left: 10px;">${{ phaseOut() | number:'1.2-2' }}</span>
+      </div>
+      <div class="irs-line-num-end">6</div>
+    </div>
+
+    <div class="irs-line-item bg-light" style="border-bottom: 4px solid #000;">
+      <div class="irs-line-num">7</div>
+      <div class="irs-line-desc bold">Final Child Tax Credit. Subtract Line 6 from Line 4</div>
+      <div class="irs-input-box">
+        <span class="bold padding-l-10" style="padding-left: 10px; color: #cc0000;">${{ finalCTC() | number:'1.2-2' }}</span>
+      </div>
+      <div class="irs-line-num-end">7</div>
+    </div>
+
+    <!-- PART II -->
+    <div class="irs-section-title-bar">
+      <span>Part II</span>
+      <span>Additional Child Tax Credit (ACTC) - Refundable Part</span>
+    </div>
+
+    <div class="irs-line-item">
+      <div class="irs-line-num">8</div>
+      <div class="irs-line-desc">Enter your total tax from Form 1040, line 18</div>
+      <div class="irs-input-box irs-blue-bg">
+        <input type="number" formControlName="taxLiability" class="irs-input-field">
+      </div>
+      <div class="irs-line-num-end">8</div>
+    </div>
+
+    <div class="irs-line-item">
+      <div class="irs-line-num">9</div>
+      <div class="irs-line-desc">Enter your earned income (Wages, self-employment, etc.)</div>
+      <div class="irs-input-box irs-blue-bg">
+        <input type="number" formControlName="earnedIncome" class="irs-input-field">
+      </div>
+      <div class="irs-line-num-end">9</div>
+    </div>
+
+    <div class="irs-line-item bg-light">
+      <div class="irs-line-num">10</div>
+      <div class="irs-line-desc bold">Additional Child Tax Credit. Smaller of limits...</div>
+      <div class="irs-input-box">
+        <span class="bold padding-l-10" style="padding-left: 10px; color: #003366;">${{ actc() | number:'1.2-2' }}</span>
+      </div>
+      <div class="irs-line-num-end">10</div>
+    </div>
+
+    <div class="irs-footer">
+      <button type="submit" class="irs-btn-submit">Submit Schedule 8812</button>
+    </div>
+  </form>
+</div>

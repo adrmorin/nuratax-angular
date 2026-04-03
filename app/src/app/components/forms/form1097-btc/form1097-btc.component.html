@@ -1,0 +1,113 @@
+<div class="irs-tax-form-1099">
+  <!-- Header Copy Section -->
+  <div class="irs-header">
+    <div style="flex: 2;">
+      <span class="irs-form-name">Form 1097-BTC</span>
+      <p style="font-size: 0.75rem; margin: 0; font-weight: 700;">Bond Tax Credit</p>
+    </div>
+    <div style="flex: 1; text-align: center;">
+      <span class="irs-omb-box" style="font-size: 0.7rem; font-weight: 700;">OMB No. 1545-2025</span><br>
+      <div class="irs-year-box">2025</div>
+    </div>
+    <div style="flex: 1; text-align: right;">
+      <span class="irs-form-copy" style="font-weight: 950; font-size: 1.1rem; color: #cc0000; text-transform: uppercase;">Copy B</span><br>
+      <span style="font-size: 0.65rem; font-weight: 600;">For Recipient</span>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body" style="border: 2px solid #000;">
+    <!-- Top Row: Issuer & ID -->
+    <div class="irs-row">
+      <div class="irs-col" style="flex: 1.5; border-right: 2px solid #000;">
+        <label class="irs-label-small">ISSUER'S name, street address, city or town, state or province, country, ZIP or foreign postal code, and telephone no.</label>
+        <textarea formControlName="issuerName" class="irs-input" style="height: 100px; resize: none;"></textarea>
+      </div>
+      <div style="flex: 1; display: flex; flex-direction: column;">
+        <div class="irs-row" style="border-bottom: 2px solid #000;">
+          <div class="irs-col">
+            <span class="irs-box-num">1</span>
+            <label class="irs-label-small">Total credit for the year</label>
+            <input type="number" formControlName="box1" class="irs-input irs-blue-field irs-text-right">
+          </div>
+        </div>
+        <div class="irs-row" style="border-bottom: none;">
+          <div class="irs-col border-r">
+            <span class="irs-box-num">2a</span>
+            <label class="irs-label-small">Code</label>
+            <input type="text" formControlName="box2a" class="irs-input">
+          </div>
+          <div class="irs-col">
+            <span class="irs-box-num">2b</span>
+            <label class="irs-label-small">Unique identifier</label>
+            <input type="text" formControlName="box2b" class="irs-input irs-blue-field">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Row -->
+    <div class="irs-row">
+      <div class="irs-col" style="flex: 1; border-right: 2px solid #000;">
+        <label class="irs-label-small">ISSUER'S federal identifying number</label>
+        <input type="text" formControlName="issuerTIN" class="irs-input irs-blue-field">
+      </div>
+      <div class="irs-col" style="flex: 1; border-right: 2px solid #000;">
+        <label class="irs-label-small">RECIPIENT'S identification number</label>
+        <input type="text" formControlName="recipientTIN" class="irs-input irs-blue-field">
+      </div>
+      <div class="irs-col" style="flex: 0.5;">
+        <span class="irs-box-num">3</span>
+        <label class="irs-label-small">Bond type code</label>
+        <input type="text" formControlName="box3" class="irs-input">
+      </div>
+    </div>
+
+    <!-- Third Row: Recipient Info -->
+    <div class="irs-row" style="min-height: 100px;">
+      <div class="irs-col" style="flex: 1.5; border-right: 2px solid #000;">
+        <label class="irs-label-small">RECIPIENT'S name</label>
+        <input type="text" formControlName="recipientName" class="irs-input">
+        <label class="irs-label-small" style="margin-top: 10px;">Street address (including apt. no.)</label>
+        <input type="text" formControlName="recipientAddress" class="irs-input">
+      </div>
+      <div class="irs-col">
+        <span class="irs-box-num">4</span>
+        <label class="irs-label-small">Instructions/Other</label>
+        <p style="font-size: 0.65rem; color: #555;">This credit must be reported as income for the tax year.</p>
+      </div>
+    </div>
+
+    <!-- Monthly Grid -->
+    <div style="background: #fdfdfd; padding: 10px; border-bottom: 2px solid #000;">
+      <label class="irs-label-small" style="margin-bottom: 8px;">5 Current year credit distributed for each month:</label>
+      <div class="irs-grid-12">
+        <div class="irs-grid-col"><span class="irs-label-small">5a Jan</span><input type="number" formControlName="m1" class="irs-input irs-blue-field irs-text-right"></div>
+        <div class="irs-grid-col"><span class="irs-label-small">5b Feb</span><input type="number" formControlName="m2" class="irs-input irs-blue-field irs-text-right"></div>
+        <div class="irs-grid-col"><span class="irs-label-small">5c Mar</span><input type="number" formControlName="m3" class="irs-input irs-blue-field irs-text-right"></div>
+        <div class="irs-grid-col"><span class="irs-label-small">5d Apr</span><input type="number" formControlName="m4" class="irs-input irs-blue-field irs-text-right"></div>
+        <div class="irs-grid-col"><span class="irs-label-small">5e May</span><input type="number" formControlName="m5" class="irs-input irs-blue-field irs-text-right"></div>
+        <div class="irs-grid-col"><span class="irs-label-small">5f Jun</span><input type="number" formControlName="m6" class="irs-input irs-blue-field irs-text-right"></div>
+        <div class="irs-grid-col"><span class="irs-label-small">5g Jul</span><input type="number" formControlName="m7" class="irs-input irs-blue-field irs-text-right"></div>
+        <div class="irs-grid-col"><span class="irs-label-small">5h Aug</span><input type="number" formControlName="m8" class="irs-input irs-blue-field irs-text-right"></div>
+        <div class="irs-grid-col"><span class="irs-label-small">5i Sep</span><input type="number" formControlName="m9" class="irs-input irs-blue-field irs-text-right"></div>
+        <div class="irs-grid-col"><span class="irs-label-small">5j Oct</span><input type="number" formControlName="m10" class="irs-input irs-blue-field irs-text-right"></div>
+        <div class="irs-grid-col"><span class="irs-label-small">5k Nov</span><input type="number" formControlName="m11" class="irs-input irs-blue-field irs-text-right"></div>
+        <div class="irs-grid-col"><span class="irs-label-small">5l Dec</span><input type="number" formControlName="m12" class="irs-input irs-blue-field irs-text-right"></div>
+      </div>
+    </div>
+
+    <!-- Final Box -->
+    <div class="irs-row" style="border-bottom: none;">
+      <div class="irs-col">
+        <span class="irs-box-num">6</span>
+        <label class="irs-label-small">Other Information / Comments</label>
+        <textarea formControlName="box6" class="irs-input" style="height: 60px; resize: none;"></textarea>
+      </div>
+    </div>
+  </form>
+
+  <div style="display: flex; justify-content: space-between; margin-top: 1.5rem;">
+    <p style="font-size: 0.65rem; max-width: 500px;">Internal Revenue Service. Cat. No. 51838A. <strong>www.irs.gov/Form1097BTC</strong></p>
+    <button type="submit" (click)="onSubmit()" class="irs-footer-btn">Submit 1097-BTC</button>
+  </div>
+</div>

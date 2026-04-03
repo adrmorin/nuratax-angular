@@ -1,0 +1,79 @@
+<div class="irs-unified-container">
+  <!-- Header -->
+  <div class="irs-header-container">
+    <div class="irs-id-box">
+      <span class="irs-id-main" style="font-size: 3rem;">4563</span>
+      <span class="irs-id-sub">Form</span>
+      <p style="font-size: 0.65rem; font-weight: 850;">(Rev. 2024)</p>
+    </div>
+    <div class="irs-title-box">
+      <h1>Exclusion of Income for Bona Fide Residents of American Samoa</h1>
+      <p style="font-size: 0.85rem; font-weight: 700; margin-top: 10px;">Go to www.irs.gov/Form4563 for instructions and the latest information.</p>
+    </div>
+    <div class="irs-omb-box">
+      <span style="font-size: 0.7rem;">OMB No. 1545-0074</span>
+      <div style="margin-top: 15px; font-weight: 950; font-size: 0.9rem;">2024</div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- INFO BLOCK -->
+    <div class="irs-row-line-unified border-b" style="display: flex; border-top: 3.5px solid #000; border-bottom: 3.5px solid #000; margin-bottom: 25px;">
+      <div class="irs-id-col" style="flex: 2; padding: 6px 12px; border-right: 2px solid #000;">
+        <label style="display: block; font-size: 0.65rem; font-weight: 900; text-transform: uppercase;">Name shown on return</label>
+        <input type="text" formControlName="name" class="irs-input-field" style="text-align: left;">
+      </div>
+      <div class="irs-id-col" style="flex: 1; padding: 6px 12px;">
+        <label style="display: block; font-size: 0.65rem; font-weight: 900; text-transform: uppercase;">Social security number</label>
+        <input type="text" formControlName="ssn" class="irs-input-field" style="text-align: left;">
+      </div>
+    </div>
+
+    <!-- PART I -->
+    <div class="irs-section-header-bar">
+      <span>Part I: General Information</span>
+    </div>
+    <div class="irs-field-row">
+      <div class="irs-ln-num">1</div>
+      <div class="irs-ln-desc">Date your bona fide residence in American Samoa began...</div>
+      <div class="irs-in-wrap-wide">
+        <input type="date" formControlName="dateArrivedSamoa" class="irs-input-field" style="text-align: left;">
+      </div>
+    </div>
+
+    <!-- PART II -->
+    <div class="irs-section-header-bar" style="margin-top: 30px;">
+      <span>Part II: Exclusion of Income from American Samoa</span>
+    </div>
+    
+    <div class="irs-table-container">
+      <div class="irs-table-header">
+        <div class="irs-col-cat">Category</div>
+        <div class="irs-col-source">(a) American Samoa Source</div>
+        <div class="irs-col-source">(b) Other Source</div>
+      </div>
+      
+      <div class="irs-table-row">
+        <div class="irs-col-cat">4 Wages, salaries, tips, etc.</div>
+        <div class="irs-col-source"><input type="number" formControlName="wagesSamoa" class="irs-input-field"></div>
+        <div class="irs-col-source"><input type="number" formControlName="wagesOther" class="irs-input-field"></div>
+      </div>
+      
+      <div class="irs-table-row">
+        <div class="irs-col-cat">5 Dividends</div>
+        <div class="irs-col-source"><input type="number" formControlName="dividendsSamoa" class="irs-input-field"></div>
+        <div class="irs-col-source"><input type="number" formControlName="dividendsOther" class="irs-input-field"></div>
+      </div>
+
+      <div class="irs-table-row">
+        <div class="irs-col-cat">6 Interest</div>
+        <div class="irs-col-source"><input type="number" formControlName="interestSamoa" class="irs-input-field"></div>
+        <div class="irs-col-source"><input type="number" formControlName="interestOther" class="irs-input-field"></div>
+      </div>
+    </div>
+
+    <div style="margin-top: 50px; text-align: right;">
+      <button type="submit" class="irs-btn-submit">Submit Form 4563</button>
+    </div>
+  </form>
+</div>

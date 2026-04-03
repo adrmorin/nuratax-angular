@@ -1,0 +1,93 @@
+.irs-unified-container {
+  max-width: 900px;
+  margin: 20px auto;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #1a1a1a;
+  background: #fff;
+  padding: 40px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+}
+
+.irs-header-container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 4px solid #000;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.irs-id-box { flex: 1; display: flex; flex-direction: column; }
+.irs-id-main { font-weight: 950; font-size: 3rem; line-height: 1; }
+.irs-id-sub { font-size: 1rem; font-weight: 700; text-transform: uppercase; }
+
+.irs-title-box { flex: 3; text-align: center; }
+.irs-title-box h1 { font-size: 1.3rem; font-weight: 950; margin: 0; text-transform: uppercase; }
+
+.irs-section-header-bar {
+  background: #333;
+  color: #fff;
+  padding: 8px 15px;
+  font-size: 1.1rem;
+  font-weight: 950;
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+.irs-field-row {
+  display: flex;
+  align-items: flex-end;
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0;
+  min-height: 45px;
+}
+
+.irs-ln-num { width: 35px; font-weight: 950; font-size: 0.85rem; }
+.irs-ln-desc { flex: 1; font-size: 0.9rem; padding-right: 15px; line-height: 1.4; font-weight: 700; }
+
+.irs-in-wrap-wide {
+  flex: 1.5;
+  border-left: 2px solid #000;
+  padding: 0 15px;
+}
+
+.irs-presence-table {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #000;
+}
+
+.irs-row {
+  display: flex;
+  padding: 8px 15px;
+  align-items: center;
+}
+
+.irs-col-cat { flex: 2; font-size: 0.9rem; font-weight: 600; }
+.irs-col-amount { flex: 0.8; border-left: 1px solid #000; padding: 0 10px; }
+
+.irs-input-field {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: right;
+  outline: none;
+}
+
+.irs-btn-submit {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1.1rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.bg-grey { background: #f0f0f0; }
+.bold { font-weight: 950; }
+.border-b { border-bottom: 1px solid #333; }

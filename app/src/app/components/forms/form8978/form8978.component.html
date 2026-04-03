@@ -1,0 +1,138 @@
+<div class="irs-unified-container">
+  <!-- Header Section -->
+  <div class="irs-form-header">
+    <div class="irs-header-left">
+      <div class="irs-form-id-box">
+        <span class="irs-id-sub-small">Form</span>
+        <span class="irs-id-main-large">8978</span>
+        <span class="irs-id-sub-small">(Rev. December 2024)</span>
+      </div>
+      <p style="font-size: 0.7rem; font-weight: 700; margin-top: 5px;">Partner's Additional Reporting Year Tax</p>
+    </div>
+    <div class="irs-header-right">
+      <div class="irs-omb-box">OMB No. 1545-0123</div>
+      <div class="irs-attachment">Attachment <br> Sequence No. <strong>214</strong></div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- INFO BLOCK -->
+    <div class="irs-row-line-unified border-b" style="display: flex; border-top: 2px solid #000; border-bottom: 2px solid #000; margin-bottom: 20px;">
+      <div class="irs-col border-r" style="flex: 2; padding: 5px 10px; border-right: 2px solid #000;">
+        <label for="partnerName" class="irs-label-small">Name of partner</label>
+        <input id="partnerName" type="text" formControlName="partnerName" class="irs-input-field" style="text-align: left;">
+      </div>
+      <div class="irs-col" style="flex: 1; padding: 5px 10px;">
+        <label for="partnerTIN" class="irs-label-small">Partner's TIN</label>
+        <input id="partnerTIN" type="text" formControlName="partnerTIN" class="irs-input-field" style="text-align: left;">
+      </div>
+    </div>
+
+    <!-- Source Type -->
+    <div class="irs-source-box">
+      <span>CHECK SOURCE:</span>
+      <label><input type="checkbox" formControlName="isBBA"> BBA Audit Adjustment</label>
+      <label><input type="checkbox" formControlName="isAAR"> AAR Filing Adjustment</label>
+    </div>
+
+    <!-- PART I: Grid Computation -->
+    <div class="irs-section-tab">Part I: Computation of Additional Reporting Year Tax</div>
+    
+    <div class="irs-year-grid" formArrayName="years">
+      <!-- Headers -->
+      <div class="irs-grid-header">AFFECTED TAX YEARS</div>
+      @for (y of years.controls; track $index; let i = $index) {
+        <div class="irs-grid-header" [formGroupName]="i">
+          Column ({{ ['a','b','c','d'][i] }})<br>
+          <input type="text" formControlName="yearEnded" placeholder="MM/DD/YYYY" class="irs-input-field" style="text-align: center; border-bottom: 1px solid #000;">
+        </div>
+      }
+      <div class="irs-grid-header" style="border-right: none;">Line</div>
+
+      <!-- Line 1a: Original Income -->
+      <div class="irs-row">
+        <div class="irs-label-cell">1a. Total income originally reported</div>
+        @for (y of years.controls; track $index; let i = $index) {
+          <div class="irs-input-cell" [formGroupName]="i">
+            <input type="number" formControlName="l1a" class="irs-input-field">
+          </div>
+        }
+        <div class="irs-line-num-col">1a</div>
+      </div>
+
+      <!-- Line 1b: Adjustments -->
+      <div class="irs-row">
+        <div class="irs-label-cell">1b. Adjustments to income (from Schedule A)</div>
+        @for (y of years.controls; track $index; let i = $index) {
+          <div class="irs-input-cell" [formGroupName]="i">
+            <input type="number" formControlName="l1b" class="irs-input-field">
+          </div>
+        }
+        <div class="irs-line-num-col">1b</div>
+      </div>
+
+      <!-- Line 2: Corrected Income -->
+      <div class="irs-row bg-light">
+        <div class="irs-label-cell bold">2. Corrected income. Sum 1a + 1b</div>
+        @for (y of yearTotals(); track $index; let i = $index) {
+          <div class="irs-total-cell">${{ y.l2 | number:'1.2-2' }}</div>
+        }
+        <div class="irs-line-num-col">2</div>
+      </div>
+
+      <!-- Line 3a: Original Deductions -->
+      <div class="irs-row">
+        <div class="irs-label-cell">3a. Total deductions originally reported</div>
+        @for (y of years.controls; track $index; let i = $index) {
+          <div class="irs-input-cell" [formGroupName]="i">
+            <input type="number" formControlName="l3a" class="irs-input-field">
+          </div>
+        }
+        <div class="irs-line-num-col">3a</div>
+      </div>
+
+      <!-- Line 3b: Adjustments -->
+      <div class="irs-row">
+        <div class="irs-label-cell">3b. Adjustments to deductions (from Schedule A)</div>
+        @for (y of years.controls; track $index; let i = $index) {
+          <div class="irs-input-cell" [formGroupName]="i">
+            <input type="number" formControlName="l3b" class="irs-input-field">
+          </div>
+        }
+        <div class="irs-line-num-col">3b</div>
+      </div>
+
+      <!-- Line 4: Corrected Deductions -->
+      <div class="irs-row bg-light">
+        <div class="irs-label-cell bold">4. Corrected deductions. Sum 3a + 3b</div>
+        @for (y of yearTotals(); track $index; let i = $index) {
+          <div class="irs-total-cell">${{ y.l4 | number:'1.2-2' }}</div>
+        }
+        <div class="irs-line-num-col">4</div>
+      </div>
+
+      <!-- Line 14: Subtotal Increase/Decrease -->
+      <div class="irs-row" style="background: #e0f0ff;">
+        <div class="irs-label-cell bold">14. Increase or decrease in tax by year</div>
+        @for (y of yearTotals(); track $index; let i = $index) {
+          <div class="irs-total-cell">${{ y.l14 | number:'1.2-2' }}</div>
+        }
+        <div class="irs-line-num-col">14</div>
+      </div>
+    </div>
+
+    <!-- Final Part -->
+    <div class="irs-footer-box">
+      <div class="irs-row-line" style="display: flex; margin-bottom: 10px;">
+        <div style="flex: 1; font-weight: 800;">18. Total additional reporting year tax. Sum Line 14 columns a to d...</div>
+        <div style="width: 200px; border: 2px solid #000; padding: 5px; text-align: right; background: #ffffde;">
+          <span class="bold">${{ totalTax() | number:'1.2-2' }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 30px; display: flex; justify-content: flex-end;">
+      <button type="submit" class="irs-btn-submit">Submit Form 8978</button>
+    </div>
+  </form>
+</div>

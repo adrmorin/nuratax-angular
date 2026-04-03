@@ -1,0 +1,75 @@
+/* Form 1099-LS CSS */
+.irs-unified-container {
+  max-width: 850px;
+  margin: 30px auto;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #000;
+  background: #fff;
+  padding: 40px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+}
+
+.irs-top-grid {
+  display: flex;
+  border: 2px solid #000;
+  margin-top: 10px;
+}
+
+.irs-info-box {
+  padding: 10px;
+}
+
+.irs-box-num {
+  font-size: 0.65rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 5px;
+  color: #000;
+}
+
+.irs-row-grid {
+  display: flex;
+  border-left: 2px solid #000;
+  border-right: 2px solid #000;
+}
+
+.irs-grid-box {
+  flex: 1;
+  padding: 12px;
+}
+
+.irs-input-field {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  outline: none;
+  resize: none;
+}
+
+.irs-currency {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 950;
+  font-size: 1.1rem;
+}
+
+.irs-btn-submit {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 15px 40px;
+  font-size: 1rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.border-b { border-bottom: 1px solid #000; }
+.border-r { border-right: 1px solid #000; }

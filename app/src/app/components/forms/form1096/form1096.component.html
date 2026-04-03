@@ -1,0 +1,90 @@
+<div class="irs-unified-container">
+  <!-- Header Copy Marker -->
+  <div class="irs-copy-header" style="border-bottom: 2px solid #000; padding-bottom: 5px; margin-bottom: 10px;">
+    <span style="font-size: 1.2rem; font-weight: 950; color: #cc0000; font-family: 'Roboto Mono', monospace;">DO NOT STAPLE</span>
+  </div>
+
+  <div class="irs-header-container">
+    <div class="irs-id-box">
+      <span class="irs-id-main" style="font-size: 3rem;">1096</span>
+      <span class="irs-id-sub">Form</span>
+    </div>
+    <div class="irs-title-box">
+      <p style="font-size: 0.9rem; font-weight: 700; margin-top: 5px;">Department of the Treasury<br>Internal Revenue Service</p>
+      <h1 style="font-size: 1.4rem; font-weight: 950; margin-top: 10px; text-transform: uppercase;">Annual Summary and Transmittal of U.S. Information Returns</h1>
+    </div>
+    <div class="irs-omb-box">
+      <span style="font-size: 0.7rem;">OMB No. 1545-0108</span>
+      <div style="margin-top: 15px; font-weight: 950; font-size: 1.2rem;">2024</div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- FILER INFO -->
+    <div class="irs-top-grid">
+      <div class="irs-info-box border-b border-r" style="flex: 2; padding: 10px;">
+        <label class="irs-box-num">FILER'S name, address, and ZIP code</label>
+        <textarea formControlName="filerName" class="irs-input-field" style="height: 60px;"></textarea>
+      </div>
+      <div style="flex: 1; display: flex; flex-direction: column;">
+        <div class="irs-info-box border-b" style="padding: 10px;">
+          <label class="irs-box-num">Name of person to contact</label>
+          <input type="text" formControlName="contactName" class="irs-input-field">
+        </div>
+        <div class="irs-info-box border-b" style="padding: 10px;">
+          <label class="irs-box-num">Phone number</label>
+          <input type="text" formControlName="contactPhone" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- BOXES 1-5 -->
+    <div class="irs-row-grid" style="border-top: none;">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">1 Employer identification number</label>
+        <input type="text" formControlName="box1_ein" class="irs-input-field">
+      </div>
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">2 Social security number</label>
+        <input type="text" formControlName="box2_ssn" class="irs-input-field">
+      </div>
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">3 Total number of forms</label>
+        <input type="number" formControlName="box3_totalForms" class="irs-input-field">
+      </div>
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">4 Federal income tax withheld</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box4_federalTaxWithheld" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">5 Total amount reported with this Form 1096</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box5_totalAmountReported" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- BOX 6 -->
+    <div class="irs-box-6" style="border: 2px solid #000; border-top: none; padding: 15px;">
+      <label class="irs-box-num" style="display: block; margin-bottom: 10px;">
+        6 Enter an "X" in only one box below to indicate the type of form being filed.
+      </label>
+      <div style="display: flex; gap: 15px; flex-wrap: wrap; font-size: 0.8rem; font-weight: 700;">
+        <label><input type="radio" formControlName="box6_checkedFormType" value="1097-BTC"> 1097-BTC</label>
+        <label><input type="radio" formControlName="box6_checkedFormType" value="1098"> 1098</label>
+        <label><input type="radio" formControlName="box6_checkedFormType" value="1099-INT"> 1099-INT</label>
+        <label><input type="radio" formControlName="box6_checkedFormType" value="1099-DIV"> 1099-DIV</label>
+        <label><input type="radio" formControlName="box6_checkedFormType" value="5498"> 5498</label>
+        <label><input type="radio" formControlName="box6_checkedFormType" value="W-2G"> W-2G</label>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px; display: flex; justify-content: flex-end;">
+      <button type="submit" class="irs-btn-submit">Submit Form 1096</button>
+    </div>
+  </form>
+</div>

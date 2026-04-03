@@ -1,0 +1,197 @@
+<div class="irs-unified-container">
+  <!-- Header Copy Marker -->
+  <div class="irs-copy-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; padding-bottom: 5px; margin-bottom: 20px;">
+    <span style="font-size: 1.2rem; font-weight: 950; color: #cc0000; font-family: 'Roboto Mono', monospace;">VOID <input type="checkbox" style="margin-left:5px;"></span>
+    <span style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase;">CORRECTED <input type="checkbox" style="margin-left:5px;"></span>
+  </div>
+
+  <div class="irs-top-grid">
+    <!-- ISSUER BOX -->
+    <div class="irs-info-box border-b border-r" style="flex: 1.5; padding: 10px;">
+      <label class="irs-box-num">TRUSTEE'S or ISSUER'S name, address, and ZIP code</label>
+      <textarea formControlName="issuerName" class="irs-input-field" style="height: 60px;"></textarea>
+    </div>
+
+    <!-- TIN BOXES -->
+    <div style="flex: 1; display: flex; flex-direction: column;">
+      <div class="irs-info-box border-b" style="padding: 10px;">
+        <label class="irs-box-num">ISSUER'S TIN</label>
+        <input type="text" formControlName="issuerTIN" class="irs-input-field">
+      </div>
+      <div class="irs-info-box border-b" style="padding: 10px;">
+        <label class="irs-box-num">PARTICIPANT'S TIN</label>
+        <input type="text" formControlName="participantTIN" class="irs-input-field">
+      </div>
+    </div>
+
+    <!-- YEAR BOX -->
+    <div class="irs-info-box border-b" style="flex: 0.5; text-align: center; border-left: 2px solid #000;">
+      <div style="font-size: 1.5rem; font-weight: 950; line-height: 1;">2024<br><span style="font-size: 1.2rem;">5498</span></div>
+    </div>
+  </div>
+
+  <div class="irs-top-grid" style="border-top: none; margin-top: 0;">
+    <div class="irs-info-box border-b border-r" style="flex: 1.5; padding: 10px;">
+      <label class="irs-box-num">PARTICIPANT'S name, address, and ZIP code</label>
+      <textarea formControlName="participantName" class="irs-input-field" style="height: 60px;"></textarea>
+    </div>
+    <div class="irs-info-box border-b" style="flex: 1.5; padding: 10px;">
+      <label class="irs-box-num">Account number (see instructions)</label>
+      <input type="text" formControlName="accountNum" class="irs-input-field">
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- Box 1 & 2 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">1 IRA contributions (other than amounts in boxes 2-4, 8-10, 13a, 14a)</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box1_iraContrib" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">2 Rollover contributions</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box2_rolloverContrib" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- Box 3 & 4 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">3 Roth IRA conversion amount</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box3_rothConversion" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">4 Recharacterized contributions</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box4_recharacterized" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- Box 5 & 6 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">5 Fair market value of account</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box5_fmv" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">6 Life insurance cost included in box 1</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box6_lifeInsuranceCost" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- Box 7 & 8 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b" style="display: flex; gap: 10px; align-items: center; padding: 15px;">
+        <label class="irs-box-num" style="margin: 0; margin-right: 15px;">7</label>
+        <label style="font-size: 0.75rem; font-weight: 700;"><input type="checkbox" formControlName="box7_isIRA"> IRA</label>
+        <label style="font-size: 0.75rem; font-weight: 700;"><input type="checkbox" formControlName="box7_isSEP"> SEP</label>
+        <label style="font-size: 0.75rem; font-weight: 700;"><input type="checkbox" formControlName="box7_isSIMPLE"> SIMPLE</label>
+        <label style="font-size: 0.75rem; font-weight: 700;"><input type="checkbox" formControlName="box7_isRothIRA"> Roth IRA</label>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">8 SEP contributions</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box8_sepContrib" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- Box 9 & 10 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">9 SIMPLE contributions</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box9_simpleContrib" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">10 Roth IRA contributions</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box10_rothContrib" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- Box 11 & 12a/b -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num" style="margin-bottom: 10px;">11 Check if RMD for 2025</label>
+        <input type="checkbox" formControlName="box11_rmdNextYear" style="transform: scale(1.5); margin-left: 10px;">
+      </div>
+      <div class="irs-grid-box border-b" style="display: flex; gap: 15px; padding: 0;">
+        <div style="flex: 1; border-right: 1px solid #000; padding: 12px;">
+          <label class="irs-box-num">12a RMD date</label>
+          <input type="date" formControlName="box12a_rmdDate" class="irs-input-field">
+        </div>
+        <div style="flex: 1; padding: 12px;">
+          <label class="irs-box-num">12b RMD amount</label>
+          <div class="irs-currency">
+            <span>$</span>
+            <input type="number" formControlName="box12b_rmdAmount" class="irs-input-field">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Box 13 & 14 (Partial Simplified for UI) -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">13a Postponed/late contrib</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box13a_postponedContrib" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">14a Repayments</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box14a_repayments" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- Box 15a & 15b -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">15a FMV of certain specified assets</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box15a_fmvSpecifiedAssets" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">15b Codes</label>
+        <input type="text" formControlName="box15b_codes" class="irs-input-field">
+      </div>
+    </div>
+
+    <div style="margin-top: 40px; text-align: left; font-size: 0.65rem; color: #555;">
+      <strong>Copy B—For Participant</strong>. This information is being furnished to the Internal Revenue Service.
+    </div>
+
+    <div style="margin-top: 40px; display: flex; justify-content: flex-end;">
+      <button type="submit" class="irs-btn-submit">Submit Form 5498</button>
+    </div>
+  </form>
+</div>

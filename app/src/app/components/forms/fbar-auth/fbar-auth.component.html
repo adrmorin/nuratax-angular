@@ -1,0 +1,61 @@
+<div class="irs-unified-container">
+  <div class="irs-header-container fbar-header" style="background: #003366; color: #fff; padding: 25px; border-bottom: 5px solid #ffcc00; margin-bottom: 30px;">
+    <div style="flex: 1.5;">
+      <h3 style="font-size: 0.95rem; font-weight: 700;">FinCEN Form 114a</h3>
+      <h1 style="font-size: 1.3rem; font-weight: 950; margin: 5px 0;">Record of Authorization to Electronically File FBARs</h1>
+    </div>
+    <div style="flex: 0.5; text-align: right; border-left: 1.5px solid #fff; padding-left: 20px;">
+      <p style="font-size: 0.6rem; font-weight: 700;">Department of the Treasury</p>
+      <p style="font-size: 0.6rem; font-weight: 700;">FinCEN</p>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <div class="fbar-grid-row">
+      <div class="fbar-grid-box" style="flex: 2;">
+        <label>1. Filer name (First, Middle, Last)</label>
+        <input type="text" formControlName="filerName" class="fbar-input">
+      </div>
+      <div class="fbar-grid-box" style="flex: 1;">
+        <label>2. TIN (SSN or ITIN)</label>
+        <input type="text" formControlName="tin" class="fbar-input">
+      </div>
+    </div>
+
+    <div class="fbar-grid-row" style="margin-top: 20px;">
+      <div class="fbar-grid-box">
+        <label><input type="checkbox" formControlName="isJoint"> 3. Check here if this is a joint FBAR</label>
+      </div>
+    </div>
+
+    <div class="fbar-grid-row" *ngIf="form.get('isJoint')?.value">
+      <div class="fbar-grid-box" style="flex: 2;">
+        <label>4. Spouse name (First, Middle, Last)</label>
+        <input type="text" formControlName="spouseName" class="fbar-input">
+      </div>
+      <div class="fbar-grid-box" style="flex: 1;">
+        <label>5. Spouse TIN (SSN or ITIN)</label>
+        <input type="text" formControlName="spouseTIN" class="fbar-input">
+      </div>
+    </div>
+
+    <div class="irs-section-header-bar fbar-part" style="margin-top: 40px; background: #eef1ff; color: #000; border: 2px solid #000;">
+      <span>Signatures</span>
+    </div>
+    
+    <div class="fbar-grid-row" style="margin-top: 20px;">
+      <div class="fbar-grid-box">
+        <label>Signature of Filer</label>
+        <div class="sig-line">___________________________</div>
+      </div>
+      <div class="fbar-grid-box">
+        <label>Date</label>
+        <input type="date" formControlName="dateSigned" class="fbar-input">
+      </div>
+    </div>
+
+    <div style="margin-top: 60px; text-align: right;">
+      <button type="submit" class="irs-btn-submit" style="background: #003366;">Complete Authorization</button>
+    </div>
+  </form>
+</div>

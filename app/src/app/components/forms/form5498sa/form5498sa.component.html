@@ -1,0 +1,108 @@
+<div class="irs-unified-container">
+  <!-- Header Copy Marker -->
+  <div class="irs-copy-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; padding-bottom: 5px; margin-bottom: 20px;">
+    <span style="font-size: 1.2rem; font-weight: 950; color: #cc0000; font-family: 'Roboto Mono', monospace;">VOID <input type="checkbox" style="margin-left:5px;"></span>
+    <span style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase;">CORRECTED <input type="checkbox" style="margin-left:5px;"></span>
+  </div>
+
+  <div class="irs-top-grid">
+    <!-- ISSUER BOX -->
+    <div class="irs-info-box border-b border-r" style="flex: 1.5; padding: 10px;">
+      <label class="irs-box-num">TRUSTEE'S name, address, and ZIP code</label>
+      <textarea formControlName="trusteeName" class="irs-input-field" style="height: 60px;"></textarea>
+    </div>
+
+    <!-- TIN BOXES -->
+    <div style="flex: 1; display: flex; flex-direction: column;">
+      <div class="irs-info-box border-b" style="padding: 10px;">
+        <label class="irs-box-num">TRUSTEE'S TIN</label>
+        <input type="text" formControlName="trusteeTIN" class="irs-input-field">
+      </div>
+      <div class="irs-info-box border-b" style="padding: 10px;">
+        <label class="irs-box-num">PARTICIPANT'S TIN</label>
+        <input type="text" formControlName="participantTIN" class="irs-input-field">
+      </div>
+    </div>
+
+    <!-- YEAR BOX -->
+    <div class="irs-info-box border-b" style="flex: 0.5; text-align: center; border-left: 2px solid #000;">
+      <div style="font-size: 1.2rem; font-weight: 950; line-height: 1;">2024<br><span style="font-size: 0.9rem;">5498-SA</span></div>
+    </div>
+  </div>
+
+  <div class="irs-top-grid" style="border-top: none; margin-top: 0;">
+    <div class="irs-info-box border-b border-r" style="flex: 1.5; padding: 10px;">
+      <label class="irs-box-num">PARTICIPANT'S name, address, and ZIP code</label>
+      <textarea formControlName="participantName" class="irs-input-field" style="height: 60px;"></textarea>
+    </div>
+    <div class="irs-info-box border-b" style="flex: 1.5; padding: 10px;">
+      <label class="irs-box-num">Account number (see instructions)</label>
+      <input type="text" formControlName="accountNum" class="irs-input-field">
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- Box 1 & 2 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">1 Employee/self-employed Archer MSA contribs</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box1_archerContrib" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">2 Total contributions made in 2024</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box2_totalContrib" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- Box 3 & 4 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">3 Total HSA/Archer MSA contribs for prior year</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box3_priorYearContrib" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">4 Rollover contributions</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box4_rolloverContrib" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- Box 5 & 6 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">5 Fair market value of HSA, Archer MSA, or MA MSA</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box5_fmv" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b" style="display: flex; flex-direction: column; gap: 5px;">
+        <label class="irs-box-num">6 Checkbox</label>
+        <div style="display: flex; gap: 15px; font-size: 0.75rem; font-weight: 700;">
+          <label><input type="checkbox" formControlName="box6_isHSA"> HSA</label>
+          <label><input type="checkbox" formControlName="box6_isArcher"> Archer MSA</label>
+          <label><input type="checkbox" formControlName="box6_isMA"> MA MSA</label>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px; text-align: left; font-size: 0.65rem; color: #555;">
+      <strong>Copy B—For Participant</strong>. This information is being furnished to the Internal Revenue Service.
+    </div>
+
+    <div style="margin-top: 40px; display: flex; justify-content: flex-end;">
+      <button type="submit" class="irs-btn-submit">Submit Form 5498-SA</button>
+    </div>
+  </form>
+</div>

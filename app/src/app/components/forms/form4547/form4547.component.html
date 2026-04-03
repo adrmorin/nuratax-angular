@@ -1,0 +1,92 @@
+<div class="irs-unified-container">
+  <!-- Header Section -->
+  <div class="irs-header">
+    <div class="irs-form-id-box">
+      <span style="font-size: 0.8rem; font-weight: 850;">Form</span>
+      <span class="irs-id-large">4547</span>
+      <div class="irs-id-year">2025</div>
+    </div>
+    <div class="irs-title-box">
+      <h1>Trump Account Election(s)</h1>
+      <p style="font-size: 0.8rem; font-weight: 700; margin: 5px 0;">(Initial Election and Request for $1,000 Contribution)</p>
+      <p style="font-size: 0.75rem; font-weight: 600; font-style: italic;">Go to <strong>www.trumpaccounts.gov</strong> for account management and latest information.</p>
+    </div>
+    <div class="irs-omb-right" style="text-align: right;">
+      <span style="font-size: 0.65rem; font-weight: 700;">OMB No. 1545-2025</span><br>
+      <span style="font-size: 0.75rem; font-weight: 900;">Attachment <br> Sequence No. <strong>999</strong></span>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- SECTION I: Responsible Party -->
+    <div class="irs-section-label">Section I: Responsible Party (Parent or Guardian)</div>
+    <div class="irs-field-group">
+      <div class="irs-input-wrap">
+        <label for="respName" class="irs-label-small">Name of Parent or Legal Guardian</label>
+        <input id="respName" type="text" formControlName="responsibleName" class="irs-input-border">
+      </div>
+      <div class="irs-input-wrap" style="flex: 0.5;">
+        <label for="respTIN" class="irs-label-small">SSN or ITIN</label>
+        <input id="respTIN" type="text" formControlName="responsibleTIN" class="irs-input-border">
+      </div>
+    </div>
+    <div class="irs-field-group">
+      <div class="irs-input-wrap">
+        <label for="respAddr" class="irs-label-small">Street Address</label>
+        <input id="respAddr" type="text" formControlName="responsibleAddress" class="irs-input-border">
+      </div>
+    </div>
+
+    <!-- SECTION II: Eligible Child/Children -->
+    <div class="irs-section-label">Section II: Eligible Child/Children</div>
+    <div formArrayName="children">
+      @for (child of children.controls; track $index; let i = $index) {
+        <div class="irs-child-card" [formGroupName]="i">
+          <p class="irs-text-bold" style="margin-top:0">Child #{{ i + 1 }} Information</p>
+          <div class="irs-field-group">
+            <div class="irs-input-wrap">
+              <label class="irs-label-small">Child's Legal Name</label>
+              <input type="text" formControlName="name" class="irs-input-border">
+            </div>
+            <div class="irs-input-wrap" style="flex: 0.5;">
+              <label class="irs-label-small">Child's SSN</label>
+              <input type="text" formControlName="tin" class="irs-input-border">
+            </div>
+          </div>
+          <div class="irs-field-group">
+            <div class="irs-input-wrap" style="flex: 0.5;">
+              <label class="irs-label-small">Date of Birth</label>
+              <input type="date" formControlName="dob" class="irs-input-border">
+            </div>
+            <div class="irs-input-wrap" style="justify-content: center;">
+              <label class="irs-label-small" style="display: flex; align-items: center; gap: 10px; border: 2px solid #000; padding: 10px; cursor: pointer;">
+                <input type="checkbox" formControlName="requestContribution">
+                <span>Request $1,000 Pilot Contribution</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+    <button type="button" (click)="addChild()" class="irs-btn-add">+ Register Additional Child</button>
+
+    <!-- SECTION III: Consents and Disclosures -->
+    <div class="irs-section-label">Section III: Consents and Disclosures</div>
+    <div class="irs-checkbox-wrap">
+      <input type="checkbox" formControlName="consentDisclosure">
+      <p style="font-size: 0.75rem; font-weight: 500; margin:0">
+        <strong>Disclosure Consent:</strong> I authorize the IRS to disclose the information above to the Federal Savings Hub (Trump Accounts) for the purpose of establishing and funding tax-deferred savings accounts for the child(ren) listed.
+      </p>
+    </div>
+    <div class="irs-checkbox-wrap">
+      <input type="checkbox" formControlName="consentMaintenance">
+      <p style="font-size: 0.75rem; font-weight: 500; margin:0">
+        <strong>Account Maintenance:</strong> I acknowledge that I am electing to open an initial Trump Account and agree to be subject to the program rules published at <strong>www.trumpaccounts.gov</strong>.
+      </p>
+    </div>
+
+    <div class="irs-footer">
+      <button type="submit" class="irs-btn-submit">Submit Form 4547 Election</button>
+    </div>
+  </form>
+</div>

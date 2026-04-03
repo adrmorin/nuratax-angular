@@ -1,0 +1,88 @@
+.irs-tax-form-1099 {
+  width: 900px;
+  background: #fff;
+  border: 4px solid #000;
+  padding: 1.5rem;
+  font-family: 'Inter', system-ui, sans-serif;
+  margin: 0 auto;
+}
+
+.irs-row {
+  display: flex;
+  border-bottom: 2px solid #000;
+  min-height: 50px;
+}
+
+.irs-col {
+  flex: 1;
+  padding: 5px 10px;
+  border-right: 2px solid #000;
+}
+
+.irs-col:last-child {
+  border-right: none;
+}
+
+.irs-label-small {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.irs-box-num {
+  font-weight: 1000;
+  font-size: 0.8rem;
+  margin-right: 5px;
+}
+
+.irs-input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 4px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.irs-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 4px solid #000;
+  padding-bottom: 8px;
+  margin-bottom: 0;
+}
+
+.irs-form-name { font-size: 1.1rem; font-weight: 950; text-transform: uppercase; }
+.irs-year-box { font-size: 2rem; font-weight: 950; line-height: 1; border: 2px solid #000; padding: 2px 10px; }
+
+.irs-grid-12 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border-bottom: 2px solid #000;
+}
+
+.irs-grid-col {
+  border-right: 1px solid #c0c0c0;
+  padding: 5px;
+  min-height: 40px;
+}
+
+.irs-grid-col:nth-child(6n) { border-right: none; }
+.irs-grid-col:nth-child(n+7) { border-top: 1px solid #c0c0c0; }
+
+.irs-blue-field { background: #e8f0fe !important; }
+
+.irs-text-right { text-align: right; }
+
+.irs-footer-btn {
+  margin-top: 2rem;
+  background: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  font-weight: 950;
+  cursor: pointer;
+}

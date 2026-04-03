@@ -1,0 +1,183 @@
+.irs-unified-container {
+  max-width: 1000px;
+  margin: 20px auto;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #1a1a1a;
+  background: #fff;
+  padding: 40px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.irs-header-container {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 4px solid #000;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+}
+
+.irs-id-box {
+  flex: 1;
+}
+
+.irs-id-main {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 950;
+  line-height: 1;
+}
+
+.irs-id-sub {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.irs-title-box {
+  flex: 3;
+  text-align: center;
+}
+
+.irs-title-box h1 {
+  font-size: 1.8rem;
+  font-weight: 950;
+  margin: 0;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.irs-part-header {
+  background: #000;
+  color: #fff;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  gap: 15px;
+}
+
+.irs-part-num {
+  font-size: 1.2rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  border-right: 2px solid #fff;
+  padding-right: 15px;
+}
+
+.irs-part-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* Table Design */
+.irs-table-header-row {
+  display: flex;
+  background: #eee;
+  font-size: 0.75rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  border: 2px solid #000;
+  border-bottom: none;
+}
+
+.irs-col-item { width: 60px; text-align: center; padding: 10px; border-right: 1px solid #000; }
+.irs-col-desc { flex: 2; padding: 10px; border-right: 1px solid #000; }
+.irs-col-id { flex: 1.2; padding: 10px; }
+
+.irs-table-data-row {
+  display: flex;
+  border: 2px solid #000;
+  border-top: none;
+}
+
+.irs-secondary-row {
+  display: flex;
+  border: 2px solid #000;
+  border-top: none;
+  background: #fafbff;
+}
+
+.irs-col-flex {
+  flex: 1;
+  padding: 8px 12px;
+}
+
+.irs-currency-input {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 700;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.irs-label-tiny {
+  display: block;
+  font-size: 0.6rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.irs-input-field {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: 'Roboto Mono', monospace;
+  outline: none;
+  resize: none;
+}
+
+.irs-input-field-small {
+  width: 100%;
+  border: 1px solid transparent;
+  background: transparent;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: 'Roboto Mono', monospace;
+  outline: none;
+  text-align: left;
+}
+
+.irs-input-field-small:focus {
+  border-bottom: 1px solid #0056b3;
+}
+
+.irs-btn-add {
+  margin-top: 20px;
+  background: #f0f0f0;
+  border: 2px dashed #000;
+  width: 100%;
+  padding: 12px;
+  font-weight: 900;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.irs-btn-remove {
+  color: #cc0000;
+  background: none;
+  border: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.irs-btn-submit {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 18px 50px;
+  font-size: 1.1rem;
+  font-weight: 950;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.bg-light-grey { background: #f4f6ff; }
+.bold { font-weight: 950; }
+.border-r { border-right: 1px solid #000; }

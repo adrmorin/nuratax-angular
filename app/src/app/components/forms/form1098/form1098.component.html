@@ -1,0 +1,94 @@
+<div class="irs-unified-container">
+  <!-- Header Copy Marker -->
+  <div class="irs-copy-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; padding-bottom: 5px; margin-bottom: 20px;">
+    <span style="font-size: 1.2rem; font-weight: 950; color: #cc0000; font-family: 'Roboto Mono', monospace;">VOID <input type="checkbox" style="margin-left:5px;"></span>
+    <span style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase;">CORRECTED (if checked) <input type="checkbox" style="margin-left:5px;"></span>
+  </div>
+
+  <div class="irs-top-grid">
+    <!-- RECIPIENT BOX -->
+    <div class="irs-info-box border-b border-r" style="flex: 1.5; padding: 10px;">
+      <label class="irs-box-num">RECIPIENT'S/LENDER'S name, address, and ZIP code</label>
+      <textarea formControlName="payerName" class="irs-input-field" style="height: 60px;"></textarea>
+    </div>
+
+    <!-- TIN BOXES -->
+    <div style="flex: 1; display: flex; flex-direction: column;">
+      <div class="irs-info-box border-b" style="padding: 10px;">
+        <label class="irs-box-num">RECIPIENT'S TIN</label>
+        <input type="text" formControlName="recipientTIN" class="irs-input-field">
+      </div>
+      <div class="irs-info-box border-b" style="padding: 10px;">
+        <label class="irs-box-num">PAYER'S TIN</label>
+        <input type="text" formControlName="payerTIN" class="irs-input-field">
+      </div>
+    </div>
+
+    <!-- YEAR BOX -->
+    <div class="irs-info-box border-b" style="flex: 0.5; text-align: center; border-left: 2px solid #000;">
+      <div style="font-size: 1.5rem; font-weight: 950; line-height: 1;">2024<br><span style="font-size: 1.2rem;">1098</span></div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- Box 1 & 2 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">1 Mortgage interest received from payer(s)/borrower(s)</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box1_interest" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">2 Outstanding mortgage principal</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box2_principal" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- Box 3 & 4 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">3 Mortgage origination date</label>
+        <input type="date" formControlName="box3_originationDate" class="irs-input-field">
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">4 Refund of overpaid interest</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box4_refund" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- Box 5 & 6 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">5 Mortgage insurance premiums</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box5_mip" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">6 Points paid on purchase of principal residence</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box6_points" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px; text-align: left; font-size: 0.65rem; color: #555;">
+      <strong>Copy B—For Payer/Borrower</strong>. This information is being furnished to the Internal Revenue Service. 
+      If you are required to file a return, a negligence penalty or other sanction may be imposed on you if the IRS determines that an underpayment of tax results because you overstated a deduction for this interest on your return.
+    </div>
+
+    <div style="margin-top: 40px; display: flex; justify-content: flex-end;">
+      <button type="submit" class="irs-btn-submit">Submit Form 1098</button>
+    </div>
+  </form>
+</div>

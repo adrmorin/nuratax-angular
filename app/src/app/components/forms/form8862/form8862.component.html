@@ -1,0 +1,105 @@
+<div class="irs-unified-container">
+  <!-- Header Section -->
+  <div class="irs-form-header">
+    <div class="irs-header-left">
+      <div class="irs-id-large">Form <span style="font-size: 2.5rem; font-weight: 950; line-height: 1;">8862</span></div>
+      <p style="font-size: 0.7rem; font-weight: 850; margin-top: 5px;">OMB No. 1545-0074</p>
+    </div>
+    <div class="irs-title-center">
+      <h1>Information To Claim Certain Credits After Disallowance</h1>
+      <p style="font-size: 0.75rem; margin-top: 5px;">Attach to your tax return.</p>
+    </div>
+    <div class="irs-header-right">
+      <div class="irs-attachment" style="font-size: 0.8rem; font-weight: 950;">Attachment <br> Sequence No. <strong>122</strong></div>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- INFO BLOCK -->
+    <div class="irs-row-line-unified border-b" style="display: flex; border-top: 3.5px solid #000; border-bottom: 3px solid #000; margin-bottom: 25px;">
+      <div class="irs-id-col" style="flex: 2; padding: 6px 12px; border-right: 2px solid #000;">
+        <label class="irs-label-small">Name(s) shown on return</label>
+        <input type="text" formControlName="name" class="irs-input-field" style="text-align: left;">
+      </div>
+      <div class="irs-id-col" style="flex: 1; padding: 6px 12px;">
+        <label class="irs-label-small">Your social security number</label>
+        <input type="text" formControlName="ssn" class="irs-input-field" style="text-align: left;">
+      </div>
+    </div>
+
+    <!-- PART I -->
+    <div class="irs-part-header">Part I: All Filers</div>
+    
+    <div class="irs-line-row">
+      <div class="irs-line-num">1</div>
+      <div class="irs-line-desc">Enter the tax year for which you are filing this form (e.g., 2024 or 2025)</div>
+      <div class="irs-input-wrap">
+        <input type="text" formControlName="taxYear" class="irs-input-field" style="text-align: center;">
+      </div>
+    </div>
+
+    <div class="irs-line-row" style="height: auto;">
+      <div class="irs-line-num">2</div>
+      <div class="irs-line-desc">
+        <p style="margin-top:0">Check all box(es) that apply to the credit(s) you are claiming for the tax year on line 1.</p>
+        <div class="irs-checkbox-grid">
+          <label class="irs-checkbox-item"><input type="checkbox" formControlName="reclaimingEIC"> <span>Earned Income Credit</span></label>
+          <label class="irs-checkbox-item"><input type="checkbox" formControlName="reclaimingCTC"> <span>Child Tax Credit / ACTC</span></label>
+          <label class="irs-checkbox-item"><input type="checkbox" formControlName="reclaimingODC"> <span>Credit for Other Dependents</span></label>
+          <label class="irs-checkbox-item"><input type="checkbox" formControlName="reclaimingAOTC"> <span>American Opportunity Tax Credit</span></label>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART II (Conditional Display Mock) -->
+    <div *ngIf="form.get('reclaimingEIC')?.value">
+      <div class="irs-part-header">Part II: Earned Income Credit</div>
+      <div class="irs-line-row">
+        <div class="irs-line-num">4</div>
+        <div class="irs-line-desc">Name of qualifying child for EIC</div>
+        <div class="irs-input-wrap">
+          <input type="text" formControlName="eicChildName" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-line-row">
+        <div class="irs-line-num">5</div>
+        <div class="irs-line-desc">Number of days the child lived with you in the United States</div>
+        <div class="irs-input-wrap">
+          <input type="number" formControlName="eicDaysInUS" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- PART III (Conditional Display Mock) -->
+    <div *ngIf="form.get('reclaimingCTC')?.value || form.get('reclaimingODC')?.value">
+      <div class="irs-part-header">Part III: Child Tax Credit / ACTC / ODC</div>
+      <div class="irs-line-row">
+        <div class="irs-line-num">7</div>
+        <div class="irs-line-desc">Name of qualifying child for CTC/ODC</div>
+        <div class="irs-input-wrap">
+          <input type="text" formControlName="ctcChildName" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- PART IV (Conditional Display Mock) -->
+    <div *ngIf="form.get('reclaimingAOTC')?.value">
+      <div class="irs-part-header">Part IV: American Opportunity Tax Credit</div>
+      <div class="irs-line-row">
+        <div class="irs-line-num">10</div>
+        <div class="irs-line-desc">Name of student for AOTC</div>
+        <div class="irs-input-wrap">
+          <input type="text" formControlName="studentName" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px; display: flex; justify-content: space-between; align-items: flex-end;">
+      <div style="font-size: 0.65rem; color: #444; max-width: 550px;">
+        For each child/student, you must have records to prove residency and relationship. 
+        Refer to Pub. 596 for EIC rules and Pub. 972 for CTC rules.
+      </div>
+      <button type="submit" class="irs-btn-submit" style="background: #000; color: #fff; padding: 15px 40px; font-weight: 950; border: none; cursor: pointer; text-transform: uppercase;">Submit Form 8862</button>
+    </div>
+  </form>
+</div>

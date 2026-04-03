@@ -1,0 +1,95 @@
+<div class="irs-unified-container">
+  <!-- Header Copy Marker -->
+  <div class="irs-copy-header" style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #000; padding-bottom: 5px; margin-bottom: 20px;">
+    <span style="font-size: 1.2rem; font-weight: 950; color: #cc0000; font-family: 'Roboto Mono', monospace;">VOID <input type="checkbox" style="margin-left:5px;"></span>
+    <span style="font-size: 0.65rem; font-weight: 800; text-transform: uppercase;">CORRECTED <input type="checkbox" style="margin-left:5px;"></span>
+  </div>
+
+  <div class="irs-top-grid">
+    <!-- CORP BOX -->
+    <div class="irs-info-box border-b border-r" style="flex: 1.5; padding: 10px;">
+      <label class="irs-box-num">CORPORATION'S name, address, and ZIP code</label>
+      <textarea formControlName="corpName" class="irs-input-field" style="height: 60px;"></textarea>
+    </div>
+
+    <!-- TIN BOXES -->
+    <div style="flex: 1; display: flex; flex-direction: column;">
+      <div class="irs-info-box border-b" style="padding: 10px;">
+        <label class="irs-box-num">CORPORATION'S TIN</label>
+        <input type="text" formControlName="corpEIN" class="irs-input-field">
+      </div>
+      <div class="irs-info-box border-b" style="padding: 10px;">
+        <label class="irs-box-num">EMPLOYEE'S TIN</label>
+        <input type="text" formControlName="employeeSSN" class="irs-input-field">
+      </div>
+    </div>
+
+    <!-- YEAR BOX -->
+    <div class="irs-info-box border-b" style="flex: 0.5; text-align: center; border-left: 2px solid #000;">
+      <div style="font-size: 1.5rem; font-weight: 950; line-height: 1;">2024<br><span style="font-size: 1.2rem;">3921</span></div>
+    </div>
+  </div>
+
+  <div class="irs-top-grid" style="border-top: none; margin-top: 0;">
+    <div class="irs-info-box border-b border-r" style="flex: 1.5; padding: 10px;">
+      <label class="irs-box-num">EMPLOYEE'S name, address, and ZIP code</label>
+      <textarea formControlName="employeeName" class="irs-input-field" style="height: 60px;"></textarea>
+    </div>
+    <div class="irs-info-box border-b" style="flex: 1.5; padding: 10px;">
+      <label class="irs-box-num">Account number (see instructions)</label>
+      <input type="text" formControlName="accountNum" class="irs-input-field">
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- Box 1 & 2 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">1 Date option granted</label>
+        <input type="date" formControlName="box1_dateGranted" class="irs-input-field">
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">2 Date option exercised</label>
+        <input type="date" formControlName="box2_dateExercised" class="irs-input-field">
+      </div>
+    </div>
+
+    <!-- Box 3 & 4 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">3 Exercise price per share</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box3_exercisePrice" class="irs-input-field">
+        </div>
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">4 Fair market value per share on exercise date</label>
+        <div class="irs-currency">
+          <span>$</span>
+          <input type="number" formControlName="box4_fmv" class="irs-input-field">
+        </div>
+      </div>
+    </div>
+
+    <!-- Box 5 & 6 -->
+    <div class="irs-row-grid">
+      <div class="irs-grid-box border-r border-b">
+        <label class="irs-box-num">5 Number of shares transferred</label>
+        <input type="number" formControlName="box5_shares" class="irs-input-field">
+      </div>
+      <div class="irs-grid-box border-b">
+        <label class="irs-box-num">6 If other than employer corporation, name, address, and TIN</label>
+        <textarea formControlName="box6_otherCorp" class="irs-input-field" style="height: 40px;"></textarea>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px; text-align: left; font-size: 0.65rem; color: #555;">
+      <strong>Copy B—For Employee</strong>. This is important tax information and is being furnished to the Internal Revenue Service.
+    </div>
+
+    <div style="margin-top: 40px; display: flex; justify-content: flex-end;">
+      <button type="submit" class="irs-btn-submit">Submit Form 3921</button>
+    </div>
+  </form>
+</div>

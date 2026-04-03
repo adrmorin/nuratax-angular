@@ -1,0 +1,88 @@
+<div class="irs-unified-container">
+  <!-- Top Section -->
+  <div class="irs-header-top">
+    <div class="irs-form-id">
+      Form <span style="font-size: 2.2rem; font-weight: 950;">8986</span><br>
+      <span class="irs-id-sub-small">(Rev. December 2024)</span>
+    </div>
+    <div class="irs-control-box">
+      <div class="irs-control-item">Audit Control Number: <input type="text" formControlName="auditControlNumber" class="irs-input" style="text-align: left; width: 60%;"></div>
+      <div class="irs-control-item">Tracking Number: <input type="text" formControlName="trackingNumber" class="irs-input" style="text-align: left; width: 60%;"></div>
+    </div>
+  </div>
+
+  <div class="irs-title-main">
+    <h1>Partner's Share of Adjustment(s) to Partnership-Related Item(s)</h1>
+    <div style="margin-top: 10px; display: flex; justify-content: center; gap: 40px; font-weight: 850;">
+      <label><input type="checkbox" formControlName="isOriginal"> 1. Original</label>
+      <label><input type="checkbox" formControlName="isCorrected"> 2. Corrected</label>
+    </div>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
+    <!-- Block Identity I - IV -->
+    <div class="irs-block-identity">
+      <div class="irs-id-col" style="border-bottom: 2px solid #000;">
+        <label class="irs-label-small">Part I: Information About Entity Submitting This Form</label>
+        <input type="text" formControlName="entityName" class="irs-input" style="text-align: left;" placeholder="Entity Name">
+      </div>
+      <div class="irs-id-col" style="border-bottom: 2px solid #000;">
+        <label class="irs-label-small">Part II: Information About Audited Partnership</label>
+        <input type="text" formControlName="entityEIN" class="irs-input" style="text-align: left;" placeholder="TIN">
+      </div>
+      <div class="irs-id-col">
+        <label class="irs-label-small">Part III: Pass-Through Partner (if applicable)</label>
+        <textarea class="irs-input" style="height: 50px; resize: none; text-align: left;"></textarea>
+      </div>
+      <div class="irs-id-col">
+        <label class="irs-label-small">Part IV: Information About the Partner</label>
+        <input type="text" formControlName="partnerName" class="irs-input" style="text-align: left; font-weight: 950;" placeholder="Partner Name">
+        <input type="text" formControlName="partnerTIN" class="irs-input" style="text-align: left;" placeholder="Partner TIN">
+      </div>
+    </div>
+
+    <!-- PART V -->
+    <div class="irs-section-header">Part V: Partner's Share of Adjustment(s)</div>
+    
+    <div style="border: 2px solid #000;">
+      <table class="irs-adjustment-table">
+        <thead>
+          <tr>
+            <th class="irs-line-item-col">(a) Line Item</th>
+            <th class="irs-desc-col">(b) Description</th>
+            <th class="irs-code-col">Code</th>
+            <th class="irs-amount-col">(c) As originally reported</th>
+            <th class="irs-amount-col">(d) Adjustment</th>
+            <th class="irs-amount-col">(e) Corrected amount</th>
+          </tr>
+        </thead>
+        <tbody formArrayName="adjustments">
+          @for (row of adjustments.controls; track $index; let i = $index) {
+            <tr [formGroupName]="i">
+              <td class="irs-line-item-col">{{ row.get('line')?.value }}</td>
+              <td class="irs-desc-col">{{ row.get('description')?.value }}</td>
+              <td class="irs-code-col"><input formControlName="code" class="irs-input text-center"></td>
+              <td class="irs-amount-col irs-blue-bg">
+                <input type="number" formControlName="asReported" class="irs-input">
+              </td>
+              <td class="irs-amount-col irs-blue-bg">
+                <input type="number" formControlName="adjustment" class="irs-input">
+              </td>
+              <td class="irs-amount-col bg-light irs-text-bold">
+                ${{ correctedAmounts()[i] | number:'1.2-2' }}
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top: 40px; display: flex; justify-content: space-between; align-items: flex-end;">
+      <div style="font-size: 0.65rem; max-width: 500px;">
+        For Part V, use columns (c) through (e) to reflect the changes to each item as a result of the audit or AAR.
+        Increases are positive; decreases are negative.
+      </div>
+      <button type="submit" class="irs-btn-submit">Submit Form 8986</button>
+    </div>
+  </form>
+</div>
