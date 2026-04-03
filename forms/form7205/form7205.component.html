@@ -1,0 +1,27 @@
+<div class="irs-form-container">
+    <div class="irs-header"><div class="form-title">Formulario 7205 2026</div></div>
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1"><span class="irs-form-id">7205</span><span class="irs-form-sub-id">2026</span></div>
+            <div class="irs-col-2"><h1>Energy Efficient Home Credits</h1><p class="irs-instruction">▶ Attach to Form 1040 or 1040-SR.</p></div>
+            <div class="irs-col-3"><div class="irs-sequence-box"><span>Secuencia</span><span class="irs-sequence-num">82</span></div></div>
+        </div>
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right"><label for="name">Nombre</label><input id="name" type="text" formControlName="name"></div>
+                <div class="irs-field flex-1"><label for="ssn">SSN</label><input id="ssn" type="text" formControlName="ssn"></div>
+            </div>
+            <div class="irs-section-header"><span class="irs-part-num">Part I</span><span class="irs-part-title">Residential Energy Credits</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">1</td><td class="irs-desc"><label for="newConstruction">New construction . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">1</td><td class="irs-val-cell"><input id="newConstruction" type="number" formControlName="newConstruction"></td></tr>
+                    <tr><td class="irs-line-num">2</td><td class="irs-desc"><label for="qualifiedRehab">Qualified rehab expenditures . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">2</td><td class="irs-val-cell"><input id="qualifiedRehab" type="number" formControlName="qualifiedRehab"></td></tr>
+                    <tr><td class="irs-line-num">3</td><td class="irs-desc"><label for="energyEfficient">Energy efficient property . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">3</td><td class="irs-val-cell"><input id="energyEfficient" type="number" formControlName="energyEfficient"></td></tr>
+                    <tr class="irs-result-row"><td class="irs-line-num">4</td><td class="irs-desc"><strong>Total credit . . . . . . . . . . . . . . . . . . . . . . . .</strong></td><td class="irs-line-num">4</td><td class="irs-val-cell calculated">{{ taxForm.get('totalCredit')?.value | currency }}</td></tr>
+                </tbody>
+            </table>
+            <div class="irs-footer-actions"><button type="submit" class="btn-irs-submit">Guardar Formulario 7205</button></div>
+        </form>
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

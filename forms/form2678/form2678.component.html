@@ -1,0 +1,89 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title">
+            <h1>Form 2678</h1>
+            <p class="form-year">(Rev. December 2024)</p>
+        </div>
+        <div class="form-info">
+            <p><strong>Employer/Payer Appointment of Agent</strong></p>
+            <p>Department of the Treasury — Internal Revenue Service</p>
+        </div>
+    </div>
+
+    <div class="form-instructions">
+        <p>Use this form if you want to request approval to have an agent file returns and make deposits or payments of employment or other withholding taxes or if you want to revoke a prior appointment.</p>
+    </div>
+
+    <div class="part-section">
+        <h3 class="part-header">Part I — Agent Information</h3>
+        <div class="field-row">
+            <div class="field-group"><label>Agent's name</label><input type="text" formControlName="agentName"></div>
+        </div>
+        <div class="field-row">
+            <div class="field-group"><label>Agent's TIN (EIN or SSN)</label><input type="text" formControlName="agentTin"></div>
+        </div>
+        <div class="field-row">
+            <div class="field-group"><label>Agent's phone number</label><input type="text" formControlName="agentPhone"></div>
+            <div class="field-group"><label>Agent's email</label><input type="email" formControlName="agentEmail"></div>
+        </div>
+        <div class="field-row">
+            <div class="field-group"><label>Agent's address</label><input type="text" formControlName="agentAddress"></div>
+        </div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>City</label><input type="text" formControlName="agentCity"></div>
+            <div class="field-group"><label>State</label><input type="text" formControlName="agentState"></div>
+            <div class="field-group"><label>ZIP code</label><input type="text" formControlName="agentZip"></div>
+        </div>
+    </div>
+
+    <div class="part-section">
+        <h3 class="part-header">Part II — Employer/Payer Information</h3>
+        <div class="field-row">
+            <div class="field-group"><label>Employer/Payer name</label><input type="text" formControlName="employerName"></div>
+        </div>
+        <div class="field-row">
+            <div class="field-group"><label>Employer/Payer TIN (EIN)</label><input type="text" formControlName="employerTin"></div>
+        </div>
+        <div class="field-row">
+            <div class="field-group"><label>Address</label><input type="text" formControlName="employerAddress"></div>
+        </div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>City</label><input type="text" formControlName="employerCity"></div>
+            <div class="field-group"><label>State</label><input type="text" formControlName="employerState"></div>
+            <div class="field-group"><label>ZIP code</label><input type="text" formControlName="employerZip"></div>
+        </div>
+    </div>
+
+    <div class="part-section">
+        <h3 class="part-header">Part III — Tax Types</h3>
+        <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" formControlName="taxType941"> Form 941 — Quarterly Federal Tax Return</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="taxType940"> Form 940 — Annual Federal Unemployment Tax Return</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="taxType943"> Form 943 — Annual Tax Return for Agricultural Employees</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="taxType944"> Form 944 — Annual Federal Tax Return</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="taxTypeW2"> Form W-2 — Wage and Tax Statements</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="taxTypeOther"> Other (specify): <input type="text" formControlName="taxTypeOtherText"></label>
+        </div>
+    </div>
+
+    <div class="part-section">
+        <h3 class="part-header">Part IV — Authorization</h3>
+        <div class="field-row">
+            <div class="field-group"><label>Effective date</label><input type="date" formControlName="effectiveDate"></div>
+        </div>
+        <div class="signature-section">
+            <div class="signature-box">
+                <p>Signature of employer/payer</p>
+                <input type="text" formControlName="signature" class="signature-input">
+            </div>
+            <div class="date-box">
+                <p>Date</p>
+                <input type="date" formControlName="dateSigned">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button>
+    </div>
+</div>

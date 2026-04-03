@@ -1,0 +1,145 @@
+<div class="irs-unified-container">
+    <!-- Form 4797 Header -->
+    <div class="irs-header-main">
+        <div class="irs-form-id-block" style="padding-right: 15px; border-right: 2.2px solid #000;">
+            <div style="font-size: 1.55rem; font-weight: 1000; text-transform: uppercase;">Form 4797</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.8rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
+        </div>
+        <div class="irs-form-title-block" style="text-align: center; padding: 0 25px;">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.6rem; margin: 0; font-weight: 950; text-transform: uppercase;">Sales of Business Property</h1>
+                <h2 style="font-size: 1.3rem; margin: 0; font-weight: 400; font-style: italic; color: #333;">Ventas de Propiedad Comercial</h2>
+            </div>
+            <p style="font-size: 0.95rem; margin-top: 12px; font-weight: 850;">▶ Go to www.irs.gov/Form4797 for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.65rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0184</div>
+            <div style="font-size: 3.5rem; line-height: 1; font-weight: 950;">2025</div>
+        </div>
+    </div>
+
+    @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
+            <div class="irs-entity-box" style="background: #fafafa;">
+                <div class="irs-label-wrap">
+                    <label for="f4797-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return / Nombre que figura en la declaración</label>
+                </div>
+                <input id="f4797-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
+            </div>
+            <div class="irs-entity-box" style="padding: 15px; border-right: none;">
+                <div class="irs-label-wrap">
+                    <label for="f4797-ssn" class="irs-label-en">SSN / EIN</label>
+                </div>
+                <input id="f4797-ssn" type="text" formControlName="ssn" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
+            </div>
+        </div>
+
+        <!-- Part I -->
+        <div class="irs-part-banner">
+            <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Part I</span>
+            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">Sales or Exchanges of Property Used in a Trade or Business / Ventas o Intercambios de Propiedad Usada en un Negocio</span>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">2a</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">Gross sales price.</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Precio de venta bruto.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="p1Line2a" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">2b</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">Depreciation allowed or allowable.</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Depreciación permitida o admisible.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="p1Line2b" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">2c</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">Cost or other basis, plus improvements and expense of sale.</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Costo u otra base, más mejoras y gastos de venta.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="p1Line2c" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2px solid #000;">
+            <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">7</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Net gain or (loss). Combine lines 2 through 6.</span>
+                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Ganancia o (pérdida) neta. Combine las líneas 2 a 6.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-yellow-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym" style="color: #1e3a8a;">$</span>
+                    <input type="number" formControlName="p1Line7" style="text-align: right; font-weight: 1000; font-size: 1.4rem; color: #1e3a8a;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Part II -->
+        <div class="irs-part-banner" style="background: #222;">
+            <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Part II</span>
+            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">Ordinary Gains and Losses / Ganancias y Pérdidas Ordinarias</span>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; border-bottom: 3.5px solid #000;">
+            <div class="irs-col-line-num" style="background: #000; color: #fff;">18</div>
+            <div style="padding: 20px; display: flex; align-items: center;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-size: 1.25rem; font-weight: 1000;">Combined ordinary gain or (loss). Combine lines 10 through 17.</span>
+                    <span class="irs-label-es" style="font-size: 1.1rem; font-weight: 750;">Ganancia o (pérdida) ordinaria combinada. Combine las líneas 10 a 17.</span>
+                </div>
+            </div>
+            <div class="irs-cell-input irs-yellow-cell" style="border-left: 3.5px solid #000;">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym" style="font-size: 1.6rem;">$</span>
+                    <input type="number" formControlName="p2Line17" style="font-size: 1.95rem; font-weight: 1000; text-align: right;">
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 60px 40px; text-align: center; background: #fff;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase; letter-spacing: 2.5px; box-shadow: 0 25px 60px rgba(0,0,0,0.25); transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
+                Save Form 4797 / Guardar Formulario 4797
+            </button>
+        </div>
+    </form>
+    }
+</div>

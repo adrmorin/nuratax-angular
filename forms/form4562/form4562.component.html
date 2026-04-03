@@ -1,0 +1,45 @@
+<div class="irs-form-container">
+    <div class="irs-header"><div class="form-title">Formulario 4562 2026</div></div>
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1"><span class="irs-form-id">4562</span><span class="irs-form-sub-id">2026</span></div>
+            <div class="irs-col-2"><h1>Depreciation and Amortization</h1><p class="irs-instruction">▶ Attach to Form 1040, 1040-SR, 1120, or 1065.</p></div>
+            <div class="irs-col-3"><div class="irs-sequence-box"><span>Secuencia</span><span class="irs-sequence-num">67</span></div></div>
+        </div>
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right"><label for="name">Nombre</label><input id="name" type="text" formControlName="name"></div>
+                <div class="irs-field flex-1"><label for="ein">EIN</label><input id="ein" type="text" formControlName="ein"></div>
+            </div>
+            <div class="irs-section-header"><span class="irs-part-num">Part I</span><span class="irs-part-title">Election of Recovery Property</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">1</td><td class="irs-desc"><label for="descriptionProperty">Description of property . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">1</td><td class="irs-val-cell"><input id="descriptionProperty" type="text" formControlName="descriptionProperty"></td></tr>
+                    <tr><td class="irs-line-num">2</td><td class="irs-desc"><label for="datePlaced">Date placed in service . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">2</td><td class="irs-val-cell"><input id="datePlaced" type="date" formControlName="datePlaced"></td></tr>
+                    <tr><td class="irs-line-num">3</td><td class="irs-desc"><label for="costBasis">Cost or other basis . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">3</td><td class="irs-val-cell"><input id="costBasis" type="number" formControlName="costBasis"></td></tr>
+                    <tr><td class="irs-line-num">4</td><td class="irs-desc"><label for="section179">Section 179 expense . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">4</td><td class="irs-val-cell"><input id="section179" type="number" formControlName="section179"></td></tr>
+                    <tr><td class="irs-line-num">5</td><td class="irs-desc"><label for="recoveryPeriod">Recovery period . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">5</td><td class="irs-val-cell"><input id="recoveryPeriod" type="number" formControlName="recoveryPeriod"></td></tr>
+                    <tr><td class="irs-line-num">6</td><td class="irs-desc"><label for="method">Depreciation method . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">6</td><td class="irs-val-cell"><input id="method" type="text" formControlName="method"></td></tr>
+                    <tr class="irs-result-row"><td class="irs-line-num">7</td><td class="irs-desc"><strong>Depreciation deduction . . . . . . . . . . . . . . . . . . . .</strong></td><td class="irs-line-num">7</td><td class="irs-val-cell calculated">{{ taxForm.get('deduction')?.value | currency }}</td></tr>
+                </tbody>
+            </table>
+            <div class="irs-section-header"><span class="irs-part-num">Part II</span><span class="irs-part-title">Special Depreciation Allowance</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">8</td><td class="irs-desc"><label for="qualifiedProperty">Qualified property . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">8</td><td class="irs-val-cell"><input id="qualifiedProperty" type="number" formControlName="qualifiedProperty"></td></tr>
+                    <tr><td class="irs-line-num">9</td><td class="irs-desc"><label for="specialAllowance">Special depreciation allowance . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">9</td><td class="irs-val-cell"><input id="specialAllowance" type="number" formControlName="specialAllowance"></td></tr>
+                </tbody>
+            </table>
+            <div class="irs-section-header"><span class="irs-part-num">Part III</span><span class="irs-part-title">Section 179</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">10</td><td class="irs-desc"><label for="section179Cost">Section 179 cost . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">10</td><td class="irs-val-cell"><input id="section179Cost" type="number" formControlName="section179Cost"></td></tr>
+                    <tr><td class="irs-line-num">11</td><td class="irs-desc"><label for="section179Limit">Dollar limitation . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">11</td><td class="irs-val-cell"><input id="section179Limit" type="number" formControlName="section179Limit"></td></tr>
+                    <tr class="irs-result-row"><td class="irs-line-num">12</td><td class="irs-desc"><strong>Section 179 deduction . . . . . . . . . . . . . . . . . . . . . .</strong></td><td class="irs-line-num">12</td><td class="irs-val-cell calculated">{{ taxForm.get('section179Deduction')?.value | currency }}</td></tr>
+                </tbody>
+            </table>
+            <div class="irs-footer-actions"><button type="submit" class="btn-irs-submit">Guardar Formulario 4562</button></div>
+        </form>
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

@@ -1,0 +1,145 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title">
+            <h1>Form 8997</h1>
+            <p class="form-year">Department of the Treasury - Internal Revenue Service</p>
+        </div>
+        <div class="form-info">
+            <p><strong>Initial and Annual Statement of Qualified Opportunity Fund (QOF) Investments</strong></p>
+            <p>Attach to Form 1040, 1040-SR, 1040-NR, 1041, 1065, 1120, 1120-F, 1120-REIT, 1120-RIC, 1120-S, or 990-T.</p>
+        </div>
+    </div>
+
+    <div class="investor-section">
+        <h3>Investor Information</h3>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Name of investor</label>
+                <input type="text" formControlName="investorName">
+            </div>
+            <div class="field-group small">
+                <label>Identifying number</label>
+                <input type="text" formControlName="ein" placeholder="XX-XXXXXXX">
+            </div>
+        </div>
+    </div>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part I - QOF Investment Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">Name of Qualified Opportunity Fund</td>
+                <td class="line-input"><input type="text" formControlName="qofName"></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">QOF's EIN</td>
+                <td class="line-input"><input type="text" formControlName="qofEin"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part II - Investment Amounts</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">Investment held at beginning of tax year</td>
+                <td class="line-input"><input type="number" formControlName="beginningInvestment"></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">Additional investments during tax year</td>
+                <td class="line-input"><input type="number" formControlName="additionalInvestments"></td>
+            </tr>
+            <tr>
+                <td class="line-num">3</td>
+                <td class="line-desc">Withdrawals during tax year</td>
+                <td class="line-input"><input type="number" formControlName="withdrawals"></td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="line-num">4</td>
+                <td class="line-desc"><strong>Investment held at end of tax year</strong></td>
+                <td class="line-input"><input type="number" formControlName="endingInvestment" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part III - Deferred Capital Gain</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">Original gain deferred</td>
+                <td class="line-input"><input type="number" formControlName="originalGainDeferred"></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">Gain recognized in prior years</td>
+                <td class="line-input"><input type="number" formControlName="gainRecognized"></td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="line-num">3</td>
+                <td class="line-desc"><strong>Total deferred gain</strong></td>
+                <td class="line-input"><input type="number" formControlName="deferredCapitalGain" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part IV - Holding Period</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">Date of original investment</td>
+                <td class="line-input"><input type="date" formControlName="investmentDate"></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">Number of years held</td>
+                <td class="line-input"><input type="number" formControlName="yearsHeld"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="election-section">
+        <label>
+            <input type="checkbox" formControlName="electionToWaive"> 
+            Check here if you elect to waive the deferral period under section 1400Z-2(a)(3)
+        </label>
+    </div>
+
+    <div class="nerea-advice">
+        <div class="advice-header">
+            <img src="assets/images/nerea_avatar.png" alt="Nerea" class="nerea-avatar">
+            <span class="advice-title">Asistente de Impuestos</span>
+        </div>
+        <div class="advice-content">
+            <p><strong>Propósito:</strong> {{ nereaAdvice.purpose }}</p>
+            <p><strong>Diferimiento:</strong> {{ nereaAdvice.deferral }}</p>
+            <p><strong>Aumento de Base:</strong> {{ nereaAdvice.basis }}</p>
+            <p><strong>Reporte:</strong> {{ nereaAdvice.reporting }}</p>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button>
+    </div>
+</div>

@@ -1,0 +1,156 @@
+<div class="irs-form-container" style="position: relative;">
+    <div class="irs-header">
+        <div class="irs-header-left">
+            <div class="form-title">Formulario 8281 2026</div>
+        </div>
+        <div class="irs-header-right">
+            <span>Página 1</span>
+        </div>
+    </div>
+
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1">
+                <span class="irs-form-id">8281</span>
+                <span class="irs-form-sub-id">2026</span>
+            </div>
+            <div class="irs-col-2">
+                <h1>Information Return for Publicly Offered Original Issue Discount Instruments</h1>
+                <p class="irs-instruction">▶ Attach to Form 1099.</p>
+            </div>
+            <div class="irs-col-3">
+                <div class="irs-sequence-box">
+                    <span>OMB No.</span>
+                    <span class="irs-sequence-num">1545-0887</span>
+                </div>
+            </div>
+        </div>
+
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part I</span>
+                <span class="irs-part-title">Issuer Information</span>
+            </div>
+
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right">
+                    <label for="issuerName">Issuer's name</label>
+                    <input id="issuerName" type="text" formControlName="issuerName">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="tin">Issuer's TIN</label>
+                    <input id="tin" type="text" formControlName="tin">
+                </div>
+            </div>
+
+            <div class="irs-row-border">
+                <div class="irs-field flex-1 border-right">
+                    <label for="address">Issuer's address</label>
+                    <input id="address" type="text" formControlName="address">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="cityStateZip">City, state, and ZIP</label>
+                    <input id="cityStateZip" type="text" formControlName="cityStateZip">
+                </div>
+            </div>
+
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part II</span>
+                <span class="irs-part-title">Instrument Information</span>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-desc"><label for="description">Description of instrument . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-val-cell"><input id="description" type="text" formControlName="description"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">2</td>
+                        <td class="irs-desc"><label for="issueDate">Issue date (MM/DD/YYYY) . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">2</td>
+                        <td class="irs-val-cell"><input id="issueDate" type="date" formControlName="issueDate"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-desc"><label for="issuePrice">Issue price . . . . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-val-cell"><input id="issuePrice" type="number" formControlName="issuePrice"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-desc"><label for="statedRedemption">Stated redemption price at maturity . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-val-cell"><input id="statedRedemption" type="number" formControlName="statedRedemption"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">5</td>
+                        <td class="irs-desc"><strong>Total OID. Line 4 menos línea 3 . . . . . . . . . . . . . . . . . .</strong></td>
+                        <td class="irs-line-num">5</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('totalOID')?.value | currency }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">6</td>
+                        <td class="irs-desc"><label for="termYears">Term of instrument (years) . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">6</td>
+                        <td class="irs-val-cell"><input id="termYears" type="number" formControlName="termYears"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">7</td>
+                        <td class="irs-desc"><label for="yieldToMaturity">Yield to maturity . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">7</td>
+                        <td class="irs-val-cell"><input id="yieldToMaturity" type="number" formControlName="yieldToMaturity"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part III</span>
+                <span class="irs-part-title">Acquisition Under Section 1202</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part1 }}
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">8</td>
+                        <td class="irs-desc"><label for="qualifiedSmallBusiness">Qualified small business stock . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">8</td>
+                        <td class="irs-val-cell">
+                            <div class="irs-checkbox-simple">
+                                <input type="checkbox" id="qsb" formControlName="qsb">
+                                <label for="qsb">Yes</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">9</td>
+                        <td class="irs-desc"><label for="acquisitionDate">Date of acquisition (MM/DD/YYYY) . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">9</td>
+                        <td class="irs-val-cell"><input id="acquisitionDate" type="date" formControlName="acquisitionDate"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">10</td>
+                        <td class="irs-desc"><label for="acquisitionPrice">Acquisition price . . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">10</td>
+                        <td class="irs-val-cell"><input id="acquisitionPrice" type="number" formControlName="acquisitionPrice"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="irs-footer-actions">
+                <button type="submit" class="btn-irs-submit">Guardar Formulario 8281</button>
+            </div>
+        </form>
+
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

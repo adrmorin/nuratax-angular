@@ -1,0 +1,238 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title">
+            <h1>Form 1065</h1>
+            <p class="form-year">Department of the Treasury - Internal Revenue Service</p>
+        </div>
+        <div class="form-info">
+            <p><strong>U.S. Return of Partnership Income</strong></p>
+            <p>Go to www.irs.gov/Form1065 for instructions and latest information.</p>
+        </div>
+    </div>
+
+    <div class="partnership-section">
+        <h3>Partnership Information</h3>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Name of partnership</label>
+                <input type="text" formControlName="partnershipName">
+            </div>
+            <div class="field-group small">
+                <label>EIN</label>
+                <input type="text" formControlName="ein">
+            </div>
+        </div>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Principal business activity</label>
+                <input type="text" formControlName="principalActivity">
+            </div>
+            <div class="field-group small">
+                <label>Activity code</label>
+                <input type="text" formControlName="activityCode">
+            </div>
+            <div class="field-group small">
+                <label>Number of partners</label>
+                <input type="number" formControlName="numberOfPartners">
+            </div>
+        </div>
+    </div>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part I - Income</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">Gross receipts or sales</td>
+                <td class="line-input"><input type="number" formControlName="grossReceipts"></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">Gross rentals</td>
+                <td class="line-input"><input type="number" formControlName="grossRentals"></td>
+            </tr>
+            <tr>
+                <td class="line-num">3</td>
+                <td class="line-desc">Gross royalties</td>
+                <td class="line-input"><input type="number" formControlName="grossRoyalties"></td>
+            </tr>
+            <tr>
+                <td class="line-num">4</td>
+                <td class="line-desc">Interest income</td>
+                <td class="line-input"><input type="number" formControlName="interestIncome"></td>
+            </tr>
+            <tr>
+                <td class="line-num">5</td>
+                <td class="line-desc">Dividends</td>
+                <td class="line-input"><input type="number" formControlName="dividendIncome"></td>
+            </tr>
+            <tr>
+                <td class="line-num">6</td>
+                <td class="line-desc">Gross amount from trading activities</td>
+                <td class="line-input"><input type="number" formControlName="grossTrading"></td>
+            </tr>
+            <tr>
+                <td class="line-num">7</td>
+                <td class="line-desc">Other income</td>
+                <td class="line-input"><input type="number" formControlName="otherIncome"></td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="line-num">8</td>
+                <td class="line-desc"><strong>Total income (add lines 1 through 7)</strong></td>
+                <td class="line-input"><input type="number" formControlName="totalIncome" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part II - Deductions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">9</td>
+                <td class="line-desc">Compensation of officers</td>
+                <td class="line-input"><input type="number" formControlName="compensationOfficers"></td>
+            </tr>
+            <tr>
+                <td class="line-num">10</td>
+                <td class="line-desc">Salaries and wages</td>
+                <td class="line-input"><input type="number" formControlName="salariesWages"></td>
+            </tr>
+            <tr>
+                <td class="line-num">11</td>
+                <td class="line-desc">Guaranteed payments to partners</td>
+                <td class="line-input"><input type="number" formControlName="guaranteedPayments"></td>
+            </tr>
+            <tr>
+                <td class="line-num">12</td>
+                <td class="line-desc">Rents</td>
+                <td class="line-input"><input type="number" formControlName="rentals"></td>
+            </tr>
+            <tr>
+                <td class="line-num">13</td>
+                <td class="line-desc">Taxes and licenses</td>
+                <td class="line-input"><input type="number" formControlName="taxesLicenses"></td>
+            </tr>
+            <tr>
+                <td class="line-num">14</td>
+                <td class="line-desc">Interest paid</td>
+                <td class="line-input"><input type="number" formControlName="interestPaid"></td>
+            </tr>
+            <tr>
+                <td class="line-num">15</td>
+                <td class="line-desc">Depreciation</td>
+                <td class="line-input"><input type="number" formControlName="depreciation"></td>
+            </tr>
+            <tr>
+                <td class="line-num">16</td>
+                <td class="line-desc">Depletion</td>
+                <td class="line-input"><input type="number" formControlName="depletion"></td>
+            </tr>
+            <tr>
+                <td class="line-num">17</td>
+                <td class="line-desc">Retirement plans, etc.</td>
+                <td class="line-input"><input type="number" formControlName="retirementPlans"></td>
+            </tr>
+            <tr>
+                <td class="line-num">18</td>
+                <td class="line-desc">Other deductions</td>
+                <td class="line-input"><input type="number" formControlName="otherDeductions"></td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="line-num">19</td>
+                <td class="line-desc"><strong>Total deductions (add lines 9 through 18)</strong></td>
+                <td class="line-input"><input type="number" formControlName="totalDeductions" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part III - Ordinary Business Income</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="highlight-row">
+                <td class="line-num">20</td>
+                <td class="line-desc"><strong>Ordinary income (loss) (line 8 less line 19)</strong></td>
+                <td class="line-input"><input type="number" formControlName="ordinaryIncome" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part IV - Items for Schedule K</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">21</td>
+                <td class="line-desc">Portfolio income (loss)</td>
+                <td class="line-input"><input type="number" formControlName="portfolioIncome"></td>
+            </tr>
+            <tr>
+                <td class="line-num">22</td>
+                <td class="line-desc">Net capital gain (loss)</td>
+                <td class="line-input"><input type="number" formControlName="netCapitalGain"></td>
+            </tr>
+            <tr>
+                <td class="line-num">23</td>
+                <td class="line-desc">Net section 1231 gain (loss)</td>
+                <td class="line-input"><input type="number" formControlName="netSection1231Gain"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part V - Tax Credits</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">24</td>
+                <td class="line-desc">General business credit</td>
+                <td class="line-input"><input type="number" formControlName="generalBusinessCredit"></td>
+            </tr>
+            <tr>
+                <td class="line-num">25</td>
+                <td class="line-desc">Low-income housing credit</td>
+                <td class="line-input"><input type="number" formControlName="lowIncomeHousingCredit"></td>
+            </tr>
+            <tr>
+                <td class="line-num">26</td>
+                <td class="line-desc">Other credits</td>
+                <td class="line-input"><input type="number" formControlName="otherCredits"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="nerea-advice">
+        <div class="advice-header">
+            <img src="assets/images/nerea_avatar.png" alt="Nerea" class="nerea-avatar">
+            <span class="advice-title">Asistente de Impuestos</span>
+        </div>
+        <div class="advice-content">
+            <p><strong>Propósito:</strong> {{ nereaAdvice.purpose }}</p>
+            <p><strong>Schedule K-1:</strong> {{ nereaAdvice.k1 }}</p>
+            <p><strong>Fecha límite:</strong> {{ nereaAdvice.filing }}</p>
+            <p><strong>Impuestos estimados:</strong> {{ nereaAdvice.estimated }}</p>
+            <p><strong>Información:</strong> {{ nereaAdvice.info }}</p>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button>
+    </div>
+</div>

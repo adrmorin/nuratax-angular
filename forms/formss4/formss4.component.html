@@ -1,0 +1,115 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title">
+            <h1>Form SS-4</h1>
+            <p class="form-year">(Rev. December 2025)</p>
+        </div>
+        <div class="form-info">
+            <p><strong>Application for Employer Identification Number (EIN)</strong></p>
+            <p>Department of the Treasury — Internal Revenue Service</p>
+        </div>
+    </div>
+
+    <div class="form-instructions">
+        <p><strong>Who May Apply:</strong> You may apply for an EIN if you have a valid reason to do so (e.g., starting a new business, hiring employees, opening a bank account).</p>
+    </div>
+
+    <div class="part-section">
+        <h3 class="part-header">Part I — Legal Name and Trade Name</h3>
+        <div class="field-row">
+            <div class="field-group"><label>Legal name of entity (or individual)</label><input type="text" formControlName="legalName"></div>
+        </div>
+        <div class="field-row">
+            <div class="field-group"><label>Trade name (if different from legal name)</label><input type="text" formControlName="tradeName"></div>
+        </div>
+    </div>
+
+    <div class="part-section">
+        <h3 class="part-header">Part II — Entity Type</h3>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Type of entity (check one):</label>
+                <div class="radio-group">
+                    <label><input type="radio" formControlName="entityType" value="Sole Proprietor"> Sole Proprietor</label>
+                    <label><input type="radio" formControlName="entityType" value="Partnership"> Partnership</label>
+                    <label><input type="radio" formControlName="entityType" value="Corporation"> Corporation</label>
+                    <label><input type="radio" formControlName="entityType" value="LLC"> Limited Liability Company</label>
+                    <label><input type="radio" formControlName="entityType" value="Estate/Trust"> Estate/Trust</label>
+                    <label><input type="radio" formControlName="entityType" value="Other"> Other</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="part-section">
+        <h3 class="part-header">Part III — Entity Information</h3>
+        <div class="field-row three-col">
+            <div class="field-group"><label>State of formation</label><input type="text" formControlName="stateOfFormation"></div>
+            <div class="field-group"><label>Date organized</label><input type="date" formControlName="dateOrganized"></div>
+        </div>
+    </div>
+
+    <div class="part-section">
+        <h3 class="part-header">Part IV — Principal Address</h3>
+        <div class="field-row">
+            <div class="field-group"><label>Street address</label><input type="text" formControlName="principalAddress"></div>
+        </div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>City</label><input type="text" formControlName="city"></div>
+            <div class="field-group"><label>State</label><input type="text" formControlName="state"></div>
+            <div class="field-group"><label>ZIP code</label><input type="text" formControlName="zip"></div>
+        </div>
+    </div>
+
+    <div class="part-section">
+        <h3 class="part-header">Part V — Responsible Party</h3>
+        <div class="field-row">
+            <div class="field-group"><label>Name of responsible party</label><input type="text" formControlName="responsiblePartyName"></div>
+        </div>
+        <div class="field-row">
+            <div class="field-group"><label>Social Security Number (SSN)</label><input type="text" formControlName="ssn"></div>
+            <div class="field-group"><label>Phone number</label><input type="text" formControlName="responsiblePartyPhone"></div>
+        </div>
+    </div>
+
+    <div class="part-section">
+        <h3 class="part-header">Part VI — Business Information</h3>
+        <div class="field-row">
+            <div class="field-group"><label>Principal business activity</label><input type="text" formControlName="principalActivity"></div>
+        </div>
+        <div class="field-row">
+            <div class="field-group"><label>Describe business activities</label><textarea formControlName="productService" rows="2"></textarea></div>
+        </div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>Number of employees expected</label><input type="number" formControlName="numberEmployees"></div>
+            <div class="field-group"><label>Payroll frequency</label><select formControlName="payrollFrequency">
+                <option value="">Select...</option>
+                <option value="Weekly">Weekly</option>
+                <option value="Bi-weekly">Bi-weekly</option>
+                <option value="Semi-monthly">Semi-monthly</option>
+                <option value="Monthly">Monthly</option>
+            </select></div>
+            <div class="field-group"><label>First wages paid</label><input type="date" formControlName="firstWagesDate"></div>
+        </div>
+    </div>
+
+    <div class="part-section">
+        <h3 class="part-header">Part VII — Prior EIN</h3>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Have you previously applied for an EIN?</label>
+                <div class="radio-group">
+                    <label><input type="radio" formControlName="hasAppliedBefore" value="Yes"> Yes</label>
+                    <label><input type="radio" formControlName="hasAppliedBefore" value="No"> No</label>
+                </div>
+            </div>
+        </div>
+        <div class="field-row" *ngIf="taxForm.get('hasAppliedBefore')?.value === 'Yes'">
+            <div class="field-group"><label>Prior EIN</label><input type="text" formControlName="priorEin"></div>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button>
+    </div>
+</div>

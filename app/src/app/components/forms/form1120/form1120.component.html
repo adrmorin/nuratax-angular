@@ -1,103 +1,185 @@
-<div class="irs-form-container">
-  <div class="irs-form-box">
-    <!-- Header -->
-    <div class="irs-main-header">
-      <div class="irs-col-form-id">
-        <div class="irs-form-num">Form <span class="num-large">1120</span></div>
-        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
-      </div>
-      <div class="irs-col-title">
-        <h1>U.S. Corporation Income Tax Return</h1>
-        <p class="irs-instruction">Go to <strong>www.irs.gov/Form1120</strong> for instructions and the latest information.</p>
-        <p class="irs-tax-year">For calendar year 2024 or tax year beginning ...</p>
-      </div>
-      <div class="irs-col-omb">
-        <div class="irs-omb">OMB No. 1545-0123</div>
-        <div class="irs-year-box">
-          <div class="irs-year">2025</div>
+<div class="irs-unified-container">
+    <!-- Form 1120 Header -->
+    <div class="irs-header-main" style="background: #fff; border-bottom: 3.2px solid #000;">
+        <div class="irs-form-id-block" style="padding-right: 15px; border-right: 2px solid #000;">
+            <div style="font-size: 1.4rem; font-weight: 950; text-transform: uppercase;">Form 1120</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.75rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
         </div>
-      </div>
+        <div class="irs-form-title-block" style="text-align: center; padding: 0 20px;">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.55rem; margin: 0; font-weight: 950; text-transform: uppercase;">U.S. Corporation Income Tax Return</h1>
+                <h2 style="font-size: 1.25rem; margin: 0; font-weight: 400; font-style: italic; color: #333;">Declaración de Impuestos sobre los Ingresos de Corporaciones de los EE. UU.</h2>
+            </div>
+            <p style="font-size: 0.9rem; margin-top: 12px; font-weight: 800;">▶ Go to www.irs.gov/Form1120 for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.65rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0123</div>
+            <div style="font-size: 3.2rem; line-height: 1; font-weight: 950;">2025</div>
+        </div>
     </div>
 
+    @if (form) {
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <!-- Entity Info Grid -->
-      <div class="irs-entity-grid">
-        <div class="irs-section-a">
-          <span class="irs-header-label">A Check if:</span>
-          <div class="check-group">
-            <input type="checkbox" id="c1" formControlName="consolidatedReturn"> <label for="c1">1 Consolidated return</label><br>
-            <input type="checkbox" id="c2" formControlName="personalHoldingCo"> <label for="c2">2 Personal holding co.</label><br>
-            <input type="checkbox" id="c3" formControlName="personalServiceCorp"> <label for="c3">3 Personal service corp.</label><br>
-            <input type="checkbox" id="c4" formControlName="schM3Attached"> <label for="c4">4 Schedule M-3 attached</label>
-          </div>
+        <!-- Entity Information Grid -->
+        <div class="irs-row" style="grid-template-columns: 320px 1fr 240px; border-bottom: 3.2px solid #000;">
+            <div class="irs-entity-box" style="background: #fafafa;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">A. Check if: / Marque si:</span>
+                </div>
+                <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 15px;">
+                    <label class="irs-cb-wrap">
+                        <input type="checkbox" formControlName="consolidatedReturn" style="width: 20px; height: 20px;">
+                        <span>1 Consolidated return / Declaración consolidada</span>
+                    </label>
+                    <label class="irs-cb-wrap">
+                        <input type="checkbox" formControlName="personalHoldingCo" style="width: 20px; height: 20px;">
+                        <span>2 Personal holding co. / Co. tenedora personal</span>
+                    </label>
+                    <label class="irs-cb-wrap">
+                        <input type="checkbox" formControlName="personalServiceCorp" style="width: 20px; height: 20px;">
+                        <span>3 Personal service corp. / Corp. servicios personales</span>
+                    </label>
+                </div>
+            </div>
+            <div class="irs-entity-box" style="padding: 15px;">
+                <div class="irs-label-wrap">
+                    <label for="f1120-name" class="irs-label-en" style="font-size: 1.15rem; font-weight: 950;">Name / Nombre de la Corporación</label>
+                </div>
+                <input id="f1120-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.35rem; font-weight: 950; margin-bottom: 20px;">
+                
+                <div class="irs-label-wrap">
+                    <label for="f1120-address" class="irs-label-en">Number, street, and room or suite no. / Dirección</label>
+                </div>
+                <input id="f1120-address" type="text" formControlName="address" style="width: 100%; border: none; font-size: 1.1rem; font-weight: 900;">
+            </div>
+            <div style="display: flex; flex-direction: column;">
+                <div style="padding: 12px 15px; border-bottom: 2.5px solid #000; height: 50%;">
+                    <div class="irs-label-wrap">
+                        <label for="f1120-ein" class="irs-label-en">B. EIN / EIN</label>
+                        <span class="irs-label-es">Número de identificación de empleador</span>
+                    </div>
+                    <input id="f1120-ein" type="text" formControlName="ein" style="font-size: 1.25rem; font-weight: 950; letter-spacing: 2px;">
+                </div>
+                <div style="padding: 12px 15px; height: 50%;">
+                    <div class="irs-label-wrap">
+                        <label for="f1120-assets" class="irs-label-en">D. Total assets / Activos totales</label>
+                        <span class="irs-label-es">Basado en el Balance General (Anexo L)</span>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <span class="irs-money-sym">$</span>
+                        <input id="f1120-assets" type="number" formControlName="totalAssets" style="font-size: 1.25rem; font-weight: 950; text-align: right;">
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="irs-entity-info">
-          <label for="name">Name</label>
-          <input id="name" type="text" formControlName="name" class="irs-borderless-input">
-          <label for="address">Number, street, and room or suite no.</label>
-          <input id="address" type="text" formControlName="address" class="irs-borderless-input">
-          <label for="city">City or town, state, country, and ZIP</label>
-          <input id="city" type="text" formControlName="cityStateZip" class="irs-borderless-input">
-        </div>
-        <div class="irs-sections-bde">
-          <div class="box-b"><label for="ein">B EIN</label> <input id="ein" type="text" formControlName="ein"></div>
-          <div class="box-c"><label for="incorp">C Date incorp.</label> <input id="incorp" type="text" formControlName="dateIncorporated"></div>
-          <div class="box-d"><label for="assets">D Total assets</label> <input id="assets" type="number" formControlName="totalAssets"></div>
-        </div>
-      </div>
 
-      <!-- Income Section -->
-      <div class="irs-main-body-with-label">
-        <div class="irs-vertical-label">Income</div>
-        <div class="irs-form-body flex-grow">
-          <div class="irs-line-item">
-            <div class="irs-line-num">1a</div>
-            <div class="irs-line-desc"><label for="1a">Gross receipts or sales</label></div>
-            <div class="irs-input-box-mid"><input id="1a" type="number" formControlName="line1a"></div>
-            <div class="irs-line-num-2">1c</div>
-            <div class="irs-input-box"><input id="1c" type="number" formControlName="line1c"></div>
-          </div>
-          <div class="irs-line-item zebra-light-border">
-            <div class="irs-line-num">2</div>
-            <div class="irs-line-desc"><label for="2">Cost of goods sold (attach Form 1125-A)</label></div>
-            <div class="irs-dots"></div>
-            <div class="irs-line-num-2">2</div>
-            <div class="irs-input-box"><input id="2" type="number" formControlName="line2"></div>
-          </div>
-          <div class="irs-line-item zebra-dark-border">
-            <div class="irs-line-num">11</div>
-            <div class="irs-line-desc"><strong>Total income.</strong> Add lines 3 through 10</div>
-            <div class="irs-dots"></div>
-            <div class="irs-line-num-2">11</div>
-            <div class="irs-input-box"><input id="11" type="number" formControlName="line11"></div>
-          </div>
+        <!-- Income Section -->
+        <div class="irs-part-banner" style="background: #111;">
+            <div class="irs-label-wrap" style="display: flex; gap: 20px; align-items: baseline;">
+                <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">INCOME</span>
+                <span style="font-size: 1.1rem; font-weight: 700; color: #ccc;">Ingresos</span>
+            </div>
         </div>
-      </div>
 
-      <!-- Deductions Section -->
-      <div class="irs-main-body-with-label">
-        <div class="irs-vertical-label">Deductions</div>
-        <div class="irs-form-body flex-grow">
-          <div class="irs-line-item">
-            <div class="irs-line-num">12</div>
-            <div class="irs-line-desc"><label for="12">Compensation of officers (attach Form 1125-E)</label></div>
-            <div class="irs-dots"></div>
-            <div class="irs-line-num-2">12</div>
-            <div class="irs-input-box"><input id="12" type="number" formControlName="line12"></div>
-          </div>
-          <div class="irs-line-item zebra-light-border">
-            <div class="irs-line-num">27</div>
-            <div class="irs-line-desc"><strong>Total deductions.</strong> Add lines 12 through 26</div>
-            <div class="irs-dots"></div>
-            <div class="irs-line-num-2">27</div>
-            <div class="irs-input-box"><input id="27" type="number" formControlName="line27"></div>
-          </div>
+        <div class="irs-row" style="grid-template-columns: 50px 1fr 220px;">
+            <div class="irs-col-line-num">1a</div>
+            <div style="padding: 12px 15px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">Gross receipts or sales.</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Ingresos brutos o ventas.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 10px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line1a" style="text-align: right; padding-right: 5px;">
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="irs-footer-actions">
-        <button type="submit" class="btn-submit">Submit Form 1120</button>
-      </div>
+        <div class="irs-row" style="grid-template-columns: 50px 1fr 220px;">
+            <div class="irs-col-line-num">2</div>
+            <div style="padding: 12px 15px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Cost of goods sold (attach Form 1125-A).</span>
+                    <span class="irs-label-es">Costo de los bienes vendidos (adjunte el Formulario 1125-A).</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 10px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line2" style="text-align: right; padding-right: 5px;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 50px 1fr 220px; border-bottom: 3.2px solid #000; background: #fafafa;">
+            <div class="irs-col-line-num" style="background: var(--irs-accent-amber); color: #000;">11</div>
+            <div style="padding: 15px; display: flex; align-items: center;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-size: 1.1rem; font-weight: 950;">Total income. Add lines 3 through 10.</span>
+                    <span class="irs-label-es" style="font-size: 0.95rem; font-weight: 700;">Ingresos totales. Sume las líneas 3 a la 10.</span>
+                </div>
+            </div>
+            <div class="irs-cell-input" style="background: var(--irs-accent-amber-light) !important; border-left: 3.2px solid #000;">
+                <div style="display: flex; align-items: center; padding: 0 10px;">
+                    <span class="irs-money-sym" style="color: #000;">$</span>
+                    <input type="number" formControlName="line11" style="font-size: 1.4rem; font-weight: 950; text-align: right; color: #000;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Deductions Section -->
+        <div class="irs-part-banner" style="background: #333;">
+            <div class="irs-label-wrap" style="display: flex; gap: 20px; align-items: baseline;">
+                <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">DEDUCTIONS</span>
+                <span style="font-size: 1.1rem; font-weight: 700; color: #ccc;">Deducciones</span>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 50px 1fr 220px;">
+            <div class="irs-col-line-num">12</div>
+            <div style="padding: 12px 15px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Compensation of officers (attach Form 1125-E).</span>
+                    <span class="irs-label-es">Compensación de directivos (adjunte el Formulario 1125-E).</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 10px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line12" style="text-align: right; padding-right: 5px;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 50px 1fr 220px; border-bottom: 3.2px solid #000; background: #fdfdfd;">
+            <div class="irs-col-line-num" style="background: #ccc;">27</div>
+            <div style="padding: 15px; display: flex; align-items: center;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-size: 1.1rem; font-weight: 950;">Total deductions. Add lines 12 through 26.</span>
+                    <span class="irs-label-es" style="font-size: 0.95rem; font-weight: 700;">Deducciones totales. Sume las líneas 12 a la 26.</span>
+                </div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell" style="border-left: 3.2px solid #000; background: #eef2ff !important">
+                <div style="display: flex; align-items: center; padding: 0 10px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line27" style="font-size: 1.4rem; font-weight: 950; text-align: right; color: #1e3a8a;">
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 50px 40px; text-align: center; background: #fff; border-top: 3.2px solid #000;">
+            <button type="submit" style="background: #000; color: #fff; padding: 22px 100px; border: none; font-size: 1.5rem; font-weight: 950; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                Save Form 1120 / Guardar Formulario 1120
+            </button>
+        </div>
     </form>
-  </div>
+    }
 </div>

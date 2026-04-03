@@ -1,0 +1,39 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 6251</h1><p class="form-year">Department of the Treasury - Internal Revenue Service</p></div>
+        <div class="form-info"><p><strong>Alternative Minimum Tax - Individuals</strong> - For calendar year 2026</p></div>
+    </div>
+
+    <div class="taxpayer-section">
+        <div class="field-row">
+            <div class="field-group"><label>Filing status</label>
+                <select formControlName="filingStatus">
+                    <option value="single">Single</option>
+                    <option value="married">Married Filing Jointly</option>
+                    <option value="head">Head of Household</option>
+                </select>
+            </div>
+            <div class="field-group"><label>AGI</label><input type="number" formControlName="agi"></div>
+        </div>
+    </div>
+
+    <table class="form-table">
+        <thead><tr><th colspan="3" class="section-header">Income and Deductions</th></tr></thead>
+        <tbody>
+            <tr><td class="line-num">1</td><td class="line-desc">Taxable income</td><td class="line-input"><input type="number" formControlName="taxableIncome"></td></tr>
+            <tr><td class="line-num">2</td><td class="line-desc">Standard deduction</td><td class="line-input"><input type="number" formControlName="deductions"></td></tr>
+            <tr><td class="line-num">3</td><td class="line-desc">Schedule D gain (loss)</td><td class="line-input"><input type="number" formControlName="scheduleD"></td></tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead><tr><th colspan="3" class="section-header">AMT Calculation</th></tr></thead>
+        <tbody>
+            <tr class="highlight-row"><td class="line-num">7</td><td class="line-desc"><strong>AMT taxable income</strong></td><td class="line-input"><input type="number" formControlName="amtIncome" readonly></td></tr>
+            <tr class="highlight-row"><td class="line-num">11</td><td class="line-desc"><strong>Exemption amount</strong></td><td class="line-input"><input type="number" formControlName="exemptionAmount" readonly></td></tr>
+            <tr class="highlight-row"><td class="line-num">15</td><td class="line-desc"><strong>AMT</strong></td><td class="line-input"><input type="number" formControlName="totalAMT" readonly></td></tr>
+        </tbody>
+    </table>
+
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

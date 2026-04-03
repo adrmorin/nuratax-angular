@@ -1,0 +1,34 @@
+<div class="irs-form-container">
+    <div class="irs-header"><div class="form-title">Formulario 8886 2026</div></div>
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1"><span class="irs-form-id">8886</span><span class="irs-form-sub-id">2026</span></div>
+            <div class="irs-col-2"><h1>Reportable Transaction Disclosure Statement</h1><p class="irs-instruction">▶ Attach to Form 1040, 1120, or 1065.</p></div>
+            <div class="irs-col-3"><div class="irs-sequence-box"><span>Secuencia</span><span class="irs-sequence-num">87</span></div></div>
+        </div>
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right"><label for="name">Nombre</label><input id="name" type="text" formControlName="name"></div>
+                <div class="irs-field flex-1"><label for="tin">EIN/SSN</label><input id="tin" type="text" formControlName="tin"></div>
+            </div>
+            <div class="irs-section-header"><span class="irs-part-num">Part I</span><span class="irs-part-title">Transaction Information</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">1</td><td class="irs-desc"><label for="transactionType">Type of reportable transaction . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">1</td><td class="irs-val-cell"><input id="transactionType" type="text" formControlName="transactionType"></td></tr>
+                    <tr><td class="irs-line-num">2</td><td class="irs-desc"><label for="dateEntered">Date entered into transaction . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">2</td><td class="irs-val-cell"><input id="dateEntered" type="date" formControlName="dateEntered"></td></tr>
+                    <tr><td class="irs-line-num">3</td><td class="irs-desc"><label for="description">Description of transaction . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">3</td><td class="irs-val-cell"><input id="description" type="text" formControlName="description"></td></tr>
+                    <tr><td class="irs-line-num">4</td><td class="irs-desc"><label for="amountInvolved">Amount of money or property involved . . . . . . . . . . .</label></td><td class="irs-line-num">4</td><td class="irs-val-cell"><input id="amountInvolved" type="number" formControlName="amountInvolved"></td></tr>
+                </tbody>
+            </table>
+            <div class="irs-section-header"><span class="irs-part-num">Part II</span><span class="irs-part-title">Tax Benefit</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">5</td><td class="irs-desc"><label for="expectedTaxBenefit">Expected tax benefit from transaction . . . . . . . . . . . .</label></td><td class="irs-line-num">5</td><td class="irs-val-cell"><input id="expectedTaxBenefit" type="number" formControlName="expectedTaxBenefit"></td></tr>
+                    <tr><td class="irs-line-num">6</td><td class="irs-desc"><label for="substantial">Substantial purpose for transaction . . . . . . . . . . . . .</label></td><td class="irs-line-num">6</td><td class="irs-val-cell"><input id="substantial" type="text" formControlName="substantial"></td></tr>
+                </tbody>
+            </table>
+            <div class="irs-footer-actions"><button type="submit" class="btn-irs-submit">Guardar Formulario 8886</button></div>
+        </form>
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

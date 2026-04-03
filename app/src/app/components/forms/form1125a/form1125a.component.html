@@ -1,0 +1,117 @@
+<div class="irs-unified-container">
+    <!-- Form 1125-A Header -->
+    <div class="irs-header-main">
+        <div class="irs-form-id-block" style="padding-right: 15px; border-right: 2.2px solid #000;">
+            <div style="font-size: 1.55rem; font-weight: 1000; text-transform: uppercase;">Form 1125-A</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.8rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
+        </div>
+        <div class="irs-form-title-block" style="text-align: center; padding: 0 25px;">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.6rem; margin: 0; font-weight: 950; text-transform: uppercase;">Cost of Goods Sold</h1>
+                <h2 style="font-size: 1.3rem; margin: 0; font-weight: 400; font-style: italic; color: #333;">Costo de los Bienes Vendidos</h2>
+            </div>
+            <p style="font-size: 0.95rem; margin-top: 12px; font-weight: 850;">▶ Go to www.irs.gov/Form1125A for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.65rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0123</div>
+            <div style="font-size: 3.5rem; line-height: 1; font-weight: 950;">2025</div>
+        </div>
+    </div>
+
+    @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
+            <div class="irs-entity-box" style="background: #fafafa;">
+                <div class="irs-label-wrap">
+                    <label for="f1125a-name" class="irs-label-en" style="font-weight: 1000;">Name / Nombre</label>
+                </div>
+                <input id="f1125a-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
+            </div>
+            <div class="irs-entity-box" style="padding: 15px; border-right: none;">
+                <div class="irs-label-wrap">
+                    <label for="f1125a-ein" class="irs-label-en">Employer identification number</label>
+                </div>
+                <input id="f1125a-ein" type="text" formControlName="identificationNumber" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">1</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">Inventory at beginning of year.</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Inventario al comienzo del año.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line1" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">2</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">Purchases.</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Compras.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line2" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #fafafa;">
+            <div class="irs-col-line-num">6</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">Total. Add lines 1 through 5.</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Total. Sume las líneas 1 a 5.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line6" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2px solid #000;">
+            <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">8</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Cost of goods sold. Subtract line 7 from line 6.</span>
+                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Costo de los bienes vendidos. Reste la línea 7 de la línea 6.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-yellow-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym" style="color: #1e3a8a;">$</span>
+                    <input type="number" formControlName="line8" style="text-align: right; font-weight: 1000; font-size: 1.4rem; color: #1e3a8a;">
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 50px 40px; text-align: center; background: #fff;">
+            <button type="submit" style="background: #000; color: #fff; padding: 22px 120px; border: none; font-size: 1.6rem; font-weight: 950; cursor: pointer; text-transform: uppercase;" class="premium-button">
+                Save Form 1125-A / Guardar Formulario 1125-A
+            </button>
+        </div>
+    </form>
+    }
+</div>

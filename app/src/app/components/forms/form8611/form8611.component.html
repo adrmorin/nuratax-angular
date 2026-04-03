@@ -1,73 +1,100 @@
-<div class="irs-form-container">
-  <div class="irs-form-box">
-    <!-- Header -->
-    <div class="irs-main-header">
-      <div class="irs-col-form-id">
-        <div class="irs-form-num">Form <span class="num-large">8611</span></div>
-        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
-      </div>
-      <div class="irs-col-title">
-        <h1>Recapture of Low-Income Housing Credit</h1>
-        <p class="irs-instruction">Go to <strong>www.irs.gov/Form8611</strong> for instructions and the latest information.</p>
-        <p class="irs-attach">Attach to your return.</p>
-      </div>
-      <div class="irs-col-omb">
-        <div class="irs-omb">OMB No. 1545-1035</div>
-        <div class="irs-year-box">
-          <div class="irs-attachment">Attachment<br>Sequence No. <strong>90</strong></div>
+<div class="irs-unified-container">
+    <!-- Form 8611 Header -->
+    <div class="irs-header-main">
+        <div class="irs-form-id-block" style="padding-right: 15px; border-right: 2.2px solid #000;">
+            <div style="font-size: 1.55rem; font-weight: 1000; text-transform: uppercase;">Form 8611</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.8rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
         </div>
-      </div>
+        <div class="irs-form-title-block" style="text-align: center; padding: 0 25px;">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.5rem; margin: 0; font-weight: 950; text-transform: uppercase;">Recapture of Low-Income Housing Credit</h1>
+                <h2 style="font-size: 1.25rem; margin: 0; font-weight: 400; font-style: italic; color: #333;">Recuperación del Crédito por Viviendas para Personas de Bajos Ingresos</h2>
+            </div>
+            <p style="font-size: 0.95rem; margin-top: 12px; font-weight: 850;">▶ Go to www.irs.gov/Form8611 for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.65rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-1035</div>
+            <div style="font-size: 3.5rem; line-height: 1; font-weight: 950;">2025</div>
+        </div>
     </div>
 
+    @if (form) {
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <!-- Identification Area -->
-      <div class="irs-id-grid">
-        <div class="id-row">
-          <div class="id-label">A</div>
-          <div class="id-field"><label for="name">Name(s) shown on return</label> <input id="name" type="text" formControlName="name"></div>
-          <div class="id-label">B</div>
-          <div class="id-field id-half"><label for="idn">Identifying number</label> <input id="idn" type="text" formControlName="identNumber"></div>
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
+            <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
+                <div class="irs-label-wrap">
+                    <label for="f8611-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return / Nombre que figura en la declaración</label>
+                </div>
+                <input id="f8611-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
+            </div>
+            <div class="irs-entity-box" style="padding: 15px;">
+                <div class="irs-label-wrap">
+                    <label for="f8611-ssn" class="irs-label-en">Taxpayer ID number</label>
+                </div>
+                <input id="f8611-ssn" type="text" formControlName="ssn" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
+            </div>
         </div>
-        <div class="id-row">
-            <div class="id-label">C</div>
-            <div class="id-field"><label for="addr">Address of building (as shown on Form 8609)</label> <input id="addr" type="text" formControlName="buildingAddr"></div>
-        </div>
-        <div class="id-row">
-            <div class="id-label">D</div>
-            <div class="id-field"><label for="bin">Building identification number (BIN)</label> <input id="bin" type="text" formControlName="bin"></div>
-            <div class="id-label">E</div>
-            <div class="id-field id-half"><label for="date">Date placed in service</label> <input id="date" type="text" formControlName="datePlacedInService"></div>
-        </div>
-      </div>
 
-      <!-- Calculation Lines -->
-      <div class="irs-form-body">
-        <div class="irs-line-item">
-          <div class="irs-line-num">1</div>
-          <div class="irs-line-desc"><label for="line1">Enter total credits reported on Form 8586 in prior years for this building</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-line-val-num">1</div>
-          <div class="irs-input-box"><input id="line1" type="number" formControlName="line1"></div>
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">8</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">Total credit allowed.</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Crédito total permitido.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line8" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
         </div>
-        <div class="irs-line-item zebra-light-border">
-          <div class="irs-line-num">2</div>
-          <div class="irs-line-desc"><label for="line2">Credits included on line 1 that are attributable to the addition to qualified basis (see instructions)</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-line-val-num">2</div>
-          <div class="irs-input-box"><input id="line2" type="number" formControlName="line2"></div>
-        </div>
-        <div class="irs-line-item">
-            <div class="irs-line-num">15</div>
-            <div class="irs-line-desc"><strong>Recapture tax.</strong> Combine lines 11, 13, and 14. Include here and on the appropriate line of your tax return</div>
-            <div class="irs-dots"></div>
-            <div class="irs-line-val-num">15</div>
-            <div class="irs-input-box"><input id="line15" type="number" formControlName="line15"></div>
-          </div>
-      </div>
 
-      <div class="irs-footer-actions">
-        <button type="submit" class="btn-submit">Submit Form 8611</button>
-      </div>
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">9</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">Net investment income.</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Ingresos netos de inversión.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line9" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2px solid #000;">
+            <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">14</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Recapture amount.</span>
+                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Cantidad de recuperación.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-yellow-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym" style="color: #1e3a8a;">$</span>
+                    <span style="text-align: right; font-weight: 1000; font-size: 1.5rem; color: #1e3a8a; width: 100%; display: block;">{{ recaptureAmount() | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 60px 40px; text-align: center; background: #fff;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
+                Save Form 8611 / Guardar Formulario 8611
+            </button>
+        </div>
     </form>
-  </div>
+    }
 </div>

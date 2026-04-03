@@ -1,0 +1,169 @@
+.irs-form-container {
+    max-width: 950px;
+    margin: 20px auto;
+    background: #fff;
+    border: 2px solid #000;
+    font-family: 'Inter', Arial, sans-serif;
+    color: #000;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+}
+
+.irs-header {
+    display: flex;
+    border-bottom: 2px solid #000;
+}
+
+.form-title-box {
+    width: 160px;
+    padding: 15px;
+    border-right: 2px solid #000;
+    text-align: center;
+}
+
+.irs-form-id {
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.irs-header-center {
+    flex: 1;
+    padding: 10px 20px;
+    text-align: center;
+    border-right: 2px solid #000;
+}
+
+.irs-header-center h1 {
+    font-size: 22px;
+    font-weight: 950;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.irs-header-center h2 {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.year-box {
+    width: 120px;
+    font-size: 42px;
+    font-weight: 950;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.personal-info {
+    display: flex;
+}
+
+.info-cell {
+    padding: 5px 10px;
+}
+
+.cell-70 { flex: 7; }
+.cell-30 { flex: 3; }
+
+.info-cell label {
+    display: block;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.info-cell input {
+    width: 100%;
+    border: none;
+    font-size: 15px;
+    font-weight: 700;
+    outline: none;
+}
+
+/* Parts */
+.part-header {
+    background: #000;
+    color: #fff;
+    padding: 5px 15px;
+    font-weight: 900;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+/* Lines */
+.irs-line-item {
+    display: flex;
+    border-bottom: 1px solid #000;
+    min-height: 35px;
+}
+
+.line-num {
+    width: 40px;
+    border-right: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 13px;
+}
+
+.line-text {
+    flex: 1;
+    padding: 8px 10px;
+    font-size: 12px;
+}
+
+.line-input {
+    width: 200px;
+    border-left: 1px solid #000;
+}
+
+.line-input input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    text-align: right;
+    padding: 0 10px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #004a99;
+}
+
+.highlight { background-color: #f0f7ff; }
+.highlight-profit { background-color: #e6fffa; border-top: 2px solid #000; }
+
+.irs-grid-expenses {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid #000;
+}
+
+.irs-grid-expenses .irs-line-item {
+    border-right: 1px solid #000;
+}
+
+.irs-grid-expenses .irs-line-item:nth-child(even) {
+    border-right: none;
+}
+
+/* Footer */
+.irs-footer-area {
+    padding: 10px;
+    font-size: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.irs-action-bar {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-irs-primary {
+    background: #000;
+    color: #fff;
+    padding: 12px 30px;
+    font-weight: 900;
+    border: none;
+    cursor: pointer;
+}

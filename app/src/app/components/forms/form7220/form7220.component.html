@@ -1,105 +1,118 @@
-<div class="irs-form-container">
-  <div class="irs-form-box">
-    <!-- Header -->
-    <div class="irs-main-header">
-      <div class="irs-col-form-id">
-        <div class="irs-form-num">Form <span class="num-large">7220</span></div>
-        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
-      </div>
-      <div class="irs-col-title">
-        <h1>Prevailing Wage and Apprenticeship (PWA) Verification and Corrections</h1>
-        <p class="irs-instruction">Go to <strong>www.irs.gov/Form7220</strong> for instructions and the latest information.</p>
-        <p class="irs-attach">Attach to your tax return.</p>
-      </div>
-      <div class="irs-col-omb">
-        <div class="irs-omb">OMB No. 1545-2310</div>
-        <div class="irs-year-box">
-          <div class="irs-year">2025</div>
-          <div class="irs-attachment">Attachment<br>Sequence No. <strong>220</strong></div>
+<div class="irs-unified-container">
+    <!-- Form 7220 Header -->
+    <div class="irs-header-main" style="background: #fff; border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.4rem;">Form 7220</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
         </div>
-      </div>
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.3rem; margin: 0;">Prevailing Wage and Apprenticeship (PWA) Verification and Corrections</h1>
+                <h2 style="font-size: 1rem; margin: 0; font-style: italic;">Verificación y Correcciones del Salario Prevaleciente y Aprendizaje (PWA)</h2>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 8px; font-weight: 700;">▶ Go to www.irs.gov/Form7220 for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-2310</div>
+            <div style="font-size: 2.8rem; line-height: 1;">2025</div>
+        </div>
     </div>
 
-    <!-- Name/ID Row -->
-    <div class="irs-name-ssn-row">
-      <div class="irs-name-box">
-        <label for="name">Name(s) shown on return</label>
-        <input id="name" type="text" formControlName="name" class="irs-borderless-input">
-      </div>
-      <div class="irs-ssn-box">
-        <label for="identifyingNumber">Identifying number</label>
-        <input id="identifyingNumber" type="text" formControlName="identifyingNumber" class="irs-borderless-input">
-      </div>
-    </div>
-
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <!-- Part I -->
-      <div class="irs-part-header-bar">
-        <span class="part-label">Part I</span>
-        <span class="part-title">Facility/Project Information</span>
-      </div>
-
-      <div class="irs-form-body">
-        <div class="irs-line-item">
-          <div class="irs-line-num">1</div>
-          <div class="irs-line-desc"><label for="regNumber">IRS registration number of the facility or project (if applicable)</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-input-box-mid"><input id="regNumber" type="text" formControlName="regNumber"></div>
-        </div>
-
-        <div class="irs-line-item">
-            <div class="irs-line-num">2</div>
-            <div class="irs-line-desc"><label for="projDesc">Brief description of the facility or project</label></div>
-            <div class="irs-dots"></div>
-            <div class="irs-input-box-wide"><input id="projDesc" type="text" formControlName="projectDesc"></div>
-          </div>
-
-        <div class="irs-line-item">
-          <div class="irs-line-num">3</div>
-          <div class="irs-line-desc">Identify the precise location of the facility or project:</div>
-          <div class="irs-geo-box">
-            <div class="lat-long-row">
-               <label for="lat">Latitude (±XX.XXXXXX):</label>
-               <input id="lat" type="text" formControlName="latitude" class="irs-comb-box" placeholder="±__.__ _ _ _ _">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="form">
+        <!-- Name and ID Header -->
+        <div class="irs-row" style="grid-template-columns: 1fr 250px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Name(s) shown on return</label>
+                    <label class="irs-label-es">Nombre(s) que aparecen en la declaración</label>
+                </div>
+                <input type="text" formControlName="name" style="width: 100%; border: none; font-weight: 700;">
             </div>
-            <div class="lat-long-row">
-               <label for="long">Longitude (±XXX.XXXXXX):</label>
-               <input id="long" type="text" formControlName="longitude" class="irs-comb-box" placeholder="±___.__ _ _ _ _">
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Identifying number</label>
+                    <label class="irs-label-es">Número de identificación</label>
+                </div>
+                <input type="text" formControlName="identifyingNumber" style="width: 100%; border: none; font-weight: 700;">
             </div>
-          </div>
         </div>
-      </div>
 
-      <!-- Part II -->
-      <div class="irs-part-header-bar">
-        <span class="part-label">Part II</span>
-        <span class="part-title">Labor Data (Summary)</span>
-      </div>
-
-      <div class="irs-form-body">
-        <div class="irs-line-item zebra-light-border">
-          <div class="irs-line-num">4</div>
-          <div class="irs-line-desc"><label for="cat">Main labor category of laborers and mechanics</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-input-box-mid"><input id="cat" type="text" formControlName="laborCategory"></div>
+        <!-- Part I -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part I</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Facility/Project Information</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Información de la Instalación/Proyecto</span>
+            </div>
         </div>
-        <div class="irs-line-item">
-            <div class="irs-line-num">5</div>
-            <div class="irs-line-desc"><label for="rate">Weighted average hourly wage rate paid</label></div>
-            <div class="irs-dots"></div>
-            <div class="irs-input-box"><input id="rate" type="number" formControlName="wageRate"></div>
-          </div>
-          <div class="irs-line-item zebra-light-border">
-            <div class="irs-line-num">6</div>
-            <div class="irs-line-desc"><label for="hours">Total hours worked by laborers/mechanics for the facility</label></div>
-            <div class="irs-dots"></div>
-            <div class="irs-input-box"><input id="hours" type="number" formControlName="hoursWorked"></div>
-          </div>
-      </div>
 
-      <div class="irs-footer-actions">
-        <button type="submit" class="btn-submit">Submit Form 7220</button>
-      </div>
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 250px;">
+            <div class="irs-col-line-num">1</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">IRS registration number of the facility or project</span>
+                    <span class="irs-label-es">Número de registro del IRS de la instalación o proyecto</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input">
+                <input type="text" formControlName="regNumber" style="width: 100%;">
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 40px 1fr; background: #eee;">
+            <div class="irs-col-line-num" style="background: transparent;">3</div>
+            <div style="padding: 10px;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en"><strong>Location of the facility or project:</strong></span>
+                    <span class="irs-label-es"><strong>Ubicación de la instalación o proyecto:</strong></span>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 5px;">
+                    <div style="background: #fff; padding: 5px; border: 1px solid #999;">
+                        <label style="font-size: 0.7rem; font-weight: 700;">Latitude / Latitud</label>
+                        <input type="text" formControlName="latitude" style="width: 100%; border: none;">
+                    </div>
+                    <div style="background: #fff; padding: 5px; border: 1px solid #999;">
+                        <label style="font-size: 0.7rem; font-weight: 700;">Longitude / Longitud</label>
+                        <input type="text" formControlName="longitude" style="width: 100%; border: none;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Part II -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part II</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Labor Data (Summary)</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Datos Laborales (Resumen)</span>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div class="irs-col-line-num">5</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Weighted average hourly wage rate paid</span>
+                    <span class="irs-label-es">Tasa salarial por hora promedio ponderada pagada</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="wageRate">
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 40px; text-align: center;">
+            <button type="submit" style="background: #111; color: #fff; padding: 15px 60px; border: none; border-radius: 2px; font-weight: 900; cursor: pointer; text-transform: uppercase;">
+                Save Form 7220 / Guardar Formulario 7220
+            </button>
+        </div>
     </form>
-  </div>
 </div>

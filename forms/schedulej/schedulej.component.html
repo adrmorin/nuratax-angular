@@ -1,0 +1,59 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Schedule J</h1><p class="form-year">(2024)</p></div>
+        <div class="form-info"><p><strong>Income Averaging for Individuals With Income From Farming or Fishing</strong></p><p>Department of the Treasury — Internal Revenue Service</p></div>
+    </div>
+    <div class="form-instructions"><p>Use this schedule to elect to figure your 2024 income tax by averaging, over the previous 3 years (base years), all or part of your 2024 farming or fishing income.</p></div>
+    <div class="part-section">
+        <h3 class="part-header">Part I — General Information</h3>
+        <div class="field-row"><div class="field-group"><label>Name(s) shown on return</label><input type="text" formControlName="name"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>SSN</label><input type="text" formControlName="ssn"></div>
+            <div class="field-group"><label>Tax Year</label><input type="text" formControlName="taxYear"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part II — Current Year Farming/Fishing Income</h3>
+        <table class="form-table">
+            <tr><td>1. Net farming/fishing income (Schedule F, line 34, or Schedule K-1 (Form 1065))</td><td><input type="number" formControlName="line1"></td></tr>
+            <tr><td>2. Add lines 2a and 2b (attach computation)</td><td><input type="number" formControlName="line2"></td></tr>
+            <tr><td>3. Total farming/fishing income for averaging</td><td><input type="number" formControlName="line3"></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part III — Base Year Income</h3>
+        <table class="form-table">
+            <tr><th></th><th>2021</th><th>2022</th><th>2023</th></tr>
+            <tr><td>4. AGI from tax returns</td><td><input type="number" formControlName="line4a"></td><td><input type="number" formControlName="line4b"></td><td><input type="number" formControlName="line4c"></td></tr>
+            <tr><td>5. Net farming/fishing income</td><td><input type="number" formControlName="line5a"></td><td><input type="number" formControlName="line5b"></td><td><input type="number" formControlName="line5c"></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part IV — Averaging Computation</h3>
+        <table class="form-table">
+            <tr><td>6. Add lines 4a through 4c</td><td><input type="number" formControlName="line6"></td></tr>
+            <tr><td>7. Add lines 5a through 5c</td><td><input type="number" formControlName="line7"></td></tr>
+            <tr><td>8. Averageable farming/fishing income</td><td><input type="number" formControlName="line8"></td></tr>
+            <tr><td>9. Divided by 3</td><td><input type="number" formControlName="line9"></td></tr>
+            <tr><td>10. Elected farming/fishing income</td><td><input type="number" formControlName="line10"></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part V — Tax Computation</h3>
+        <table class="form-table">
+            <tr><td>11. Current year tax (from Form 1040)</td><td><input type="number" formControlName="line11"></td></tr>
+            <tr><td>12. Tax on elected income (use Tax Table)</td><td><input type="number" formControlName="line12"></td></tr>
+            <tr class="highlight-row"><td>13. Tax after averaging (line 11 minus line 12)</td><td><input type="number" formControlName="line13" readonly></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" formControlName="election"> I elect to use income averaging for farming/fishing income.</label>
+        </div>
+    </div>
+    <div class="signature-section">
+        <div class="signature-box"><p>Signature</p><input type="text" formControlName="signature" class="signature-input"></div>
+        <div class="date-box"><p>Date</p><input type="date" formControlName="dateSigned"></div>
+    </div>
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

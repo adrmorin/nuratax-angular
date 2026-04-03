@@ -1,0 +1,192 @@
+<div class="irs-form-container" style="position: relative;">
+    <div class="irs-header">
+        <div class="irs-header-left">
+            <div class="form-title">Formulario 7004 2026</div>
+        </div>
+        <div class="irs-header-right">
+            <span>Página 1</span>
+        </div>
+    </div>
+
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1">
+                <span class="irs-form-id">7004</span>
+                <span class="irs-form-sub-id">2026</span>
+            </div>
+            <div class="irs-col-2">
+                <h1>Application for Automatic Extension of Time To File Certain Business Income Tax, Information, and Other Returns</h1>
+                <p class="irs-instruction">▶ File a separate application for each return.</p>
+            </div>
+            <div class="irs-col-3">
+                <div class="irs-sequence-box">
+                    <span>Secuencia No.</span>
+                    <span class="irs-sequence-num">07</span>
+                </div>
+            </div>
+        </div>
+
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right">
+                    <label for="name">Nombre del Contribuyente (Name)</label>
+                    <input id="name" type="text" formControlName="name">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="tin">EIN o SSN</label>
+                    <input id="tin" type="text" formControlName="tin">
+                </div>
+            </div>
+
+            <div class="irs-row-border">
+                <div class="irs-field flex-1 border-right">
+                    <label for="address">Dirección (Number, street, and room or suite no.)</label>
+                    <input id="address" type="text" formControlName="address">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="cityStateZip">Ciudad, Estado, ZIP (City, state, and ZIP code)</label>
+                    <input id="cityStateZip" type="text" formControlName="cityStateZip">
+                </div>
+            </div>
+
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part I</span>
+                <span class="irs-part-title">Type of Return</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part1 }}
+                </div>
+            </div>
+
+            <div class="irs-row-border">
+                <div class="irs-field flex-1 border-right">
+                    <div class="irs-checkbox-group">
+                        <input type="checkbox" id="form1065" formControlName="form1065">
+                        <label for="form1065">Form 1065</label>
+                    </div>
+                </div>
+                <div class="irs-field flex-1 border-right">
+                    <div class="irs-checkbox-group">
+                        <input type="checkbox" id="form1120" formControlName="form1120">
+                        <label for="form1120">Form 1120</label>
+                    </div>
+                </div>
+                <div class="irs-field flex-1">
+                    <div class="irs-checkbox-group">
+                        <input type="checkbox" id="form1120S" formControlName="form1120S">
+                        <label for="form1120S">Form 1120-S</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="irs-row-border">
+                <div class="irs-field flex-1 border-right">
+                    <div class="irs-checkbox-group">
+                        <input type="checkbox" id="form1041" formControlName="form1041">
+                        <label for="form1041">Form 1041</label>
+                    </div>
+                </div>
+                <div class="irs-field flex-1 border-right">
+                    <div class="irs-checkbox-group">
+                        <input type="checkbox" id="form940" formControlName="form940">
+                        <label for="form940">Form 940</label>
+                    </div>
+                </div>
+                <div class="irs-field flex-1">
+                    <div class="irs-checkbox-group">
+                        <input type="checkbox" id="form941" formControlName="form941">
+                        <label for="form941">Form 941</label>
+                    </div>
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-desc"><label for="otherForm">Other (specify form number) . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-val-cell"><input id="otherForm" type="text" formControlName="otherForm"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part II</span>
+                <span class="irs-part-title">Extension Information</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part2 }}
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">2</td>
+                        <td class="irs-desc"><label for="taxYear">Tax year ending (MM/DD/YYYY) . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">2</td>
+                        <td class="irs-val-cell"><input id="taxYear" type="date" formControlName="taxYear"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-desc"><label for="balanceDue">Balance of tax due . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-val-cell"><input id="balanceDue" type="number" formControlName="balanceDue"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-desc"><label for="paymentsMade">Payments made . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-val-cell"><input id="paymentsMade" type="number" formControlName="paymentsMade"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">5</td>
+                        <td class="irs-desc"><strong>Balance due. Line 3 menos línea 4 . . . . . . . . . . . . . . . .</strong></td>
+                        <td class="irs-line-num">5</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('balanceDue')?.value | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part III</span>
+                <span class="irs-part-title">Signature and Verification</span>
+            </div>
+
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right">
+                    <label for="signature">Signature</label>
+                    <input id="signature" type="text" formControlName="signature">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="dateSigned">Date</label>
+                    <input id="dateSigned" type="date" formControlName="dateSigned">
+                </div>
+            </div>
+
+            <div class="irs-row-border">
+                <div class="irs-field flex-1 border-right">
+                    <label for="phone">Teléfono (Phone)</label>
+                    <input id="phone" type="text" formControlName="phone">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="title">Título (Title)</label>
+                    <input id="title" type="text" formControlName="title">
+                </div>
+            </div>
+
+            <div class="irs-footer-actions">
+                <button type="submit" class="btn-irs-submit">Guardar Formulario 7004</button>
+            </div>
+        </form>
+
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

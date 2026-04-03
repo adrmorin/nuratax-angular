@@ -1,0 +1,174 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title">
+            <h1>Form 8863</h1>
+            <p class="form-year">Department of the Treasury - Internal Revenue Service</p>
+        </div>
+        <div class="form-info">
+            <p><strong>Education Credits (American Opportunity and Lifetime Learning Credits)</strong></p>
+            <p>Attach to Form 1040 or 1040-SR. See instructions for Form 8863.</p>
+        </div>
+    </div>
+
+    <div class="student-section">
+        <h3>Student 1 Information</h3>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Student's name</label>
+                <input type="text" formControlName="student1Name">
+            </div>
+            <div class="field-group small">
+                <label>SSN</label>
+                <input type="text" formControlName="student1SSN">
+            </div>
+        </div>
+    </div>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part I - American Opportunity Credit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">Qualified education expenses</td>
+                <td class="line-input"><input type="number" formControlName="student1QualifiedExpenses"></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">Enter $2,000</td>
+                <td class="line-input">2000</td>
+            </tr>
+            <tr>
+                <td class="line-num">3</td>
+                <td class="line-desc">Subtract line 2 from line 1</td>
+                <td class="line-input"><input type="number" [value]="(taxForm.get('student1QualifiedExpenses')?.value || 0) - 2000" readonly></td>
+            </tr>
+            <tr>
+                <td class="line-num">4</td>
+                <td class="line-desc">Multiply line 3 by 25% (0.25)</td>
+                <td class="line-input"><input type="number" [value]="((taxForm.get('student1QualifiedExpenses')?.value || 0) - 2000) * 0.25" readonly></td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="line-num">5</td>
+                <td class="line-desc"><strong>AOTC (add lines 2 and 4)</strong></td>
+                <td class="line-input"><input type="number" formControlName="student1AOTC" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part II - Lifetime Learning Credit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">6</td>
+                <td class="line-desc">Qualified education expenses</td>
+                <td class="line-input"><input type="number" formControlName="student1QualifiedExpenses"></td>
+            </tr>
+            <tr>
+                <td class="line-num">7</td>
+                <td class="line-desc">Multiply line 6 by 20% (0.20)</td>
+                <td class="line-input"><input type="number" [value]="(taxForm.get('student1QualifiedExpenses')?.value || 0) * 0.2" readonly></td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="line-num">8</td>
+                <td class="line-desc"><strong>LLC</strong></td>
+                <td class="line-input"><input type="number" formControlName="student1LLC" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="student-section">
+        <h3>Student 2 Information</h3>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Student's name</label>
+                <input type="text" formControlName="student2Name">
+            </div>
+            <div class="field-group small">
+                <label>SSN</label>
+                <input type="text" formControlName="student2SSN">
+            </div>
+        </div>
+    </div>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part III - AGI and Credit Calculation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">11</td>
+                <td class="line-desc">Modified AGI</td>
+                <td class="line-input"><input type="number" formControlName="modifiedAGI"></td>
+            </tr>
+            <tr>
+                <td class="line-num">12</td>
+                <td class="line-desc">Filing status</td>
+                <td class="line-input">
+                    <select formControlName="filingStatus">
+                        <option value="single">Single</option>
+                        <option value="married">Married Filing Jointly</option>
+                        <option value="head">Head of Household</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="line-num">13</td>
+                <td class="line-desc">AOTC reduction percentage</td>
+                <td class="line-input"><input type="number" formControlName="aotcReduction" readonly></td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="line-num">14</td>
+                <td class="line-desc"><strong>Total American Opportunity credit</strong></td>
+                <td class="line-input"><input type="number" formControlName="totalAOTC" readonly></td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="line-num">15</td>
+                <td class="line-desc"><strong>Total Lifetime Learning credit</strong></td>
+                <td class="line-input"><input type="number" formControlName="totalLLC" readonly></td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="line-num">16</td>
+                <td class="line-desc"><strong>Total education credits</strong></td>
+                <td class="line-input"><input type="number" formControlName="totalEducationCredit" readonly></td>
+            </tr>
+            <tr>
+                <td class="line-num">17</td>
+                <td class="line-desc">Prior year carryforward</td>
+                <td class="line-input"><input type="number" formControlName="priorYearCarryforward"></td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="line-num">18</td>
+                <td class="line-desc"><strong>Net education credit</strong></td>
+                <td class="line-input"><input type="number" formControlName="netEducationCredit" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="nerea-advice">
+        <div class="advice-header">
+            <img src="assets/images/nerea_avatar.png" alt="Nerea" class="nerea-avatar">
+            <span class="advice-title">Asistente de Impuestos</span>
+        </div>
+        <div class="advice-content">
+            <p><strong>AOTC:</strong> {{ nereaAdvice.aotc }}</p>
+            <p><strong>LLC:</strong> {{ nereaAdvice.llc }}</p>
+            <p><strong>Ingreso:</strong> {{ nereaAdvice.income }}</p>
+            <p><strong>Gastos:</strong> {{ nereaAdvice.qualified }}</p>
+            <p><strong>Ambos:</strong> {{ nereaAdvice.both }}</p>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form W-3</h1><p class="form-year">Department of the Treasury - Internal Revenue Service</p></div>
+        <div class="form-info"><p><strong>Transmittal of Wage and Tax Statements</strong> - For calendar year 2026</p></div>
+    </div>
+
+    <div class="employer-section">
+        <div class="field-row">
+            <div class="field-group"><label>Employer identification number (EIN)</label><input type="text" formControlName="ein"></div>
+            <div class="field-group"><label>Employer name</label><input type="text" formControlName="employerName"></div>
+        </div>
+        <div class="field-row">
+            <div class="field-group"><label>Employer address</label><input type="text" formControlName="employerAddress"></div>
+        </div>
+    </div>
+
+    <table class="form-table">
+        <thead><tr><th colspan="3" class="section-header">Totals from Forms W-2</th></tr></thead>
+        <tbody>
+            <tr><td class="line-num">1</td><td class="line-desc">Number of Forms W-2</td><td class="line-input"><input type="number" formControlName="totalForms"></td></tr>
+            <tr><td class="line-num">2</td><td class="line-desc">Total wages, tips, other compensation (Box 1)</td><td class="line-input"><input type="number" formControlName="totalWages"></td></tr>
+            <tr><td class="line-num">3</td><td class="line-desc">Total social security wages (Box 3)</td><td class="line-input"><input type="number" formControlName="totalSSWages"></td></tr>
+            <tr><td class="line-num">4</td><td class="line-desc">Total social security tax (Box 4)</td><td class="line-input"><input type="number" formControlName="totalSSTax"></td></tr>
+            <tr><td class="line-num">5</td><td class="line-desc">Total Medicare wages (Box 5)</td><td class="line-input"><input type="number" formControlName="totalMedicareWages"></td></tr>
+            <tr><td class="line-num">6</td><td class="line-desc">Total Medicare tax (Box 6)</td><td class="line-input"><input type="number" formControlName="totalMedicareTax"></td></tr>
+            <tr><td class="line-num">7</td><td class="line-desc">Total social security tips (Box 7)</td><td class="line-input"><input type="number"></td></tr>
+            <tr><td class="line-num">8</td><td class="line-desc">Total allocated tips (Box 10)</td><td class="line-input"><input type="number"></td></tr>
+            <tr><td class="line-num">9</td><td class="line-desc">Total federal income tax withheld (Box 2)</td><td class="line-input"><input type="number" formControlName="totalWithholding"></td></tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead><tr><th colspan="3" class="section-header">State Information</th></tr></thead>
+        <tbody>
+            <tr><td class="line-num">10</td><td class="line-desc">State</td><td class="line-input"><input type="text" formControlName="stateTax"></td></tr>
+            <tr><td class="line-num">11</td><td class="line-desc">Total state wages</td><td class="line-input"><input type="number" formControlName="stateTotalWages"></td></tr>
+            <tr><td class="line-num">12</td><td class="line-desc">Total state income tax</td><td class="line-input"><input type="number" formControlName="stateIncomeTax"></td></tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead><tr><th colspan="3" class="section-header">Local Information</th></tr></thead>
+        <tbody>
+            <tr><td class="line-num">13</td><td class="line-desc">Locality name</td><td class="line-input"><input type="text" formControlName="localTax"></td></tr>
+            <tr><td class="line-num">14</td><td class="line-desc">Total local wages</td><td class="line-input"><input type="number" formControlName="localTotalWages"></td></tr>
+            <tr><td class="line-num">15</td><td class="line-desc">Total local income tax</td><td class="line-input"><input type="number" formControlName="localIncomeTax"></td></tr>
+        </tbody>
+    </table>
+
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

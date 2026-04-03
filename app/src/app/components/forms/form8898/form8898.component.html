@@ -1,85 +1,144 @@
 <div class="irs-unified-container">
-  <!-- Header -->
-  <div class="irs-header-container">
-    <div class="irs-id-box">
-      <span class="irs-id-main" style="font-size: 3rem;">8898</span>
-      <span class="irs-id-sub">Form</span>
-      <p style="font-size: 0.65rem; font-weight: 850;">(Rev. 2024)</p>
-    </div>
-    <div class="irs-title-box">
-      <h1>Statement for Individuals Who Begin or End Bona Fide Residence in a U.S. Possession</h1>
-      <p style="font-size: 0.85rem; font-weight: 700; margin-top: 10px;">Go to www.irs.gov/Form8898 for instructions and the latest information.</p>
-    </div>
-    <div class="irs-omb-box">
-      <span style="font-size: 0.7rem;">OMB No. 1545-0074</span>
-      <div style="margin-top: 15px; font-weight: 950; font-size: 0.9rem;">2024</div>
-    </div>
-  </div>
-
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
-    <!-- INFO BLOCK -->
-    <div class="irs-row-line-unified border-b" style="display: flex; border-top: 3.5px solid #000; border-bottom: 3.5px solid #000; margin-bottom: 25px;">
-      <div class="irs-id-col" style="flex: 2; padding: 6px 12px; border-right: 2px solid #000;">
-        <label style="display: block; font-size: 0.65rem; font-weight: 900; text-transform: uppercase;">Name shown on Form 1040, etc.</label>
-        <input type="text" formControlName="name" class="irs-input-field" style="text-align: left;">
-      </div>
-      <div class="irs-id-col" style="flex: 1; padding: 6px 12px;">
-        <label style="display: block; font-size: 0.65rem; font-weight: 900; text-transform: uppercase;">Identifying number (SSN/ITIN)</label>
-        <input type="text" formControlName="ssn" class="irs-input-field" style="text-align: left;">
-      </div>
+    <!-- Form 8898 Header -->
+    <div class="irs-header-main" style="background: #fff; border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.4rem;">Form 8898</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
+        </div>
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.1rem; margin: 0;">Statement for Individuals Who Begin or End Bona Fide Residence in a U.S. Possession</h1>
+                <h2 style="font-size: 0.9rem; margin: 0; font-style: italic;">Declaración para Individuos que Comienzan o Terminan su Residencia de Buena Fe en una Posesión de los EE. UU.</h2>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 8px; font-weight: 700;">▶ Go to www.irs.gov/Form8898 for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0074</div>
+            <div style="font-size: 2.8rem; line-height: 1;">2025</div>
+        </div>
     </div>
 
-    <!-- PART I -->
-    <div class="irs-section-header-bar">
-      <span>Part I: General Information</span>
-    </div>
-    <div class="irs-field-row">
-      <div class="irs-ln-num">1</div>
-      <div class="irs-ln-desc">U.S. Possession to which the statement applies...</div>
-      <div class="irs-in-wrap-wide">
-        <select formControlName="possessionName" class="irs-input-field" style="text-align: left;">
-          <option value="USVI">U.S. Virgin Islands</option>
-          <option value="GUAM">Guam</option>
-          <option value="AMSAMOA">American Samoa</option>
-          <option value="CNMI">Commonwealth of the Northern Mariana Islands</option>
-          <option value="PR">Puerto Rico</option>
-        </select>
-      </div>
-    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="form">
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 300px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Name shown on Form 1040, etc.</label>
+                    <label class="irs-label-es">Nombre que aparece en el Formulario 1040, etc.</label>
+                </div>
+                <input type="text" formControlName="name" style="width: 100%; border: none; font-weight: 700;">
+            </div>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Identifying number (SSN/ITIN)</label>
+                    <label class="irs-label-es">Número de identificación (SSN/ITIN)</label>
+                </div>
+                <input type="text" formControlName="ssn" style="width: 100%; border: none; font-weight: 700;">
+            </div>
+        </div>
 
-    <div class="irs-field-row">
-      <div class="irs-ln-num">2</div>
-      <div class="irs-ln-desc">Date your bona fide residence in the possession began (or ended)...</div>
-      <div class="irs-in-wrap-wide">
-        <input type="date" formControlName="part1_dateResidencyChange" class="irs-input-field" style="text-align: left;">
-      </div>
-    </div>
+        <!-- Part I -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part I</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">General Information</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Información General</span>
+            </div>
+        </div>
 
-    <!-- PART II: Presence Test -->
-    <div class="irs-section-header-bar" style="margin-top: 30px;">
-      <span>Part II: Presence Test</span>
-    </div>
-    <div class="irs-presence-table">
-      <div class="irs-row border-b bg-grey">
-        <div class="irs-col-cat bold">Location</div>
-        <div class="irs-col-amount bold">Days Present</div>
-      </div>
-      <div class="irs-row border-b">
-        <div class="irs-col-cat">Days present in the U.S. possession...</div>
-        <div class="irs-col-amount"><input type="number" formControlName="daysInPossession" class="irs-input-field"></div>
-      </div>
-      <div class="irs-row border-b">
-        <div class="irs-col-cat">Days present in the United States...</div>
-        <div class="irs-col-amount"><input type="number" formControlName="daysInUS" class="irs-input-field"></div>
-      </div>
-      <div class="irs-row">
-        <div class="irs-col-cat">Days present elsewhere...</div>
-        <div class="irs-col-amount"><input type="number" formControlName="daysElsewhere" class="irs-input-field"></div>
-      </div>
-    </div>
+        <!-- Line 1 -->
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 300px;">
+            <div class="irs-col-line-num">1</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">U.S. Possession to which the statement applies</span>
+                    <span class="irs-label-es">Posesión de EE. UU. a la que se aplica la declaración</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <select formControlName="possessionName" style="width: 100%; border: none; background: transparent; font-weight: 700;">
+                    <option value="USVI">U.S. Virgin Islands / Islas Vírgenes de los EE. UU.</option>
+                    <option value="GUAM">Guam / Guam</option>
+                    <option value="AMSAMOA">American Samoa / Samoa Americana</option>
+                    <option value="CNMI">CNMI / CNMI</option>
+                    <option value="PR">Puerto Rico / Puerto Rico</option>
+                </select>
+            </div>
+        </div>
 
-    <div style="margin-top: 50px; text-align: right;">
-      <button type="submit" class="irs-btn-submit">Submit Form 8898</button>
-    </div>
-  </form>
+        <!-- Line 2 -->
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 300px;">
+            <div class="irs-col-line-num">2</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Date your bona fide residence in the possession began (or ended)</span>
+                    <span class="irs-label-es">Fecha en que comenzó (o terminó) su residencia de buena fe en la posesión</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <input type="date" formControlName="part1_dateResidencyChange" style="font-weight: 950; text-align: center;">
+            </div>
+        </div>
+
+        <!-- Part II -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part II</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Presence Test</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Prueba de Presencia</span>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 180px; background: #eee; border-bottom: 2px solid #000;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000; font-weight: 900;">Location / Ubicación</div>
+            <div style="padding: 5px 10px; font-weight: 900; text-align: center;">Days Present / Días Presentes</div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 1fr 180px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Days present in the U.S. possession</span>
+                    <span class="irs-label-es">Días presentes en la posesión de EE. UU.</span>
+                </div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <input type="number" formControlName="daysInPossession" style="font-weight: 950; text-align: center;">
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 1fr 180px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Days present in the United States</span>
+                    <span class="irs-label-es">Días presentes en los Estados Unidos</span>
+                </div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <input type="number" formControlName="daysInUS" style="font-weight: 950; text-align: center;">
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 1fr 180px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Days present elsewhere</span>
+                    <span class="irs-label-es">Días presentes en otros lugares</span>
+                </div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <input type="number" formControlName="daysElsewhere" style="font-weight: 950; text-align: center;">
+            </div>
+        </div>
+
+        <div style="padding: 40px; text-align: center;">
+            <button type="submit" style="background: #111; color: #fff; padding: 15px 60px; border: none; border-radius: 2px; font-weight: 900; cursor: pointer; text-transform: uppercase;">
+                Save Form 8898 / Guardar Formulario 8898
+            </button>
+        </div>
+    </form>
 </div>

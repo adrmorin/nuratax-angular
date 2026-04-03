@@ -1,165 +1,88 @@
-<div class="irs-form-container">
-    <div class="irs-form-box">
-        <div class="irs-main-header">
-            <div class="irs-col-1">
-                <div>
-                    <div class="irs-form-id" style="font-size: 1.4rem;">Form <span style="font-size: 1.8rem;">8889</span></div>
-                </div>
-                <div class="irs-dept-info">
-                    Department of the Treasury<br>
-                    Internal Revenue Service
-                </div>
+<div class="irs-unified-container">
+    <!-- Form 8889 Header -->
+    <div class="irs-header-main">
+        <div class="irs-form-id-block" style="padding-right: 15px; border-right: 2.2px solid #000;">
+            <div style="font-size: 1.55rem; font-weight: 1000; text-transform: uppercase;">Form 8889</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.8rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
             </div>
-            <div class="irs-col-2">
-                <h1 style="font-size: 1.8rem; margin-bottom: 2px;">Health Savings Accounts (HSAs)</h1>
-                <p class="irs-instruction">Attach to Form 1040, 1040-SR, or 1040-NR.</p>
-                <p class="irs-instruction" style="margin-top: 5px;">Go to <i>www.irs.gov/Form8889</i> for the latest information.</p>
+        </div>
+        <div class="irs-form-title-block" style="text-align: center; padding: 0 25px;">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.5rem; margin: 0; font-weight: 950; text-transform: uppercase;">Health Savings Accounts (HSAs)</h1>
+                <h2 style="font-size: 1.25rem; margin: 0; font-weight: 400; font-style: italic; color: #333;">Cuentas de Ahorros de Salud (HAS)</h2>
             </div>
-            <div class="irs-col-3">
-                <div class="irs-omb-box">OMB No. 1545-0074</div>
-                <div class="irs-sequence-box">
-                    <div class="irs-year-box">
-                        <span class="year-outline-20">20</span><span class="year-solid-25">24</span>
-                    </div>
-                    <div class="irs-attachment">
-                        Attachment<br>
-                        Sequence No. <strong>53</strong>
-                    </div>
+            <p style="font-size: 0.95rem; margin-top: 12px; font-weight: 850;">▶ Go to www.irs.gov/Form8889 for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.65rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0074</div>
+            <div style="font-size: 3.5rem; line-height: 1; font-weight: 950;">2025</div>
+        </div>
+    </div>
+
+    @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
+            <div class="irs-entity-box" style="background: #fafafa;">
+                <div class="irs-label-wrap">
+                    <label for="f8889-name" class="irs-label-en" style="font-weight: 1000;">Name of HSA holder / Nombre del titular de la cuenta HAS</label>
+                </div>
+                <input id="f8889-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
+            </div>
+            <div class="irs-entity-box" style="padding: 15px; border-right: none;">
+                <div class="irs-label-wrap">
+                    <label for="f8889-ssn" class="irs-label-en">SSN / TIN</label>
+                </div>
+                <input id="f8889-ssn" type="text" formControlName="ssn" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
+            </div>
+        </div>
+
+        <div class="irs-part-banner">
+            <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Part I</span>
+            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">HSA Contributions and Deductions / Contribuciones y Deducciones de HAS</span>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">2</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">HSA contributions you made for 2025.</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Contribuciones de HAS que hizo para 2025.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line2" style="text-align: right; font-weight: 1000;">
                 </div>
             </div>
         </div>
 
-        <form [formGroup]="form8889" (ngSubmit)="onSubmit()">
-            <div class="irs-header-row">
-                <div class="irs-name-box">
-                    <label>Name(s) shown on Form 1040, 1040-SR, or 1040-NR</label>
-                    <input type="text" formControlName="name" class="irs-borderless-input">
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2px solid #000;">
+            <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">13</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">HSA deduction. Enter the smaller of line 2 or line 12.</span>
+                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Deducción de HAS. Ingrese el menor de la línea 2 o la línea 12.</span>
                 </div>
-                <div class="irs-ssn-box">
-                    <label>Social security number of HSA beneficiary</label>
-                    <input type="text" formControlName="ssn" class="irs-borderless-input">
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-yellow-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym" style="color: #1e3a8a;">$</span>
+                    <input type="number" formControlName="line13" style="text-align: right; font-weight: 1000; font-size: 1.4rem; color: #1e3a8a;">
                 </div>
             </div>
-            
-            <div class="irs-intro-notice" style="border-bottom: 2px solid #000;">
-                <div style="font-size: 0.8rem; font-weight: 600;">Before you begin: Complete Form 8853, Archer MSAs and Long-Term Care Insurance Contracts, if required.</div>
-            </div>
+        </div>
 
-            <!-- Part I -->
-            <div class="irs-part-header">
-                <span class="part-num">Part I</span>
-                <span class="part-title">HSA Contributions and Deduction.</span>
-                <span class="part-desc">See the instructions before completing this part. If you are filing jointly and both of you each have separate HSAs, complete a separate Part I for each spouse.</span>
-            </div>
-
-            <div class="irs-form-body">
-                <div class="irs-line-item">
-                    <div class="irs-line-num">1</div>
-                    <div class="irs-line-desc">
-                        Check the box to indicate your coverage under a high deductible health plan (HDHP) during 2024.
-                    </div>
-                    <div class="irs-radio-group inline" style="margin: auto 10px;">
-                        <label class="irs-checkbox-inline"><input type="checkbox" formControlName="line1Self"> Self-only</label>
-                        <label class="irs-checkbox-inline"><input type="checkbox" formControlName="line1Family"> Family</label>
-                    </div>
-                    <div class="irs-line-val-num empty"></div>
-                    <div class="irs-line-val empty"></div>
-                </div>
-
-                <div class="irs-line-item">
-                    <div class="irs-line-num">2</div>
-                    <div class="irs-line-desc">HSA contributions you made for 2024 (or those made on your behalf), including those made from Jan. 1, 2025, through Apr. 15, 2025, that were for 2024. Do not include employer contributions...</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">2</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line2" class="irs-input-val"></div>
-                </div>
-
-                <div class="irs-line-item">
-                    <div class="irs-line-num">3</div>
-                    <div class="irs-line-desc">If you were under age 55 at the end of 2024 and, on the first day of every month of 2024, you were an eligible individual with the same coverage, enter the amount from the instructions...</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">3</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line3" class="irs-input-val"></div>
-                </div>
-
-                <div class="irs-line-item">
-                    <div class="irs-line-num">8</div>
-                    <div class="irs-line-desc"><strong>HSA contribution limit.</strong> Enter the smaller of line 3 or line 7 here and on line 13</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">8</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line8" class="irs-input-val"></div>
-                </div>
-
-                <div class="irs-line-item" style="border-bottom: 2px solid #000;">
-                    <div class="irs-line-num">13</div>
-                    <div class="irs-line-desc"><strong>HSA deduction.</strong> Enter the smaller of line 2 or line 12 here and on Schedule 1 (Form 1040), line 13</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">13</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line13" class="irs-input-val"></div>
-                </div>
-
-                <!-- Part II -->
-                <div class="irs-part-header">
-                    <span class="part-num">Part II</span>
-                    <span class="part-title">HSA Distributions.</span>
-                    <span class="part-desc">If you are filing jointly and both of you each have separate HSAs, complete a separate Part II for each spouse.</span>
-                </div>
-
-                <div class="irs-line-item">
-                    <div class="irs-line-num">14a</div>
-                    <div class="irs-line-desc">Total distributions you received in 2024 from all HSAs (see instructions)</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">14a</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line14a" class="irs-input-val"></div>
-                </div>
-
-                <div class="irs-line-item">
-                    <div class="irs-line-num">14b</div>
-                    <div class="irs-line-desc" style="padding-left: 20px;">Distributions included on line 14a that you rolled over to another HSA...</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">14b</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line14b" class="irs-input-val"></div>
-                </div>
-                
-                <div class="irs-line-item">
-                    <div class="irs-line-num">14c</div>
-                    <div class="irs-line-desc" style="padding-left: 20px;">Subtract line 14b from line 14a</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">14c</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line14c" class="irs-input-val"></div>
-                </div>
-
-                <div class="irs-line-item">
-                    <div class="irs-line-num">15</div>
-                    <div class="irs-line-desc">Qualified medical expenses paid using HSA distributions (see instructions)</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">15</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line15" class="irs-input-val"></div>
-                </div>
-
-                <div class="irs-line-item">
-                    <div class="irs-line-num">16</div>
-                    <div class="irs-line-desc"><strong>Taxable HSA distributions.</strong> Subtract line 15 from line 14c. If zero or less, enter -0-. Also, include this amount in the total on Form 1040, 1040-SR, or 1040-NR, line 8e</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">16</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line16" class="irs-input-val"></div>
-                </div>
-
-                <div class="irs-line-item">
-                    <div class="irs-line-num">17</div>
-                    <div class="irs-line-desc">If any of the distributions included on line 16 meet any of the Exceptions to the Additional 20% Tax, check here<br>
-                        <strong>Additional 20% tax.</strong> Multiply line 16 by 20% (0.20). Enter the result here and on Schedule 2 (Form 1040), line 17c
-                    </div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">17</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line17" class="irs-input-val"></div>
-                </div>
-
-            </div>
-
-            <div class="irs-footer-actions">
-                <button type="submit" class="btn-submit">Submit Form 8889</button>
-            </div>
-        </form>
-    </div>
+        <div style="padding: 60px 40px; text-align: center; background: #fff;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
+                Save Form 8889 / Guardar Formulario 8889
+            </button>
+        </div>
+    </form>
+    }
 </div>

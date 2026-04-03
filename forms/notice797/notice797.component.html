@@ -1,0 +1,61 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Notice 797</h1><p class="form-year">(Rev. September 2025)</p></div>
+        <div class="form-info"><p><strong>Possible Federal Tax Refund Due to the Earned Income Credit (EIC)</strong></p><p>Department of the Treasury — Internal Revenue Service</p></div>
+    </div>
+    <div class="form-instructions"><p><strong>You may be able to claim the EIC if:</strong> You worked but earned less than certain amounts, and you have qualifying children or meet other requirements.</p></div>
+    <div class="part-section">
+        <h3 class="part-header">Part I — Your Information</h3>
+        <div class="field-row"><div class="field-group"><label>Your name</label><input type="text" formControlName="name"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>SSN</label><input type="text" formControlName="ssn"></div>
+            <div class="field-group"><label>Tax Year</label><input type="text" formControlName="taxYear"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part II — Eligibility Check</h3>
+        <table class="form-table">
+            <tr><td>1. Did you have at least one qualifying child?</td><td>
+                <select formControlName="hasQualifyingChild">
+                    <option value="">Select...</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </td></tr>
+            <tr><td>2. Number of qualifying children</td><td><input type="number" formControlName="children"></td></tr>
+            <tr><td>3. Filing status</td><td>
+                <select formControlName="married">
+                    <option value="">Select...</option>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married Filing Jointly</option>
+                    <option value="Head">Head of Household</option>
+                </select>
+            </td></tr>
+            <tr><td>4. Earned income from work</td><td><input type="number" formControlName="income"></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part III — EIC Estimate</h3>
+        <table class="form-table">
+            <tr><td>5. Estimated EIC amount (based on income and children)</td><td><input type="number" formControlName="eicAmount" readonly></td></tr>
+            <tr><td>6. Did you already receive an EIC refund?</td><td>
+                <select formControlName="alreadyReceived">
+                    <option value="">Select...</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </td></tr>
+            <tr><td>7. If yes, amount received</td><td><input type="number" formControlName="amountReceived"></td></tr>
+            <tr class="highlight-row"><td>8. Additional refund owed (if any)</td><td><input type="number" formControlName="stillOwed" readonly></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part IV — How to Claim</h3>
+        <div class="info-box">
+            <p>To claim the EIC, file Form 1040, 1040-SR, or 1040-NR with Schedule EIC if you have qualifying children.</p>
+            <p>You must include a valid SSN for yourself and any qualifying child.</p>
+            <p>If you don't have a SSN, apply for one at socialsecurity.gov.</p>
+        </div>
+    </div>
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

@@ -1,102 +1,126 @@
-<div class="irs-form-container">
-  <div class="irs-form-box">
-    <!-- Header -->
-    <div class="irs-main-header">
-       <div class="irs-col-form-id">
-          <div class="irs-form-num">Form <span class="num-large">965-D</span></div>
-          <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
-       </div>
-       <div class="irs-col-title">
-          <h1>Transfer Agreement Under Section 965(i)(2)</h1>
-          <p class="irs-instruction">Go to <strong>www.irs.gov/Form965D</strong> for instructions and the latest information.</p>
-       </div>
-       <div class="irs-col-omb">
-          <div class="irs-omb">OMB No. 1545-0074</div>
-          <div class="irs-duplicate">File in <strong>Duplicate</strong></div>
-       </div>
+<div class="irs-unified-container">
+    <!-- Form 965-D Header -->
+    <div class="irs-header-main" style="background: #fff; border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.4rem;">Form 965-D</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
+        </div>
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.1rem; margin: 0;">Transfer Agreement Under Section 965(i)(2)</h1>
+                <h2 style="font-size: 0.9rem; margin: 0; font-style: italic;">Acuerdo de Transferencia Bajo la Sección 965(i)(2)</h2>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 8px; font-weight: 700;">▶ Go to www.irs.gov/Form965D for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0074</div>
+            <div style="font-size: 2.8rem; line-height: 1;">2025</div>
+        </div>
     </div>
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <!-- Part I -->
-      <div class="irs-part-header-full">
-        <span class="part-label">Part I</span>
-        <span class="part-title">Transferor Information</span>
-      </div>
-      <div class="irs-id-grid-965 padding-sm border-b">
-         <div class="irs-id-row">
-            <div class="irs-cell">
-               <label for="trn">Name of transferor</label>
-               <input id="trn" type="text" formControlName="transferor_name" class="irs-borderless-input">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="form">
+        <!-- Part I -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part I</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Transferor Information</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Información del Cedente</span>
             </div>
-            <div class="irs-cell border-l">
-               <label for="trin">Identifying number (TIN)</label>
-               <input id="trin" type="text" formControlName="transferor_tin" class="irs-borderless-input">
-            </div>
-         </div>
-      </div>
+        </div>
 
-      <!-- Part II -->
-      <div class="irs-part-header-full">
-        <span class="part-label">Part II</span>
-        <span class="part-title">Transferee Information</span>
-      </div>
-      <div class="irs-id-grid-965 padding-sm border-b">
-         <div class="irs-id-row">
-            <div class="irs-cell">
-               <label for="ten">Name of transferee</label>
-               <input id="ten" type="text" formControlName="transferee_name" class="irs-borderless-input">
+        <div class="irs-row" style="grid-template-columns: 1fr 300px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Name of transferor</label>
+                    <label class="irs-label-es">Nombre del cedente</label>
+                </div>
+                <input type="text" formControlName="transferor_name" style="width: 100%; border: none; font-weight: 700;">
             </div>
-            <div class="irs-cell border-l">
-               <label for="tein">Identifying number (TIN)</label>
-               <input id="tein" type="text" formControlName="transferee_tin" class="irs-borderless-input">
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Identifying number (TIN)</label>
+                    <label class="irs-label-es">Número de identificación (TIN)</label>
+                </div>
+                <input type="text" formControlName="transferor_tin" style="width: 100%; border: none; font-weight: 700;">
             </div>
-         </div>
-      </div>
+        </div>
 
-      <!-- Part III -->
-      <div class="irs-part-header-full">
-        <span class="part-label">Part III</span>
-        <span class="part-title">Identifying Information of the S Corporation</span>
-      </div>
-      <div class="irs-id-grid-965 padding-sm border-b">
-         <div class="irs-id-row">
-            <div class="irs-cell">
-               <label for="scn">Name of S corporation</label>
-               <input id="scn" type="text" formControlName="scorp_name" class="irs-borderless-input">
+        <!-- Part II -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part II</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Transferee Information</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Información del Cesionario</span>
             </div>
-            <div class="irs-cell border-l">
-               <label for="scin">Identifying number (TIN)</label>
-               <input id="scin" type="text" formControlName="scorp_tin" class="irs-borderless-input">
-            </div>
-         </div>
-      </div>
+        </div>
 
-      <!-- Part IV -->
-      <div class="irs-part-header-full">
-        <span class="part-label">Part IV</span>
-        <span class="part-title">Triggering Event Leading to Transfer Agreement</span>
-      </div>
-      <div class="irs-trigger-grid padding-sm border-b">
-         <div class="irs-trigger-row border-b margin-b-10">
-            <div class="irs-tr-item">
-               <strong>1 Date of triggering event:</strong>
-               <input type="date" formControlName="event_date" class="irs-inline-input">
+        <div class="irs-row" style="grid-template-columns: 1fr 300px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Name of transferee</label>
+                    <label class="irs-label-es">Nombre del cesionario</label>
+                </div>
+                <input type="text" formControlName="transferee_name" style="width: 100%; border: none; font-weight: 700;">
             </div>
-            <div class="irs-tr-item margin-t-10">
-               <strong>2 Was the transfer by reason of death of transferor?</strong>
-               <label><input type="radio" [value]="true" formControlName="is_death"> Yes</label>
-               <label><input type="radio" [value]="false" formControlName="is_death"> No</label>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Identifying number (TIN)</label>
+                    <label class="irs-label-es">Número de identificación (TIN)</label>
+                </div>
+                <input type="text" formControlName="transferee_tin" style="width: 100%; border: none; font-weight: 700;">
             </div>
-         </div>
-         <div class="irs-desc-row">
-            <label for="event_desc_965d"><strong>4 Detailed description of the triggering event:</strong></label>
-            <textarea id="event_desc_965d" formControlName="event_desc" rows="4" class="irs-textarea"></textarea>
-         </div>
-      </div>
+        </div>
 
-      <div class="irs-footer-actions">
-        <button type="submit" class="btn-submit">Submit Form 965-D</button>
-      </div>
+        <!-- Part III -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part III</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Identifying Information of the S Corporation</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Información de Identificación de la Corporación S</span>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 1fr 300px; border-bottom: 2px solid #000;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Name of S corporation</label>
+                    <label class="irs-label-es">Nombre de la corporación S</label>
+                </div>
+                <input type="text" formControlName="scorp_name" style="width: 100%; border: none; font-weight: 700;">
+            </div>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Identifying number (TIN)</label>
+                    <label class="irs-label-es">Número de identificación (TIN)</label>
+                </div>
+                <input type="text" formControlName="scorp_tin" style="width: 100%; border: none; font-weight: 700;">
+            </div>
+        </div>
+
+        <!-- Part IV -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part IV</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Triggering Event</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Evento de Activación</span>
+            </div>
+        </div>
+
+        <div style="padding: 10px; border-bottom: 2px solid #000;">
+             <div class="irs-label-wrap">
+                <span style="font-weight: 900;">Detailed description of the triggering event leading to this transfer agreement</span>
+                <span style="font-size: 0.8rem; font-style: italic;">Descripción detallada del evento de activación que dio lugar a este acuerdo de transferencia</span>
+             </div>
+             <textarea formControlName="event_desc" rows="4" style="width: 100%; margin-top: 10px; border: 1px solid #000; font-family: inherit; padding: 10px;"></textarea>
+        </div>
+
+        <div style="padding: 40px; text-align: center;">
+            <button type="submit" style="background: #111; color: #fff; padding: 15px 60px; border: none; border-radius: 2px; font-weight: 900; cursor: pointer; text-transform: uppercase;">
+                Save Form 965-D / Guardar Formulario 965-D
+            </button>
+        </div>
     </form>
-  </div>
 </div>

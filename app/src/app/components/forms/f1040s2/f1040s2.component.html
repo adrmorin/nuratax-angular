@@ -1,778 +1,149 @@
-<div class="irs-form-container">
-    <div class="irs-form-box">
-        <!-- Main Header -->
-        <div class="irs-main-header">
-            <div class="irs-col-1">
-                <div>
-                    <div class="irs-form-id">SCHEDULE 2</div>
-                    <div class="irs-form-sub-id">(Form 1040)</div>
-                </div>
-                <div class="irs-dept-info">
-                    Department of the Treasury<br>
-                    Internal Revenue Service
-                </div>
+<div class="irs-unified-container">
+    <!-- Schedule 2 Header -->
+    <div class="irs-header-main" style="border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.4rem;">SCHEDULE 2</div>
+            <div style="font-size: 0.8rem;">(Form 1040)</div>
+            <div class="irs-dept-info" style="margin-top: 10px;">
+                Department of the Treasury<br>
+                Internal Revenue Service
             </div>
-            <div class="irs-col-2">
-                <h1>Additional Taxes</h1>
-                <p>Attach to Form 1040, 1040-SR, or 1040-NR.</p>
-                <p class="irs-instruction">Go to <i>www.irs.gov/Form1040</i> for instructions and the latest
-                    information.</p>
+        </div>
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.6rem; margin: 0;">Additional Taxes</h1>
+                <h2 style="font-size: 1.1rem; margin: 0; font-style: italic;">Impuestos Adicionales</h2>
             </div>
-            <div class="irs-col-3">
-                <div class="irs-omb-box">OMB No. 1545-0074</div>
-                <div class="irs-sequence-box">
-                    <div class="irs-year-box">
-                        <span class="year-outline-20">20</span><span class="year-solid-25">25</span>
-                    </div>
-                    <div class="irs-attachment">
-                        Attachment<br>
-                        Sequence No. <strong>02</strong>
-                    </div>
-                </div>
+            <p style="font-size: 0.8rem; margin-top: 8px; font-weight: 700;">▶ Attach to Form 1040, 1040-SR, or 1040-NR. / Adjunte al Formulario 1040, 1040-SR o 1040-NR.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.7rem;">OMB No. 1545-0074</div>
+            <div class="irs-year-text">2025</div>
+            <div style="font-size: 0.7rem; margin-top: 5px;">Attachment Sequence No. <strong>02</strong></div>
+        </div>
+    </div>
+
+    <form [formGroup]="scheduleForm" (ngSubmit)="onSubmit()" *ngIf="scheduleForm">
+        <!-- Part I -->
+        <div class="irs-part-banner" style="background: #000; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part I</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Tax</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Impuesto</span>
             </div>
         </div>
 
-        <form [formGroup]="scheduleForm" (ngSubmit)="onSubmit()">
-            <!-- Name and SSN -->
-            <div class="irs-row-border" style="border-bottom: 2px solid #000;">
-                <div class="irs-field flex-3 border-right">
-                    <label for="nameShown">Name(s) shown on Form 1040, 1040-SR, or 1040-NR</label>
-                    <input type="text" id="nameShown" formControlName="nameShown">
-                </div>
-                <div class="irs-field flex-1">
-                    <label for="ssn">Your social security number</label>
-                    <input type="text" id="ssn" formControlName="ssn">
+        <!-- Line 1a -->
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div style="text-align: center; border-right: 1px solid #000; padding: 10px; font-weight: 700;">1a</div>
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Excess advance premium tax credit repayment. Attach Form 8962</label>
+                    <label class="irs-label-es">Reembolso del exceso de trámite por adelantado del crédito de la prima. Adjunte el Formulario 8962</label>
                 </div>
             </div>
-
-            <!-- PART I -->
-            <div class="irs-section-header">
-                <span class="irs-part-num">Part I</span>
-                <span class="irs-part-title">Tax</span>
+            <div style="padding: 10px;">
+                <input type="number" formControlName="line1a" style="width: 100%; border: none; text-align: right; font-weight: 700;">
             </div>
+        </div>
 
-            <table class="irs-table">
-                <!-- Grid Anchor Row -->
-                <tr style="height: 0; line-height: 0;">
-                    <td class="irs-line-num" style="height: 0; border: none; padding: 0;"></td>
-                    <td class="irs-desc" style="height: 0; border: none; padding: 0;"></td>
-                    <td class="irs-col-sub-num" style="height: 0; border: none; padding: 0;"></td>
-                    <td class="irs-col-intermediate-val" style="height: 0; border: none; padding: 0;"></td>
-                    <td class="irs-col-main-num" style="height: 0; border: none; padding: 0;"></td>
-                    <td class="irs-val-cell" style="height: 0; border: none; padding: 0;"></td>
-                </tr>
-                <tbody>
-                    <tr>
-                        <td class="irs-line-num">1</td>
-                        <td class="irs-desc" colspan="5">
-                            <div class="irs-desc-content"><span>Additions to tax:</span></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">a</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Excess advance premium tax credit repayment. Attach Form
-                                    8962</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="1a">1a</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line1a"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">b</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Repayment of new clean vehicle credit(s) transferred to
-                                    a registered dealer from Schedule A (Form 8936), Part II. Attach Form 8936 and
-                                    Schedule A (Form 8936)</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="1b">1b</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line1b"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">c</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Repayment of previously owned clean vehicle credit(s)
-                                    transferred to a registered dealer from Schedule A (Form 8936), Part IV. Attach Form
-                                    8936 and Schedule A (Form 8936)</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="1c">1c</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line1c"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">d</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Recapture of net EPE from Form 4255, line 2a, column
-                                    (l)</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="1d">1d</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line1d"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">e</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content" style="flex-wrap: wrap;">
-                                <span>Excessive payments (EPs) on gross EPE from Form 4255. Check applicable box and
-                                    enter amount. See instructions. <br>
-                                    (i) Line 1a <input type="checkbox" formControlName="line1eRadio" value="i">
-                                    (ii) Line 1c <input type="checkbox" formControlName="line1eRadio" value="ii">
-                                    (iii) Line 1d <input type="checkbox" formControlName="line1eRadio" value="iii">
-                                    (iv) Line 2a <input type="checkbox" formControlName="line1eRadio" value="iv">
-                                </span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="1e">1e</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line1e"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">f</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content" style="flex-wrap: wrap;">
-                                <span>20% EP from Form 4255. Check applicable box and enter amount. See
-                                    instructions.<br>
-                                    (i) Line 1a <input type="checkbox" formControlName="line1fRadio" value="i">
-                                    (ii) Line 1c <input type="checkbox" formControlName="line1fRadio" value="ii">
-                                    (iii) Line 1d <input type="checkbox" formControlName="line1fRadio" value="iii">
-                                    (iv) Line 2a <input type="checkbox" formControlName="line1fRadio" value="iv">
-                                </span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="1f">1f</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line1f"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">y</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Other additions to tax (see instructions):</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="1y">1y</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line1y"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">z</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content"><span>Add lines 1a through 1y</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">1z</div>
-                        </td>
-                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line1z')?.value |
-                            number:'1.0-2' }}</td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">2</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content"><span>Alternative minimum tax. Attach Form 6251</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">2</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line2"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">3</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content"><span><strong>Add lines 1z and 2. Enter here and on Form 1040,
-                                        1040-SR, or 1040-NR, line 17</strong></span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">3</div>
-                        </td>
-                        <td class="irs-val-cell calculated irs-blue-cell" style="background:#eef2ff !important">
-                            <strong>{{ scheduleForm.get('line3')?.value | number:'1.0-2' }}</strong>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- PART II -->
-            <div class="irs-section-header">
-                <span class="irs-part-num">Part II</span>
-                <span class="irs-part-title">Other Taxes</span>
+        <!-- Line 2 -->
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div style="text-align: center; border-right: 1px solid #000; padding: 10px; font-weight: 700;">2</div>
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Alternative minimum tax. Attach Form 6251</label>
+                    <label class="irs-label-es">Impuesto mínimo alternativo. Adjunte el Formulario 6251</label>
+                </div>
             </div>
-
-            <table class="irs-table">
-                <tr style="height: 0; line-height: 0;">
-                    <td class="irs-line-num" style="height: 0; border: none; padding: 0;"></td>
-                    <td class="irs-desc" style="height: 0; border: none; padding: 0;"></td>
-                    <td class="irs-col-sub-num" style="height: 0; border: none; padding: 0;"></td>
-                    <td class="irs-col-intermediate-val" style="height: 0; border: none; padding: 0;"></td>
-                    <td class="irs-col-main-num" style="height: 0; border: none; padding: 0;"></td>
-                    <td class="irs-val-cell" style="height: 0; border: none; padding: 0;"></td>
-                </tr>
-                <tbody>
-                    <tr>
-                        <td class="irs-line-num">4</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content"
-                                style="flex-direction: column; align-items: flex-start; padding-top:4px; padding-bottom:4px;">
-                                <span>Self-employment tax. Attach Schedule SE. Check if any
-                                    exemption from (see instructions):</span>
-                                <div
-                                    style="display: flex; align-items: center; width:100%; gap: 10px; margin-top: 5px;">
-                                    <span style="font-weight:950;">1</span> <input type="checkbox"
-                                        formControlName="line4Check1"> <span>4361</span>
-                                    <span style="font-weight:950; margin-left:10px;">2</span> <input type="checkbox"
-                                        formControlName="line4Check2"> <span>4029</span>
-                                    <span style="font-weight:950; margin-left:10px;">3</span> <input type="checkbox"
-                                        formControlName="line4Check3"> <input type="text" formControlName="line4Text"
-                                        style="width: 80px; background: #e8efff; border:none; border-bottom: 1px dotted #888;">
-                                    <div class="irs-dots"></div>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">4</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line4"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">5</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Social security and Medicare tax on unreported tip
-                                    income. Attach Form 4137</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="5">5</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line5"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">6</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Uncollected social security and Medicare tax on wages.
-                                    Attach Form 8919</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="6">6</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line6"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">7</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content"><span>Total additional social security and Medicare tax. Add
-                                    lines 5 and 6</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">7</div>
-                        </td>
-                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line7')?.value |
-                            number:'1.0-2' }}</td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">8</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content" style="flex-wrap: wrap;">
-                                <span style="width: 100%;">Additional tax on IRAs or other tax-favored accounts. Attach
-                                    Form 5329 if required.</span>
-                                <span>If not required, check here</span>
-                                <div class="irs-dots" style="margin-left:5px;"></div>
-                                <input type="checkbox" style="margin-right:0px;" formControlName="line8Check">
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">8</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line8"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">9</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content"><span>Household employment taxes. Attach Schedule H</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">9</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line9"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">10</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content"><span>Reserved for future use</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">10</div>
-                        </td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">11</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content"><span>Additional Medicare Tax. Attach Form 8959</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">11</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line11"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">12</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content"><span>Net investment income tax. Attach Form 8960</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">12</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line12"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">13</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content"><span>Uncollected social security and Medicare or RRTA tax on
-                                    tips or group-term life insurance from Form W-2, box 12</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">13</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line13"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">14</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content"><span>Interest on tax due on installment income from the sale
-                                    of certain residential lots and timeshares</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">14</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line14"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">15</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content"><span>Interest on the deferred tax on gain from certain
-                                    installment sales with a sales price over $150,000</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">15</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line15"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">16</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content"><span>Recapture of low-income housing credit. Attach Form
-                                    8611</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">16</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line16"></td>
-                    </tr>
-
-                    <tr>
-                        <td class="irs-line-num">17</td>
-                        <td class="irs-desc" colspan="5">
-                            <div class="irs-desc-content"><span>Other additional taxes:</span></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num" rowspan="2"
-                            style="vertical-align: top; padding-top: 6px !important; border-bottom: 1px solid #000;">a
-                        </td>
-                        <td class="irs-desc" rowspan="2"
-                            style="vertical-align: top; padding-top: 4px !important; padding-right: 0 !important; border-bottom: 1px solid #000;">
-                            <div
-                                style="display:flex; flex-direction:column; justify-content: space-between; height: 100%; min-height: 52px;">
-                                <div style="width:100%;">
-                                    <span>Recapture of other credits. List type, form number, and amount:</span>
-                                </div>
-                                <div style="display:flex; width:100%; height: 26px; margin-top: auto;">
-                                    <input type="text" formControlName="line17a_type"
-                                        style="width:100%; background: #e8efff; border:none; padding: 0 8px; box-sizing: border-box;">
-                                </div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" style="background:#fff; border-bottom: 1px solid #000;"></td>
-                        <td class="irs-val-cell-intermediate" style="background:#fff; border-bottom: 1px solid #000;">
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border" style="border-bottom: 1px solid #000;"></td>
-                        <td class="irs-val-cell irs-grey-cell" style="border-bottom: 1px solid #000;"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-col-sub-num" data-line="17a">17a</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line17a"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">b</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Recapture of federal mortgage subsidy. If you sold your
-                                    home, see instructions</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="17b">17b</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line17b"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">c</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Additional tax on HSA distributions. Attach Form
-                                    8889</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="17c">17c</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line17c"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">d</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Additional tax on an HSA because you didn’t remain an
-                                    eligible individual. Attach Form 8889</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="17d">17d</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line17d"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">e</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Additional tax on Archer MSA distributions. Attach Form
-                                    8853</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="17e">17e</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line17e"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">f</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Additional tax on Medicare Advantage MSA distributions.
-                                    Attach Form 8853</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="17f">17f</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line17f"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">g</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Recapture of a charitable contribution deduction related
-                                    to a fractional interest in tangible personal property</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="17g">17g</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line17g"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">h</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Income you received from a nonqualified deferred
-                                    compensation plan that fails to meet the requirements of section 409A</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="17h">17h</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line17h"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">i</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Compensation you received from a nonqualified deferred
-                                    compensation plan described in section 457A</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="17i">17i</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line17i"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">j</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Section 72(m)(5) excess benefits tax</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="17j">17j</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line17j"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">k</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Golden parachute payments</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="17k">17k</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line17k"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">l</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Tax on accumulation distribution of trusts</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="17l">17l</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line17l"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">m</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Excise tax on insider stock compensation from an
-                                    expatriated corporation</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="17m">17m</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line17m"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">n</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Look-back interest under section 167(g) or 460(b) from
-                                    Form 8697 or 8866</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="17n">17n</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line17n"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">o</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Tax on non-effectively connected income for any part of
-                                    the year you were a nonresident alien from Form 1040-NR</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="17o">17o</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line17o"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">p</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Any interest from Form 8621, line 16f, relating to
-                                    distributions from, and dispositions of, stock of a section 1291 fund</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="17p">17p</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line17p"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">q</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content"><span>Any interest from Form 8621, line 24</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" data-line="17q">17q</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line17q"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num" rowspan="2"
-                            style="vertical-align: top; padding-top: 6px !important; border-bottom: 1px solid #000;">z
-                        </td>
-                        <td class="irs-desc" rowspan="2"
-                            style="vertical-align: top; padding-top: 4px !important; padding-right: 0 !important; border-bottom: 1px solid #000;">
-                            <div
-                                style="display:flex; flex-direction:column; justify-content: space-between; height: 100%; min-height: 52px;">
-                                <div style="width:100%;">
-                                    <span>Any other taxes. List type and amount:</span>
-                                </div>
-                                <div style="display:flex; width:100%; height: 26px; margin-top: auto;">
-                                    <input type="text" formControlName="line17z_type"
-                                        style="width:100%; background: #e8efff; border:none; padding: 0 8px; box-sizing: border-box;">
-                                </div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num" style="background:#fff; border-bottom: 1px solid #000;"></td>
-                        <td class="irs-val-cell-intermediate" style="background:#fff; border-bottom: 1px solid #000;">
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border" style="border-bottom: 1px solid #000;"></td>
-                        <td class="irs-val-cell irs-grey-cell" style="border-bottom: 1px solid #000;"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-col-sub-num" data-line="17z">17z</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell"><input type="number"
-                                formControlName="line17z"></td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-
-                    <tr>
-                        <td class="irs-line-num">18</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content"><span>Total additional taxes. Add lines 17a through 17z</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">18</div>
-                        </td>
-                        <td class="irs-val-cell calculated irs-blue-cell">{{ scheduleForm.get('line18')?.value |
-                            number:'1.0-2' }}</td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">19</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content"><span>Recapture of net EPE from Form 4255, line 1d, column
-                                    (l)</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">19</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line19"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">20</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content"><span>Section 965 net tax liability installment from Form
-                                    965-A</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">20</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell"><input type="number" formControlName="line20"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num" style="border-bottom: 2px solid #000 !important;">21</td>
-                        <td class="irs-desc" colspan="3" style="border-bottom: 2px solid #000 !important;">
-                            <div class="irs-desc-content" style="align-items: flex-end; padding-bottom: 2px;">
-                                <span><strong>Add lines 4, 7 through 16, 18, and 19. These are
-                                        your total other taxes. Enter here and on Form 1040
-                                        or 1040-SR, line 23; or Form 1040-NR, line 23b</strong></span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border"
-                            style="border-bottom: 2px solid #000 !important;">
-                            <div class="irs-main-line-num-box">21</div>
-                        </td>
-                        <td class="irs-val-cell calculated irs-blue-cell"
-                            style="background:#eef2ff !important; border-bottom: 2px solid #000 !important;">
-                            <strong>{{ scheduleForm.get('line21')?.value | number:'1.0-2' }}</strong>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="irs-footer-actions">
-                <button type="submit" class="btn-submit">Guardar Formulario 1040 S-2</button>
+            <div style="padding: 10px;">
+                <input type="number" formControlName="line2" style="width: 100%; border: none; text-align: right; font-weight: 700;">
             </div>
-        </form>
-    </div>
+        </div>
+
+        <!-- Line 3 (Calculation) -->
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px; background: #eee; border-bottom: 3px solid #000;">
+            <div style="text-align: center; border-right: 1px solid #000; padding: 10px; font-weight: 900;">3</div>
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en"><strong>Add lines 1z and 2. Enter here and on Form 1040, line 17</strong></label>
+                    <label class="irs-label-es">Sume las líneas 1z y 2. Anote aquí y en el Formulario 1040, línea 17</label>
+                </div>
+            </div>
+            <div style="padding: 10px; font-weight: 900; text-align: right; font-size: 1.1rem;">
+                {{ scheduleForm.get('line3')?.value | number:'1.2-2' }}
+            </div>
+        </div>
+
+        <!-- Part II -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part II</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Other Taxes</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Otros Impuestos</span>
+            </div>
+        </div>
+
+        <!-- Line 4 -->
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div style="text-align: center; border-right: 1px solid #000; padding: 10px; font-weight: 700;">4</div>
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Self-employment tax. Attach Schedule SE</label>
+                    <label class="irs-label-es">Impuesto sobre el trabajo por cuenta propia. Adjunte el Anexo SE</label>
+                </div>
+            </div>
+            <div style="padding: 10px;">
+                <input type="number" formControlName="line4" style="width: 100%; border: none; text-align: right; font-weight: 700;">
+            </div>
+        </div>
+
+        <!-- Line 8 -->
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div style="text-align: center; border-right: 1px solid #000; padding: 10px; font-weight: 700;">8</div>
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Additional tax on IRAs or other tax-favored accounts. Attach Form 5329 if required</label>
+                    <label class="irs-label-es">Impuesto adicional sobre cuentas IRA u otras cuentas con ventajas tributarias. Adjunte Formulario 5329 si es necesario</label>
+                </div>
+            </div>
+            <div style="padding: 10px;">
+                <input type="number" formControlName="line8" style="width: 100%; border: none; text-align: right; font-weight: 700;">
+            </div>
+        </div>
+
+        <!-- Line 9 -->
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div style="text-align: center; border-right: 1px solid #000; padding: 10px; font-weight: 700;">9</div>
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Household employment taxes. Attach Schedule H</label>
+                    <label class="irs-label-es">Impuestos sobre el empleo de empleados domésticos. Adjunte el Anexo H</label>
+                </div>
+            </div>
+            <div style="padding: 10px;">
+                <input type="number" formControlName="line9" style="width: 100%; border: none; text-align: right; font-weight: 700;">
+            </div>
+        </div>
+
+        <!-- Total Calculation (Line 21) -->
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px; background: #eee; border-top: 3px solid #000; border-bottom: 2px solid #000;">
+            <div style="text-align: center; border-right: 1px solid #000; padding: 10px; font-weight: 900;">21</div>
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en"><strong>Total other taxes. Enter here and on Form 1040, line 23</strong></label>
+                    <label class="irs-label-es">Total de otros impuestos. Anote aquí y en el Formulario 1040, línea 23</label>
+                </div>
+            </div>
+            <div style="padding: 10px; font-weight: 900; text-align: right; font-size: 1.2rem;">
+                {{ scheduleForm.get('line21')?.value | number:'1.2-2' }}
+            </div>
+        </div>
+
+        <div style="padding: 40px; text-align: center;">
+            <button type="submit" style="background: #111; color: #fff; padding: 15px 60px; border: none; border-radius: 2px; font-weight: 900; cursor: pointer; text-transform: uppercase;">
+                Save Schedule 2 / Guardar Anexo 2
+            </button>
+        </div>
+    </form>
 </div>

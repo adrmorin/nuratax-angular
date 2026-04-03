@@ -1,0 +1,43 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 1120</h1><p class="form-year">Department of the Treasury - Internal Revenue Service</p></div>
+        <div class="form-info"><p><strong>U.S. Corporate Income Tax Return</strong> - For calendar year 2026</p></div>
+    </div>
+
+    <div class="corp-section">
+        <div class="field-row">
+            <div class="field-group"><label>Name of corporation</label><input type="text" formControlName="corpName"></div>
+            <div class="field-group small"><label>EIN</label><input type="text" formControlName="ein"></div>
+            <div class="field-group small"><label>State</label><input type="text" formControlName="state"></div>
+        </div>
+    </div>
+
+    <table class="form-table">
+        <thead><tr><th colspan="3" class="section-header">Income</th></tr></thead>
+        <tbody>
+            <tr><td class="line-num">1</td><td class="line-desc">Gross receipts or sales</td><td class="line-input"><input type="number" formControlName="grossReceipts"></td></tr>
+            <tr><td class="line-num">2</td><td class="line-desc">Cost of goods sold</td><td class="line-input"><input type="number" formControlName="costOfGoods"></td></tr>
+            <tr class="highlight-row"><td class="line-num">3</td><td class="line-desc"><strong>Gross profit</strong></td><td class="line-input"><input type="number" formControlName="grossProfit" readonly></td></tr>
+            <tr><td class="line-num">4</td><td class="line-desc">Total income</td><td class="line-input"><input type="number" formControlName="totalIncome"></td></tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead><tr><th colspan="3" class="section-header">Deductions</th></tr></thead>
+        <tbody>
+            <tr><td class="line-num">5</td><td class="line-desc">Total deductions</td><td class="line-input"><input type="number" formControlName="deductions"></td></tr>
+            <tr class="highlight-row"><td class="line-num">6</td><td class="line-desc"><strong>Taxable income</strong></td><td class="line-input"><input type="number" formControlName="taxableIncome" readonly></td></tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead><tr><th colspan="3" class="section-header">Tax and Payments</th></tr></thead>
+        <tbody>
+            <tr><td class="line-num">7</td><td class="line-desc">Tax</td><td class="line-input"><input type="number" formControlName="tax"></td></tr>
+            <tr><td class="line-num">8</td><td class="line-desc">Total payments</td><td class="line-input"><input type="number" formControlName="totalPayments"></td></tr>
+            <tr class="highlight-row"><td class="line-num">9</td><td class="line-desc"><strong>Amount owed</strong></td><td class="line-input"><input type="number" formControlName="balanceDue" readonly></td></tr>
+        </tbody>
+    </table>
+
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

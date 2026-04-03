@@ -1,103 +1,100 @@
-<div class="irs-form-container">
-  <div class="irs-form-box">
-    <!-- Header -->
-    <div class="irs-main-header">
-      <div class="irs-col-form-id">
-        <div class="irs-form-num">Form <span class="num-large">4255</span></div>
-        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
-      </div>
-      <div class="irs-col-title">
-        <h1>Certain Credit Recapture, Excessive Payments, and Penalties</h1>
-        <p class="irs-instruction">Go to <strong>www.irs.gov/Form4255</strong> for instructions and the latest information.</p>
-        <p class="irs-attach">Attach to your tax return.</p>
-      </div>
-      <div class="irs-col-omb">
-        <div class="irs-omb">OMB No. 1545-0103</div>
-        <div class="irs-year-box">
-          <div class="irs-year">2025</div>
-          <div class="irs-attachment">Attachment<br>Sequence No. <strong>172</strong></div>
+<div class="irs-unified-container">
+    <!-- Form 4255 Header -->
+    <div class="irs-header-main" style="background: #fff; border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.4rem;">Form 4255</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
         </div>
-      </div>
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.3rem; margin: 0;">Certain Credit Recapture, Excessive Payments, and Penalties</h1>
+                <h2 style="font-size: 1rem; margin: 0; font-style: italic;">Recuperación de Ciertos Créditos, Pagos Excesivos y Multas</h2>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 8px; font-weight: 700;">▶ Go to www.irs.gov/Form4255 for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0103</div>
+            <div style="font-size: 2.8rem; line-height: 1;">2025</div>
+        </div>
     </div>
 
-    <!-- Name/EIN Row -->
-    <div class="irs-name-ssn-row">
-        <div class="irs-name-box">
-          <label for="name">Name(s) shown on return</label>
-          <input id="name" type="text" formControlName="name" class="irs-borderless-input">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="form">
+        <!-- Name and ID Header -->
+        <div class="irs-row" style="grid-template-columns: 1fr 250px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Name(s) shown on return</label>
+                    <label class="irs-label-es">Nombre(s) que aparecen en la declaración</label>
+                </div>
+                <input type="text" formControlName="name" style="width: 100%; border: none; font-weight: 700;">
+            </div>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Identifying number (SSN or EIN)</label>
+                    <label class="irs-label-es">Número de identificación</label>
+                </div>
+                <input type="text" formControlName="ein" style="width: 100%; border: none; font-weight: 700;">
+            </div>
         </div>
-        <div class="irs-ssn-box">
-          <label for="ein">Identifying number (SSN or EIN)</label>
-          <input id="ein" type="text" formControlName="ein" class="irs-borderless-input">
+
+        <!-- Part I -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part I</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Summary</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Resumen</span>
+            </div>
         </div>
-      </div>
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      
-      <!-- Part I Header -->
-      <div class="irs-part-header">
-        <span class="part-label">Part I</span>
-        <span class="part-title">Summary</span>
-      </div>
+        <div style="overflow-x: auto; padding: 10px;">
+            <table style="width: 100%; border-collapse: collapse; border: 2px solid #000; font-size: 0.75rem;">
+                <thead>
+                    <tr style="background: #f4f4f4; border-bottom: 2px solid #000;">
+                        <th rowspan="2" style="border-right: 1px solid #000; padding: 5px;">Line</th>
+                        <th rowspan="2" style="border-right: 1px solid #000; padding: 5px;">Source / Fuente</th>
+                        <th style="border-right: 1px solid #000; padding: 5px;">(a)</th>
+                        <th style="border-right: 1px solid #000; padding: 5px;">(b)</th>
+                        <th style="border-right: 1px solid #000; padding: 5px;">(c)</th>
+                        <th style="border-right: 1px solid #000; padding: 5px;">(d)</th>
+                        <th style="border-right: 1px solid #000; padding: 5px;">(e)</th>
+                        <th style="border-right: 1px solid #000; padding: 5px;">(h)</th>
+                        <th style="padding: 5px;">(i)</th>
+                    </tr>
+                    <tr style="background: #fff; border-bottom: 2px solid #000; font-size: 0.65rem;">
+                        <th style="border-right: 1px solid #000; padding: 2px;">Prior yr credit</th>
+                        <th style="border-right: 1px solid #000; padding: 2px;">Gross EPE</th>
+                        <th style="border-right: 1px solid #000; padding: 2px;">EPE tax</th>
+                        <th style="border-right: 1px solid #000; padding: 2px;">Net EPE</th>
+                        <th style="border-right: 1px solid #000; padding: 2px;">Non-EPE</th>
+                        <th style="border-right: 1px solid #000; padding: 2px;">Recaptured</th>
+                        <th style="padding: 2px;">Reduction</th>
+                    </tr>
+                </thead>
+                <tbody formArrayName="rows">
+                    @for (row of rows.controls; track $index) {
+                        <tr [formGroupName]="$index" style="border-bottom: 1px solid #ccc;">
+                            <td style="border-right: 1px solid #000; padding: 5px; text-align: center; font-weight: 700;">{{ row.get('line')?.value }}</td>
+                            <td style="border-right: 1px solid #000; padding: 5px;">{{ row.get('source')?.value }}</td>
+                            <td style="border-right: 1px solid #000; padding: 0;"><input type="number" formControlName="colA" style="width: 100%; text-align: right; border: none; padding: 5px;"></td>
+                            <td style="border-right: 1px solid #000; padding: 0;"><input type="number" formControlName="colB" style="width: 100%; text-align: right; border: none; padding: 5px;"></td>
+                            <td style="border-right: 1px solid #000; padding: 0;"><input type="number" formControlName="colC" style="width: 100%; text-align: right; border: none; padding: 5px;"></td>
+                            <td style="border-right: 1px solid #000; padding: 0;"><input type="number" formControlName="colD" style="width: 100%; text-align: right; border: none; padding: 5px;"></td>
+                            <td style="border-right: 1px solid #000; padding: 0;"><input type="number" formControlName="colE" style="width: 100%; text-align: right; border: none; padding: 5px;"></td>
+                            <td style="border-right: 1px solid #000; padding: 0; background: #eef2ff;"><input type="number" formControlName="colH" style="width: 100%; text-align: right; border: none; padding: 5px; font-weight: 900;"></td>
+                            <td style="padding: 0;"><input type="number" formControlName="colI" style="width: 100%; text-align: right; border: none; padding: 5px;"></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
 
-      <!-- Part I Table (Horizontal Scroll) -->
-      <div class="irs-scroll-container">
-        <table class="irs-complex-table">
-          <thead>
-            <tr class="irs-header-row">
-              <th rowspan="2">Line</th>
-              <th rowspan="2">Source</th>
-              <th>(a)</th>
-              <th>(b)</th>
-              <th>(c)</th>
-              <th>(d)</th>
-              <th>(e)</th>
-              <th>(f)</th>
-              <th>(g)</th>
-              <th colspan="2" class="irs-th-group">Recapture</th>
-              <th colspan="3" class="irs-th-group">Portions of Recapture</th>
-            </tr>
-            <tr class="irs-subheader-row">
-              <th class="irs-label-th">Prior year credit/deduction</th>
-              <th class="irs-label-th">Gross EPE amount</th>
-              <th class="irs-label-th">EPE applied tax</th>
-              <th class="irs-label-th">Net EPE amount</th>
-              <th class="irs-label-th">Non-EPE credit applied tax</th>
-              <th class="irs-label-th">Carryover amount</th>
-              <th class="irs-label-th">%</th>
-              <th class="irs-label-th">(h) Amount recaptured</th>
-              <th class="irs-label-th">(i) Carryover reduction</th>
-              <th class="irs-label-th">(j) Non-EPE credit recapture</th>
-              <th class="irs-label-th">(k) Gross EPE tax recapture</th>
-              <th class="irs-label-th">(l) Net EPE amount recapture</th>
-            </tr>
-          </thead>
-          <tbody>
-            @for (row of rows.controls; track $index; let i = $index) {
-              <tr [formGroup]="row">
-                <td class="irs-td-line">{{ row.get('line')?.value }}</td>
-                <td class="irs-td-source">{{ row.get('source')?.value }}</td>
-                <td><input type="number" formControlName="colA"></td>
-                <td><input type="number" formControlName="colB"></td>
-                <td><input type="number" formControlName="colC"></td>
-                <td><input type="number" formControlName="colD"></td>
-                <td><input type="number" formControlName="colE"></td>
-                <td><input type="number" formControlName="colF"></td>
-                <td><input type="text" formControlName="colG"></td>
-                <td><input type="number" formControlName="colH"></td>
-                <td><input type="number" formControlName="colI"></td>
-                <td><input type="number" formControlName="colJ"></td>
-                <td><input type="number" formControlName="colK"></td>
-                <td><input type="number" formControlName="colL"></td>
-              </tr>
-            }
-          </tbody>
-        </table>
-      </div>
-
-      <div class="irs-footer-actions">
-        <button type="submit" class="btn-submit">Submit Form 4255</button>
-      </div>
+        <div style="padding: 40px; text-align: center;">
+            <button type="submit" style="background: #111; color: #fff; padding: 15px 60px; border: none; border-radius: 2px; font-weight: 900; cursor: pointer; text-transform: uppercase;">
+                Save Form 4255 / Guardar Formulario 4255
+            </button>
+        </div>
     </form>
-  </div>
 </div>

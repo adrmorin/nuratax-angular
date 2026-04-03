@@ -1,0 +1,38 @@
+<div class="irs-form-container">
+    <div class="irs-header"><div class="form-title">Formulario 5500 2026</div></div>
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1"><span class="irs-form-id">5500</span><span class="irs-form-sub-id">2026</span></div>
+            <div class="irs-col-2"><h1>Annual Return/Report of Employee Benefit Plan</h1><p class="irs-instruction">▶ File with EBSA and IRS.</p></div>
+            <div class="irs-col-3"><div class="irs-sequence-box"><span>Secuencia</span><span class="irs-sequence-num">50</span></div></div>
+        </div>
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right"><label for="planName">Plan Name</label><input id="planName" type="text" formControlName="planName"></div>
+                <div class="irs-field flex-1"><label for="ein">EIN</label><input id="ein" type="text" formControlName="ein"></div>
+            </div>
+            <div class="irs-row-border">
+                <div class="irs-field flex-1 border-right"><label for="planNumber">Plan Number</label><input id="planNumber" type="number" formControlName="planNumber"></div>
+                <div class="irs-field flex-1"><label for="planYear">Plan Year End</label><input id="planYear" type="date" formControlName="planYear"></div>
+            </div>
+            <div class="irs-section-header"><span class="irs-part-num">Part I</span><span class="irs-part-title">Plan Information</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">1</td><td class="irs-desc"><label for="totalAssets">Total assets at end of plan year . . . . . . . . . . . . .</label></td><td class="irs-line-num">1</td><td class="irs-val-cell"><input id="totalAssets" type="number" formControlName="totalAssets"></td></tr>
+                    <tr><td class="irs-line-num">2</td><td class="irs-desc"><label for="totalLiabilities">Total liabilities . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">2</td><td class="irs-val-cell"><input id="totalLiabilities" type="number" formControlName="totalLiabilities"></td></tr>
+                    <tr class="irs-result-row"><td class="irs-line-num">3</td><td class="irs-desc"><strong>Net assets . . . . . . . . . . . . . . . . . . . . . . . . .</strong></td><td class="irs-line-num">3</td><td class="irs-val-cell calculated">{{ taxForm.get('netAssets')?.value | currency }}</td></tr>
+                </tbody>
+            </table>
+            <div class="irs-section-header"><span class="irs-part-num">Part II</span><span class="irs-part-title">Income and Expenses</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">4</td><td class="irs-desc"><label for="totalIncome">Total income . . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">4</td><td class="irs-val-cell"><input id="totalIncome" type="number" formControlName="totalIncome"></td></tr>
+                    <tr><td class="irs-line-num">5</td><td class="irs-desc"><label for="totalExpenses">Total expenses . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">5</td><td class="irs-val-cell"><input id="totalExpenses" type="number" formControlName="totalExpenses"></td></tr>
+                    <tr class="irs-result-row"><td class="irs-line-num">6</td><td class="irs-desc"><strong>Net income or (loss) . . . . . . . . . . . . . . . . . . .</strong></td><td class="irs-line-num">6</td><td class="irs-val-cell calculated">{{ taxForm.get('netIncome')?.value | currency }}</td></tr>
+                </tbody>
+            </table>
+            <div class="irs-footer-actions"><button type="submit" class="btn-irs-submit">Guardar Formulario 5500</button></div>
+        </form>
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

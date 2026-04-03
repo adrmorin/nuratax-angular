@@ -1,0 +1,37 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 1098</h1><p class="form-year">Department of the Treasury - Internal Revenue Service</p></div>
+        <div class="form-info"><p><strong>Mortgage Interest Statement</strong> - For calendar year 2026</p></div>
+    </div>
+
+    <div class="lender-section">
+        <div class="field-row">
+            <div class="field-group"><label>Lender name</label><input type="text" formControlName="lenderName"></div>
+            <div class="field-group small"><label>Lender TIN</label><input type="text" formControlName="lenderTin"></div>
+        </div>
+    </div>
+
+    <div class="borrower-section">
+        <div class="field-row">
+            <div class="field-group"><label>Borrower name</label><input type="text" formControlName="borrowerName"></div>
+            <div class="field-group small"><label>Borrower TIN</label><input type="text" formControlName="borrowerTin"></div>
+        </div>
+        <div class="field-row">
+            <div class="field-group"><label>Property address</label><input type="text" formControlName="propertyAddress"></div>
+        </div>
+    </div>
+
+    <table class="form-table">
+        <thead><tr><th colspan="3" class="section-header">Mortgage Interest and Related Expenses</th></tr></thead>
+        <tbody>
+            <tr><td class="line-num">1</td><td class="line-desc">Mortgage interest received</td><td class="line-input"><input type="number" formControlName="interestPaid"></td></tr>
+            <tr><td class="line-num">2</td><td class="line-desc">Points paid on purchase</td><td class="line-input"><input type="number" formControlName="pointsPaid"></td></tr>
+            <tr><td class="line-num">3</td><td class="line-desc">Origination fees</td><td class="line-input"><input type="number" formControlName="originationFees"></td></tr>
+            <tr><td class="line-num">4</td><td class="line-desc">Insurance premiums</td><td class="line-input"><input type="number" formControlName="insurancePremiums"></td></tr>
+            <tr><td class="line-num">5</td><td class="line-desc">Mortgage insurance premiums</td><td class="line-input"><input type="number" formControlName="mortgageInsurance"></td></tr>
+            <tr><td class="line-num">6</td><td class="line-desc">Property taxes</td><td class="line-input"><input type="number" formControlName="propertyTax"></td></tr>
+        </tbody>
+    </table>
+
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

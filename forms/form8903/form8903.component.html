@@ -1,0 +1,51 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 8903</h1><p class="form-year">(2025)</p></div>
+        <div class="form-info"><p><strong>Domestic Production Activities Deduction</strong></p><p>Department of the Treasury — Internal Revenue Service</p></div>
+    </div>
+    <div class="form-instructions"><p>Use this form to figure your domestic production activities deduction (DPAD). Attach to Form 1040, 1041, or 1120.</p></div>
+    <div class="part-section">
+        <h3 class="part-header">Part I — Income and Deduction</h3>
+        <div class="field-row"><div class="field-group"><label>Name(s) shown on return</label><input type="text" formControlName="name"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>SSN or EIN</label><input type="text" formControlName="ssn"></div>
+            <div class="field-group"><label>Tax Year</label><input type="text" formControlName="taxYear"></div>
+        </div>
+        <table class="form-table">
+            <tr><td>1. Gross receipts from qualified production</td><td><input type="number" formControlName="line1"></td></tr>
+            <tr><td>2. Cost of goods sold allocable to qualified production</td><td><input type="number" formControlName="line2"></td></tr>
+            <tr class="highlight-row"><td>3. Qualified production gross income (line 1 minus line 2)</td><td><input type="number" formControlName="line3" readonly></td></tr>
+            <tr><td>4. Total gross income from all sources</td><td><input type="number" formControlName="line4"></td></tr>
+            <tr><td>5. Allocable deductions</td><td><input type="number" formControlName="line5"></td></tr>
+            <tr class="highlight-row"><td>6. Taxable income before DPAD (line 4 minus line 5)</td><td><input type="number" formControlName="line6" readonly></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part II — DPAD Calculation</h3>
+        <table class="form-table">
+            <tr><td>7. Multiply line 6 by 9% (0.09)</td><td><input type="number" formControlName="line7"></td></tr>
+            <tr><td>8. Income attributable to qualified production (50% of line 3)</td><td><input type="number" formControlName="line8"></td></tr>
+            <tr><td>9. Tentative DPAD (lesser of line 7 or line 8)</td><td><input type="number" formControlName="line9" readonly></td></tr>
+            <tr><td>10. Form 1040: Enter amount from Form 1040, line 11</td><td><input type="number" formControlName="line10"></td></tr>
+            <tr><td>11. Form 1120: Enter taxable income from Form 1120, line 11</td><td><input type="number" formControlName="line11"></td></tr>
+            <tr class="highlight-row"><td>12. Domestic production activities deduction</td><td><input type="number" formControlName="line12"></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part III — Allocation for Pass-Through Entities</h3>
+        <div class="field-row">
+            <div class="field-group"><label>Entity name</label><input type="text" formControlName="entityName"></div>
+            <div class="field-group"><label>EIN</label><input type="text" formControlName="entityEIN"></div>
+        </div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>Owner/Partner SSN</label><input type="text" formControlName="ownerSSN"></div>
+            <div class="field-group"><label>Ownership %</label><input type="number" formControlName="ownershipPercent"></div>
+            <div class="field-group"><label>DPAD Amount</label><input type="number" formControlName="dpadAmount"></div>
+        </div>
+    </div>
+    <div class="signature-section">
+        <div class="signature-box"><p>Signature</p><input type="text" formControlName="signature" class="signature-input"></div>
+        <div class="date-box"><p>Date</p><input type="date" formControlName="dateSigned"></div>
+    </div>
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

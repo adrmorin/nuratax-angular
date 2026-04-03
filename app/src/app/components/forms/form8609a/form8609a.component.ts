@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-form8609a',
@@ -9,25 +9,40 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
   templateUrl: './form8609a.component.html',
   styleUrls: ['./form8609a.component.css']
 })
-export class Form8609aComponent {
-  form: FormGroup;
+export class Form8609aComponent implements OnInit {
   private fb = inject(FormBuilder);
+  form!: FormGroup;
+  
+  // High-fidelity calculation signals
+  annualCredit = signal(0);
 
-  constructor() {
+  ngOnInit(): void {
     this.form = this.fb.group({
-      name: [''], identNumber: [''],
-      // Part I
-      bin: [''], buildingType: [''],
-      q1: [null], q2: [null], q3: [null], q4: [null],
-      // Part II
-      line1: [''], line2: [''], line3: [''], line4: [''], line5: [''],
-      line6: [''], line7: [''], line8: [''], line9: [''], line10: [''],
-      line11: [''], line12: [''], line13: [''], line14: [''], line15: [''],
-      line16: [''], line17: [''], line18: ['']
+      name: [''],
+      ein: [''],
+      buildingAddress: [''],
+      bin: [''],
+      line7: [0], // Qualified basis
+      line8: [0], // Applicable percentage
+      line15: [0] // Current year credit
+    });
+
+    this.form.valueChanges.subscribe(val => {
+      this.calculateValues(val);
     });
   }
 
-  onSubmit() {
-    console.log('Submitted Form 8609-A (2025):', this.form.value);
+  calculateValues(val: Record<string, number | string>): void {
+      const credit = Number(val['line7']) * (Number(val['line8']) / 100);
+      
+      this.form.patchValue({
+          line15: credit
+      }, { emitEvent: false });
+
+      this.annualCredit.set(credit);
+  }
+
+  onSubmit(): void {
+    console.log('Form 8609-A Data:', this.form.value);
   }
 }

@@ -1,92 +1,81 @@
+/* Form W-2PR - Unified Design System v2 
+   Inherits from global styles.css
+   Special colors for PR Hacienda (Red Theme)
+*/
+
+:host {
+    display: block;
+    background-color: var(--irs-bg-paper);
+}
+
 .irs-unified-container {
-  padding: 1.5rem;
-  max-width: 900px;
-  margin: 0 auto;
-  background: #fff;
-  border: 4px solid #C41E3A;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  font-family: 'Inter', system-ui, sans-serif;
+    margin: 2rem auto;
+    border: 3px solid #b71c1c; /* PR Hacienda Red */
+    max-width: 1000px;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.1);
 }
 
-.irs-header-title {
-  color: #C41E3A;
-  font-size: 1.4rem;
-  font-weight: 950;
-  text-align: center;
-  border-bottom: 3px solid #C41E3A;
-  padding-bottom: 8px;
-  margin-bottom: 15px;
+.irs-row {
+    display: grid;
+    border-bottom: 1px solid #000;
+    align-items: stretch;
 }
 
-.irs-grid-w2pr {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  border: 2px solid #C41E3A;
+.irs-header-main {
+    display: grid;
+    grid-template-columns: 220px 1fr 180px;
+    background-color: #fff;
+    padding: 10px;
 }
 
-.irs-box {
-  padding: 8px 10px;
-  border-bottom: 2px solid #C41E3A;
-  border-right: 2px solid #C41E3A;
-  min-height: 80px;
+.irs-part-banner {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
-.irs-box:nth-child(3n) { border-right: none; }
-
-.irs-box-num {
-  color: #C41E3A;
-  font-weight: 950;
-  font-size: 0.9rem;
-  display: block;
+input[type="number"], input[type="text"], textarea, select {
+    font-family: var(--irs-font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
 }
 
-.irs-label-bilingual {
-  display: flex;
-  flex-direction: column;
-  margin-top: 4px;
+.irs-money-sym {
+    font-weight: 700;
+    margin-right: 5px;
 }
 
-.irs-label-es { font-size: 0.65rem; font-weight: 850; text-transform: uppercase; color: #000; }
-.irs-label-en { font-size: 0.6rem; font-weight: 600; font-style: italic; color: #444; }
-
-.irs-input-field {
-  width: 100%;
-  border: none;
-  background: transparent;
-  padding: 4px 0;
-  font-weight: 900;
-  font-size: 1rem;
-  color: #000;
-  outline: none;
+.irs-dotted-leader {
+    flex-grow: 1;
+    border-bottom: 1px dotted #888;
+    margin: 0 10px 5px 10px;
 }
 
-.irs-input-currency {
-  text-align: right;
-  border-bottom: 2px dashed #C41E3A;
+.irs-label-en {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #444;
+    font-style: italic;
 }
 
-.irs-full-width-box { grid-column: span 3; border-right: none; }
-.irs-two-col-box { grid-column: span 2; }
-
-.irs-checkbox-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  padding: 10px;
-  border-top: 2px solid #C41E3A;
+.irs-label-es {
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #000;
+    display: block;
 }
 
-/* Specific colors */
-.irs-header-red { color: #C41E3A; }
-.bg-light-red { background: #fff5f5; }
+.irs-blue-cell {
+    background: #e8f0ff !important;
+}
 
-.irs-btn-calculate {
-  background: #C41E3A;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-weight: 950;
-  cursor: pointer;
-  margin-top: 20px;
-  text-transform: uppercase;
+.irs-year-block {
+    text-align: center;
+    border-left: 2px solid #b71c1c;
+    padding: 10px;
 }

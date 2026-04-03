@@ -1,0 +1,159 @@
+<div class="irs-unified-container">
+    <!-- Form W-8BEN Header -->
+    <div class="irs-header-main" style="border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.4rem;">Form <strong>W-8BEN</strong></div>
+            <div style="font-size: 0.8rem; margin-top: 5px;">(Rev. October 2025)</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
+        </div>
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.4rem; margin: 0;">Certificate of Foreign Status of Beneficial Owner for United States Tax Withholding and Reporting (Individuals)</h1>
+                <h2 style="font-size: 1rem; margin: 0; font-style: italic;">Certificado de Condición de Extranjero del Beneficiario Final para la Retención e Información de Impuestos de los Estados Unidos (Personas Físicas)</h2>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 8px; font-weight: 700;">▶ For use by individuals. Entities must use Form W-8BEN-E. / Para personas físicas. Las entidades deben usar el W-8BEN-E.</p>
+        </div>
+        <div class="irs-year-block" style="border: none;">
+            <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-1621</div>
+        </div>
+    </div>
+
+    <form [formGroup]="taxForm" (ngSubmit)="onSubmit()" *ngIf="taxForm">
+        <!-- Part I -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part I</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Identification of Beneficial Owner</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Identificación del Beneficiario Final</span>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 1fr 300px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en"><strong>1</strong> Name of individual who is the beneficial owner</label>
+                    <label class="irs-label-es">Nombre del individuo que es el beneficiario final</label>
+                </div>
+                <input type="text" formControlName="name" style="width: 100%; border: none; border-bottom: 1px dotted #000; background: transparent; font-weight: 700;">
+            </div>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en"><strong>2</strong> Country of citizenship</label>
+                    <label class="irs-label-es">País de ciudadanía</label>
+                </div>
+                <input type="text" formControlName="citizenship" style="width: 100%; border: none; border-bottom: 1px dotted #000; background: transparent; font-weight: 700;">
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 1fr;">
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en"><strong>3</strong> Permanent residence address (street, apt. or suite no., or rural route). <strong>Do not use a P.O. box.</strong></label>
+                    <label class="irs-label-es">Dirección de residencia permanente. No use un apartado postal.</label>
+                </div>
+                <input type="text" formControlName="residenceAddress" style="width: 100%; border: none; border-bottom: 1px dotted #000; background: transparent; font-weight: 700;">
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 1fr 300px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">City or town, state or province. Include ZIP or postal code.</label>
+                    <label class="irs-label-es">Ciudad o población, estado o provincia. Código postal.</label>
+                </div>
+                <input type="text" formControlName="residenceCityState" style="width: 100%; border: none; border-bottom: 1px dotted #000; background: transparent; font-weight: 700;">
+            </div>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Country</label>
+                    <label class="irs-label-es">País</label>
+                </div>
+                <input type="text" formControlName="residenceCountry" style="width: 100%; border: none; border-bottom: 1px dotted #000; background: transparent; font-weight: 700;">
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 1fr 1fr;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en"><strong>5</strong> U.S. TIN (SSN or ITIN), if required</label>
+                    <label class="irs-label-es">TIN de los EE. UU., si se requiere</label>
+                </div>
+                <input type="text" formControlName="tin">
+            </div>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en"><strong>6</strong> Foreign tax identifying number</label>
+                    <label class="irs-label-es">Número de identificación fiscal extranjero</label>
+                </div>
+                <input type="text" formControlName="foreignTIN">
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 1fr 300px; border-bottom: 3px solid #000;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en"><strong>7</strong> Reference number(s)</label>
+                    <label class="irs-label-es">Número(s) de referencia</label>
+                </div>
+                <input type="text" formControlName="referenceNumbers">
+            </div>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en"><strong>8</strong> Date of birth (MM-DD-YYYY)</label>
+                    <label class="irs-label-es">Fecha de nacimiento</label>
+                </div>
+                <input type="date" formControlName="dob" style="width: 100%; border: none; background: transparent; font-weight: 700;">
+            </div>
+        </div>
+
+        <!-- Part II -->
+        <div class="irs-part-banner" style="background: #444; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part II</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Claim of Tax Treaty Benefits (for chapter 3 purposes only)</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Reclamación de Beneficios del Tratado Fiscal</span>
+            </div>
+        </div>
+
+        <div style="padding: 15px; background: #fdfdfd; font-size: 0.9rem; line-height: 1.6; border-bottom: 3px solid #000;">
+            <p>
+                <strong>9</strong> I certify that the beneficial owner is a resident of 
+                <input type="text" formControlName="treatyCountry" style="width: 250px; border: none; border-bottom: 1px dotted #000; font-weight: 900; text-align: center;">
+                within the meaning of the income tax treaty between the United States and that country.
+            </p>
+            <p style="font-style: italic; color: #444; font-size: 0.8rem;">Certifico que el beneficiario final es residente de [País] dentro del significado del tratado de impuestos.</p>
+        </div>
+
+        <!-- Certification Section -->
+        <div class="irs-part-banner" style="background: #111; color: #fff; padding: 10px; margin-top: 10px;">
+            <div class="irs-label-wrap">
+                <span style="font-size: 1.1rem; font-weight: 900;">Part III Certification / Certificación</span>
+            </div>
+        </div>
+
+        <div style="padding: 15px; font-size: 0.75rem; color: #333; line-height: 1.4; border-bottom: 2px solid #000; background: #eee;">
+            <p>Under penalties of perjury, I declare that I have examined the information on this form and to the best of my knowledge and belief it is true, correct, and complete.</p>
+            <p>Bajo pena de perjurio, declaro que he examinado la información en este formulario y que, a mi mejor saber y entender, es verdadera, correcta y completa.</p>
+            <div style="display: flex; gap: 20px; align-items: center; margin-top: 20px;">
+                <label style="display: flex; align-items: center; gap: 10px; font-weight: 900;">
+                    <input type="checkbox" formControlName="certified"> I Agree / Estoy de acuerdo
+                </label>
+                <div style="flex: 1; border-bottom: 1px solid #000; padding: 5px;">
+                    <input type="text" formControlName="signerName" placeholder="Signer's Name" style="width: 100%; border: none; background: transparent; font-family: 'Brush Script MT', cursive; font-size: 1.5rem;">
+                </div>
+                <div style="width: 150px; border-bottom: 1px solid #000;">
+                    <input type="text" [value]="taxForm.get('dateSigned')?.value" readonly style="width: 100%; text-align: center; border: none; background: transparent; font-weight: 900;">
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 40px; text-align: center;">
+            <button type="submit" [disabled]="taxForm.invalid" style="background: #111; color: #fff; padding: 15px 60px; border: none; border-radius: 2px; font-weight: 900; cursor: pointer; text-transform: uppercase; opacity: 1;">
+                Submit W-8BEN Certificate / Enviar Certificado W-8BEN
+            </button>
+        </div>
+    </form>
+</div>

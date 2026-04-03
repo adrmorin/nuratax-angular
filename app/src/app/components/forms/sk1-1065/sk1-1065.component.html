@@ -1,0 +1,158 @@
+<div class="irs-unified-container">
+    <!-- Schedule K-1 Header -->
+    <div class="irs-header-main">
+        <div class="irs-form-id-block" style="padding-right: 20px; border-right: 3.2px solid #000;">
+            <div style="font-size: 1.6rem; font-weight: 950; text-transform: uppercase;">Schedule K-1</div>
+            <div style="font-size: 1.3rem; font-weight: 950; margin-top: 5px;">(Form 1065)</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.85rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
+        </div>
+        <div class="irs-form-title-block" style="text-align: center; padding: 0 30px;">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.6rem; margin: 0; font-weight: 950; text-transform: uppercase;">Partner’s Share of Income, Deductions, Credits, etc.</h1>
+                <h2 style="font-size: 1.2rem; margin: 0; font-weight: 400; font-style: italic; color: #333;">Participación del Socio en los Ingresos, Deducciones, Créditos, etc.</h2>
+            </div>
+            <p style="font-size: 0.95rem; margin-top: 15px; font-weight: 850;">▶ See back of Schedule K-1 and separate instructions.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.65rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0123</div>
+            <div style="font-size: 3.5rem; line-height: 1; font-weight: 950; margin-top: 10px;">2025</div>
+            <div style="font-size: 0.9rem; font-weight: 950; margin-top: 10px; text-transform: uppercase;">For Calendar Year 2025</div>
+        </div>
+    </div>
+
+    @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Part I & II Split -->
+        <div class="irs-k1-split">
+            <!-- Part I: Information About the Partnership -->
+            <div style="border-right: 4px solid #000;">
+                <div class="irs-part-banner">
+                    <span style="font-size: 1.35rem; font-weight: 950; color: #fff;">Part I</span>
+                    <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">Information About the Partnership</span>
+                </div>
+                <div class="irs-entity-box">
+                    <div class="irs-label-wrap">
+                        <label for="sk1-p-ein" class="irs-label-en">A. Partnership’s employer identification number</label>
+                    </div>
+                    <input id="sk1-p-ein" type="text" formControlName="partnershipEIN" style="font-size: 1.35rem; font-weight: 950; letter-spacing: 2px;">
+                    
+                    <div class="irs-label-wrap" style="margin-top: 25px;">
+                        <label for="sk1-p-name" class="irs-label-en">B. Partnership’s name, address, city, state, and ZIP code</label>
+                    </div>
+                    <input id="sk1-p-name" type="text" formControlName="partnershipName" style="width: 100%; border: none; font-size: 1.35rem; font-weight: 950; margin-bottom: 20px;">
+                    <input type="text" formControlName="partnershipAddress" style="width: 100%; border-bottom: 1.5px dotted #000; font-size: 1.15rem; font-weight: 850;">
+                    
+                    <div class="irs-label-wrap" style="margin-top: 30px;">
+                        <label for="sk1-p-irs" class="irs-label-en">C. IRS Center where partnership filed return</label>
+                    </div>
+                    <input id="sk1-p-irs" type="text" formControlName="irsCenter" style="font-size: 1.25rem; font-weight: 950; border-bottom: 2px solid #000;">
+                </div>
+            </div>
+
+            <!-- Part II: Information About the Partner -->
+            <div>
+                <div class="irs-part-banner" style="background: #222;">
+                    <span style="font-size: 1.35rem; font-weight: 950; color: #fff;">Part II</span>
+                    <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">Information About the Partner</span>
+                </div>
+                <div class="irs-entity-box">
+                    <div class="irs-label-wrap">
+                        <label for="sk1-part-id" class="irs-label-en">E. Partner’s SSN or TIN (entity ID number)</label>
+                    </div>
+                    <input id="sk1-part-id" type="text" formControlName="partnerID" style="font-size: 1.35rem; font-weight: 950; letter-spacing: 2px;">
+                    
+                    <div class="irs-label-wrap" style="margin-top: 25px;">
+                        <label for="sk1-part-name" class="irs-label-en">F. Partner’s name, address, city, state, and ZIP code</label>
+                    </div>
+                    <input id="sk1-part-name" type="text" formControlName="partnerName" style="width: 100%; border: none; font-size: 1.35rem; font-weight: 950; margin-bottom: 20px;">
+                    <input type="text" formControlName="partnerAddress" style="width: 100%; border-bottom: 1.5px dotted #000; font-size: 1.15rem; font-weight: 850;">
+
+                    <div class="irs-checkbox-group" style="margin-top: 35px;">
+                        <div class="irs-label-wrap">
+                            <span class="irs-label-en">G. General partner/Limited partner status:</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 15px;">
+                            <label class="irs-cb-row">
+                                <input type="radio" value="general" formControlName="partnerType" style="width: 22px; height: 22px;">
+                                <span>General partner</span>
+                            </label>
+                            <label class="irs-cb-row">
+                                <input type="radio" value="limited" formControlName="partnerType" style="width: 22px; height: 22px;">
+                                <span>Limited partner</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Part III: Partner’s Share of Current Year Income, Deductions, Credits, and Other Items -->
+        <div class="irs-part-banner" style="background: #111;">
+            <div class="irs-label-wrap" style="display: flex; gap: 20px; align-items: baseline;">
+                <span style="font-size: 1.5rem; font-weight: 950; color: #fff;">Part III</span>
+                <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">Partner’s Share of Current Year Income, Deductions, Credits, and Other Items</span>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 60px 1fr 300px;">
+            <div class="irs-col-line-num">1</div>
+            <div style="padding: 15px 20px; display: flex; align-items: center;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-size: 1.15rem; font-weight: 1000;">Ordinary business income (loss).</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Ingresos (pérdidas) ordinarios por actividades del negocio.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line1" style="text-align: right; font-size: 1.5rem; font-weight: 950;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 60px 1fr 300px;">
+            <div class="irs-col-line-num">2</div>
+            <div style="padding: 15px 20px; display: flex; align-items: center;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-size: 1.15rem; font-weight: 1000;">Net rental real estate income (loss).</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Ingresos (pérdidas) netos por alquileres de bienes raíces.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line2" style="text-align: right; font-size: 1.5rem; font-weight: 950;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 60px 1fr 300px;">
+            <div class="irs-col-line-num">5</div>
+            <div style="padding: 15px 20px; display: flex; align-items: center;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-size: 1.15rem; font-weight: 1000;">Interest income.</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Ingresos por concepto de intereses.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line5" style="text-align: right; font-size: 1.5rem; font-weight: 950;">
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 60px 40px; text-align: center; background: #fff; border-top: 4px solid #000;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase; letter-spacing: 2px; box-shadow: 0 20px 60px rgba(0,0,0,0.25);">
+                Save Schedule K-1 / Guardar Anexo K-1
+            </button>
+        </div>
+    </form>
+    }
+</div>

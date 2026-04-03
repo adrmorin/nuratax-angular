@@ -1,0 +1,62 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 1040-ES</h1><p class="form-year">Department of the Treasury - Internal Revenue Service</p></div>
+        <div class="form-info"><p><strong>Estimated Tax for Individuals</strong> - For calendar year 2026</p></div>
+    </div>
+
+    <div class="taxpayer-section">
+        <div class="field-row">
+            <div class="field-group"><label>Your name</label><input type="text" formControlName="name"></div>
+            <div class="field-group small"><label>SSN</label><input type="text" formControlName="ssn"></div>
+        </div>
+    </div>
+
+    <table class="form-table">
+        <thead><tr><th colspan="3" class="section-header">Part I - Self-Employment Income</th></tr></thead>
+        <tbody>
+            <tr><td class="line-num">1</td><td class="line-desc">Net self-employment income</td><td class="line-input"><input type="number" formControlName="income"></td></tr>
+            <tr><td class="line-num">2</td><td class="line-desc">Business expenses</td><td class="line-input"><input type="number" formControlName="businessExpenses"></td></tr>
+            <tr class="highlight-row"><td class="line-num">3</td><td class="line-desc"><strong>Net earnings</strong></td><td class="line-input"><input type="number" formControlName="netSelfEmployment" readonly></td></tr>
+            <tr class="highlight-row"><td class="line-num">4</td><td class="line-desc"><strong>Self-employment tax</strong></td><td class="line-input"><input type="number" formControlName="selfEmploymentTax" readonly></td></tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead><tr><th colspan="3" class="section-header">Part II - Tax Computation</th></tr></thead>
+        <tbody>
+            <tr><td class="line-num">5</td><td class="line-desc">Income tax (from Form 1040)</td><td class="line-input"><input type="number" formControlName="incomeTax"></td></tr>
+            <tr><td class="line-num">6</td><td class="line-desc">Self-employment tax (line 4)</td><td class="line-input"><input type="number" formControlName="selfEmploymentTax"></td></tr>
+            <tr class="highlight-row"><td class="line-num">7</td><td class="line-desc"><strong>Total tax</strong></td><td class="line-input"><input type="number" formControlName="totalTax" readonly></td></tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead><tr><th colspan="3" class="section-header">Part III - Required Annual Payment</th></tr></thead>
+        <tbody>
+            <tr><td class="line-num">8</td><td class="line-desc">Prior year tax liability</td><td class="line-input"><input type="number" formControlName="priorYearTax"></td></tr>
+            <tr class="highlight-row"><td class="line-num">9</td><td class="line-desc"><strong>Required annual payment</strong></td><td class="line-input"><input type="number" formControlName="requiredPayment" readonly></td></tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead><tr><th colspan="3" class="section-header">Part IV - Quarterly Payments</th></tr></thead>
+        <tbody>
+            <tr><td class="line-num">10</td><td class="line-desc">Payment 1 (due Apr 15)</td><td class="line-input"><input type="number" formControlName="payment1"></td></tr>
+            <tr><td class="line-num">11</td><td class="line-desc">Payment 2 (due Jun 15)</td><td class="line-input"><input type="number" formControlName="payment2"></td></tr>
+            <tr><td class="line-num">12</td><td class="line-desc">Payment 3 (due Sep 15)</td><td class="line-input"><input type="number" formControlName="payment3"></td></tr>
+            <tr><td class="line-num">13</td><td class="line-desc">Payment 4 (due Jan 15)</td><td class="line-input"><input type="number" formControlName="payment4"></td></tr>
+        </tbody>
+    </table>
+
+    <div class="nerea-advice">
+        <div class="advice-header"><img src="assets/images/nerea_avatar.png" alt="Nerea" class="nerea-avatar"><span class="advice-title">Asistente de Impuestos</span></div>
+        <div class="advice-content">
+            <p><strong>Propósito:</strong> {{ nereaAdvice.purpose }}</p>
+            <p><strong>Fechas:</strong> {{ nereaAdvice.dueDates }}</p>
+            <p><strong>Seguro:</strong> {{ nereaAdvice.safeHarbor }}</p>
+            <p><strong>Cálculo:</strong> {{ nereaAdvice.calculation }}</p>
+        </div>
+    </div>
+
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

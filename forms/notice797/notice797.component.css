@@ -1,0 +1,24 @@
+.irs-form { max-width: 850px; margin: 0 auto; padding: 20px; font-family: 'Arial', sans-serif; background: #fff; }
+.form-header { display: flex; justify-content: space-between; border-bottom: 2px solid #000; padding-bottom: 15px; margin-bottom: 20px; }
+.form-title h1 { font-size: 28px; margin: 0; font-weight: bold; }
+.form-title .form-year { font-size: 14px; margin: 5px 0 0 0; }
+.form-info { text-align: right; font-size: 14px; }
+.form-info strong { display: block; font-size: 16px; }
+.form-instructions { background: #f5f5f5; padding: 15px; margin-bottom: 20px; border-left: 4px solid #007acc; font-size: 13px; }
+.part-section { margin-bottom: 25px; border: 1px solid #ccc; padding: 15px; }
+.part-header { font-size: 16px; font-weight: bold; margin: 0 0 15px 0; padding-bottom: 8px; border-bottom: 1px solid #ccc; color: #333; }
+.field-row { display: flex; gap: 15px; margin-bottom: 12px; }
+.field-row.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; }
+.field-group { flex: 1; display: flex; flex-direction: column; }
+.field-group label { font-size: 12px; font-weight: bold; color: #333; margin-bottom: 4px; }
+.field-group input, .field-group select { padding: 8px; border: 1px solid #999; font-size: 14px; }
+.form-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+.form-table td { padding: 8px; border: 1px solid #999; font-size: 13px; }
+.form-table td:first-child { background: #f9f9f9; font-weight: bold; width: 70%; }
+.form-table input, .form-table select { width: 100%; padding: 6px; border: none; background: transparent; }
+.highlight-row td { background: #e8f4fc !important; font-weight: bold; }
+.info-box { background: #e8f4fc; padding: 15px; border-radius: 4px; font-size: 13px; }
+.info-box p { margin: 5px 0; }
+.form-actions { text-align: right; margin-top: 25px; padding-top: 15px; border-top: 2px solid #000; }
+.btn-primary { background: #007acc; color: white; padding: 10px 25px; border: none; font-size: 14px; cursor: pointer; border-radius: 4px; }
+.btn-primary:hover { background: #005999; }

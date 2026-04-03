@@ -1,0 +1,65 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 4506</h1><p class="form-year">(April 2025)</p></div>
+        <div class="form-info"><p><strong>Request for Copy of Tax Return</strong></p><p>Department of the Treasury — Internal Revenue Service</p></div>
+    </div>
+    <div class="form-instructions"><p><strong>Fees:</strong> $43 per return for current year, $43 per return for prior years (3-year limit). Free for transcripts.</p></div>
+    <div class="part-section">
+        <h3 class="part-header">Part I — Requester Information</h3>
+        <div class="field-row"><div class="field-group"><label>Requester name</label><input type="text" formControlName="requesterName"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>SSN</label><input type="text" formControlName="ssn"></div>
+            <div class="field-group"><label>EIN (if business)</label><input type="text" formControlName="ein"></div>
+        </div>
+        <div class="field-row"><div class="field-group"><label>Mailing address</label><input type="text" formControlName="address"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>City</label><input type="text" formControlName="city"></div>
+            <div class="field-group"><label>State</label><input type="text" formControlName="state"></div>
+            <div class="field-group"><label>ZIP</label><input type="text" formControlName="zip"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part II — Tax Year(s) Requested (up to 4 years)</h3>
+        <div class="field-row four-col">
+            <div class="field-group"><label>Year 1</label><input type="text" formControlName="taxYear1" placeholder="YYYY"></div>
+            <div class="field-group"><label>Year 2</label><input type="text" formControlName="taxYear2" placeholder="YYYY"></div>
+            <div class="field-group"><label>Year 3</label><input type="text" formControlName="taxYear3" placeholder="YYYY"></div>
+            <div class="field-group"><label>Year 4</label><input type="text" formControlName="taxYear4" placeholder="YYYY"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part III — Tax Form Requested</h3>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Which form do you need?</label>
+                <select formControlName="formType">
+                    <option value="1040">1040 - U.S. Individual Income Tax Return</option>
+                    <option value="1040X">1040-X - Amended Return</option>
+                    <option value="1065">1065 - Partnership Return</option>
+                    <option value="1120">1120 - Corporation Return</option>
+                    <option value="941">941 - Quarterly Federal Tax Return</option>
+                    <option value="Other">Other (specify below)</option>
+                </select>
+            </div>
+        </div>
+        <div class="field-row"><div class="field-group"><label>If Other, specify form:</label><input type="text" formControlName="otherForm"></div></div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part IV — Fee Calculation</h3>
+        <table class="form-table">
+            <tr><td>Number of returns requested</td><td><input type="number" formControlName="numReturns"></td></tr>
+            <tr><td>User fee ($43 per return)</td><td><input type="number" formControlName="userFee"></td></tr>
+            <tr class="highlight-row"><td>Total amount enclosed</td><td><input type="number" formControlName="totalFee" readonly></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part V — Signature</h3>
+        <p class="declaration">I certify that the information in this request is true and correct to the best of my knowledge.</p>
+        <div class="signature-section">
+            <div class="signature-box"><p>Signature</p><input type="text" formControlName="signature" class="signature-input"></div>
+            <div class="date-box"><p>Date</p><input type="date" formControlName="dateSigned"></div>
+            <div class="phone-box"><p>Phone</p><input type="text" formControlName="phone"></div>
+        </div>
+    </div>
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

@@ -1,175 +1,139 @@
-<div class="irs-form-container">
-    <div class="irs-form-box">
-        <div class="irs-main-header">
-            <div class="irs-col-1">
-                <div>
-                    <div class="irs-form-id" style="font-size: 1.4rem;">Form <span style="font-size: 1.8rem;">4137</span></div>
-                </div>
-                <div class="irs-dept-info">
-                    Department of the Treasury<br>
-                    Internal Revenue Service
-                </div>
+<div class="irs-unified-container">
+    <!-- Form 4137 Header -->
+    <div class="irs-header-main">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.4rem;">Form 4137</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif;">
+                Department of the Treasury<br>
+                Internal Revenue Service
             </div>
-            <div class="irs-col-2">
-                <h1 style="font-size: 1.3rem; margin-bottom: 2px;">Social Security and Medicare Tax <br>on Unreported Tip Income</h1>
-                <p class="irs-instruction">Go to <i>www.irs.gov/Form4137</i> for instructions and the latest information.</p>
-                <p class="irs-instruction" style="margin-top: 5px;">Attach to Form 1040, 1040-SR, 1040-NR, 1040-SS, or 1040-PR.</p>
+        </div>
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.3rem; margin: 0;">Social Security and Medicare Tax on Unreported Tip Income</h1>
+                <h2 style="font-size: 1rem; margin: 0; font-style: italic;">Impuestos del Seguro Social y del Medicare sobre Ingresos por Propinas No Reportados</h2>
             </div>
-            <div class="irs-col-3">
-                <div class="irs-omb-box">OMB No. 1545-0074</div>
-                <div class="irs-sequence-box">
-                    <div class="irs-year-box">
-                        <span class="year-outline-20">20</span><span class="year-solid-25">25</span>
-                    </div>
-                    <div class="irs-attachment">
-                        Attachment<br>
-                        Sequence No. <strong>24</strong>
-                    </div>
+            <p style="font-size: 0.8rem; margin-top: 8px; font-weight: 700;">Attach to Form 1040, 1040-SR, or 1040-NR. / Adjunte al Formulario 1040, 1040-SR o 1040-NR.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0074</div>
+            <div style="font-size: 2.8rem; line-height: 1;">2025</div>
+            <div style="font-size: 0.7rem; font-weight: 700; margin-top: 5px; border-top: 1px solid #000;">Attachment Sequence No. 24</div>
+        </div>
+    </div>
+
+    <form [formGroup]="form4137" (ngSubmit)="onSubmit()" *ngIf="form4137">
+        <!-- Respondent Info -->
+        <div class="irs-row" style="grid-template-columns: 1fr 200px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Name of person who received tips</label>
+                    <label class="irs-label-es">Nombre de la persona que recibió las propinas</label>
+                </div>
+                <input type="text" formControlName="name" style="width: 100%; border: none; border-bottom: 1px dotted #000; background: transparent; font-weight: 700;">
+                <p style="font-size: 0.6rem; color: #666; margin-top: 2px;">If married, complete a separate Form 4137 for each spouse. / Si está casado, complete un Formulario 4137 por separado para cada cónyuge.</p>
+            </div>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Social security number</label>
+                    <label class="irs-label-es">Número de seguro social</label>
+                </div>
+                <input type="text" formControlName="ssn" style="width: 100%; border: none; border-bottom: 1px dotted #000; background: transparent; font-weight: 700;">
+            </div>
+        </div>
+
+        <!-- Line 1: Employer Table -->
+        <div class="irs-row" style="grid-template-columns: 40px 1fr; border-bottom: 2px solid #000; background: #eee;">
+            <div class="irs-col-line-num" style="background: transparent;">1</div>
+            <div style="padding: 10px;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en"><strong>Employer Information</strong></span>
+                    <span class="irs-label-es"><strong>Información del Empleador</strong></span>
                 </div>
             </div>
         </div>
 
-        <form [formGroup]="form4137" (ngSubmit)="onSubmit()">
-            <div class="irs-header-row">
-                <div class="irs-name-box">
-                    <label for="person_name">Name of person who received tips. If married, complete a separate Form 4137 for each spouse with unreported tips.</label>
-                    <input id="person_name" type="text" formControlName="name" class="irs-borderless-input">
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.75rem;">
+                <thead>
+                    <tr style="background: #f9f9f9; border-bottom: 1px solid #000;">
+                        <th style="width: 35%; border-right: 1px solid #000; padding: 5px;">
+                            <div class="irs-label-wrap">
+                                <span>(a) Employer Name</span>
+                                <span style="font-weight: 400; font-style: italic;">Nombre del Empleador</span>
+                            </div>
+                        </th>
+                        <th style="width: 20%; border-right: 1px solid #000; padding: 5px;">
+                            <div class="irs-label-wrap">
+                                <span>(b) EIN</span>
+                                <span style="font-weight: 400; font-style: italic;">EIN del Empleador</span>
+                            </div>
+                        </th>
+                        <th style="width: 20%; border-right: 1px solid #000; padding: 5px;">
+                            <div class="irs-label-wrap">
+                                <span>(c) Total Tips Received</span>
+                                <span style="font-weight: 400; font-style: italic;">Total de Propinas</span>
+                            </div>
+                        </th>
+                        <th style="width: 25%; padding: 5px;">
+                            <div class="irs-label-wrap">
+                                <span>(d) Tips Reported</span>
+                                <span style="font-weight: 400; font-style: italic;">Propinas Reportadas</span>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody formArrayName="employers">
+                    @for (emp of employers.controls; track $index) {
+                        <tr [formGroupName]="$index" style="border-bottom: 1px solid #ccc;">
+                            <td style="border-right: 1px solid #000; padding: 0;"><input type="text" formControlName="name" style="width: 100%; height: 30px; border: none; padding-left: 5px;"></td>
+                            <td style="border-right: 1px solid #000; padding: 0;"><input type="text" formControlName="ein" style="width: 100%; height: 30px; border: none; padding-left: 5px;"></td>
+                            <td style="border-right: 1px solid #000; padding: 0;"><input type="number" formControlName="totalReceived" style="width: 100%; height: 30px; border: none; padding-right: 5px; text-align: right;"></td>
+                            <td style="padding: 0;"><input type="number" formControlName="totalReported" style="width: 100%; height: 30px; border: none; padding-right: 5px; text-align: right;"></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px; border-top: 2px solid #000;">
+            <div class="irs-col-line-num">6</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en"><strong>Unreported tips subject to Medicare tax.</strong> Subtract line 5 from line 4</span>
+                    <span class="irs-label-es"><strong>Propinas no reportadas sujetas al impuesto del Medicare.</strong> Reste la línea 5 de la línea 4</span>
                 </div>
-                <div class="irs-ssn-box">
-                    <label for="person_ssn">Social security number</label>
-                    <input id="person_ssn" type="text" formControlName="ssn" class="irs-borderless-input">
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line6">
                 </div>
             </div>
+        </div>
 
-            <div class="irs-form-body">
-                <!-- Line 1 Table -->
-                <div class="irs-line-item" style="border-bottom: 0;">
-                    <div class="irs-line-num">1</div>
-                    <div class="irs-line-desc" style="padding-bottom: 0;">
-                        <table class="irs-table-inner" formArrayName="employers">
-                            <thead>
-                                <tr>
-                                    <th style="width: 35%;"><strong>(a)</strong> Name of employer to whom you were required to, but didn't, report all your tips (see instructions)</th>
-                                    <th style="width: 20%;"><strong>(b)</strong> Employer identification number (see instructions)</th>
-                                    <th style="width: 20%;"><strong>(c)</strong> Total cash and charge tips you received (including allocated tips) in 2025 (see instructions)</th>
-                                    <th style="width: 25%;"><strong>(d)</strong> Total cash and charge tips you reported to your employer in 2025</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @for (emp of employers.controls; track $index) {
-                                    <tr [formGroupName]="$index">
-                                        <td><input type="text" formControlName="name" class="irs-table-input"></td>
-                                        <td><input type="text" formControlName="ein" class="irs-table-input"></td>
-                                        <td><input type="number" formControlName="totalReceived" class="irs-table-input num"></td>
-                                        <td><input type="number" formControlName="totalReported" class="irs-table-input num"></td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px; border-top: 2px solid #000;">
+            <div class="irs-col-line-num">13</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 700;">Add lines 11 and 12. Enter here and on Schedule 2 (Form 1040), line 5</span>
+                    <span class="irs-label-es">Sume las líneas 11 y 12. Anótela aquí y en el Anexo 2 (Formulario 1040), línea 5</span>
                 </div>
-
-                <div class="irs-line-item">
-                    <div class="irs-line-num">2</div>
-                    <div class="irs-line-desc">Total cash and charge tips you received in 2025. Add the amounts from line 1, column (c)</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">2</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line2" class="irs-input-val"></div>
-                </div>
-                
-                <div class="irs-line-item">
-                    <div class="irs-line-num">3</div>
-                    <div class="irs-line-desc">Total cash and charge tips you reported to your employer in 2025. Add the amounts from line 1, column (d)</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">3</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line3" class="irs-input-val"></div>
-                </div>
-
-                <div class="irs-line-item">
-                    <div class="irs-line-num">4</div>
-                    <div class="irs-line-desc">Subtract line 3 from line 2. This amount must be included in the total on Form 1040, 1040-SR, or 1040-NR, line 1a</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">4</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line4" class="irs-input-val"></div>
-                </div>
-
-                <div class="irs-line-item">
-                    <div class="irs-line-num">5</div>
-                    <div class="irs-line-desc">Cash and charge tips you received but didn't report to your employer because the total was less than $20 in a calendar month (see instructions)</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">5</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line5" class="irs-input-val"></div>
-                </div>
-
-                <div class="irs-line-item">
-                    <div class="irs-line-num">6</div>
-                    <div class="irs-line-desc"><strong>Unreported tips subject to Medicare tax.</strong> Subtract line 5 from line 4</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">6</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line6" class="irs-input-val"></div>
-                </div>
-                
-                <div class="irs-line-item">
-                    <div class="irs-line-num">7</div>
-                    <div class="irs-line-desc">Maximum amount of wages (including tips) subject to social security tax</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">7</div>
-                    <div class="irs-line-val static-val"><strong>$176,100</strong></div>
-                </div>
-
-                <div class="irs-line-item">
-                    <div class="irs-line-num">8</div>
-                    <div class="irs-line-desc">Total social security wages and social security tips (total of boxes 3 and 7 on Form(s) W-2) or railroad retirement (tier 1) compensation (see instructions)</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">8</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line8" class="irs-input-val"></div>
-                </div>
-
-                <div class="irs-line-item">
-                    <div class="irs-line-num">9</div>
-                    <div class="irs-line-desc">Subtract line 8 from line 7. If line 8 is more than line 7, enter -0-</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">9</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line9" class="irs-input-val"></div>
-                </div>
-
-                <div class="irs-line-item">
-                    <div class="irs-line-num">10</div>
-                    <div class="irs-line-desc"><strong>Unreported tips subject to social security tax.</strong> Enter the smaller of line 6 or line 9</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">10</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line10" class="irs-input-val"></div>
-                </div>
-
-                <div class="irs-line-item">
-                    <div class="irs-line-num">11</div>
-                    <div class="irs-line-desc">Multiply line 10 by 0.062 (social security tax rate)</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">11</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line11" class="irs-input-val"></div>
-                </div>
-
-                <div class="irs-line-item">
-                    <div class="irs-line-num">12</div>
-                    <div class="irs-line-desc">Multiply line 6 by 0.0145 (Medicare tax rate)</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">12</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line12" class="irs-input-val"></div>
-                </div>
-
-                <div class="irs-line-item">
-                    <div class="irs-line-num">13</div>
-                    <div class="irs-line-desc">Add lines 11 and 12. Enter the result here and on Schedule 2 (Form 1040), line 5</div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">13</div>
-                    <div class="irs-line-val input-wrap"><input type="number" formControlName="line13" class="irs-input-val"></div>
-                </div>
-
+                <div class="irs-dotted-leader"></div>
             </div>
-
-            <div class="irs-footer-actions">
-                <button type="submit" class="btn-submit">Submit Form 4137</button>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line13">
+                </div>
             </div>
-        </form>
-    </div>
+        </div>
+
+        <div style="padding: 40px; text-align: center;">
+            <button type="submit" style="background: #111; color: #fff; padding: 15px 60px; border: none; border-radius: 2px; font-weight: 900; cursor: pointer; text-transform: uppercase;">
+                Save Form 4137 / Guardar Formulario 4137
+            </button>
+        </div>
+    </form>
 </div>

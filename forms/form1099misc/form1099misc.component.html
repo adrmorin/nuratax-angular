@@ -1,0 +1,35 @@
+<div class="irs-form-container">
+    <div class="irs-header"><div class="form-title">Formulario 1099-MISC 2026</div></div>
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1"><span class="irs-form-id">1099-MISC</span><span class="irs-form-sub-id">2026</span></div>
+            <div class="irs-col-2"><h1>Miscellaneous Income</h1><p class="irs-instruction">▶ File with recipient and IRS.</p></div>
+            <div class="irs-col-3"><div class="irs-sequence-box"><span>Box</span><span class="irs-sequence-num">16</span></div></div>
+        </div>
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right"><label for="payerName">Nombre del Pagador</label><input id="payerName" type="text" formControlName="payerName"></div>
+                <div class="irs-field flex-1"><label for="tin">TIN del Pagador</label><input id="tin" type="text" formControlName="tin"></div>
+            </div>
+            <div class="irs-row-border">
+                <div class="irs-field flex-1 border-right"><label for="recipientName">Nombre del Beneficiario</label><input id="recipientName" type="text" formControlName="recipientName"></div>
+                <div class="irs-field flex-1"><label for="recipientTIN">TIN del Beneficiario</label><input id="recipientTIN" type="text" formControlName="recipientTIN"></div>
+            </div>
+            <div class="irs-section-header"><span class="irs-part-num">Part I</span><span class="irs-part-title">Income</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">1</td><td class="irs-desc"><label for="rents">Rents (Box 1) . . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">1</td><td class="irs-val-cell"><input id="rents" type="number" formControlName="rents"></td></tr>
+                    <tr><td class="irs-line-num">2</td><td class="irs-desc"><label for="royalties">Royalties (Box 2) . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">2</td><td class="irs-val-cell"><input id="royalties" type="number" formControlName="royalties"></td></tr>
+                    <tr><td class="irs-line-num">3</td><td class="irs-desc"><label for="otherIncome">Other income (Box 3) . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">3</td><td class="irs-val-cell"><input id="otherIncome" type="number" formControlName="otherIncome"></td></tr>
+                    <tr><td class="irs-line-num">4</td><td class="irs-desc"><label for="federalWithheld">Federal income tax withheld (Box 4) . . . . . . . . . . . .</label></td><td class="irs-line-num">4</td><td class="irs-val-cell"><input id="federalWithheld" type="number" formControlName="federalWithheld"></td></tr>
+                    <tr><td class="irs-line-num">5</td><td class="irs-desc"><label for="fishingBoat">Fishing boat proceeds (Box 5) . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">5</td><td class="irs-val-cell"><input id="fishingBoat" type="number" formControlName="fishingBoat"></td></tr>
+                    <tr><td class="irs-line-num">6</td><td class="irs-desc"><label for="medicalPayments">Medical and health care payments (Box 6) . . . . . . . . .</label></td><td class="irs-line-num">6</td><td class="irs-val-cell"><input id="medicalPayments" type="number" formControlName="medicalPayments"></td></tr>
+                    <tr><td class="irs-line-num">7</td><td class="irs-desc"><label for="nonemployeeComp">Nonemployee compensation (Box 7) . . . . . . . . . . . .</label></td><td class="irs-line-num">7</td><td class="irs-val-cell"><input id="nonemployeeComp" type="number" formControlName="nonemployeeComp"></td></tr>
+                    <tr><td class="irs-line-num">8</td><td class="irs-desc"><label for="cropInsurance">Crop insurance proceeds (Box 8) . . . . . . . . . . . . .</label></td><td class="irs-line-num">8</td><td class="irs-val-cell"><input id="cropInsurance" type="number" formControlName="cropInsurance"></td></tr>
+                </tbody>
+            </table>
+            <div class="irs-footer-actions"><button type="submit" class="btn-irs-submit">Guardar Formulario 1099-MISC</button></div>
+        </form>
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

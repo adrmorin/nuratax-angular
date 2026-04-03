@@ -1,0 +1,38 @@
+<div class="irs-form-container">
+    <div class="irs-header"><div class="form-title">Formulario 6252 2026</div></div>
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1"><span class="irs-form-id">6252</span><span class="irs-form-sub-id">2026</span></div>
+            <div class="irs-col-2"><h1>Installment Sale Income</h1><p class="irs-instruction">▶ Attach to Form 1040 or 1040-SR.</p></div>
+            <div class="irs-col-3"><div class="irs-sequence-box"><span>Secuencia</span><span class="irs-sequence-num">72</span></div></div>
+        </div>
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right"><label for="name">Nombre</label><input id="name" type="text" formControlName="name"></div>
+                <div class="irs-field flex-1"><label for="ssn">SSN</label><input id="ssn" type="text" formControlName="ssn"></div>
+            </div>
+            <div class="irs-section-header"><span class="irs-part-num">Part I</span><span class="irs-part-title">Installment Sale Income</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">1</td><td class="irs-desc"><label for="description">Description of property . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">1</td><td class="irs-val-cell"><input id="description" type="text" formControlName="description"></td></tr>
+                    <tr><td class="irs-line-num">2</td><td class="irs-desc"><label for="dateSold">Date sold . . . . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">2</td><td class="irs-val-cell"><input id="dateSold" type="date" formControlName="dateSold"></td></tr>
+                    <tr><td class="irs-line-num">3</td><td class="irs-desc"><label for="contractPrice">Contract price . . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">3</td><td class="irs-val-cell"><input id="contractPrice" type="number" formControlName="contractPrice"></td></tr>
+                    <tr><td class="irs-line-num">4</td><td class="irs-desc"><label for="costBasis">Cost or other basis . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">4</td><td class="irs-val-cell"><input id="costBasis" type="number" formControlName="costBasis"></td></tr>
+                    <tr><td class="irs-line-num">5</td><td class="irs-desc"><label for="grossProfit">Gross profit . . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">5</td><td class="irs-val-cell"><input id="grossProfit" type="number" formControlName="grossProfit"></td></tr>
+                    <tr><td class="irs-line-num">6</td><td class="irs-desc"><label for="contractPriceReceived">Contract price received . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">6</td><td class="irs-val-cell"><input id="contractPriceReceived" type="number" formControlName="contractPriceReceived"></td></tr>
+                    <tr class="irs-result-row"><td class="irs-line-num">7</td><td class="irs-desc"><strong>Gross profit ratio % . . . . . . . . . . . . . . . . . . . . .</strong></td><td class="irs-line-num">7</td><td class="irs-val-cell calculated">{{ taxForm.get('gpr')?.value | percent }}</td></tr>
+                </tbody>
+            </table>
+            <div class="irs-section-header"><span class="irs-part-num">Part II</span><span class="irs-part-title">Current Year Income</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">8</td><td class="irs-desc"><label for="paymentsReceived">Payments received in current year . . . . . . . . . . . .</label></td><td class="irs-line-num">8</td><td class="irs-val-cell"><input id="paymentsReceived" type="number" formControlName="paymentsReceived"></td></tr>
+                    <tr><td class="irs-line-num">9</td><td class="irs-desc"><label for="interestIncome">Interest income . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">9</td><td class="irs-val-cell"><input id="interestIncome" type="number" formControlName="interestIncome"></td></tr>
+                    <tr class="irs-result-row"><td class="irs-line-num">10</td><td class="irs-desc"><strong>Installment income . . . . . . . . . . . . . . . . . . . . .</strong></td><td class="irs-line-num">10</td><td class="irs-val-cell calculated">{{ taxForm.get('installmentIncome')?.value | currency }}</td></tr>
+                </tbody>
+            </table>
+            <div class="irs-footer-actions"><button type="submit" class="btn-irs-submit">Guardar Formulario 6252</button></div>
+        </form>
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

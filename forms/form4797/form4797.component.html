@@ -1,0 +1,38 @@
+<div class="irs-form-container">
+    <div class="irs-header"><div class="form-title">Formulario 4797 2026</div></div>
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1"><span class="irs-form-id">4797</span><span class="irs-form-sub-id">2026</span></div>
+            <div class="irs-col-2"><h1>Sales of Business Property</h1><p class="irs-instruction">▶ Attach to Form 1040, 1120, or 1065.</p></div>
+            <div class="irs-col-3"><div class="irs-sequence-box"><span>Secuencia</span><span class="irs-sequence-num">69</span></div></div>
+        </div>
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right"><label for="name">Nombre</label><input id="name" type="text" formControlName="name"></div>
+                <div class="irs-field flex-1"><label for="ein">EIN</label><input id="ein" type="text" formControlName="ein"></div>
+            </div>
+            <div class="irs-section-header"><span class="irs-part-num">Part I</span><span class="irs-part-title">Sales of Property</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">1</td><td class="irs-desc"><label for="description">Description of property . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">1</td><td class="irs-val-cell"><input id="description" type="text" formControlName="description"></td></tr>
+                    <tr><td class="irs-line-num">2</td><td class="irs-desc"><label for="dateAcquired">Date acquired . . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">2</td><td class="irs-val-cell"><input id="dateAcquired" type="date" formControlName="dateAcquired"></td></tr>
+                    <tr><td class="irs-line-num">3</td><td class="irs-desc"><label for="dateSold">Date sold . . . . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">3</td><td class="irs-val-cell"><input id="dateSold" type="date" formControlName="dateSold"></td></tr>
+                    <tr><td class="irs-line-num">4</td><td class="irs-desc"><label for="salesPrice">Sales price . . . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">4</td><td class="irs-val-cell"><input id="salesPrice" type="number" formControlName="salesPrice"></td></tr>
+                    <tr><td class="irs-line-num">5</td><td class="irs-desc"><label for="costBasis">Cost or other basis . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">5</td><td class="irs-val-cell"><input id="costBasis" type="number" formControlName="costBasis"></td></tr>
+                    <tr><td class="irs-line-num">6</td><td class="irs-desc"><label for="expensesSale">Expenses of sale . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">6</td><td class="irs-val-cell"><input id="expensesSale" type="number" formControlName="expensesSale"></td></tr>
+                    <tr class="irs-result-row"><td class="irs-line-num">7</td><td class="irs-desc"><strong>Gain or (loss) . . . . . . . . . . . . . . . . . . . . . . . . .</strong></td><td class="irs-line-num">7</td><td class="irs-val-cell calculated">{{ taxForm.get('gainLoss')?.value | currency }}</td></tr>
+                </tbody>
+            </table>
+            <div class="irs-section-header"><span class="irs-part-num">Part II</span><span class="irs-part-title">Ordinary Gains and Losses</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">8</td><td class="irs-desc"><label for="ordinaryGain">Ordinary gain . . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">8</td><td class="irs-val-cell"><input id="ordinaryGain" type="number" formControlName="ordinaryGain"></td></tr>
+                    <tr><td class="irs-line-num">9</td><td class="irs-desc"><label for="ordinaryLoss">Ordinary loss . . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">9</td><td class="irs-val-cell"><input id="ordinaryLoss" type="number" formControlName="ordinaryLoss"></td></tr>
+                    <tr class="irs-result-row"><td class="irs-line-num">10</td><td class="irs-desc"><strong>Net ordinary gain/loss . . . . . . . . . . . . . . . . . . . .</strong></td><td class="irs-line-num">10</td><td class="irs-val-cell calculated">{{ taxForm.get('netOrdinary')?.value | currency }}</td></tr>
+                </tbody>
+            </table>
+            <div class="irs-footer-actions"><button type="submit" class="btn-irs-submit">Guardar Formulario 4797</button></div>
+        </form>
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

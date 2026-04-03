@@ -1,0 +1,118 @@
+<div class="irs-form-container">
+    <div class="irs-header">
+        <div class="form-title-box"><div class="irs-form-id">SCHEDULE C</div><div class="irs-form-sub-id">(Form 1040)</div></div>
+        <div class="irs-header-center">
+            <h1>Profit or Loss From Business</h1>
+            <h2>(Sole Proprietorship)</h2>
+            <p class="irs-instruction">▶ Go to www.irs.gov/ScheduleC for instructions and the latest information.</p>
+            <p class="irs-instruction">▶ Attach to Form 1040, 1040-SR, 1040-NR, or 1041; partnerships generally must file Form 1065.</p>
+        </div>
+        <div class="year-box">2025</div>
+    </div>
+
+    <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+        <div class="personal-info border-bottom">
+            <div class="info-cell cell-70">
+                <label for="proprietorName">Name of proprietor</label>
+                <input type="text" id="proprietorName" formControlName="proprietorName">
+            </div>
+            <div class="info-cell cell-30 border-left">
+                <label for="ssn">Social security number (SSN)</label>
+                <input type="text" id="ssn" formControlName="ssn">
+            </div>
+        </div>
+
+        <!-- Part I: Income -->
+        <div class="part-header">Part I — Income</div>
+        <div class="irs-line-item">
+            <div class="line-num">1</div>
+            <div class="line-text">Gross receipts or sales</div>
+            <div class="line-input"><input type="number" formControlName="grossReceipts"></div>
+        </div>
+        <div class="irs-line-item">
+            <div class="line-num">2</div>
+            <div class="line-text">Returns and allowances</div>
+            <div class="line-input"><input type="number" formControlName="returnsAllowances"></div>
+        </div>
+        <div class="irs-line-item">
+            <div class="line-num">4</div>
+            <div class="line-text">Cost of goods sold (from Part III)</div>
+            <div class="line-input"><input type="number" formControlName="cogs"></div>
+        </div>
+        <div class="irs-line-item highlight">
+            <div class="line-num">7</div>
+            <div class="line-text"><b>Gross income.</b> Add lines 5 and 6</div>
+            <div class="line-input"><input type="number" formControlName="grossIncome"></div>
+        </div>
+
+        <!-- Part II: Expenses -->
+        <div class="part-header">Part II — Expenses. <span style="font-weight: 500; font-size: 11px;">Enter expenses for business use of your home only on line 30.</span></div>
+        
+        <div class="irs-grid-expenses">
+            <div class="irs-line-item">
+                <div class="line-num">8</div><div class="line-text">Advertising</div>
+                <div class="line-input"><input type="number" formControlName="advertising"></div>
+            </div>
+            <div class="irs-line-item">
+                <div class="line-num">18</div><div class="line-text">Office expense</div>
+                <div class="line-input"><input type="number" formControlName="officeExpense"></div>
+            </div>
+            <div class="irs-line-item">
+                <div class="line-num">9</div><div class="line-text">Car and truck expenses</div>
+                <div class="line-input"><input type="number" formControlName="carExpenses"></div>
+            </div>
+            <div class="irs-line-item">
+                <div class="line-num">20</div><div class="line-text">Rent or lease: Vehicles, machinery</div>
+                <div class="line-input"><input type="number" formControlName="rentVehicles"></div>
+            </div>
+            <div class="irs-line-item">
+                <div class="line-num">10</div><div class="line-text">Commissions and fees</div>
+                <div class="line-input"><input type="number" formControlName="commissions"></div>
+            </div>
+            <div class="irs-line-item">
+                <div class="line-num">21</div><div class="line-text">Repairs and maintenance</div>
+                <div class="line-input"><input type="number" formControlName="repairs"></div>
+            </div>
+            <div class="irs-line-item">
+                <div class="line-num">11</div><div class="line-text">Contract labor</div>
+                <div class="line-input"><input type="number" formControlName="contractLabor"></div>
+            </div>
+            <div class="irs-line-item">
+                <div class="line-num">22</div><div class="line-text">Supplies (not included in Part III)</div>
+                <div class="line-input"><input type="number" formControlName="supplies"></div>
+            </div>
+            <div class="irs-line-item">
+                <div class="line-num">17</div><div class="line-text">Legal and professional services</div>
+                <div class="line-input"><input type="number" formControlName="legalPro"></div>
+            </div>
+            <div class="irs-line-item">
+                <div class="line-num">25</div><div class="line-text">Utilities</div>
+                <div class="line-input"><input type="number" formControlName="utilities"></div>
+            </div>
+        </div>
+
+        <div class="irs-line-item highlight" style="margin-top: 10px;">
+            <div class="line-num">28</div>
+            <div class="line-text"><b>Total expenses before expenses for business use of home.</b> Add lines 8 through 27a</div>
+            <div class="line-input"><input type="number" formControlName="totalExpenses"></div>
+        </div>
+        
+        <div class="irs-line-item highlight-profit">
+            <div class="line-num">31</div>
+            <div class="line-text"><b>Net profit or (loss).</b> Subtract line 30 from line 29.</div>
+            <div class="line-input"><input type="number" formControlName="netProfit"></div>
+        </div>
+
+        <div class="irs-footer-area">
+            <div>Schedule C (Form 1040) 2025</div>
+            <div>www.irs.gov/ScheduleC</div>
+            <div>Department of the Treasury - Internal Revenue Service</div>
+        </div>
+
+        <div class="irs-action-bar">
+            <button type="submit" class="btn-irs btn-irs-primary">Save Schedule C Transactions</button>
+        </div>
+    </form>
+    
+    <app-chatforms></app-chatforms>
+</div>

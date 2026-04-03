@@ -1,0 +1,32 @@
+<div class="irs-form-container">
+    <div class="irs-header"><div class="form-title">Formulario 1099-NEC 2026</div></div>
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1"><span class="irs-form-id">1099-NEC</span><span class="irs-form-sub-id">2026</span></div>
+            <div class="irs-col-2"><h1>Nonemployee Compensation</h1><p class="irs-instruction">▶ File with recipient and IRS.</p></div>
+            <div class="irs-col-3"><div class="irs-sequence-box"><span>Box</span><span class="irs-sequence-num">7</span></div></div>
+        </div>
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right"><label for="payerName">Nombre del Pagador (Payer's name)</label><input id="payerName" type="text" formControlName="payerName"></div>
+                <div class="irs-field flex-1"><label for="tin">TIN del Pagador</label><input id="tin" type="text" formControlName="tin"></div>
+            </div>
+            <div class="irs-row-border">
+                <div class="irs-field flex-1 border-right"><label for="recipientName">Nombre del Beneficiario</label><input id="recipientName" type="text" formControlName="recipientName"></div>
+                <div class="irs-field flex-1"><label for="recipientTIN">TIN del Beneficiario</label><input id="recipientTIN" type="text" formControlName="recipientTIN"></div>
+            </div>
+            <div class="irs-section-header"><span class="irs-part-num">Box 1</span><span class="irs-part-title">Nonemployee Compensation</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">1</td><td class="irs-desc"><label for="nonemployeeComp">Nonemployee compensation . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">1</td><td class="irs-val-cell"><input id="nonemployeeComp" type="number" formControlName="nonemployeeComp"></td></tr>
+                    <tr><td class="irs-line-num">2</td><td class="irs-desc"><label for="box2">State tax withheld . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">2</td><td class="irs-val-cell"><input id="box2" type="number" formControlName="box2"></td></tr>
+                    <tr><td class="irs-line-num">3</td><td class="irs-desc"><label for="box3">State's income . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">3</td><td class="irs-val-cell"><input id="box3" type="number" formControlName="box3"></td></tr>
+                    <tr><td class="irs-line-num">4</td><td class="irs-desc"><label for="box4">Federal income tax withheld . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">4</td><td class="irs-val-cell"><input id="box4" type="number" formControlName="box4"></td></tr>
+                    <tr><td class="irs-line-num">5</td><td class="irs-desc"><label for="box5">State . . . . . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">5</td><td class="irs-val-cell"><input id="box5" type="text" formControlName="box5"></td></tr>
+                </tbody>
+            </table>
+            <div class="irs-footer-actions"><button type="submit" class="btn-irs-submit">Guardar Formulario 1099-NEC</button></div>
+        </form>
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

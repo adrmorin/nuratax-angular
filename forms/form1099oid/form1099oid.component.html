@@ -1,0 +1,34 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 1099-OID</h1><p class="form-year">Department of the Treasury - Internal Revenue Service</p></div>
+        <div class="form-info"><p><strong>Original Issue Discount</strong> - For calendar year 2026</p></div>
+    </div>
+
+    <div class="payer-section">
+        <div class="field-row">
+            <div class="field-group"><label>Payer name</label><input type="text" formControlName="payerName"></div>
+            <div class="field-group small"><label>Payer TIN</label><input type="text" formControlName="payerTin"></div>
+        </div>
+    </div>
+
+    <div class="recipi-section">
+        <div class="field-row">
+            <div class="field-group"><label>Recipient name</label><input type="text" formControlName="recipiName"></div>
+            <div class="field-group small"><label>Recipient TIN</label><input type="text" formControlName="recipiTin"></div>
+        </div>
+    </div>
+
+    <table class="form-table">
+        <thead><tr><th colspan="3" class="section-header">Original Issue Discount</th></tr></thead>
+        <tbody>
+            <tr><td class="line-num">1</td><td class="line-desc">Original issue discount</td><td class="line-input"><input type="number" formControlName="originalIssueDiscount"></td></tr>
+            <tr><td class="line-num">2</td><td class="line-desc">Other periodically</td><td class="line-input"><input type="number" formControlName="otherPeriodically"></td></tr>
+            <tr><td class="line-num">3</td><td class="line-desc">U.S. savings bonds/treasury obligations</td><td class="line-input"><input type="number" formControlName="usSavingsBonds"></td></tr>
+            <tr><td class="line-num">4</td><td class="line-desc">Early withdrawal penalty</td><td class="line-input"><input type="number" formControlName="earlyWithdrawal"></td></tr>
+            <tr><td class="line-num">5</td><td class="line-desc">Adjustment</td><td class="line-input"><input type="number" formControlName="adjustment"></td></tr>
+            <tr><td class="line-num">8</td><td class="line-desc">Tax-exempt OID</td><td class="line-input"><input type="number" formControlName="taxExempt"></td></tr>
+        </tbody>
+    </table>
+
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

@@ -1,0 +1,88 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 1095-A</h1><p class="form-year">(2024)</p></div>
+        <div class="form-info"><p><strong>Health Insurance Marketplace Statement</strong></p><p>Department of the Treasury — Internal Revenue Service</p></div>
+    </div>
+    <div class="form-instructions"><p>This form is provided by the Health Insurance Marketplace to report information about individuals who enrolled in qualified health plans through the Marketplace.</p></div>
+    <div class="part-section">
+        <h3 class="part-header">Part I — Marketplace Information</h3>
+        <div class="field-row"><div class="field-group"><label>Marketplace name</label><input type="text" formControlName="marketPlaceName"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>Marketplace EIN</label><input type="text" formControlName="marketPlaceEin"></div>
+            <div class="field-group"><label>Policy number</label><input type="text" formControlName="policyNumber"></div>
+            <div class="field-group"><label>Tax Year</label><input type="text" formControlName="taxYear"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part II — Account Holder Information</h3>
+        <div class="field-row"><div class="field-group"><label>Account holder name</label><input type="text" formControlName="accountHolder"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>Holder's TIN (SSN)</label><input type="text" formControlName="holderTin"></div>
+        </div>
+        <div class="field-row"><div class="field-group"><label>Mailing address</label><input type="text" formControlName="address"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>City</label><input type="text" formControlName="city"></div>
+            <div class="field-group"><label>State</label><input type="text" formControlName="state"></div>
+            <div class="field-group"><label>ZIP</label><input type="text" formControlName="zip"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part III — Covered Individuals</h3>
+        <div class="sub-section">
+            <h4>Member 1</h4>
+            <div class="field-row three-col">
+                <div class="field-group"><label>Name</label><input type="text" formControlName="m1Name"></div>
+                <div class="field-group"><label>Date of birth</label><input type="date" formControlName="m1DOB"></div>
+                <div class="field-group"><label>TIN</label><input type="text" formControlName="m1Tin"></div>
+            </div>
+            <div class="field-row three-col">
+                <div class="field-group"><label>Coverage start date</label><input type="date" formControlName="m1Start"></div>
+                <div class="field-group"><label>Coverage end date</label><input type="date" formControlName="m1End"></div>
+                <div class="field-group"><label>Full-year coverage?</label><select formControlName="m1FullYear"><option value="">Select...</option><option value="Yes">Yes</option><option value="No">No</option></select></div>
+            </div>
+        </div>
+        <div class="sub-section">
+            <h4>Member 2</h4>
+            <div class="field-row three-col">
+                <div class="field-group"><label>Name</label><input type="text" formControlName="m2Name"></div>
+                <div class="field-group"><label>Date of birth</label><input type="date" formControlName="m2DOB"></div>
+                <div class="field-group"><label>TIN</label><input type="text" formControlName="m2Tin"></div>
+            </div>
+        </div>
+        <div class="sub-section">
+            <h4>Member 3</h4>
+            <div class="field-row three-col">
+                <div class="field-group"><label>Name</label><input type="text" formControlName="m3Name"></div>
+                <div class="field-group"><label>Date of birth</label><input type="date" formControlName="m3DOB"></div>
+                <div class="field-group"><label>TIN</label><input type="text" formControlName="m3Tin"></div>
+            </div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part IV — Coverage Information</h3>
+        <table class="form-table">
+            <tr><th>Month</th><th>Monthly Premium</th><th>Monthly APTC</th><th>Monthly Second Lowest Cost Silver Plan</th></tr>
+            <tr><td>January</td><td><input type="number" formControlName="janPrem"></td><td><input type="number" formControlName="janAPTC"></td><td><input type="number" formControlName="janSLCSP"></td></tr>
+            <tr><td>February</td><td><input type="number" formControlName="febPrem"></td><td><input type="number" formControlName="febAPTC"></td><td><input type="number" formControlName="febSLCSP"></td></tr>
+            <tr><td>March</td><td><input type="number" formControlName="marPrem"></td><td><input type="number" formControlName="marAPTC"></td><td><input type="number" formControlName="marSLCSP"></td></tr>
+            <tr><td>April</td><td><input type="number" formControlName="aprPrem"></td><td><input type="number" formControlName="aprAPTC"></td><td><input type="number" formControlName="aprSLCSP"></td></tr>
+            <tr><td>May</td><td><input type="number" formControlName="mayPrem"></td><td><input type="number" formControlName="mayAPTC"></td><td><input type="number" formControlName="maySLCSP"></td></tr>
+            <tr><td>June</td><td><input type="number" formControlName="junPrem"></td><td><input type="number" formControlName="junAPTC"></td><td><input type="number" formControlName="junSLCSP"></td></tr>
+            <tr><td>July</td><td><input type="number" formControlName="julPrem"></td><td><input type="number" formControlName="julAPTC"></td><td><input type="number" formControlName="julSLCSP"></td></tr>
+            <tr><td>August</td><td><input type="number" formControlName="augPrem"></td><td><input type="number" formControlName="augAPTC"></td><td><input type="number" formControlName="augSLCSP"></td></tr>
+            <tr><td>September</td><td><input type="number" formControlName="sepPrem"></td><td><input type="number" formControlName="sepAPTC"></td><td><input type="number" formControlName="sepSLCSP"></td></tr>
+            <tr><td>October</td><td><input type="number" formControlName="octPrem"></td><td><input type="number" formControlName="octAPTC"></td><td><input type="number" formControlName="octSLCSP"></td></tr>
+            <tr><td>November</td><td><input type="number" formControlName="novPrem"></td><td><input type="number" formControlName="novAPTC"></td><td><input type="number" formControlName="novSLCSP"></td></tr>
+            <tr><td>December</td><td><input type="number" formControlName="decPrem"></td><td><input type="number" formControlName="decAPTC"></td><td><input type="number" formControlName="decSLCSP"></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part V — Totals</h3>
+        <table class="form-table">
+            <tr class="highlight-row"><td>14. Annual premiums</td><td><input type="number" formControlName="line14"></td></tr>
+            <tr class="highlight-row"><td>15. Annual APTC</td><td><input type="number" formControlName="line15"></td></tr>
+            <tr class="highlight-row"><td>16. Annual SLCSP</td><td><input type="number" formControlName="line16"></td></tr>
+        </table>
+    </div>
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

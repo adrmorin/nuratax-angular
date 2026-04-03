@@ -1,861 +1,215 @@
-<div class="irs-form-container" [formGroup]="taxForm">
-    <!-- Header Section - Faithful IRS 1040-NR Header -->
-    <div class="irs-header" id="irs-header">
-        <div class="irs-form-number-box">
-            <span class="vertical-form">Form</span>
-            <span class="main-1040">1040-NR</span>
-        </div>
-        <div class="irs-header-content-main blue-bg">
-            <div class="dept-treasury">Department of the Treasury—Internal Revenue Service</div>
-            <div class="return-title">U.S. Nonresident Alien Income Tax Return</div>
-        </div>
-        <div class="irs-year-box-container blue-bg">
-            <span class="year-outline">20</span><span class="year-solid">25</span>
-        </div>
-        <div class="irs-omb-box-container blue-bg">
-            <span>OMB No. 1545-0074</span>
-        </div>
-        <div class="irs-use-only-box blue-bg">
-            <span>IRS Use Only—Do not write or staple in this space.</span>
-        </div>
-    </div>
-
-    <!-- Dates Row -->
-    <div class="irs-row-line border-bottom" style="font-size: 11px; padding: 5px 10px;">
-        <span>For the year Jan. 1–Dec. 31, 2025, or other tax year beginning</span>
-        <input type="text"
-            style="width: 80px; border:none; border-bottom:1px dotted #000; background:transparent; margin: 0 5px;">,
-        2025, ending
-        <input type="text"
-            style="width: 80px; border:none; border-bottom:1px dotted #000; background:transparent; margin: 0 5px;">, 20
-        <input type="text"
-            style="width: 30px; border:none; border-bottom:1px dotted #000; background:transparent; margin: 0 5px;">
-        <span style="flex: 1; text-align: right; font-weight: 800;">See separate instructions.</span>
-    </div>
-
-    <!-- Section 1: Filing Status -->
-    <div class="irs-filing-status-section">
-        <div class="status-label-col">
-            <div class="status-main-label">Filing Status</div>
-            <div class="status-sub-label">Check only one box.</div>
-        </div>
-        <div class="status-options-col">
-            <div class="status-row">
-                <label for="statusSingle"><input type="checkbox" formControlName="filingStatus" value="Single"
-                        id="statusSingle"> Single</label>
-                <label style="margin-left: 50px;" for="statusHOH"><input type="checkbox" formControlName="filingStatus"
-                        value="HOH" id="statusHOH">
-                    Head of household (HOH)</label>
+<div class="irs-unified-container">
+    <!-- Form 1040-NR Header -->
+    <div class="irs-header-main" style="background: #fff; border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.2rem;">Form 1040-NR</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif;">
+                Department of the Treasury<br>
+                Internal Revenue Service
             </div>
-            <div class="status-row">
-                <label for="statusMFJ"><input type="checkbox" formControlName="filingStatus" value="MFJ" id="statusMFJ">
-                    Married filing jointly (even
-                    if only one had income)</label>
-                <label style="margin-left: 6px;" for="statusQSS"><input type="checkbox" formControlName="filingStatus"
-                        value="QSS" id="statusQSS">
-                    Qualifying surviving spouse (QSS)</label>
+        </div>
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.1rem; margin: 0;">U.S. Nonresident Alien Income Tax Return</h1>
+                <h2 style="font-size: 0.9rem; margin: 0; font-style: italic;">Declaración de Impuestos Federales para Extranjeros No Residentes en EE. UU.</h2>
             </div>
-            <div class="status-row">
-                <label for="statusMFS"><input type="checkbox" formControlName="filingStatus" value="MFS" id="statusMFS">
-                    Married filing separately
-                    (MFS). Enter spouse's SSN above and full name here: </label>
-            </div>
-            <input type="text"
-                style="width: 100%; border:none; border-bottom:1px dotted #000; background:transparent; font-size: 12px; margin-top: 2px;">
-            <div style="font-size: 10px; margin-top: 5px;">
-                If you checked the HOH or QSS box, enter the child's name if the qualifying person is a child but not
-                your dependent:
-            </div>
-            <input type="text"
-                style="width: 100%; border:none; border-bottom:1px dotted #000; background:transparent; font-size: 12px; margin-top: 2px;">
+            <p style="font-size: 0.8rem; margin-top: 8px; font-weight: 700;">▶ Go to www.irs.gov/Form1040NR for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0074</div>
+            <div style="font-size: 2.8rem; line-height: 1;">2025</div>
+            <div style="font-size: 0.65rem; font-weight: 800; margin-top: 5px;">IRS Use Only—Do not write<br>or staple in this space.</div>
         </div>
     </div>
 
-    <!-- Section 2: Personal Information -->
-    <div style="display: flex; border-bottom: 1px solid #000;">
-        <div style="flex: 3; border-right: 1px solid #000;">
-            <div style="display: flex; border-bottom: 1px solid #000;">
-                <div style="flex: 1; border-right: 1px solid #000;">
-                    <label class="irs-top-label" for="firstName">Your first name and middle initial</label>
-                    <input type="text" class="irs-cell-input" formControlName="firstName" id="firstName">
+    <form [formGroup]="taxForm" *ngIf="taxForm">
+        <!-- Filing Status -->
+        <div class="irs-row" style="grid-template-columns: 200px 1fr;">
+            <div class="irs-sidebar-gray">
+                <div class="irs-label-wrap">
+                    <span style="font-size: 1.1rem; font-weight: 950;">Filing Status</span>
+                    <span style="font-size: 0.85rem; font-weight: 400; font-style: italic;">Estado Civil</span>
                 </div>
-                <div style="flex: 1;">
-                    <label class="irs-top-label" for="lastName">Last name</label>
-                    <input type="text" class="irs-cell-input" formControlName="lastName" id="lastName">
-                </div>
+                <div style="font-size: 0.75rem; font-weight: 700; margin-top: 10px;">Check only one box.</div>
             </div>
-            <div style="display: flex; border-bottom: 1px solid #000;">
-                <div style="flex: 1; border-right: 1px solid #000;">
-                    <label class="irs-top-label" for="spouseFirstName">If joint return, spouse's first name and middle
-                        initial</label>
-                    <input type="text" class="irs-cell-input" id="spouseFirstName">
-                </div>
-                <div style="flex: 1;">
-                    <label class="irs-top-label" for="spouseLastName">Last name</label>
-                    <input type="text" class="irs-cell-input" id="spouseLastName">
+            <div style="padding: 10px;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <label style="display: flex; align-items: flex-start; gap: 8px;">
+                        <input type="checkbox" formControlName="filingStatus" value="Single">
+                        <div>
+                            <span style="font-weight: 800; font-size: 0.9rem;">Single</span>
+                            <span style="display:block; font-size: 0.75rem; font-style: italic;">Soltero(a)</span>
+                        </div>
+                    </label>
+                    <label style="display: flex; align-items: flex-start; gap: 8px;">
+                        <input type="checkbox" formControlName="filingStatus" value="MFJ">
+                        <div>
+                            <span style="font-weight: 800; font-size: 0.9rem;">Married filing jointly</span>
+                            <span style="display:block; font-size: 0.75rem; font-style: italic;">Casado que presenta declaración conjunta</span>
+                        </div>
+                    </label>
+                    <label style="display: flex; align-items: flex-start; gap: 8px;">
+                        <input type="checkbox" formControlName="filingStatus" value="MFS">
+                        <div>
+                            <span style="font-weight: 800; font-size: 0.9rem;">Married filing separately (MFS)</span>
+                            <span style="display:block; font-size: 0.75rem; font-style: italic;">Casado que presenta declaración por separado</span>
+                        </div>
+                    </label>
+                    <label style="display: flex; align-items: flex-start; gap: 8px;">
+                        <input type="checkbox" formControlName="filingStatus" value="HOH">
+                        <div>
+                            <span style="font-weight: 800; font-size: 0.9rem;">Head of household (HOH)</span>
+                            <span style="display:block; font-size: 0.75rem; font-style: italic;">Cabeza de familia</span>
+                        </div>
+                    </label>
                 </div>
             </div>
         </div>
-        <div style="flex: 1;">
-            <div style="border-bottom: 1px solid #000; padding: 2px 10px;">
-                <label class="irs-top-label" for="ssn1">Your social security number</label>
-                <div style="display: flex; gap: 5px;"><input type="text" style="width:35px" id="ssn1"> - <input
-                        type="text" style="width:25px" id="ssn2"> - <input type="text" style="width:45px" id="ssn3">
-                </div>
-            </div>
-            <div style="padding: 2px 10px;">
-                <label class="irs-top-label" for="spouseSsn1">Spouse's social security number</label>
-                <div style="display: flex; gap: 5px;"><input type="text" style="width:35px" id="spouseSsn1"> - <input
-                        type="text" style="width:25px" id="spouseSsn2"> - <input type="text" style="width:45px"
-                        id="spouseSsn3"></div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Section 3: Address & Election -->
-    <div style="display: flex; border-bottom: 1px solid #000;">
-        <div style="flex: 3; border-right: 1px solid #000;">
-            <div style="display: flex; border-bottom: 1px solid #000;">
-                <div style="flex: 1; border-right: 1px solid #000;">
-                    <label class="irs-top-label" for="homeAddressIn">Home address (number and street). If you have a
-                        P.O. box, see instructions.</label>
-                    <input type="text" class="irs-cell-input" formControlName="homeAddress" id="homeAddressIn">
+        <!-- Personal Info -->
+        <div class="irs-row" style="grid-template-columns: 1fr 1fr 300px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">First name and middle initial</label>
+                    <label class="irs-label-es">Nombre y la inicial del segundo nombre</label>
                 </div>
-                <div style="width: 80px;">
-                    <label class="irs-top-label" for="aptNoIn">Apt. no.</label>
-                    <input type="text" class="irs-cell-input" id="aptNoIn">
-                </div>
+                <input type="text" formControlName="firstName" style="font-weight: 700;">
             </div>
-            <div style="display: flex;">
-                <div style="flex: 2; border-right: 1px solid #000;">
-                    <label class="irs-top-label" for="cityIn">City, town, or post office. If you have a foreign
-                        address, also complete below.</label>
-                    <input type="text" class="irs-cell-input" id="cityIn">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Last name</label>
+                    <label class="irs-label-es">Apellido(s)</label>
                 </div>
-                <div style="width: 80px; border-right: 1px solid #000;">
-                    <label class="irs-top-label" for="stateIn">State</label>
-                    <input type="text" class="irs-cell-input" id="stateIn">
+                <input type="text" formControlName="lastName" style="font-weight: 700;">
+            </div>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Your social security number</label>
+                    <label class="irs-label-es">Su número de seguro social</label>
                 </div>
-                <div style="width: 100px;">
-                    <label class="irs-top-label" for="zipIn">ZIP code</label>
-                    <input type="text" class="irs-cell-input" id="zipIn">
-                </div>
+                <input type="text" style="font-weight: 700; width: 100%;">
             </div>
         </div>
-        <div style="flex: 1; background-color: var(--irs-bg-paper); padding: 5px; font-size: 10px;">
-            <div style="font-weight: 800; border-bottom: 1px solid #000; padding-bottom: 2px; margin-bottom: 5px;">
-                Presidential Election Campaign</div>
-            <div>Check here if you, or your spouse if filing jointly, want $3 to go to this fund.</div>
-            <div style="margin-top: 10px;">
-                <label style="margin-right: 20px;" for="envoyYou"><input type="checkbox" id="envoyYou"> You</label>
-                <label for="envoySpouse"><input type="checkbox" id="envoySpouse"> Spouse</label>
-            </div>
-        </div>
-    </div>
 
-    <!-- Digital Assets row -->
-    <div class="irs-digital-assets-row">
-        <div class="digital-assets-title">Digital Assets</div>
-        <div style="flex: 1; padding: 5px 10px; font-size: 11px;">
-            At any time during 2025, did you: (a) receive (as a reward, award, or payment for property or services); or
-            (b) sell, exchange, or otherwise dispose of a digital asset (or a financial interest in a digital asset)?
-            (See instructions.)
-            <div style="float: right;">
-                <label style="margin-right: 15px;" for="assetsYes"><input type="checkbox" id="assetsYes"> Yes</label>
-                <label for="assetsNo"><input type="checkbox" id="assetsNo"> No</label>
+        <!-- Address -->
+        <div class="irs-row" style="grid-template-columns: 1fr 150px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Home address (number and street)</label>
+                    <label class="irs-label-es">Dirección (número y calle)</label>
+                </div>
+                <input type="text" formControlName="homeAddress" style="font-weight: 700;">
+            </div>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Apt. no.</label>
+                    <label class="irs-label-es">Núm. de apt.</label>
+                </div>
+                <input type="text" style="font-weight: 700;">
             </div>
         </div>
-    </div>
 
-    <!-- Section: Standard Deduction -->
-    <div style="display: flex; border-bottom: 1px solid #000;">
-        <div class="irs-sidebar-gray" style="padding: 10px;">
-            <div style="font-weight: 900; font-size: 14px; line-height: 1.1;">Standard Deduction</div>
-        </div>
-        <div style="flex: 1; padding: 5px 10px; font-size: 11px;">
-            <div>Someone can claim: <label style="margin-left: 20px;" for="claimYou"><input type="checkbox"
-                        id="claimYou"> You as a dependent</label>
-                <label style="margin-left: 10px;" for="claimSpouse"><input type="checkbox" id="claimSpouse"> Your spouse
-                    as a dependent</label>
+        <!-- Dependents -->
+        <div class="irs-row" style="grid-template-columns: 200px 1fr;">
+            <div class="irs-sidebar-gray">
+                <div class="irs-label-wrap">
+                    <span style="font-size: 1.1rem; font-weight: 950;">Dependents</span>
+                    <span style="font-size: 0.85rem; font-weight: 400; font-style: italic;">Dependientes</span>
+                </div>
             </div>
-            <div style="border-top: 1px dotted #000; margin-top: 5px; padding-top: 3px;">
-                <span class="bold">You:</span> <label style="margin-left: 5px;" for="youAge"><input type="checkbox"
-                        id="youAge"> Were born before
-                    January 2, 1961</label> <label style="margin-left: 5px;" for="youBlind"><input type="checkbox"
-                        id="youBlind"> Are blind</label>
-                <br>
-                <span class="bold">Spouse:</span> <label style="margin-left: 5px;" for="spouseAge"><input
-                        type="checkbox" id="spouseAge"> Was born
-                    before January 2, 1961</label> <label style="margin-left: 5px;" for="spouseBlind"><input
-                        type="checkbox" id="spouseBlind"> Is
-                    blind</label>
-            </div>
-        </div>
-    </div>
-
-    <!-- Section: Dependents -->
-    <div style="display: flex; border-bottom: 1px solid #000;">
-        <div class="irs-sidebar-gray" style="padding: 10px;">
-            <div style="font-weight: 900; font-size: 14px; line-height: 1.1;">Dependents</div>
-            <div style="font-size: 9px; font-weight: 500;">(see instructions)</div>
-            <div style="margin-top: 10px; font-size: 10px;">
-                If more than four dependents, see instructions and check here
-                <input type="checkbox">
-            </div>
-        </div>
-        <div style="flex: 1;">
-            <table class="irs-table">
-                <thead>
+            <div style="padding: 0;">
+                <table style="width: 100%; border-collapse: collapse;">
                     <tr>
-                        <th class="irs-table-header-blue">(1) First name</th>
-                        <th class="irs-table-header-blue">(2) Last name</th>
-                        <th class="irs-table-header-blue">(3) SSN</th>
-                        <th class="irs-table-header-blue">(4) Relationship</th>
-                        <th class="irs-table-header-blue" colspan="2">(5) ✓ if qualifies for (see
-                            instructions):<br><span style="font-weight:400; font-size:9px;">Child tax credit
-                                &nbsp;&nbsp; Credit for other dependents</span></th>
+                        <th class="irs-table-header">First Name / Nombre</th>
+                        <th class="irs-table-header">Last Name / Apellido</th>
+                        <th class="irs-table-header">SSN / Núm. Seguro Social</th>
+                        <th class="irs-table-header">Relationship / Parentesco</th>
                     </tr>
-                </thead>
-                <tbody>
-                    <tr style="height:28px;">
-                        <td><input type="text" class="irs-cell-input" style="font-size:12px;"></td>
-                        <td><input type="text" class="irs-cell-input" style="font-size:12px;"></td>
-                        <td><input type="text" class="irs-cell-input" style="font-size:12px;"></td>
-                        <td><input type="text" class="irs-cell-input" style="font-size:12px;"></td>
-                        <td style="text-align:center;"><input type="checkbox"></td>
-                        <td style="text-align:center;"><input type="checkbox"></td>
+                    <tr *ngFor="let i of [1,2,3]">
+                        <td style="border: 1px solid #000; padding: 5px;"><input type="text" style="width:100%"></td>
+                        <td style="border: 1px solid #000; padding: 5px;"><input type="text" style="width:100%"></td>
+                        <td style="border: 1px solid #000; padding: 5px;"><input type="text" style="width:100%"></td>
+                        <td style="border: 1px solid #000; padding: 5px;"><input type="text" style="width:100%"></td>
                     </tr>
-                    <tr style="height:28px;">
-                        <td><input type="text" class="irs-cell-input" style="font-size:12px;"></td>
-                        <td><input type="text" class="irs-cell-input" style="font-size:12px;"></td>
-                        <td><input type="text" class="irs-cell-input" style="font-size:12px;"></td>
-                        <td><input type="text" class="irs-cell-input" style="font-size:12px;"></td>
-                        <td style="text-align:center;"><input type="checkbox"></td>
-                        <td style="text-align:center;"><input type="checkbox"></td>
-                    </tr>
-                    <tr style="height:28px;">
-                        <td><input type="text" class="irs-cell-input" style="font-size:12px;"></td>
-                        <td><input type="text" class="irs-cell-input" style="font-size:12px;"></td>
-                        <td><input type="text" class="irs-cell-input" style="font-size:12px;"></td>
-                        <td><input type="text" class="irs-cell-input" style="font-size:12px;"></td>
-                        <td style="text-align:center;"><input type="checkbox"></td>
-                        <td style="text-align:center;"><input type="checkbox"></td>
-                    </tr>
-                    <tr style="height:28px;">
-                        <td><input type="text" class="irs-cell-input" style="font-size:12px;"></td>
-                        <td><input type="text" class="irs-cell-input" style="font-size:12px;"></td>
-                        <td><input type="text" class="irs-cell-input" style="font-size:12px;"></td>
-                        <td><input type="text" class="irs-cell-input" style="font-size:12px;"></td>
-                        <td style="text-align:center;"><input type="checkbox"></td>
-                        <td style="text-align:center;"><input type="checkbox"></td>
-                    </tr>
-                </tbody>
-            </table>
+                </table>
+            </div>
         </div>
-    </div>
 
-    <!-- Section: Income -->
-    <div style="display: flex; border-bottom: 2px solid #000;">
-        <div class="irs-sidebar-gray" style="padding: 10px;">
-            <div style="font-weight: 900; font-size: 16px;">Income</div>
-            <div
-                style="border: 1px solid #000; padding: 5px; font-size: 9px; margin-top: 10px; background-color: #fff;">
-                <strong>Attach Form(s) W-2 here. Also attach Forms W-2G and 1099-R if tax was withheld.</strong>
-            </div>
-            <div style="font-size: 9px; margin-top: 8px;">If you did not get a Form W-2, see instructions.</div>
-        </div>
-        <div style="flex: 1;">
-            <div class="irs-row-line">
-                <div class="line-num">1a</div>
-                <div class="line-text">Total amount from Form(s) W-2, box 1 (see instructions)</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">1a</div>
-                <div class="irs-amount-field"><input type="text" formControlName="incomeW2"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">b</div>
-                <div class="line-text">Household employee wages not reported on Form(s) W-2</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">1b</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line1b"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">c</div>
-                <div class="line-text">Tip income not reported on line 1a (see instructions)</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">1c</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line1c"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">d</div>
-                <div class="line-text">Medicaid waiver payments not reported on Form(s) W-2 (see instructions)</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">1d</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line1d"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">e</div>
-                <div class="line-text">Taxable dependent care benefits from Form 2441, line 26</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">1e</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line1e"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">f</div>
-                <div class="line-text">Employer adoption benefits from Form 8839, line 29</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">1f</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line1f"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">g</div>
-                <div class="line-text">Wages from Form 8919, line 6</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">1g</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line1g"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">h</div>
-                <div class="line-text">Other earned income (see instructions)</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">1h</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line1h"></div>
-            </div>
-            <div class="irs-row-line" style="background-color: var(--irs-bg-blue, #e8f4f8);">
-                <div class="line-num">z</div>
-                <div class="line-text"><strong>Add lines 1a through 1h</strong></div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">1z</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line1z"
-                        style="background-color:#d0e8f0;"></div>
-            </div>
-            <!-- Lines 2–8 -->
-            <div class="irs-row-line">
-                <div class="line-num">2a</div>
-                <div class="line-text">Tax-exempt interest</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">2a</div>
-                <div class="irs-amount-field"><input type="text"></div>
-                <div
-                    style="border-left:1px solid #000; padding: 0 8px; font-size:11px; display:flex; align-items:center; background: var(--irs-bg-blue,#e8f4f8); width:200px;">
-                    <span style="width:30px; font-weight:800; text-align:center;">2b</span>
-                    <span style="flex:1; font-size:10px;">Taxable interest</span>
-                    <input type="text" formControlName="line2b"
-                        style="width:80px; border:none; background:transparent; text-align:right; font-size:12px;">
-                </div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">3a</div>
-                <div class="line-text">Qualified dividends</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">3a</div>
-                <div class="irs-amount-field"><input type="text"></div>
-                <div
-                    style="border-left:1px solid #000; padding: 0 8px; font-size:11px; display:flex; align-items:center; background: var(--irs-bg-blue,#e8f4f8); width:200px;">
-                    <span style="width:30px; font-weight:800; text-align:center;">3b</span>
-                    <span style="flex:1; font-size:10px;">Ordinary dividends</span>
-                    <input type="text" formControlName="line3b"
-                        style="width:80px; border:none; background:transparent; text-align:right; font-size:12px;">
-                </div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">4a</div>
-                <div class="line-text">IRA distributions</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">4a</div>
-                <div class="irs-amount-field"><input type="text"></div>
-                <div
-                    style="border-left:1px solid #000; padding: 0 8px; font-size:11px; display:flex; align-items:center; background: var(--irs-bg-blue,#e8f4f8); width:200px;">
-                    <span style="width:30px; font-weight:800; text-align:center;">4b</span>
-                    <span style="flex:1; font-size:10px;">Taxable amount</span>
-                    <input type="text" formControlName="line4b"
-                        style="width:80px; border:none; background:transparent; text-align:right; font-size:12px;">
-                </div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">5a</div>
-                <div class="line-text">Pensions and annuities</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">5a</div>
-                <div class="irs-amount-field"><input type="text"></div>
-                <div
-                    style="border-left:1px solid #000; padding: 0 8px; font-size:11px; display:flex; align-items:center; background: var(--irs-bg-blue,#e8f4f8); width:200px;">
-                    <span style="width:30px; font-weight:800; text-align:center;">5b</span>
-                    <span style="flex:1; font-size:10px;">Taxable amount</span>
-                    <input type="text" formControlName="line5b"
-                        style="width:80px; border:none; background:transparent; text-align:right; font-size:12px;">
-                </div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">6a</div>
-                <div class="line-text">Social security benefits</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">6a</div>
-                <div class="irs-amount-field"><input type="text"></div>
-                <div
-                    style="border-left:1px solid #000; padding: 0 8px; font-size:11px; display:flex; align-items:center; background: var(--irs-bg-blue,#e8f4f8); width:200px;">
-                    <span style="width:30px; font-weight:800; text-align:center;">6b</span>
-                    <span style="flex:1; font-size:10px;">Taxable amount</span>
-                    <input type="text" formControlName="line6b"
-                        style="width:80px; border:none; background:transparent; text-align:right; font-size:12px;">
-                </div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">7</div>
-                <div class="line-text">Capital gain or (loss). Attach Schedule D if required. If not required, check
-                    here <input type="checkbox" style="margin-left:4px;"></div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">7</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line7"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">8</div>
-                <div class="line-text">Additional income from Schedule 1, line 10</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">8</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line8"></div>
-            </div>
-            <div class="irs-row-line" style="background-color: var(--irs-bg-blue, #e8f4f8);">
-                <div class="line-num">9</div>
-                <div class="line-text"><strong>Total income. Add lines 1z, 2b, 3b, 4b, 5b, 6b, 7, and 8. This is your
-                        total income</strong></div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">9</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line9"
-                        style="background-color:#d0e8f0;"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">10</div>
-                <div class="line-text">Adjustments to income from Schedule 1, line 26</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">10</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line10"></div>
-            </div>
-            <div class="irs-row-line" style="background-color: var(--irs-bg-blue, #e8f4f8);">
-                <div class="line-num">11</div>
-                <div class="line-text"><strong>Adjusted gross income. Subtract line 10 from line 9. This is your
-                        adjusted gross income</strong></div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">11</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line11"
-                        style="background-color:#d0e8f0;"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">12</div>
-                <div class="line-text">Standard deduction or itemized deductions (from Schedule A)</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">12</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line12"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">13</div>
-                <div class="line-text">Qualified business income deduction from Form 8995 or Form 8995-A</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">13</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line13"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">14</div>
-                <div class="line-text">Add lines 12 and 13</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">14</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line14"></div>
-            </div>
-            <div class="irs-row-line" style="background-color: var(--irs-bg-blue, #e8f4f8);">
-                <div class="line-num">15</div>
-                <div class="line-text"><strong>Taxable income. Subtract line 14 from line 11. If zero or less, enter
-                        -0-</strong></div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">15</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line15"
-                        style="background-color:#d0e8f0;"></div>
+        <!-- Income Section -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <div class="irs-label-wrap">
+                <span style="font-size: 1.2rem; font-weight: 900;">Income</span>
+                <span style="font-size: 0.9rem; font-weight: 400; font-style: italic;">Ingresos</span>
             </div>
         </div>
-    </div>
 
-    <!-- Section: Tax and Credits -->
-    <div style="display: flex; border-bottom: 2px solid #000;">
-        <div class="irs-sidebar-gray" style="padding: 10px;">
-            <div style="font-weight: 900; font-size: 14px; line-height: 1.2;">Tax and Credits</div>
-        </div>
-        <div style="flex: 1;">
-            <div class="irs-row-line">
-                <div class="line-num">16</div>
-                <div class="line-text">Tax (see instructions). Check if any from Form(s): <label for="f8814"><input
-                            type="checkbox" id="f8814"> 1</label> <span style="font-size:9px;">8814</span> <label
-                        for="f4972"><input type="checkbox" id="f4972"> 2</label> <span
-                        style="font-size:9px;">4972</span> <label for="f3"><input type="checkbox" id="f3"> 3</label>
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div class="irs-col-line-num">1a</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Total amount from Form(s) W-2, box 1</span>
+                    <span class="irs-label-es">Cantidad total del Formulario(s) W-2, recuadro 1</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
-                <div class="line-ref">16</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line16"></div>
             </div>
-            <div class="irs-row-line">
-                <div class="line-num">17</div>
-                <div class="line-text">Alternative minimum tax (AMT) from Form 6251</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">17</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line17"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">18</div>
-                <div class="line-text">Add lines 16 and 17</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">18</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line18"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">19</div>
-                <div class="line-text">Child tax credit or credit for other dependents from Schedule 8812</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">19</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line19"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">20</div>
-                <div class="line-text">Schedule 3, line 8</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">20</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line20"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">21</div>
-                <div class="line-text">Add lines 19 and 20</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">21</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line21"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">22</div>
-                <div class="line-text">Subtract line 21 from line 18. If zero or less, enter -0-</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">22</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line22"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">23</div>
-                <div class="line-text">Other taxes, including self-employment tax, from Schedule 2, line 21</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">23</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line23"></div>
-            </div>
-            <div class="irs-row-line" style="background-color: var(--irs-bg-blue, #e8f4f8);">
-                <div class="line-num">24</div>
-                <div class="line-text"><strong>Total tax. Add lines 22 and 23</strong></div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">24</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line24"
-                        style="background-color:#d0e8f0;"></div>
+            <div class="irs-cell-input irs-blue-cell">
+                <input type="number" formControlName="incomeW2" style="font-weight: 950; text-align: right;">
             </div>
         </div>
-    </div>
 
-    <!-- Section: Payments -->
-    <div style="display: flex; border-bottom: 2px solid #000;">
-        <div class="irs-sidebar-gray" style="padding: 10px;">
-            <div style="font-weight: 900; font-size: 14px; line-height: 1.2;">Payments</div>
-        </div>
-        <div style="flex: 1;">
-            <div class="irs-row-line">
-                <div class="line-num">25a</div>
-                <div class="line-text">Federal income tax withheld from Form(s) W-2</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">25a</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line25a"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">b</div>
-                <div class="line-text">Federal income tax withheld from Form(s) 1099</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">25b</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line25b"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">c</div>
-                <div class="line-text">Other federal income tax withheld (see instructions)</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">25c</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line25c"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">26</div>
-                <div class="line-text">2025 estimated tax payments and amount applied from 2024 return</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">26</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line26"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">27</div>
-                <div class="line-text">Earned income credit (EIC)</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">27</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line27"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">28</div>
-                <div class="line-text">Additional child tax credit from Schedule 8812</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">28</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line28"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">29</div>
-                <div class="line-text">American opportunity credit from Form 8863, line 8</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">29</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line29"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">31</div>
-                <div class="line-text">Amount from Schedule 3, line 15</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">31</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line31"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">32</div>
-                <div class="line-text">Add lines 27, 28, 29, and 31. These are your total other payments and refundable
-                    credits</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">32</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line32"></div>
-            </div>
-            <div class="irs-row-line" style="background-color: var(--irs-bg-blue, #e8f4f8);">
-                <div class="line-num">33</div>
-                <div class="line-text"><strong>Total payments. Add lines 25d, 26, and 32</strong></div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">33</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line33"
-                        style="background-color:#d0e8f0;"></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Section: Refund -->
-    <div style="display: flex; border-bottom: 2px solid #000;">
-        <div class="irs-sidebar-gray" style="padding: 10px;">
-            <div style="font-weight: 900; font-size: 14px; line-height: 1.2;">Refund</div>
-            <div style="font-size: 9px; font-weight: 400; margin-top: 4px;">Direct deposit? See instructions.</div>
-        </div>
-        <div style="flex: 1;">
-            <div class="irs-row-line" style="background-color: var(--irs-bg-blue, #e8f4f8);">
-                <div class="line-num">34</div>
-                <div class="line-text"><strong>If line 33 is more than line 24, subtract line 24 from line 33. This is
-                        the amount you <em>overpaid</em></strong></div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">34</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line34"
-                        style="background-color:#d0e8f0;"></div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">35a</div>
-                <div class="line-text"><strong>Amount of line 34 you want <em>refunded to you.</em></strong> If Form
-                    8888 is attached, check here <input type="checkbox" style="margin-left:4px;"></div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">35a</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line35a"></div>
-            </div>
-            <div class="irs-row-line" style="min-height: 34px; flex-wrap: wrap;">
-                <div class="line-num">b</div>
-                <div class="line-text" style="font-size:11px;">
-                    <span style="font-weight:800;">▶ Routing number</span>
-                    <input type="text" formControlName="routingNumber"
-                        style="width:100px; border:none; border-bottom:1px solid #000; background:transparent; margin: 0 8px; font-size:12px;">
-                    <span style="font-weight:800;">c Type:</span>
-                    <label for="rtChecking" style="margin-left:8px;"><input type="checkbox" id="rtChecking"
-                            formControlName="accountType" value="checking"> Checking</label>
-                    <label for="rtSavings" style="margin-left:8px;"><input type="checkbox" id="rtSavings"
-                            formControlName="accountType" value="savings"> Savings</label>
-                    <span style="font-weight:800; margin-left:16px;">d Account number</span>
-                    <input type="text" formControlName="accountNumber"
-                        style="width:130px; border:none; border-bottom:1px solid #000; background:transparent; margin: 0 8px; font-size:12px;">
-                </div>
-            </div>
-            <div class="irs-row-line">
-                <div class="line-num">36</div>
-                <div class="line-text">Amount of line 34 you want applied to your <strong>2026</strong> estimated tax
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px; background: #e8f0ff;">
+            <div class="irs-col-line-num">1z</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">Add lines 1a through 1h</span>
+                    <span class="irs-label-es" style="font-weight: 400; font-style: italic;">Sume las líneas 1a a 1h</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
-                <div class="line-ref">36</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line36"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <input type="number" formControlName="line1z" style="font-weight: 950; text-align: right;">
             </div>
         </div>
-    </div>
 
-    <!-- Section: Amount You Owe -->
-    <div style="display: flex; border-bottom: 2px solid #000;">
-        <div class="irs-sidebar-gray" style="padding: 10px;">
-            <div style="font-weight: 900; font-size: 13px; line-height: 1.2;">Amount You Owe</div>
-        </div>
-        <div style="flex: 1;">
-            <div class="irs-row-line" style="background-color: var(--irs-bg-blue, #e8f4f8);">
-                <div class="line-num">37</div>
-                <div class="line-text"><strong>Subtract line 33 from line 24. This is the <em>amount you
-                            owe.</em></strong> For details on how to pay, see instructions</div>
+        <!-- Tax and Credits Section -->
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px; background: #ffffde;">
+            <div class="irs-col-line-num">16</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 900;">Tax (see instructions)</span>
+                    <span class="irs-label-es" style="font-weight: 400; font-style: italic;">Impuesto (vea las instrucciones)</span>
+                </div>
                 <div class="irs-dotted-leader"></div>
-                <div class="line-ref">37</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line37"
-                        style="background-color:#d0e8f0;"></div>
             </div>
-            <div class="irs-row-line">
-                <div class="line-num">38</div>
-                <div class="line-text">Estimated tax penalty (see instructions)</div>
-                <div class="irs-dotted-leader"></div>
-                <div class="line-ref">38</div>
-                <div class="irs-amount-field"><input type="text" formControlName="line38"></div>
+            <div class="irs-cell-input" style="background: #ffd54f;">
+                <input type="number" formControlName="line16" style="font-weight: 950; text-align: right;">
             </div>
         </div>
-    </div>
 
-    <!-- Section: Third Party Designee -->
-    <div style="border-bottom: 2px solid #000; padding: 6px 10px; font-size: 11px;">
-        <div style="display: flex; align-items: center; gap: 16px;">
-            <div style="font-weight: 900; font-size: 12px; min-width: 160px;">Third Party Designee</div>
-            <div style="flex: 1;">
-                Do you want to allow another person to discuss this return with the IRS? See instructions.
-                <label for="designeeYes" style="margin-left:12px;"><input type="checkbox" id="designeeYes">
-                    <strong>Yes.</strong> Complete below.</label>
-                <label for="designeeNo" style="margin-left:12px;"><input type="checkbox" id="designeeNo">
-                    <strong>No</strong></label>
+        <!-- Sign Section -->
+        <div class="irs-part-banner" style="background: #111; color: #fff; padding: 5px 10px; margin-top: 20px;">
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Sign Here</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Firme Aquí</span>
             </div>
         </div>
-        <div style="display: flex; gap: 16px; margin-top: 4px; align-items: center;">
-            <div style="flex:2;">
-                <span style="font-size:10px; font-weight:700;">Designee's name</span>
-                <input type="text" formControlName="designeeName"
-                    style="width:100%; border:none; border-bottom:1px solid #000; background:transparent; font-size:12px;">
+        <div style="padding: 15px; background: #fffffe; border-bottom: 2px solid #000;">
+            <div style="font-size: 0.75rem; line-height: 1.4; color: #333;">
+                Under penalties of perjury, I declare that I have examined this return... Declaration of preparer...
+                <br>
+                <em style="font-style: italic;">Bajo pena de perjurio, declaro que he examinado esta declaración... Declaración del preparador...</em>
             </div>
-            <div style="flex:1;">
-                <span style="font-size:10px; font-weight:700;">Phone no.</span>
-                <input type="text" formControlName="designeePhone"
-                    style="width:100%; border:none; border-bottom:1px solid #000; background:transparent; font-size:12px;">
-            </div>
-            <div style="flex:1;">
-                <span style="font-size:10px; font-weight:700;">Personal identification number (PIN)</span>
-                <input type="text" formControlName="designeePIN"
-                    style="width:100%; border:none; border-bottom:1px solid #000; background:transparent; font-size:12px;">
+            <div style="display: grid; grid-template-columns: 1fr 150px 200px; gap: 20px; margin-top: 20px;">
+                <div style="border-top: 1px solid #000; padding-top: 5px; font-size: 0.7rem; font-weight: 700;">Your signature / Su firma</div>
+                <div style="border-top: 1px solid #000; padding-top: 5px; font-size: 0.7rem; font-weight: 700;">Date / Fecha</div>
+                <div style="border-top: 1px solid #000; padding-top: 5px; font-size: 0.7rem; font-weight: 700;">Occupation / Ocupación</div>
             </div>
         </div>
-    </div>
 
-    <!-- Section: Sign Here -->
-    <div style="border-bottom: 2px solid #000; padding: 6px 10px;">
-        <div style="display: flex; gap: 16px; align-items: flex-start;">
-            <div style="min-width: 130px; font-weight: 900; font-size: 13px; padding-top: 4px;">Sign Here</div>
-            <div
-                style="flex: 1; font-size: 10px; background-color: #fffbe6; border: 1px solid #ccc; padding: 5px; border-radius: 2px;">
-                <strong>Joint return?</strong> See instructions. <strong>Keep a copy for your records.</strong><br>
-                Under penalties of perjury, I declare that I have examined this return and accompanying schedules and
-                statements, and to the best of my knowledge and belief, they are true, correct, and complete.
-                Declaration of preparer (other than taxpayer) is based on all information of which preparer has any
-                knowledge.
-            </div>
+        <div style="padding: 30px; text-align: center;">
+            <button type="submit" style="background: #111; color: #fff; padding: 15px 60px; border: none; border-radius: 2px; font-weight: 900; cursor: pointer; text-transform: uppercase;">
+                Save Form 1040-NR / Guardar Formulario 1040-NR
+            </button>
         </div>
-        <div style="display: flex; gap: 16px; margin-top: 8px;">
-            <div style="flex: 2;">
-                <div style="font-size: 10px; font-weight: 700;">Your signature</div>
-                <div style="border-bottom: 1px solid #000; height: 30px; margin-top: 2px;"></div>
-                <div style="font-size: 9px; margin-top: 2px;">▶ Your signature</div>
-            </div>
-            <div style="flex: 1;">
-                <div style="font-size: 10px; font-weight: 700;">Date</div>
-                <input type="text"
-                    style="width:100%; border:none; border-bottom:1px solid #000; background:transparent; font-size:12px; margin-top: 2px;">
-            </div>
-            <div style="flex: 2;">
-                <div style="font-size: 10px; font-weight: 700;">Your occupation</div>
-                <input type="text" formControlName="occupation"
-                    style="width:100%; border:none; border-bottom:1px solid #000; background:transparent; font-size:12px; margin-top: 2px;">
-            </div>
-            <div style="flex: 1;">
-                <div style="font-size: 10px; font-weight: 700;">If ATIN, enter</div>
-                <input type="text" formControlName="identityProtectionPIN"
-                    style="width:100%; border:none; border-bottom:1px solid #000; background:transparent; font-size:12px; margin-top: 2px;">
-            </div>
-        </div>
-        <div style="display: flex; gap: 16px; margin-top: 8px;">
-            <div style="flex: 2;">
-                <div style="font-size: 10px; font-weight: 700;">Spouse's signature. If a joint return, <em>both</em>
-                    must sign.</div>
-                <div style="border-bottom: 1px solid #000; height: 30px; margin-top: 2px;"></div>
-            </div>
-            <div style="flex: 1;">
-                <div style="font-size: 10px; font-weight: 700;">Date</div>
-                <input type="text"
-                    style="width:100%; border:none; border-bottom:1px solid #000; background:transparent; font-size:12px; margin-top: 2px;">
-            </div>
-            <div style="flex: 2;">
-                <div style="font-size: 10px; font-weight: 700;">Spouse's occupation</div>
-                <input type="text" formControlName="spouseOccupation"
-                    style="width:100%; border:none; border-bottom:1px solid #000; background:transparent; font-size:12px; margin-top: 2px;">
-            </div>
-            <div style="flex: 1;">
-                <div style="font-size: 10px; font-weight: 700;">If ATIN, enter</div>
-                <input type="text" formControlName="spouseIdentityProtectionPIN"
-                    style="width:100%; border:none; border-bottom:1px solid #000; background:transparent; font-size:12px; margin-top: 2px;">
-            </div>
-        </div>
-        <div style="font-size: 10px; margin-top: 4px; color: #555;">
-            Phone no. <input type="text"
-                style="width:140px; border:none; border-bottom:1px solid #aaa; background:transparent; font-size:11px; margin-left:4px;">
-            &nbsp;&nbsp;&nbsp; Email address <input type="text"
-                style="width:200px; border:none; border-bottom:1px solid #aaa; background:transparent; font-size:11px; margin-left:4px;">
-        </div>
-    </div>
-
-    <!-- Section: Paid Preparer Use Only -->
-    <div style="padding: 6px 10px; font-size: 10px;">
-        <div
-            style="font-weight: 900; font-size: 12px; margin-bottom: 6px; border-bottom: 1px solid #000; padding-bottom: 4px;">
-            Paid Preparer Use Only</div>
-        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-            <div style="flex: 2;">
-                <span style="font-weight:700;">Preparer's name</span>
-                <input type="text" formControlName="preparerName"
-                    style="width:100%; border:none; border-bottom:1px solid #000; background:transparent; font-size:12px; margin-top:2px; display:block;">
-            </div>
-            <div style="flex: 1;">
-                <span style="font-weight:700;">Preparer's signature</span>
-                <div style="border-bottom: 1px solid #000; height: 22px; margin-top: 2px;"></div>
-            </div>
-            <div style="flex: 1;">
-                <span style="font-weight:700;">Date</span>
-                <input type="text"
-                    style="width:100%; border:none; border-bottom:1px solid #000; background:transparent; font-size:12px; margin-top:2px; display:block;">
-            </div>
-            <div style="flex: 1;">
-                <label for="selfEmployedIn" style="font-weight:700;"><input type="checkbox" id="selfEmployedIn"
-                        formControlName="selfEmployed"> Self-employed</label>
-            </div>
-            <div style="flex: 1;">
-                <span style="font-weight:700;">PTIN</span>
-                <input type="text" formControlName="preparerPTIN"
-                    style="width:100%; border:none; border-bottom:1px solid #000; background:transparent; font-size:12px; margin-top:2px; display:block;">
-            </div>
-        </div>
-        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 6px;">
-            <div style="flex: 2;">
-                <span style="font-weight:700;">Firm's name</span>
-                <input type="text" formControlName="prepFirmName"
-                    style="width:100%; border:none; border-bottom:1px solid #000; background:transparent; font-size:12px; margin-top:2px; display:block;">
-            </div>
-            <div style="flex: 1;">
-                <span style="font-weight:700;">Phone</span>
-                <input type="text" formControlName="prepFirmPhone"
-                    style="width:100%; border:none; border-bottom:1px solid #000; background:transparent; font-size:12px; margin-top:2px; display:block;">
-            </div>
-        </div>
-        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 4px;">
-            <div style="flex: 2;">
-                <span style="font-weight:700;">Firm's address</span>
-                <input type="text" formControlName="prepFirmAddress"
-                    style="width:100%; border:none; border-bottom:1px solid #000; background:transparent; font-size:12px; margin-top:2px; display:block;">
-            </div>
-            <div style="flex: 1;">
-                <span style="font-weight:700;">Firm's EIN</span>
-                <input type="text" formControlName="prepFirmEIN"
-                    style="width:100%; border:none; border-bottom:1px solid #000; background:transparent; font-size:12px; margin-top:2px; display:block;">
-            </div>
-        </div>
-    </div>
+    </form>
 </div>

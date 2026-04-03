@@ -1,0 +1,36 @@
+<div class="irs-form-container">
+    <div class="irs-header"><div class="form-title">Formulario 8866 2026</div></div>
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1"><span class="irs-form-id">8866</span><span class="irs-form-sub-id">2026</span></div>
+            <div class="irs-col-2"><h1>Interest Computation Under the Look-Back Method</h1><p class="irs-instruction">▶ Attach to Form 1040, 1120, or 1065.</p></div>
+            <div class="irs-col-3"><div class="irs-sequence-box"><span>Secuencia</span><span class="irs-sequence-num">56</span></div></div>
+        </div>
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right"><label for="name">Nombre</label><input id="name" type="text" formControlName="name"></div>
+                <div class="irs-field flex-1"><label for="ein">EIN</label><input id="ein" type="text" formControlName="ein"></div>
+            </div>
+            <div class="irs-section-header"><span class="irs-part-num">Part I</span><span class="irs-part-title">Look-Back Year</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">1</td><td class="irs-desc"><label for="year1">Look-back year 1 . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">1</td><td class="irs-val-cell"><input id="year1" type="number" formControlName="year1"></td></tr>
+                    <tr><td class="irs-line-num">2</td><td class="irs-desc"><label for="year2">Look-back year 2 . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">2</td><td class="irs-val-cell"><input id="year2" type="number" formControlName="year2"></td></tr>
+                    <tr><td class="irs-line-num">3</td><td class="irs-desc"><label for="year3">Look-back year 3 . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">3</td><td class="irs-val-cell"><input id="year3" type="number" formControlName="year3"></td></tr>
+                </tbody>
+            </table>
+            <div class="irs-section-header"><span class="irs-part-num">Part II</span><span class="irs-part-title">Interest Due or to be Refunded</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">4</td><td class="irs-desc"><label for="totalTax">Total tax for look-back years . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">4</td><td class="irs-val-cell"><input id="totalTax" type="number" formControlName="totalTax"></td></tr>
+                    <tr><td class="irs-line-num">5</td><td class="irs-desc"><label for="taxPaid">Tax paid . . . . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">5</td><td class="irs-val-cell"><input id="taxPaid" type="number" formControlName="taxPaid"></td></tr>
+                    <tr class="irs-result-row"><td class="irs-line-num">6</td><td class="irs-desc"><strong>Overpayment . . . . . . . . . . . . . . . . . . . . . . . . . .</strong></td><td class="irs-line-num">6</td><td class="irs-val-cell calculated">{{ taxForm.get('overpayment')?.value | currency }}</td></tr>
+                    <tr><td class="irs-line-num">7</td><td class="irs-desc"><label for="interestRate">Applicable interest rate (%) . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">7</td><td class="irs-val-cell"><input id="interestRate" type="number" formControlName="interestRate"></td></tr>
+                    <tr><td class="irs-line-num">8</td><td class="irs-desc"><label for="daysOverdue">Days overdue . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">8</td><td class="irs-val-cell"><input id="daysOverdue" type="number" formControlName="daysOverdue"></td></tr>
+                </tbody>
+            </table>
+            <div class="irs-footer-actions"><button type="submit" class="btn-irs-submit">Guardar Formulario 8866</button></div>
+        </form>
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

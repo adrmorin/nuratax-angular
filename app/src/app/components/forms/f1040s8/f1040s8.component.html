@@ -1,690 +1,99 @@
-<div class="irs-form-container">
-    <div class="irs-form-box">
-        <!-- Main Header -->
-        <div class="irs-main-header">
-            <div class="irs-col-1">
-                <div>
-                    <div class="irs-form-id">SCHEDULE 8812</div>
-                    <div class="irs-form-sub-id">(Form 1040)</div>
-                </div>
-                <div class="irs-dept-info">
-                    Department of the Treasury<br>
-                    Internal Revenue Service
-                </div>
+<div class="irs-unified-container">
+    <!-- Schedule 8812 Header -->
+    <div class="irs-header-main" style="background: #fff; border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.1rem; font-weight: 950; text-transform: uppercase;">Schedule 8812</div>
+            <div style="font-size: 0.9rem; font-weight: 700;">(Form 1040)</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.75rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
             </div>
-            <div class="irs-col-2">
-                <h1>Credits for Qualifying Children and Other Dependents</h1>
-                <p>Attach to Form 1040, 1040-SR, or 1040-NR.</p>
-                <p class="irs-instruction">Go to <i>www.irs.gov/Schedule8812</i> for instructions and the latest
-                    information.</p>
+        </div>
+        <div class="irs-form-title-block" style="text-align: center;">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.25rem; margin: 0; font-weight: 950; text-transform: uppercase;">Credits for Qualifying Children and Other Dependents</h1>
+                <h2 style="font-size: 1rem; margin: 0; font-weight: 400; font-style: italic;">Créditos por Hijos Calificados y Otros Dependientes</h2>
             </div>
-            <div class="irs-col-3">
-                <div class="irs-omb-box">OMB No. 1545-0074</div>
-                <div class="irs-sequence-box">
-                    <div class="irs-year-box">
-                        <span class="year-outline-20">20</span><span class="year-solid-25">25</span>
-                    </div>
-                    <div class="irs-attachment">
-                        Attachment<br>
-                        Sequence No. <strong>47</strong>
-                    </div>
+            <p style="font-size: 0.8rem; margin-top: 12px; font-weight: 700;">▶ Attach to Form 1040, 1040-SR, or 1040-NR.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.6rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0074</div>
+            <div style="font-size: 3rem; line-height: 1; font-weight: 950;">2025</div>
+            <div style="font-size: 0.75rem; font-weight: 800; margin-top: 5px;">Sequence No. 47</div>
+        </div>
+    </div>
+
+    <form [formGroup]="scheduleForm" (ngSubmit)="onSubmit()" *ngIf="scheduleForm">
+        <!-- Identification Rows -->
+        <div class="irs-row" style="grid-template-columns: 1fr 280px;">
+            <div style="padding: 10px; border-right: 2px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Name(s) shown on return</label>
+                    <label class="irs-label-es">Nombre(s) que aparecen en la declaración</label>
                 </div>
+                <input type="text" formControlName="nameShown" style="font-size: 1.1rem;">
+            </div>
+            <div style="padding: 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Your social security number</label>
+                    <label class="irs-label-es">Su número de seguro social (SSN)</label>
+                </div>
+                <input type="text" formControlName="ssn" style="font-size: 1.1rem;">
             </div>
         </div>
 
-        <form [formGroup]="scheduleForm" (ngSubmit)="onSubmit()">
-            <!-- Name and SSN -->
-            <div class="irs-row-border" style="border-bottom: 2px solid #000;">
-                <div class="irs-field flex-3 border-right">
-                    <label for="nameShown">Name(s) shown on return</label>
-                    <input type="text" id="nameShown" formControlName="nameShown">
+        <!-- Part I -->
+        <div class="irs-part-banner">
+            <div class="irs-label-wrap" style="display: flex; gap: 20px; align-items: baseline;">
+                <span style="font-size: 1.4rem; font-weight: 950;">Part I</span>
+                <span style="font-size: 1.1rem; font-weight: 700;">Child Tax Credit / Crédito por Hijos</span>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div class="irs-col-line-num">1</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Amount from Form 1040, line 11a</span>
+                    <span class="irs-label-es">Cantidad de la línea 11a del Formulario 1040</span>
                 </div>
-                <div class="irs-field flex-1">
-                    <label for="ssn">Your social security number</label>
-                    <input type="text" id="ssn" formControlName="ssn">
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <input type="number" formControlName="line1" style="text-align: right;">
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 40px 150px 40px 150px;">
+            <div class="irs-col-line-num">2a</div>
+            <div style="padding: 5px 10px; display: flex; align-items: center;">Puerto Rico Income / Ingreso de PR</div>
+            <div class="irs-col-line-num">2a</div>
+            <div class="irs-cell-input irs-blue-cell">
+                <input type="number" formControlName="line2a" style="text-align: right;">
+            </div>
+            <div class="irs-col-line-num irs-thick-left"></div>
+            <div style="background: #f0f0f0;"></div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px; background: #e8f0ff;">
+            <div class="irs-col-line-num">3</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">Add lines 1 and 2d.</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Sume las líneas 1 y 2d.</span>
                 </div>
+                <div class="irs-dotted-leader"></div>
             </div>
-
-            <!-- PART I -->
-            <div class="irs-section-header black-header">
-                <span class="irs-part-num">Part I</span>
-                <span class="irs-part-title">Child Tax Credit and Credit for Other Dependents</span>
+            <div class="irs-cell-input irs-blue-cell">
+                <input type="number" formControlName="line3" style="text-align: right; font-weight: 950;">
             </div>
+        </div>
 
-            <table class="irs-table">
-                <!-- Grid Anchor Row -->
-                <tr style="height: 0; line-height: 0;">
-                    <td class="irs-line-num" style="width: 35px; border: none; padding: 0;"></td>
-                    <td class="irs-desc" style="border: none; padding: 0;"></td>
-                    <td class="irs-col-sub-num" style="width: 30px; border: none; padding: 0;"></td>
-                    <td class="irs-col-intermediate-val" style="width: 110px; border: none; padding: 0;"></td>
-                    <td class="irs-col-main-num" style="width: 30px; border: none; padding: 0;"></td>
-                    <td class="irs-val-cell" style="width: 110px; border: none; padding: 0;"></td>
-                </tr>
-                <tbody>
-                    <tr>
-                        <td class="irs-line-num">1</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content">
-                                <span>Enter the amount from line 11a of your Form 1040, 1040-SR, or 1040-NR</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">1</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line1">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">2a</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content">
-                                <span>Enter income from Puerto Rico that you excluded</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num">2a</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell">
-                            <input type="number" formControlName="line2a">
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">b</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content">
-                                <span>Enter the amounts from lines 45 and 50 of your Form 2555</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num">2b</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell">
-                            <input type="number" formControlName="line2b">
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">c</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content">
-                                <span>Enter the amount from line 15 of your Form 4563</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num">2c</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell">
-                            <input type="number" formControlName="line2c">
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">d</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content">
-                                <span>Add lines 2a through 2c</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">2d</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line2d">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">3</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content">
-                                <span>Add lines 1 and 2d</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">3</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line3">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">4</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content">
-                                <span>Number of qualifying children under age 17 with the required social security
-                                    number</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num">4</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell">
-                            <input type="number" formControlName="line4">
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">5</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content">
-                                <span>Multiply line 4 by $2,200</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">5</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line5">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">6</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content" style="flex-direction: column; align-items: flex-start;">
-                                <span>Number of other dependents, including any qualifying children who are not under
-                                    age 17 or who do not have the required social security number</span>
-                                <p class="irs-caution"><b>Caution:</b> Do not include yourself, your spouse, or anyone
-                                    who is not a U.S. citizen, U.S. national, or U.S. resident alien. Also, do not
-                                    include anyone you included on line 4.</p>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num">6</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell">
-                            <input type="number" formControlName="line6">
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">7</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content">
-                                <span>Multiply line 6 by $500</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">7</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line7">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">8</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content">
-                                <span>Add lines 5 and 7</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">8</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line8">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">9</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content" style="display: flex; align-items: flex-start;">
-                                <div style="flex: 1;">
-                                    <span>Enter the amount shown below for your filing status.</span>
-                                    <ul style="list-style: disc; margin-left: 20px;">
-                                        <li>Married filing jointly—$400,000</li>
-                                        <li>All other filing statuses—$200,000</li>
-                                    </ul>
-                                </div>
-                                <div class="curly-bracket">&#125;</div>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">9</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line9">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">10</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content" style="flex-direction: column; align-items: flex-start;">
-                                <span>Subtract line 9 from line 3.</span>
-                                <span>• If zero or less, enter -0-.</span>
-                                <div style="display: flex; align-items: center; width: 100%;">
-                                    <span style="flex: 1;">• If more than zero and not a multiple of $1,000, enter the
-                                        next multiple of $1,000. For example, if the result is $425, enter $1,000; if
-                                        the result is $1,025, enter $2,000, etc.</span>
-                                    <div class="curly-bracket">&#125;</div>
-                                </div>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">10</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line10">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">11</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content">
-                                <span>Multiply line 10 by 5% (0.05)</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">11</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line11">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">12</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content" style="flex-direction: column; align-items: flex-start;">
-                                <span>Is the amount on line 8 more than the amount on line 11?</span>
-                                <div class="irs-checkbox-options">
-                                    <label><input type="checkbox" formControlName="line12_no"> <b>No. Stop here.</b> You
-                                        cannot take the child tax credit, credit for other dependents, or additional
-                                        child tax credit.</label>
-                                    <label><input type="checkbox" formControlName="line12_yes"> <b>Yes.</b> Subtract
-                                        line 11 from line 8. Enter the result.</label>
-                                </div>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">12</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line12">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">13</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content">
-                                <span>Enter the amount from <b>Credit Limit Worksheet A</b></span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">13</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line13">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">14</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content" style="flex-direction: column; align-items: flex-start;">
-                                <span>Enter the smaller of line 12 or line 13. <b>This is your child tax credit and
-                                        credit for other dependents</b></span>
-                                <b>Enter this amount on Form 1040, 1040-SR, or 1040-NR, line 19.</b>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">14</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line14">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="part-footer-note">
-                If the amount on line 12 is more than the amount on line 14, you may be able to take the <b>additional
-                    child tax credit</b> on Form 1040, 1040-SR, or 1040-NR, line 28. Complete your Form 1040 or Form
-                1040-SR through line 27a (or Form 1040-NR through line 26) (also complete Schedule 3 (Form 1040), line
-                11) before completing Part II-A.
-            </div>
-
-            <!-- Page Break if needed, here we just continue -->
-
-            <!-- PART II-A -->
-            <div class="irs-section-header black-header">
-                <span class="irs-part-num">Part II-A</span>
-                <span class="irs-part-title">Additional Child Tax Credit for All Filers</span>
-            </div>
-
-            <p class="irs-caution" style="padding: 5px 10px;"><b>Caution:</b> If you file Form 2555, you cannot claim
-                the additional child tax credit.</p>
-
-            <table class="irs-table">
-                <!-- Grid Anchor Row for Part II-A (8 columns for staircase) -->
-                <tr style="height: 0; line-height: 0;">
-                    <td style="width: 35px; border: none; padding: 0;"></td> <!-- line-num -->
-                    <td style="border: none; padding: 0;"></td> <!-- desc -->
-                    <td style="width: 30px; border: none; padding: 0;"></td> <!-- int-num-1 -->
-                    <td style="width: 110px; border: none; padding: 0;"></td> <!-- int-val-1 -->
-                    <td style="width: 30px; border: none; padding: 0;"></td> <!-- int-num-2 -->
-                    <td style="width: 110px; border: none; padding: 0;"></td> <!-- int-val-2 -->
-                    <td style="width: 30px; border: none; padding: 0;"></td> <!-- main-num -->
-                    <td style="width: 110px; border: none; padding: 0;"></td> <!-- main-val -->
-                </tr>
-                <tbody>
-                    <tr>
-                        <td class="irs-line-num">15</td>
-                        <td class="irs-desc" colspan="5">
-                            <div class="irs-desc-content">
-                                <span>Reserved for future use</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">15</div>
-                        </td>
-                        <td class="irs-val-cell irs-grey-cell">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">16a</td>
-                        <td class="irs-desc" colspan="5">
-                            <div class="irs-desc-content">
-                                <span>Subtract line 14 from line 12. If zero, <b>stop here</b>; you cannot take the
-                                    additional child tax credit</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">16a</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line16a">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">b</td>
-                        <td class="irs-desc" colspan="5">
-                            <div class="irs-desc-content" style="flex-direction: column; align-items: flex-start;">
-                                <div style="display: flex; align-items: center; width: 100%;">
-                                    <span>Number of qualifying children under age 17 with the required social security
-                                        number: </span>
-                                    <input type="text"
-                                        style="border: none; border-bottom: 1px solid #000; width: 40px; text-align: center; margin: 0 5px;">
-                                    <span>x $1,700.</span>
-                                </div>
-                                <span>Enter the result. If zero, <b>stop here</b>; you cannot claim the additional child
-                                    tax credit</span>
-                                <p><b>TIP:</b> The number of children you use for this line is the same as the number of
-                                    children you used for line 4.</p>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">16b</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line16b">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">17</td>
-                        <td class="irs-desc" colspan="5">
-                            <div class="irs-desc-content">
-                                <span>Enter the <b>smaller</b> of line 16a or line 16b</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">17</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line17">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">18a</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content">
-                                <span>Earned income (see instructions)</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num">18a</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell">
-                            <input type="number" formControlName="line18a">
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">b</td>
-                        <td class="irs-desc">
-                            <div class="irs-desc-content">
-                                <span>Nontaxable combat pay (see instructions)</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num">18b</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell">
-                            <input type="number" formControlName="line18b">
-                        </td>
-                        <td colspan="2" style="border: none;"></td> <!-- space for staircase -->
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">19</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content" style="flex-direction: column; align-items: flex-start;">
-                                <span>Is the amount on line 18a more than $2,500?</span>
-                                <div class="irs-checkbox-options">
-                                    <label><input type="checkbox" formControlName="line19_no"> <b>No.</b> Leave line 19
-                                        blank and enter -0- on line 20.</label>
-                                    <div style="display: flex; align-items: center; width: 100%;">
-                                        <label><input type="checkbox" formControlName="line19_yes"> <b>Yes.</b> Subtract
-                                            $2,500 from the amount on line 18a. Enter the result</label>
-                                        <div class="irs-dots"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="irs-col-sub-num">19</td>
-                        <td class="irs-val-cell-intermediate irs-blue-cell">
-                            <input type="number" formControlName="line19">
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border"></td>
-                        <td class="irs-val-cell irs-grey-cell"></td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">20</td>
-                        <td class="irs-desc" colspan="5">
-                            <div class="irs-desc-content" style="flex-direction: column; align-items: flex-start;">
-                                <div style="display: flex; align-items: center; width: 100%;">
-                                    <span>Multiply the amount on line 19 by 15% (0.15) and enter the result</span>
-                                    <div class="irs-dots"></div>
-                                </div>
-                                <p style="margin-top: 5px;"><b>Next.</b> On line 16b, is the amount $5,100 or more?</p>
-                                <div class="irs-checkbox-options">
-                                    <label><input type="checkbox" formControlName="line20_no"> <b>No.</b> If you are a
-                                        bona fide resident of Puerto Rico, go to line 21. Otherwise, skip Part II-B and
-                                        enter the <b>smaller</b> of line 17 or line 20 on line 27.</label>
-                                    <label><input type="checkbox" formControlName="line20_yes"> <b>Yes.</b> If line 20
-                                        is equal to or more than line 17, skip Part II-B and enter the amount from line
-                                        17 on line 27. Otherwise, go to line 21.</label>
-                                </div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">20</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line20">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <!-- PART II-B -->
-            <div class="irs-section-header black-header">
-                <span class="irs-part-num">Part II-B</span>
-                <span class="irs-part-title">Certain Filers Who Have Three or More Qualifying Children and Bona Fide
-                    Residents of Puerto Rico</span>
-            </div>
-
-            <table class="irs-table">
-                <tbody>
-                    <tr>
-                        <td class="irs-line-num">21</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content" style="flex-direction: column; align-items: flex-start;">
-                                <span>Withheld social security, Medicare, and Additional Medicare taxes from Form(s)
-                                    W-2, boxes 4 and 6. If married filing jointly, include your spouse’s amounts with
-                                    yours. If your employer withheld or you paid Additional Medicare Tax or tier 1 RRTA
-                                    taxes, or if you are a bona fide resident of Puerto Rico, see instructions</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">21</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line21">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">22</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content">
-                                <span>Enter the total of the amounts from Schedule 1 (Form 1040), line 15; Schedule 2
-                                    (Form 1040), line 5; Schedule 2 (Form 1040), line 6; and Schedule 2 (Form 1040),
-                                    line 13</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">22</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line22">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">23</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content">
-                                <span>Add lines 21 and 22</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">23</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line23">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">24</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content" style="display: flex; align-items: flex-start;">
-                                <div style="flex: 1;">
-                                    <b>1040 and 1040-SR filers:</b> Enter the total of the amounts from Form 1040 or
-                                    1040-SR, line 27a, and Schedule 3 (Form 1040), line 11.
-                                    <br>
-                                    <b>1040-NR filers:</b> Enter the amount from Schedule 3 (Form 1040), line 11.
-                                </div>
-                                <div class="curly-bracket">&#125;</div>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">24</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line24">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">25</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content">
-                                <span>Subtract line 24 from line 23. If zero or less, enter -0-</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">25</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line25">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="irs-line-num">26</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content">
-                                <span>Enter the <b>larger</b> of line 20 or line 25</span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">26</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line26">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="part-footer-note" style="border-bottom: 2px solid #000; padding-bottom: 5px;">
-                <b>Next</b>, enter the <b>smaller</b> of line 17 or line 26 on line 27.
-            </div>
-
-            <!-- PART II-C -->
-            <div class="irs-section-header black-header">
-                <span class="irs-part-num">Part II-C</span>
-                <span class="irs-part-title">Additional Child Tax Credit</span>
-            </div>
-
-            <table class="irs-table">
-                <tbody>
-                    <tr style="border-bottom: 2px solid #000;">
-                        <td class="irs-line-num">27</td>
-                        <td class="irs-desc" colspan="3">
-                            <div class="irs-desc-content">
-                                <span><b>This is your additional child tax credit. Enter this amount on Form 1040,
-                                        1040-SR, or 1040-NR, line 28</b></span>
-                                <div class="irs-dots"></div>
-                            </div>
-                        </td>
-                        <td class="irs-col-main-num irs-thick-left-border">
-                            <div class="irs-main-line-num-box">27</div>
-                        </td>
-                        <td class="irs-val-cell irs-blue-cell">
-                            <input type="number" formControlName="line27">
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <div class="irs-footer-actions">
-                <button type="submit" class="btn-submit">Guardar Formulario 1040 S-8812</button>
-            </div>
-
-            <div class="irs-form-footer">
-                <span>For Paperwork Reduction Act Notice, see your tax return instructions.</span>
-                <span>Cat. No. 59761M</span>
-                <span><b>Schedule 8812 (Form 1040) 2025</b></span>
-            </div>
-        </form>
-    </div>
+        <!-- Submit Section -->
+        <div style="padding: 30px; text-align: center; border-top: 3px solid #000; margin-top: 40px;">
+            <button type="submit" style="background: #111; color: #fff; padding: 20px 80px; border: none; font-size: 1.3rem; font-weight: 950; cursor: pointer; text-transform: uppercase;">
+                Save Schedule 8812 / Guardar Anexo 8812
+            </button>
+        </div>
+    </form>
 </div>

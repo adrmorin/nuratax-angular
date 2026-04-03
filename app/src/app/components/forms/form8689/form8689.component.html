@@ -1,58 +1,94 @@
 <div class="irs-unified-container">
-    <header class="irs-form-header">
-        <div class="irs-dept-info">
-            Department of the Treasury<br>
-            Internal Revenue Service
-        </div>
-        <div class="irs-form-title">
-            <h1 class="irs-form-id">Form 8689</h1>
-            <p class="irs-form-name">Allocation of Individual Income Tax to the U.S. Virgin Islands</p>
-            <p class="irs-form-instruction">(Rev. December 2024)</p>
-            <p class="irs-form-link">Go to <i>www.irs.gov/Form8689</i> for instructions.</p>
-        </div>
-        <div class="irs-omb-box">
-            OMB No. 1545-0074
-            <div class="irs-year-box">2024</div>
-        </div>
-    </header>
-
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div class="irs-row-line-unified">
-            <div class="irs-section-sidebar" style="width: 70%;">Your Name</div>
-            <div class="irs-amount-input-box" style="flex: 1;">
-                <input type="text" formControlName="name" placeholder="Enter name">
-            </div>
-            <div class="irs-section-sidebar" style="width: 15%;">SSN</div>
-            <div class="irs-amount-input-box" style="flex: 1;">
-                <input type="text" formControlName="ssn" placeholder="XXX-XX-XXXX">
+    <!-- Form 8689 Header -->
+    <div class="irs-header-main" style="background: #fff; border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.4rem;">Form 8689</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif;">
+                Department of the Treasury<br>
+                Internal Revenue Service
             </div>
         </div>
-
-        <div class="irs-section-title-bar">
-            <span class="irs-part-box">PART I</span>
-            <span class="irs-part-text">Income from the U.S. Virgin Islands</span>
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.1rem; margin: 0;">Allocation of Individual Income Tax to the U.S. Virgin Islands</h1>
+                <h2 style="font-size: 0.9rem; margin: 0; font-style: italic;">Asignación del Impuesto Sobre la Renta Individual a las Islas Vírgenes de los EE. UU.</h2>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 8px; font-weight: 700;">▶ Go to www.irs.gov/Form8689 for instructions and the latest information.</p>
         </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0074</div>
+            <div style="font-size: 2.8rem; line-height: 1;">2025</div>
+        </div>
+    </div>
 
-        <div class="irs-row-line-unified">
-            <div class="irs-line-number">1</div>
-            <div class="irs-instruction-text">Wages, salaries, tips, etc:</div>
-            <div class="irs-dotted-line-leader"></div>
-            <div class="irs-amount-input-box">
-                <input type="number" formControlName="line1">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="form">
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 300px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Your Name</label>
+                    <label class="irs-label-es">Su Nombre</label>
+                </div>
+                <input type="text" formControlName="name" style="width: 100%; border: none; font-weight: 700;">
+            </div>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Social security number</label>
+                    <label class="irs-label-es">Número de seguro social</label>
+                </div>
+                <input type="text" formControlName="ssn" style="width: 100%; border: none; font-weight: 700;">
             </div>
         </div>
 
-        <div class="irs-row-line-unified">
-            <div class="irs-line-number">2</div>
-            <div class="irs-instruction-text">Taxable interest:</div>
-            <div class="irs-dotted-line-leader"></div>
-            <div class="irs-amount-input-box">
-                <input type="number" formControlName="line2">
+        <!-- Part I -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part I</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Income From the U.S. Virgin Islands</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Ingresos de las Islas Vírgenes de los EE. UU.</span>
             </div>
         </div>
 
-        <div class="irs-footer-actions">
-            <button type="submit" class="irs-btn-submit">Save Form 8689</button>
+        <!-- Line 1 -->
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div class="irs-col-line-num">1</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Wages, salaries, tips, etc.</span>
+                    <span class="irs-label-es">Sueldos, salarios, propinas, etc.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line1" style="font-weight: 950;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Line 2 -->
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div class="irs-col-line-num">2</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Taxable interest</span>
+                    <span class="irs-label-es">Interés tributable</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line2" style="font-weight: 950;">
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 40px; text-align: center;">
+            <button type="submit" style="background: #111; color: #fff; padding: 15px 60px; border: none; border-radius: 2px; font-weight: 900; cursor: pointer; text-transform: uppercase;">
+                Save Form 8689 / Guardar Formulario 8689
+            </button>
         </div>
     </form>
 </div>

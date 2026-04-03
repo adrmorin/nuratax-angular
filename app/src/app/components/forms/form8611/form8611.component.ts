@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-form8611',
@@ -9,23 +9,39 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
   templateUrl: './form8611.component.html',
   styleUrls: ['./form8611.component.css']
 })
-export class Form8611Component {
-  form: FormGroup;
+export class Form8611Component implements OnInit {
   private fb = inject(FormBuilder);
+  form!: FormGroup;
+  
+  // High-fidelity calculation signals
+  recaptureAmount = signal(0);
 
-  constructor() {
+  ngOnInit(): void {
     this.form = this.fb.group({
-      name: [''], identNumber: [''],
-      buildingAddr: [''], bin: [''], datePlacedInService: [''],
-      issuerName: [''], dateOfIssue: [''], issueName: [''], cusipNumber: [''],
-      // Calculation
-      line1: [''], line2: [''], line3: [''], line4: [''], line5: [''],
-      line6: [''], line7: [''], line8: [''], line9: [''], line10: [''],
-      line11: [''], line12: [''], line13: [''], line14: [''], line15: ['']
+      name: [''],
+      ssn: [''],
+      line8: [0], // Total credit allowed
+      line9: [0], // Net investment income
+      line14: [0] // Recapture amount
+    });
+
+    this.form.valueChanges.subscribe(val => {
+      this.calculateValues(val);
     });
   }
 
-  onSubmit() {
-    console.log('Submitted Form 8611 (2025):', this.form.value);
+  calculateValues(val: Record<string, number | string>): void {
+      // Simplified recapture logic for demo
+      const recapture = Number(val['line8']) * 0.33; // 1/3 recapture rate example
+      
+      this.form.patchValue({
+          line14: recapture
+      }, { emitEvent: false });
+
+      this.recaptureAmount.set(recapture);
+  }
+
+  onSubmit(): void {
+    console.log('Form 8611 Data:', this.form.value);
   }
 }

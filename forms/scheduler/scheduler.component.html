@@ -1,0 +1,57 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Schedule R</h1><p class="form-year">(2024)</p></div>
+        <div class="form-info"><p><strong>Credit for the Elderly or the Disabled</strong></p><p>Department of the Treasury — Internal Revenue Service</p></div>
+    </div>
+    <div class="form-instructions"><p>Use this schedule to figure the credit for the elderly or the disabled. Attach to Form 1040 or 1040-SR.</p></div>
+    <div class="part-section">
+        <h3 class="part-header">Part I — Filing Status and Age</h3>
+        <div class="field-row"><div class="field-group"><label>Name(s) shown on return</label><input type="text" formControlName="name"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>SSN</label><input type="text" formControlName="ssn"></div>
+            <div class="field-group"><label>Tax Year</label><input type="text" formControlName="taxYear"></div>
+        </div>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Filing Status</label>
+                <select formControlName="filingStatus">
+                    <option value="">Select...</option>
+                    <option value="Single">Single</option>
+                    <option value="MFJ">Married Filing Jointly</option>
+                    <option value="MFS">Married Filing Separately</option>
+                    <option value="HOH">Head of Household</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part II — Age/Disability Test</h3>
+        <table class="form-table">
+            <tr><td>1. Check the box that applies:</td><td>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox" formControlName="age65"> Age 65 or older</label>
+                    <label class="checkbox-item"><input type="checkbox" formControlName="under65"> Under age 65 and retired on disability</label>
+                </div>
+            </td></tr>
+            <tr><td>2. Enter date of birth</td><td><input type="date" formControlName="dateOfBirth"></td></tr>
+            <tr><td>3. If married filing jointly, spouse's date of birth</td><td><input type="date" formControlName="spouseDOB"></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part III — Credit Computation</h3>
+        <table class="form-table">
+            <tr><td>4. Enter the amount from Form 1040, line 11</td><td><input type="number" formControlName="line4"></td></tr>
+            <tr><td>5. Enter the amount from Schedule 3, line 3 (if any)</td><td><input type="number" formControlName="line5"></td></tr>
+            <tr><td>6. Adjusted gross income (line 4 minus line 5)</td><td><input type="number" formControlName="line6" readonly></td></tr>
+            <tr><td>7. Base amount (see instructions): Single: $5,000; MFJ: $7,500; MFS: $3,750</td><td><input type="number" formControlName="line7"></td></tr>
+            <tr class="highlight-row"><td>8. Subtract line 7 from line 6 (if zero or less, stop here)</td><td><input type="number" formControlName="line8" readonly></td></tr>
+            <tr><td>9. Credit percentage (based on line 8)</td><td><input type="number" formControlName="line9"></td></tr>
+            <tr class="highlight-row"><td>10. Credit (multiply line 8 by percentage on line 9)</td><td><input type="number" formControlName="line10" readonly></td></tr>
+        </table>
+    </div>
+    <div class="signature-section">
+        <div class="signature-box"><p>Signature</p><input type="text" formControlName="signature" class="signature-input"></div>
+        <div class="date-box"><p>Date</p><input type="date" formControlName="dateSigned"></div>
+    </div>
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

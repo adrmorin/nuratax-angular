@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 import { FormAutomationService } from '../../../services/form-automation.service';
 
+import { ChatFormsComponent } from '../chatforms/chatforms.component';
+
 @Component({
     selector: 'app-form-1040-principal',
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule],
+    imports: [CommonModule, ReactiveFormsModule, ChatFormsComponent],
     templateUrl: './form1040-principal.component.html',
     styleUrls: ['./form1040-principal.component.css']
 })

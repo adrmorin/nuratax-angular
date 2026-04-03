@@ -1,0 +1,26 @@
+<div class="irs-form-container">
+    <div class="irs-header"><div class="form-title">Formulario 2439 2026</div></div>
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1"><span class="irs-form-id">2439</span><span class="irs-form-sub-id">2026</span></div>
+            <div class="irs-col-2"><h1>Notice to Shareholder of Undistributed Long-Term Capital Gains</h1><p class="irs-instruction">▶ Attach to Form 1041 or 1120.</p></div>
+            <div class="irs-col-3"><div class="irs-sequence-box"><span>Secuencia</span><span class="irs-sequence-num">79</span></div></div>
+        </div>
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right"><label for="name">Nombre de la Compañía</label><input id="name" type="text" formControlName="name"></div>
+                <div class="irs-field flex-1"><label for="ein">EIN</label><input id="ein" type="text" formControlName="ein"></div>
+            </div>
+            <div class="irs-section-header"><span class="irs-part-num">Part I</span><span class="irs-part-title">Capital Gains</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">1</td><td class="irs-desc"><label for="total LTCG">Total undistributed long-term capital gains . . . . . . . .</label></td><td class="irs-line-num">1</td><td class="irs-val-cell"><input id="totalLTCG" type="number" formControlName="totalLTCG"></td></tr>
+                    <tr><td class="irs-line-num">2</td><td class="irs-desc"><label for="unrecaptured">Unrecaptured section 1250 gain . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">2</td><td class="irs-val-cell"><input id="unrecaptured" type="number" formControlName="unrecaptured"></td></tr>
+                    <tr><td class="irs-line-num">3</td><td class="irs-desc"><label for="section1202">Section 1202 gain . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">3</td><td class="irs-val-cell"><input id="section1202" type="number" formControlName="section1202"></td></tr>
+                </tbody>
+            </table>
+            <div class="irs-footer-actions"><button type="submit" class="btn-irs-submit">Guardar Formulario 2439</button></div>
+        </form>
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

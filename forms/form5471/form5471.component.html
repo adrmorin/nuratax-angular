@@ -1,0 +1,189 @@
+<div class="irs-form-container">
+    <div class="irs-header">
+        <div class="form-title">Formulario 5471 2026</div>
+    </div>
+
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1">
+                <span class="irs-form-id">5471</span>
+                <span class="irs-form-sub-id">2026</span>
+            </div>
+            <div class="irs-col-2">
+                <h1>Information Return of U.S. Persons With Respect To Certain Foreign Corporations</h1>
+                <p class="irs-instruction">▶ Attach to Form 1040, 1040-NR, or 1120.</p>
+            </div>
+            <div class="irs-col-3">
+                <div class="irs-sequence-box">
+                    <span>Secuencia No.</span>
+                    <span class="irs-sequence-num">54</span>
+                </div>
+            </div>
+        </div>
+
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right">
+                    <label for="personName">Nombre del Accionista (U.S. person's name)</label>
+                    <input id="personName" type="text" formControlName="personName">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="ssn">SSN o ITIN</label>
+                    <input id="ssn" type="text" formControlName="ssn">
+                </div>
+            </div>
+
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right">
+                    <label for="corpName">Nombre de la Corporación Extranjera</label>
+                    <input id="corpName" type="text" formControlName="corpName">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="corpEIN">EIN de la Corporación</label>
+                    <input id="corpEIN" type="text" formControlName="corpEIN">
+                </div>
+            </div>
+
+            <div class="irs-row-border">
+                <div class="irs-field flex-1 border-right">
+                    <label for="country">País de Incorporación</label>
+                    <input id="country" type="text" formControlName="country">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="foreignAddress">Dirección Extranjera</label>
+                    <input id="foreignAddress" type="text" formControlName="foreignAddress">
+                </div>
+            </div>
+
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part I</span>
+                <span class="irs-part-title">General Information</span>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-desc"><label for="stockOwned">Stock owned at end of tax year (%) . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-val-cell"><input id="stockOwned" type="number" formControlName="stockOwned"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">2</td>
+                        <td class="irs-desc"><label for="votingPower">Voting power (%) . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">2</td>
+                        <td class="irs-val-cell"><input id="votingPower" type="number" formControlName="votingPower"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-desc"><label for="taxYearEnd">Foreign corporation's tax year ending . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-val-cell"><input id="taxYearEnd" type="date" formControlName="taxYearEnd"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part II</span>
+                <span class="irs-part-title">Foreign Corporation's Income</span>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-desc"><label for="grossReceipts">Gross receipts . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-val-cell"><input id="grossReceipts" type="number" formControlName="grossReceipts"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">5</td>
+                        <td class="irs-desc"><label for="costGoodsSold">Cost of goods sold . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">5</td>
+                        <td class="irs-val-cell"><input id="costGoodsSold" type="number" formControlName="costGoodsSold"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">6</td>
+                        <td class="irs-desc"><strong>Gross profit . . . . . . . . . . . . . . . . . . . . . . . . . .</strong></td>
+                        <td class="irs-line-num">6</td>
+                        <td class="irs-val-cell calculated">{{ taxForm.get('grossProfit')?.value | currency }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">7</td>
+                        <td class="irs-desc"><label for="otherIncome">Other income . . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">7</td>
+                        <td class="irs-val-cell"><input id="otherIncome" type="number" formControlName="otherIncome"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">8</td>
+                        <td class="irs-desc"><label for="totalDeductions">Total deductions . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">8</td>
+                        <td class="irs-val-cell"><input id="totalDeductions" type="number" formControlName="totalDeductions"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">9</td>
+                        <td class="irs-desc"><strong>Taxable income . . . . . . . . . . . . . . . . . . . . . . . .</strong></td>
+                        <td class="irs-line-num">9</td>
+                        <td class="irs-val-cell calculated">{{ taxForm.get('taxableIncome')?.value | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part III</span>
+                <span class="irs-part-title">Foreign Corporation's Balance Sheet</span>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">10</td>
+                        <td class="irs-desc"><label for="totalAssets">Total assets . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">10</td>
+                        <td class="irs-val-cell"><input id="totalAssets" type="number" formControlName="totalAssets"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">11</td>
+                        <td class="irs-desc"><label for="totalLiabilities">Total liabilities . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">11</td>
+                        <td class="irs-val-cell"><input id="totalLiabilities" type="number" formControlName="totalLiabilities"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">12</td>
+                        <td class="irs-desc"><strong>Total equity . . . . . . . . . . . . . . . . . . . . . . . .</strong></td>
+                        <td class="irs-line-num">12</td>
+                        <td class="irs-val-cell calculated">{{ taxForm.get('totalEquity')?.value | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part IV</span>
+                <span class="irs-part-title">Summary of Unrepatriated Earnings</span>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">13</td>
+                        <td class="irs-desc"><label for="earningsInvested">Earnings invested in U.S. property . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">13</td>
+                        <td class="irs-val-cell"><input id="earningsInvested" type="number" formControlName="earningsInvested"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">14</td>
+                        <td class="irs-desc"><label for="taxPreviouslyPaid">Tax previously paid . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">14</td>
+                        <td class="irs-val-cell"><input id="taxPreviouslyPaid" type="number" formControlName="taxPreviouslyPaid"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="irs-footer-actions">
+                <button type="submit" class="btn-irs-submit">Guardar Formulario 5471</button>
+            </div>
+        </form>
+
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

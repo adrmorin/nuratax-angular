@@ -1,0 +1,164 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title">
+            <h1>Schedule Q (Form 1066)</h1>
+            <p class="form-year">Department of the Treasury - Internal Revenue Service</p>
+        </div>
+        <div class="form-info">
+            <p><strong>Quarterly Notice to Residual Interest Holder of REMIC Taxable Income or Net Loss Allocation</strong></p>
+            <p>Attach to Form 1066. See instructions for Schedule Q.</p>
+        </div>
+    </div>
+
+    <div class="remic-section">
+        <h3>REMIC Information</h3>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Name of REMIC</label>
+                <input type="text" formControlName="remicName">
+            </div>
+            <div class="field-group small">
+                <label>REMIC's EIN</label>
+                <input type="text" formControlName="remicEin">
+            </div>
+        </div>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Quarter Ending</label>
+                <input type="date" formControlName="quarterEnding">
+            </div>
+        </div>
+    </div>
+
+    <div class="holder-section">
+        <h3>Residual Interest Holder Information</h3>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Holder's name</label>
+                <input type="text" formControlName="holderName">
+            </div>
+            <div class="field-group small">
+                <label>Holder's TIN</label>
+                <input type="text" formControlName="holderTin">
+            </div>
+        </div>
+    </div>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part I - REMIC Taxable Income or Net Loss</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">REMIC taxable income (loss)</td>
+                <td class="line-input"><input type="number" formControlName="remicTaxableIncome"></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">Excess inclusion</td>
+                <td class="line-input"><input type="number" formControlName="excessInclusion"></td>
+            </tr>
+            <tr>
+                <td class="line-num">3</td>
+                <td class="line-desc">Section 212 deduction</td>
+                <td class="line-input"><input type="number" formControlName="section212Deduction"></td>
+            </tr>
+            <tr>
+                <td class="line-num">4</td>
+                <td class="line-desc">Net loss</td>
+                <td class="line-input"><input type="number" formControlName="netLoss"></td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="line-num">5</td>
+                <td class="line-desc"><strong>Taxable income (loss) allocation</strong></td>
+                <td class="line-input"><input type="number" formControlName="taxableIncome" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part II - Holder's Allocation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">Holder's percentage of residual interest</td>
+                <td class="line-input"><input type="number" formControlName="holderInterestPercentage"></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">Holder's share of REMIC taxable income</td>
+                <td class="line-input"><input type="number" formControlName="holderIncome" readonly></td>
+            </tr>
+            <tr>
+                <td class="line-num">3</td>
+                <td class="line-desc">Holder's share of Section 212 deduction</td>
+                <td class="line-input"><input type="number" formControlName="holderDeduction" readonly></td>
+            </tr>
+            <tr>
+                <td class="line-num">4</td>
+                <td class="line-desc">Holder's excess inclusion</td>
+                <td class="line-input"><input type="number" formControlName="holderExcessInclusion" readonly></td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="line-num">5</td>
+                <td class="line-desc"><strong>Holder's net allocation</strong></td>
+                <td class="line-input"><input type="number" formControlName="holderNetAllocation" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part III - Additional Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">Is holder a "qualified residual"?</td>
+                <td class="line-input">
+                    <select formControlName="qualifiedResiduals">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">Transferable interest?</td>
+                <td class="line-input">
+                    <select formControlName="transferableInterest">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="nerea-advice">
+        <div class="advice-header">
+            <img src="assets/images/nerea_avatar.png" alt="Nerea" class="nerea-avatar">
+            <span class="advice-title">Asistente de Impuestos</span>
+        </div>
+        <div class="advice-content">
+            <p><strong>Propósito:</strong> {{ nereaAdvice.purpose }}</p>
+            <p><strong>Quién lo usa:</strong> {{ nereaAdvice.whoUses }}</p>
+            <p><strong>Frecuencia:</strong> {{ nereaAdvice.timing }}</p>
+            <p><strong>Ingreso:</strong> {{ nereaAdvice.income }}</p>
+            <p><strong>Reporte:</strong> {{ nereaAdvice.reporting }}</p>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button>
+    </div>
+</div>

@@ -1,0 +1,428 @@
+<div class="irs-form-container" style="position: relative;">
+    <div class="irs-header">
+        <div class="irs-header-left">
+            <div class="form-title">Schedule C 2026</div>
+        </div>
+        <div class="irs-header-right">
+            <span>Página 1</span>
+        </div>
+    </div>
+
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1">
+                <span class="irs-form-id">Schedule C</span>
+                <span class="irs-form-sub-id">(Form 1040) 2026</span>
+            </div>
+            <div class="irs-col-2">
+                <h1>Profit or Loss From Business</h1>
+                <p>(Sole Proprietorship)</p>
+                <p class="irs-instruction">▶ Adjunte al Formulario 1040, 1040-SR, 1040-SS, 1040-NR, o 1041.</p>
+            </div>
+            <div class="irs-col-3">
+                <div class="irs-sequence-box">
+                    <span>Secuencia No.</span>
+                    <span class="irs-sequence-num">03</span>
+                </div>
+            </div>
+        </div>
+
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <!-- Owner Information -->
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right">
+                    <label for="ownerName">Nombre del negocio (Business name)</label>
+                    <input id="ownerName" type="text" formControlName="ownerName">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="ssn">Número de Seguro Social (SSN)</label>
+                    <input id="ssn" type="text" formControlName="ssn">
+                </div>
+            </div>
+
+            <div class="irs-row-border">
+                <div class="irs-field flex-1 border-right">
+                    <label for="ein">EIN (Employer Identification Number)</label>
+                    <input id="ein" type="text" formControlName="ein">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="businessType">Código SIC (Industry code)</label>
+                    <input id="businessType" type="text" formControlName="businessType">
+                </div>
+            </div>
+
+            <!-- PART I: Income -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part I</span>
+                <span class="irs-part-title">Income</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part1 }}
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-desc"><label for="grossReceipts">Gross receipts or sales. Complete line 4 if applicable  . . . .</label></td>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-val-cell"><input id="grossReceipts" type="number" formControlName="grossReceipts"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">2</td>
+                        <td class="irs-desc"><label for="returnsAllowances">Returns and allowances . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">2</td>
+                        <td class="irs-val-cell"><input id="returnsAllowances" type="number" formControlName="returnsAllowances"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-desc"><strong>Gross profit. Line 1 menos línea 2 . . . . . . . . . . . . .</strong></td>
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('grossProfit')?.value | currency }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-desc"><label for="costOfGoodsSold">Cost of goods sold. Complete Part III . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-val-cell"><input id="costOfGoodsSold" type="number" formControlName="costOfGoodsSold"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">5</td>
+                        <td class="irs-desc"><strong>Gross income. Line 3 menos línea 4 . . . . . . . . . . . . . . .</strong></td>
+                        <td class="irs-line-num">5</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('grossIncome')?.value | currency }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">6</td>
+                        <td class="irs-desc"><label for="otherIncome">Other income. See instructions . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">6</td>
+                        <td class="irs-val-cell"><input id="otherIncome" type="number" formControlName="otherIncome"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">7</td>
+                        <td class="irs-desc"><strong>Total income. Line 5 más línea 6 . . . . . . . . . . . . . . . .</strong></td>
+                        <td class="irs-line-num">7</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('totalIncome')?.value | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PART II: Expenses -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part II</span>
+                <span class="irs-part-title">Expenses</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part2 }}
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">8</td>
+                        <td class="irs-desc"><label for="advertising">Advertising . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">8</td>
+                        <td class="irs-val-cell"><input id="advertising" type="number" formControlName="advertising"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">9</td>
+                        <td class="irs-desc"><label for="carTruck">Car and truck expenses. See instructions . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">9</td>
+                        <td class="irs-val-cell"><input id="carTruck" type="number" formControlName="carTruck"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">10</td>
+                        <td class="irs-desc"><label for="commissionsFees">Commissions and fees . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">10</td>
+                        <td class="irs-val-cell"><input id="commissionsFees" type="number" formControlName="commissionsFees"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">11</td>
+                        <td class="irs-desc"><label for="contractLabor">Contract labor. See instructions  . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">11</td>
+                        <td class="irs-val-cell"><input id="contractLabor" type="number" formControlName="contractLabor"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">12</td>
+                        <td class="irs-desc"><label for="depreciation">Depreciation and section 179 expense. See instructions . . .</label></td>
+                        <td class="irs-line-num">12</td>
+                        <td class="irs-val-cell"><input id="depreciation" type="number" formControlName="depreciation"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">13</td>
+                        <td class="irs-desc"><label for="employeeBenefits">Employee benefit programs . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">13</td>
+                        <td class="irs-val-cell"><input id="employeeBenefits" type="number" formControlName="employeeBenefits"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">14</td>
+                        <td class="irs-desc"><label for="insurance">Insurance (other than health) . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">14</td>
+                        <td class="irs-val-cell"><input id="insurance" type="number" formControlName="insurance"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">15</td>
+                        <td class="irs-desc"><label for="interestMortgage">Interest on mortgage interest paid to financial institutions . . .</label></td>
+                        <td class="irs-line-num">15</td>
+                        <td class="irs-val-cell"><input id="interestMortgage" type="number" formControlName="interestMortgage"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">16</td>
+                        <td class="irs-desc"><label for="interestOther">Other interest. See instructions . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">16</td>
+                        <td class="irs-val-cell"><input id="interestOther" type="number" formControlName="interestOther"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">17</td>
+                        <td class="irs-desc"><label for="legalProfessional">Legal and professional services . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">17</td>
+                        <td class="irs-val-cell"><input id="legalProfessional" type="number" formControlName="legalProfessional"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">18</td>
+                        <td class="irs-desc"><label for="officeExpense">Office expense . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">18</td>
+                        <td class="irs-val-cell"><input id="officeExpense" type="number" formControlName="officeExpense"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">19</td>
+                        <td class="irs-desc"><label for="pensionProfitSharing">Pension and profit-sharing plans . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">19</td>
+                        <td class="irs-val-cell"><input id="pensionProfitSharing" type="number" formControlName="pensionProfitSharing"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">20</td>
+                        <td class="irs-desc"><label for="rentLease">Rent or lease. See instructions . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">20</td>
+                        <td class="irs-val-cell"><input id="rentLease" type="number" formControlName="rentLease"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">21</td>
+                        <td class="irs-desc"><label for="repairsMaintenance">Repairs and maintenance . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">21</td>
+                        <td class="irs-val-cell"><input id="repairsMaintenance" type="number" formControlName="repairsMaintenance"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">22</td>
+                        <td class="irs-desc"><label for="supplies">Supplies . . . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">22</td>
+                        <td class="irs-val-cell"><input id="supplies" type="number" formControlName="supplies"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">23</td>
+                        <td class="irs-desc"><label for="taxesLicenses">Taxes and licenses . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">23</td>
+                        <td class="irs-val-cell"><input id="taxesLicenses" type="number" formControlName="taxesLicenses"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">24</td>
+                        <td class="irs-desc"><label for="travel">Travel . . . . . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">24</td>
+                        <td class="irs-val-cell"><input id="travel" type="number" formControlName="travel"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">25</td>
+                        <td class="irs-desc"><label for="meals">Meals . . . . . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">25</td>
+                        <td class="irs-val-cell"><input id="meals" type="number" formControlName="meals"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">26</td>
+                        <td class="irs-desc"><label for="utilities">Utilities . . . . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">26</td>
+                        <td class="irs-val-cell"><input id="utilities" type="number" formControlName="utilities"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">27</td>
+                        <td class="irs-desc"><label for="wages">Wages (less employment credits) . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">27</td>
+                        <td class="irs-val-cell"><input id="wages" type="number" formControlName="wages"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">28</td>
+                        <td class="irs-desc"><label for="otherExpenses">Other expenses. See instructions . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">28</td>
+                        <td class="irs-val-cell"><input id="otherExpenses" type="number" formControlName="otherExpenses"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">29</td>
+                        <td class="irs-desc"><strong>Total expenses. Sume las líneas 8 a 27 . . . . . . . . . . .</strong></td>
+                        <td class="irs-line-num">29</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('totalExpenses')?.value | currency }}</td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">30</td>
+                        <td class="irs-desc"><strong>Net profit or (loss). Line 7 menos línea 29 . . . . . . . . . . .</strong></td>
+                        <td class="irs-line-num">30</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('netProfit')?.value | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PART III: Cost of Goods Sold -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part III</span>
+                <span class="irs-part-title">Cost of Goods Sold</span>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">31</td>
+                        <td class="irs-desc"><label for="beginningInventory">Inventory at beginning of year . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">31</td>
+                        <td class="irs-val-cell"><input id="beginningInventory" type="number" formControlName="beginningInventory"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">32</td>
+                        <td class="irs-desc"><label for="purchases">Merchandise bought for sale . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">32</td>
+                        <td class="irs-val-cell"><input id="purchases" type="number" formControlName="purchases"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">33</td>
+                        <td class="irs-desc"><label for="costOfLabor">Cost of labor. See instructions . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">33</td>
+                        <td class="irs-val-cell"><input id="costOfLabor" type="number" formControlName="costOfLabor"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">34</td>
+                        <td class="irs-desc"><label for="otherCosts">Other costs. See instructions . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">34</td>
+                        <td class="irs-val-cell"><input id="otherCosts" type="number" formControlName="otherCosts"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">35</td>
+                        <td class="irs-desc"><strong>Total. Sume líneas 31 a 34 . . . . . . . . . . . . . . . . . . .</strong></td>
+                        <td class="irs-line-num">35</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('cogsTotal')?.value | currency }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">36</td>
+                        <td class="irs-desc"><label for="endingInventory">Inventory at end of year . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">36</td>
+                        <td class="irs-val-cell"><input id="endingInventory" type="number" formControlName="endingInventory"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">37</td>
+                        <td class="irs-desc"><strong>Cost of goods sold. Line 35 menos línea 36 . . . . . . . . . .</strong></td>
+                        <td class="irs-line-num">37</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('costOfGoodsSold')?.value | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PART IV: Information on Your Vehicle -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part IV</span>
+                <span class="irs-part-title">Information on Your Vehicle</span>
+            </div>
+
+            <div class="irs-row-border">
+                <div class="irs-field flex-1 border-right">
+                    <label for="vehicleDate">Date vehicle was first used</label>
+                    <input id="vehicleDate" type="date" formControlName="vehicleDate">
+                </div>
+                <div class="irs-field flex-1">
+                    <div class="irs-checkbox-group">
+                        <input type="checkbox" id="usedPersonal" formControlName="usedPersonal">
+                        <label for="usedPersonal">Vehicle available during off-duty hours</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="irs-row">
+                <div class="irs-field flex-1 border-right">
+                    <label for="businessMiles">Business miles</label>
+                    <input id="businessMiles" type="number" formControlName="businessMiles">
+                </div>
+                <div class="irs-field flex-1 border-right">
+                    <label for="commutingMiles">Commuting miles</label>
+                    <input id="commutingMiles" type="number" formControlName="commutingMiles">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="otherMiles">Other miles</label>
+                    <input id="otherMiles" type="number" formControlName="otherMiles">
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">38</td>
+                        <td class="irs-desc"><label for="totalVehicleMiles">Total vehicle miles . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">38</td>
+                        <td class="irs-val-cell"><input id="totalVehicleMiles" type="number" formControlName="totalVehicleMiles"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">39</td>
+                        <td class="irs-desc"><label for="businessMilesInput">Business miles . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">39</td>
+                        <td class="irs-val-cell"><input id="businessMilesInput" type="number" formControlName="businessMilesInput"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">40</td>
+                        <td class="irs-desc"><label for="averageVehicleCost">Average cost of vehicle . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">40</td>
+                        <td class="irs-val-cell"><input id="averageVehicleCost" type="number" formControlName="averageVehicleCost"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- PART V: Other Expenses -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part V</span>
+                <span class="irs-part-title">Other Expenses</span>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">41</td>
+                        <td class="irs-desc"><label for="otherExpense1">Other expenses . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">41</td>
+                        <td class="irs-val-cell"><input id="otherExpense1" type="number" formControlName="otherExpense1"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">42</td>
+                        <td class="irs-desc"><label for="otherExpense2">. . . . . . . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">42</td>
+                        <td class="irs-val-cell"><input id="otherExpense2" type="number" formControlName="otherExpense2"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">43</td>
+                        <td class="irs-desc"><label for="otherExpense3">. . . . . . . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">43</td>
+                        <td class="irs-val-cell"><input id="otherExpense3" type="number" formControlName="otherExpense3"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">44</td>
+                        <td class="irs-desc"><label for="otherExpense4">. . . . . . . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">44</td>
+                        <td class="irs-val-cell"><input id="otherExpense4" type="number" formControlName="otherExpense4"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">45</td>
+                        <td class="irs-desc"><strong>Total other expenses. Sume líneas 41 a 44 . . . . . . . . . .</strong></td>
+                        <td class="irs-line-num">45</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('totalOtherExpenses')?.value | currency }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="irs-footer-actions">
+                <button type="submit" class="btn-irs-submit">Guardar Schedule C</button>
+            </div>
+        </form>
+
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

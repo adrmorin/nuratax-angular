@@ -1,0 +1,62 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 4835</h1><p class="form-year">(2025)</p></div>
+        <div class="form-info"><p><strong>Farm Rental Income and Expenses</strong></p><p>Department of the Treasury — Internal Revenue Service</p></div>
+    </div>
+    <div class="form-instructions"><p>For crop and livestock shares (not cash) received by landowner (or sub-lessor). Income Not Subject to Self-Employment Tax.</p></div>
+    <div class="part-section">
+        <h3 class="part-header">Part I — General Information</h3>
+        <div class="field-row"><div class="field-group"><label>Name(s) shown on return</label><input type="text" formControlName="name"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>SSN</label><input type="text" formControlName="ssn"></div>
+            <div class="field-group"><label>Tax Year</label><input type="text" formControlName="taxYear"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part II — Income</h3>
+        <table class="form-table">
+            <tr><td>1. Gross receipts from farming</td><td><input type="number" formControlName="line1"></td></tr>
+            <tr><td>2. Gross agricultural commodity shares</td><td><input type="number" formControlName="line2"></td></tr>
+            <tr><td>3. Bartered services</td><td><input type="number" formControlName="line3"></td></tr>
+            <tr class="highlight-row"><td>4. Total gross income</td><td><input type="number" formControlName="line4" readonly></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part III — Expenses</h3>
+        <table class="form-table">
+            <tr><td>5. Car and truck expenses</td><td><input type="number" formControlName="line5"></td></tr>
+            <tr><td>6. Chemicals</td><td><input type="number" formControlName="line6"></td></tr>
+            <tr><td>7. Conservation expenses</td><td><input type="number" formControlName="line7"></td></tr>
+            <tr><td>8. Custom hire (machine work)</td><td><input type="number" formControlName="line8"></td></tr>
+            <tr><td>9. Feed purchased</td><td><input type="number" formControlName="line9"></td></tr>
+            <tr><td>10. Fertilizers and lime</td><td><input type="number" formControlName="line10"></td></tr>
+            <tr><td>11. Insurance</td><td><input type="number" formControlName="line11"></td></tr>
+            <tr><td>12. Mortgage interest</td><td><input type="number" formControlName="line12"></td></tr>
+            <tr><td>13. Other expenses (attach schedule)</td><td><input type="number" formControlName="line13"></td></tr>
+            <tr class="highlight-row"><td>14. Total expenses</td><td><input type="number" formControlName="line14" readonly></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part IV — Net Farm Rental Income</h3>
+        <table class="form-table">
+            <tr class="highlight-row"><td>15. Net farm rental income (line 4 minus line 14)</td><td><input type="number" formControlName="line15" readonly></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part V — Allocation to Partners</h3>
+        <div class="field-row">
+            <div class="field-group"><label>Partner/Limited Partner name</label><input type="text" formControlName="partnerName"></div>
+            <div class="field-group"><label>SSN</label><input type="text" formControlName="partnerSSN"></div>
+        </div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>Allocation %</label><input type="number" formControlName="allocationPercent"></div>
+            <div class="field-group"><label>Income amount</label><input type="number" formControlName="allocationIncome" readonly></div>
+            <div class="field-group"><label>Expense amount</label><input type="number" formControlName="allocationExpense" readonly></div>
+        </div>
+    </div>
+    <div class="signature-section">
+        <div class="signature-box"><p>Signature</p><input type="text" formControlName="signature" class="signature-input"></div>
+        <div class="date-box"><p>Date</p><input type="date" formControlName="dateSigned"></div>
+    </div>
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

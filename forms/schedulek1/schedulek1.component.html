@@ -1,0 +1,59 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Schedule K-1 (Form 1065)</h1><p class="form-year">(2024)</p></div>
+        <div class="form-info"><p><strong>Partner's Share of Income, Deductions, Credits, etc.</strong></p><p>Department of the Treasury — Internal Revenue Service</p></div>
+    </div>
+    <div class="form-instructions"><p>This schedule shows each partner's share of the partnership's income, deductions, credits, and other items.</p></div>
+    <div class="part-section">
+        <h3 class="part-header">Part I — Information About the Partnership</h3>
+        <div class="field-row"><div class="field-group"><label>Partnership name</label><input type="text" formControlName="entityName"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>Partnership EIN</label><input type="text" formControlName="entityEin"></div>
+            <div class="field-group"><label>Tax Year</label><input type="text" formControlName="taxYear"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part II — Information About the Partner</h3>
+        <div class="field-row"><div class="field-group"><label>Partner's name</label><input type="text" formControlName="partnerName"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>Partner's TIN (SSN or EIN)</label><input type="text" formControlName="partnerTin"></div>
+            <div class="field-group"><label>Partner's PMN (if applicable)</label><input type="text" formControlName="partnerPMN"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part III — Partner's Share of Current Year Income, Deductions, Credits, and Other Items</h3>
+        <table class="form-table">
+            <tr><td>1. Ordinary business income (loss)</td><td><input type="number" formControlName="l1"></td></tr>
+            <tr><td>2. Net rental real estate income (loss)</td><td><input type="number" formControlName="l2"></td></tr>
+            <tr><td>3. Other net rental income (loss)</td><td><input type="number" formControlName="l3"></td></tr>
+            <tr><td>4. Guaranteed payments</td><td><input type="number" formControlName="l4"></td></tr>
+            <tr><td>5. Interest income</td><td><input type="number" formControlName="l5"></td></tr>
+            <tr><td>6. Dividends</td><td><input type="number" formControlName="l6"></td></tr>
+            <tr><td>7. Net capital gain (loss)</td><td><input type="number" formControlName="l7"></td></tr>
+            <tr><td>8. Net section 1231 gain (loss)</td><td><input type="number" formControlName="l8"></td></tr>
+            <tr><td>9. Research activities</td><td><input type="number" formControlName="l9"></td></tr>
+            <tr><td>10. Other income (loss)</td><td><input type="number" formControlName="l10"></td></tr>
+            <tr><td>11. Section 179 deduction</td><td><input type="number" formControlName="l11"></td></tr>
+            <tr><td>12. Other deductions</td><td><input type="number" formControlName="l12"></td></tr>
+            <tr><td>13. Credits</td><td><input type="number" formControlName="l13"></td></tr>
+            <tr><td>14. Foreign transactions</td><td><input type="number" formControlName="l14"></td></tr>
+            <tr><td>15. Alternative minimum tax items</td><td><input type="number" formControlName="l15"></td></tr>
+            <tr><td>16. Tax-exempt income</td><td><input type="number" formControlName="l16"></td></tr>
+            <tr><td>17. Distributions</td><td><input type="number" formControlName="l17"></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part IV — Additional Information</h3>
+        <div class="field-row">
+            <div class="field-group"><label>Partner's capital account analysis</label><input type="text" formControlName="capitalAnalysis"></div>
+        </div>
+        <div class="field-row">
+            <div class="field-group"><label>Partner's other info (loans, etc.)</label><textarea formControlName="otherInfo" rows="2"></textarea></div>
+        </div>
+    </div>
+    <div class="signature-section">
+        <div class="signature-box"><p>Partner Signature</p><input type="text" formControlName="signature" class="signature-input"></div>
+        <div class="date-box"><p>Date</p><input type="date" formControlName="dateSigned"></div>
+    </div>
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

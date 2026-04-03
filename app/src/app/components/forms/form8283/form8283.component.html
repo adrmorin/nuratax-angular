@@ -1,115 +1,100 @@
 <div class="irs-unified-container">
-  <!-- Header Section -->
-  <div class="irs-header-container">
-    <div class="irs-id-box">
-      <span class="irs-id-main">8283</span>
-      <span class="irs-id-sub">Form</span>
-      <p style="font-size: 0.6rem; margin-top: 5px;">(Rev. 2024)</p>
-    </div>
-    <div class="irs-title-box">
-      <h1>Noncash Charitable Contributions</h1>
-      <p style="font-size: 0.8rem; font-weight: 700; margin-top: 5px;">Go to www.irs.gov/Form8283 for instructions and the latest information.</p>
-      <p style="font-size: 0.75rem;">Attach to your tax return if more than $500.</p>
-    </div>
-    <div class="irs-omb-box">
-      <span style="font-size: 0.7rem;">OMB No. 1545-0908</span>
-      <div style="margin-top: 15px; font-weight: 900; font-size: 0.9rem;">2024</div>
-      <div style="margin-top: 5px; font-size: 0.75rem;">Attachment <br> Sequence No. <strong>155</strong></div>
-    </div>
-  </div>
-
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
-    <!-- INFO BLOCK -->
-    <div class="irs-row-line-unified" style="display: flex; border-top: 3.5px solid #000; border-bottom: 3px solid #000; margin-bottom: 25px;">
-      <div class="irs-id-col" style="flex: 2; padding: 6px 12px; border-right: 2px solid #000;">
-        <label style="display: block; font-size: 0.65rem; font-weight: 900;">Name(s) shown on your income tax return</label>
-        <input type="text" formControlName="donorName" class="irs-input-field" style="text-align: left;">
-      </div>
-      <div class="irs-id-col" style="flex: 1; padding: 6px 12px;">
-        <label style="display: block; font-size: 0.65rem; font-weight: 900;">Identifying number</label>
-        <input type="text" formControlName="donorSSN" class="irs-input-field" style="text-align: left;">
-      </div>
-    </div>
-
-    <!-- PART I -->
-    <div class="irs-part-header">
-      <span class="irs-part-num">Part I</span>
-      <span class="irs-part-title">Information on Donated Property—Property of $5,000 or Less and Certain Publicly Traded Securities</span>
-    </div>
-    <p style="font-size: 0.7rem; font-style: italic; margin-bottom: 15px;">List only items with a fair market value (FMV) of $5,000 or less per item or group of similar items.</p>
-
-    <!-- TABLE HEADER -->
-    <div class="irs-table-header-row bg-dark">
-      <div class="irs-col-item">Item</div>
-      <div class="irs-col-desc">(a) Name and address of donee organization</div>
-      <div class="irs-col-id">(b) Vehicle ID number, if applicable</div>
-    </div>
-
-    <!-- Dynamic Rows -->
-    <div formArrayName="properties">
-      @for (prop of properties.controls; track $index) {
-        <div [formGroupName]="$index" class="irs-prop-group">
-          <!-- Row 1 -->
-          <div class="irs-table-data-row border-b">
-            <div class="irs-col-item bold">{{ ['A','B','C','D','E'][$index] }}</div>
-            <div class="irs-col-desc">
-              <textarea formControlName="doneeName" class="irs-input-field" placeholder="Name and address..."></textarea>
+    <!-- Form 8283 Header -->
+    <div class="irs-header-main">
+        <div class="irs-form-id-block" style="padding-right: 15px; border-right: 2.2px solid #000;">
+            <div style="font-size: 1.55rem; font-weight: 1000; text-transform: uppercase;">Form 8283</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.8rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
             </div>
-            <div class="irs-col-id">
-              <input type="text" formControlName="vehicleID" class="irs-input-field" placeholder="VIN...">
-            </div>
-          </div>
-
-          <!-- Row 2: Secondary Data -->
-          <div class="irs-secondary-row bg-light-grey">
-            <div class="irs-col-flex border-r">
-              <label class="irs-label-tiny">(c) Date of contrib.</label>
-              <input type="date" formControlName="dateContribution" class="irs-input-field-small">
-            </div>
-            <div class="irs-col-flex border-r">
-              <label class="irs-label-tiny">(d) Date acquired</label>
-              <input type="date" formControlName="dateAcquired" class="irs-input-field-small">
-            </div>
-            <div class="irs-col-flex border-r">
-              <label class="irs-label-tiny">(f) Cost or basis</label>
-              <div class="irs-currency-input">
-                <span>$</span>
-                <input type="number" formControlName="costBasis" class="irs-input-field-small">
-              </div>
-            </div>
-            <div class="irs-col-flex">
-              <label class="irs-label-tiny">(g) FMV</label>
-              <div class="irs-currency-input">
-                <span>$</span>
-                <input type="number" formControlName="fairMarketValue" class="irs-input-field-small">
-              </div>
-            </div>
-          </div>
-          
-          <button type="button" (click)="removeProperty($index)" class="irs-btn-remove" *ngIf="properties.length > 1">Remove</button>
-          <div class="irs-row-divider"></div>
         </div>
-      }
-    </div>
-
-    <button type="button" (click)="addProperty()" class="irs-btn-add">Add Another Item (B, C, D...)</button>
-
-    <!-- SIGNATURE AREA -->
-    <div style="margin-top: 40px; border-top: 3.5px solid #000; padding-top: 15px;">
-      <div style="display: flex; gap: 30px;">
-        <div style="flex: 2; border-bottom: 2px solid #000;">
-          <label style="font-size: 0.65rem; font-weight: 900;">Your Signature</label>
-          <div style="height: 30px;"></div>
+        <div class="irs-form-title-block" style="text-align: center; padding: 0 25px;">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.5rem; margin: 0; font-weight: 950; text-transform: uppercase;">Noncash Charitable Contributions</h1>
+                <h2 style="font-size: 1.25rem; margin: 0; font-weight: 400; font-style: italic; color: #333;">Contribuciones Benéficas no en Efectivo</h2>
+            </div>
+            <p style="font-size: 0.95rem; margin-top: 12px; font-weight: 850;">▶ Go to www.irs.gov/Form8283 for instructions and the latest information.</p>
         </div>
-        <div style="flex: 1; border-bottom: 2px solid #000;">
-          <label style="font-size: 0.65rem; font-weight: 900;">Date</label>
-          <div style="height: 30px;"></div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.65rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0908</div>
+            <div style="font-size: 3.5rem; line-height: 1; font-weight: 950;">2025</div>
         </div>
-      </div>
     </div>
 
-    <div style="margin-top: 50px; text-align: right;">
-      <button type="submit" class="irs-btn-submit">Submit Form 8283</button>
-    </div>
-  </form>
+    @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
+            <div class="irs-entity-box" style="background: #fafafa;">
+                <div class="irs-label-wrap">
+                    <label for="f8283-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return / Nombre que figura en la declaración</label>
+                </div>
+                <input id="f8283-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
+            </div>
+            <div class="irs-entity-box" style="padding: 15px; border-right: none;">
+                <div class="irs-label-wrap">
+                    <label for="f8283-ssn" class="irs-label-en">Your identifying number</label>
+                </div>
+                <input id="f8283-ssn" type="text" formControlName="ssn" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
+            </div>
+        </div>
+
+        <div class="irs-part-banner">
+            <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Section A</span>
+            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">Donated Property of $5,000 or Less / Propiedad Donada de $5,000 o Menos</span>
+        </div>
+
+        <!-- Table Header -->
+        <div class="irs-item-grid" style="background: #eee;">
+            <div class="irs-table-header">Line</div>
+            <div class="irs-table-header">(a) Description of property / Descripción</div>
+            <div class="irs-table-header">(b) Date of contribution</div>
+            <div class="irs-table-header">(c) How acquired</div>
+            <div class="irs-table-header">(d) Fair market value / FMV</div>
+        </div>
+
+        <div formArrayName="items">
+            @for (item of items.controls; track $index) {
+                <div [formGroupName]="$index" class="irs-item-grid">
+                    <div class="irs-col-line-num">{{ ['A','B','C','D','E'][$index] || ($index + 1) }}</div>
+                    <div class="irs-table-cell"><input type="text" formControlName="description" style="font-weight: 800;"></div>
+                    <div class="irs-table-cell"><input type="date" formControlName="date"></div>
+                    <div class="irs-table-cell"><input type="text" formControlName="method"></div>
+                    <div class="irs-table-cell irs-blue-cell">
+                        <div style="display: flex; align-items: center;">
+                            <span class="irs-money-sym">$</span>
+                            <input type="number" formControlName="fairMarketValue" style="text-align: right; font-weight: 950;">
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div style="padding: 15px; background: #fff; border-bottom: 3.5px solid #000;">
+            <button type="button" (click)="addItem()" style="background: #222; color: #fff; padding: 10px 25px; border: none; font-weight: 850; cursor: pointer;">+ Add Item / Agregar Artículo</button>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 1fr 240px; background: #eee; border-top: 2px solid #000;">
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Total fair market value from all sections.</span>
+                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Valor justo de mercado total.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-yellow-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym" style="color: #1e3a8a;">$</span>
+                    <span style="text-align: right; font-weight: 1000; font-size: 1.6rem; color: #1e3a8a; width: 100%; display: block;">{{ totalContributions() | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 60px 40px; text-align: center; background: #fff;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
+                Save Form 8283 / Guardar Formulario 8283
+            </button>
+        </div>
+    </form>
+    }
 </div>

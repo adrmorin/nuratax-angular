@@ -1,0 +1,51 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 4361</h1><p class="form-year">(Rev. October 2023)</p></div>
+        <div class="form-info"><p><strong>Application for Exemption From Self-Employment Tax for Use By Ministers, Members of Religious Orders and Christian Science Practitioners</strong></p><p>Department of the Treasury — Internal Revenue Service</p></div>
+    </div>
+    <div class="form-instructions"><p>Use this form to apply for exemption from self-employment tax if you are a minister, member of a religious order, or Christian Science practitioner.</p></div>
+    <div class="part-section">
+        <h3 class="part-header">Part I — Applicant Information</h3>
+        <div class="field-row"><div class="field-group"><label>Full name</label><input type="text" formControlName="name"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>SSN</label><input type="text" formControlName="ssn"></div>
+        </div>
+        <div class="field-row"><div class="field-group"><label>Mailing address</label><input type="text" formControlName="address"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>City</label><input type="text" formControlName="city"></div>
+            <div class="field-group"><label>State</label><input type="text" formControlName="state"></div>
+            <div class="field-group"><label>ZIP</label><input type="text" formControlName="zip"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part II — Ministry/Position Information</h3>
+        <div class="field-row"><div class="field-group"><label>Name of church or organization</label><input type="text" formControlName="churchName"></div></div>
+        <div class="field-row">
+            <div class="field-group"><label>Your position (minister, religious leader, etc.)</label><input type="text" formControlName="position"></div>
+            <div class="field-group"><label>Date ordained/commissioned</label><input type="date" formControlName="ordainDate"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part III — Certification</h3>
+        <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" formControlName="cert1"> I certify that I am (a) a minister, (b) a member of a religious order who has not taken a vow of poverty, or (c) a Christian Science practitioner.</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="cert2"> I have performed service as a self-employed minister or practitioner in the current tax year.</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="cert3"> I request exemption from self-employment tax for any earnings from these services.</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="cert4"> I understand that this exemption is irrevocable and applies to all future self-employment income.</label>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part IV — Income Information</h3>
+        <table class="form-table">
+            <tr><td>1. Net self-employment income from ministry</td><td><input type="number" formControlName="ministryIncome"></td></tr>
+            <tr><td>2. Other self-employment income (if any)</td><td><input type="number" formControlName="otherIncome"></td></tr>
+            <tr class="highlight-row"><td>3. Total net self-employment income</td><td><input type="number" formControlName="totalIncome" readonly></td></tr>
+        </table>
+    </div>
+    <div class="signature-section">
+        <div class="signature-box"><p>Signature</p><input type="text" formControlName="signature" class="signature-input"></div>
+        <div class="date-box"><p>Date</p><input type="date" formControlName="dateSigned"></div>
+        <div class="phone-box"><p>Phone</p><input type="text" formControlName="phone"></div>
+    </div>
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

@@ -1,131 +1,162 @@
-<div class="irs-form-container">
-    <div class="irs-form-box">
-        <div class="irs-main-header">
-            <div class="irs-col-1">
-                <div>
-                    <div class="irs-form-id">Form 3903</div>
-                </div>
-                <div class="irs-dept-info">
-                    Department of the Treasury<br>
-                    Internal Revenue Service
-                </div>
+<div class="irs-unified-container">
+    <!-- Form 3903 Header -->
+    <div class="irs-header-main">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.4rem;">Form 3903</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif;">
+                Department of the Treasury<br>
+                Internal Revenue Service
             </div>
-            <div class="irs-col-2">
-                <h1>Moving Expenses</h1>
-                <p class="irs-instruction" style="margin-top: 10px;">Go to <i>www.irs.gov/Form3903</i> for the latest information.</p>
-                <p class="irs-instruction">Attach to Form 1040, 1040-SR, or 1040-NR.</p>
+        </div>
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.4rem; margin: 0;">Moving Expenses</h1>
+                <h2 style="font-size: 1rem; margin: 0; font-style: italic;">Gastos de Mudanza</h2>
             </div>
-            <div class="irs-col-3">
-                <div class="irs-omb-box">OMB No. 1545-0074</div>
-                <div class="irs-sequence-box">
-                    <div class="irs-year-box">
-                        <span class="year-outline-20">20</span><span class="year-solid-25">24</span>
-                    </div>
-                    <div class="irs-attachment">
-                        Attachment<br>
-                        Sequence No. <strong>62</strong>
-                    </div>
+            <p style="font-size: 0.8rem; margin-top: 8px; font-weight: 700;">Attach to Form 1040, 1040-SR, or 1040-NR. / Adjunte al Formulario 1040, 1040-SR o 1040-NR.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0074</div>
+            <div style="font-size: 2.8rem; line-height: 1;">2025</div>
+        </div>
+    </div>
+
+    <form [formGroup]="form3903" (ngSubmit)="onSubmit()" *ngIf="form3903">
+        <!-- Name and SSN -->
+        <div class="irs-row" style="grid-template-columns: 1fr 200px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Name(s) shown on return</label>
+                    <label class="irs-label-es">Nombre(s) que aparecen en la declaración</label>
+                </div>
+                <input type="text" formControlName="name" style="width: 100%; border: none; border-bottom: 1px dotted #000; background: transparent; font-weight: 700;">
+            </div>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Social security number</label>
+                    <label class="irs-label-es">Número de seguro social</label>
+                </div>
+                <input type="text" formControlName="ssn" style="width: 100%; border: none; border-bottom: 1px dotted #000; background: transparent; font-weight: 700;">
+            </div>
+        </div>
+
+        <div style="padding: 10px; background: #eee; border-bottom: 1px solid #000;">
+            <div class="irs-label-wrap" style="font-size: 0.8rem;">
+                <span class="irs-label-en"><strong>Before you begin:</strong> You can deduct moving expenses only if you are a member of the Armed Forces on active duty and, due to a military order, you move because of a permanent change of station.</span>
+                <span class="irs-label-es"><strong>Antes de comenzar:</strong> Usted puede deducir los gastos de mudanza solamente si es un miembro de las Fuerzas Armadas en servicio activo y, debido a una orden militar, se muda debido a un cambio permanente de estación.</span>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div class="irs-col-line-num">1</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Transportation and storage of household goods and personal effects</span>
+                    <span class="irs-label-es">Transporte y almacenaje de artículos domésticos y efectos personales</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line1">
                 </div>
             </div>
         </div>
 
-        <form [formGroup]="form3903" (ngSubmit)="onSubmit()">
-            
-            <div class="irs-header-row">
-                <div class="irs-name-box">
-                    <label>Name(s) shown on return</label>
-                    <input type="text" formControlName="name" class="irs-borderless-input">
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div class="irs-col-line-num">2</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Travel (including lodging) from your old home to your new home (see instructions). Do not include the cost of meals</span>
+                    <span class="irs-label-es">Viaje (incluyendo alojamiento) desde su antigua casa a su nueva casa (vea las instrucciones). No incluya el costo de las comidas</span>
                 </div>
-                <div class="irs-ssn-box">
-                    <label>Social security number</label>
-                    <input type="text" formControlName="ssn" class="irs-borderless-input">
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line2">
                 </div>
             </div>
+        </div>
 
-            <div class="irs-form-body">
-                <div class="irs-intro-notice">
-                    <strong>Before you begin: </strong> You can deduct moving expenses only if you are a member of the Armed Forces on active duty and, due to a military order, you move because of a permanent change of station.
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px; border-top: 2px solid #000;">
+            <div class="irs-col-line-num">3</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 700;">Add lines 1 and 2</span>
+                    <span class="irs-label-es">Sume las líneas 1 y 2</span>
                 </div>
-
-                <!-- Line 1 -->
-                <div class="irs-line-item">
-                    <div class="irs-line-num">1</div>
-                    <div class="irs-line-desc">
-                        Transportation and storage of household goods and personal effects
-                    </div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">1</div>
-                    <div class="irs-line-val input-wrap">
-                        <input type="number" formControlName="line1" class="irs-input-val">
-                    </div>
-                </div>
-
-                <!-- Line 2 -->
-                <div class="irs-line-item">
-                    <div class="irs-line-num">2</div>
-                    <div class="irs-line-desc">
-                        Travel (including lodging) from your old home to your new home
-                    </div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">2</div>
-                    <div class="irs-line-val input-wrap">
-                        <input type="number" formControlName="line2" class="irs-input-val">
-                    </div>
-                </div>
-
-                <!-- Line 3 -->
-                <div class="irs-line-item">
-                    <div class="irs-line-num">3</div>
-                    <div class="irs-line-desc">
-                        <strong>Add lines 1 and 2</strong>
-                    </div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">3</div>
-                    <div class="irs-line-val input-wrap">
-                        <input type="number" formControlName="line3" class="irs-input-val">
-                    </div>
-                </div>
-
-                <!-- Line 4 -->
-                <div class="irs-line-item">
-                    <div class="irs-line-num">4</div>
-                    <div class="irs-line-desc">
-                        Enter the total amount your employer paid you for the expenses listed on lines 1 and 2 that is not included in box 1 of your Form W-2 (wages). This amount should be shown in box 12 of your Form W-2 with code P
-                    </div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">4</div>
-                    <div class="irs-line-val input-wrap">
-                        <input type="number" formControlName="line4" class="irs-input-val">
-                    </div>
-                </div>
-
-                <!-- Line 5 -->
-                <div class="irs-line-item">
-                    <div class="irs-line-num">5</div>
-                    <div class="irs-line-desc">
-                        <strong>Is line 3 more than line 4?</strong>
-                        <div class="irs-radio-group">
-                            <div class="irs-radio-opt">
-                                <input type="checkbox" formControlName="line5No" id="line5No">
-                                <label for="line5No"><strong>No.</strong> You cannot deduct your moving expenses. If line 3 is less than line 4, the difference must be included in income.</label>
-                            </div>
-                            <div class="irs-radio-opt">
-                                <input type="checkbox" formControlName="line5Yes" id="line5Yes">
-                                <label for="line5Yes"><strong>Yes.</strong> Subtract line 4 from line 3. This is your moving expense deduction. Enter here and on Schedule 1 (Form 1040), line 14.</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="irs-dots"></div>
-                    <div class="irs-line-val-num">5</div>
-                    <div class="irs-line-val input-wrap">
-                        <input type="number" formControlName="line5Value" class="irs-input-val">
-                    </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line3">
                 </div>
             </div>
+        </div>
 
-            <div class="irs-footer-actions">
-                <button type="submit" class="btn-submit">Submit Form 3903</button>
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div class="irs-col-line-num">4</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Enter the total amount your employer paid you for the expenses listed on lines 1 and 2 that is not included in box 1 of your Form W-2 (wages).</span>
+                    <span class="irs-label-es">Anote la cantidad total que su empleador le pagó por los gastos enumerados en las líneas 1 y 2 que no esté incluida en el recuadro 1 de su Formulario W-2.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
             </div>
-        </form>
-    </div>
+            <div class="irs-cell-input">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line4">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px; border-top: 2px solid #000; border-bottom: 2px solid #000; margin-top: 5px;">
+            <div class="irs-col-line-num">5</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 800;">Is line 3 more than line 4?</span>
+                    <span class="irs-label-es" style="font-weight: 400;">¿Es la línea 3 más que la línea 4?</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line5Value">
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 10px; border-bottom: 1px solid #000;">
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.8rem;">
+                    <input type="checkbox" formControlName="line5No">
+                    <div>
+                        <span class="irs-label-en"><strong>No.</strong> You cannot deduct your moving expenses. If line 3 is less than line 4, the difference must be included in income.</span>
+                        <br>
+                        <span class="irs-label-es"><strong>No.</strong> No puede deducir sus gastos de mudanza. Si la línea 3 es menor que la línea 4, la diferencia debe incluirse en el ingreso.</span>
+                    </div>
+                </label>
+                <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.8rem;">
+                    <input type="checkbox" formControlName="line5Yes">
+                    <div>
+                        <span class="irs-label-en"><strong>Yes.</strong> Subtract line 4 from line 3. This is your moving expense deduction. Enter here and on Schedule 1 (Form 1040), line 14.</span>
+                        <br>
+                        <span class="irs-label-es"><strong>Sí.</strong> Reste la línea 4 de la línea 3. Esta es su deducción de gastos de mudanza. Anótelo aquí y en el Anexo 1 (Formulario 1040), línea 14.</span>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <div style="padding: 30px; text-align: center;">
+            <button type="submit" style="background: #111; color: #fff; padding: 12px 40px; border: none; border-radius: 2px; font-weight: 700; cursor: pointer; text-transform: uppercase;">
+                Save Form 3903 / Guardar Formulario 3903
+            </button>
+        </div>
+    </form>
 </div>

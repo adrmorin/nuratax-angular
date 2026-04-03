@@ -1,0 +1,165 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title">
+            <h1>Form 172</h1>
+            <p class="form-year">Department of the Treasury - Internal Revenue Service</p>
+        </div>
+        <div class="form-info">
+            <p><strong>Net Operating Losses (NOLs) for Individuals, Estates, and Trusts</strong></p>
+            <p>Attach to Form 1040, 1041, or 990-T.</p>
+        </div>
+    </div>
+
+    <div class="taxpayer-section">
+        <h3>Taxpayer Information</h3>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Name(s)</label>
+                <input type="text" formControlName="taxpayerName">
+            </div>
+            <div class="field-group small">
+                <label>SSN or EIN</label>
+                <input type="text" formControlName="ssn" placeholder="XX-XXXXXXX">
+            </div>
+            <div class="field-group small">
+                <label>Tax Year</label>
+                <input type="number" formControlName="taxYear">
+            </div>
+        </div>
+    </div>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part I - Net Operating Loss Computation</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">Gross income (excluding NOL) (see instructions)</td>
+                <td class="line-input"><input type="number" formControlName="grossIncome"></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">Deductions (see instructions)</td>
+                <td class="line-input"><input type="number" formControlName="deductionsAboveLine"></td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="line-num">3</td>
+                <td class="line-desc"><strong>Net operating loss</strong></td>
+                <td class="line-input"><input type="number" formControlName="part1NOL" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part II - Deductions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">Self-employment tax deduction</td>
+                <td class="line-input"><input type="number" formControlName="selfEmploymentDeduction"></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">Itemized deductions or standard deduction</td>
+                <td class="line-input"><input type="number" formControlName="itemizedDeductions"></td>
+            </tr>
+            <tr>
+                <td class="line-num">3</td>
+                <td class="line-desc">Section 199A deduction (QBI)</td>
+                <td class="line-input"><input type="number" formControlName="qualifiedBusinessIncomeDeduction"></td>
+            </tr>
+            <tr>
+                <td class="line-num">4</td>
+                <td class="line-desc">Other deductions</td>
+                <td class="line-input"><input type="number" formControlName="otherDeductions"></td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="line-num">5</td>
+                <td class="line-desc"><strong>Total deductions</strong></td>
+                <td class="line-input"><input type="number" formControlName="part2Deductions" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part III - NOL Available This Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">NOL from prior years carried forward</td>
+                <td class="line-input"><input type="number" formControlName="beginningNOL"></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">NOL generated this year (from Part I, line 3)</td>
+                <td class="line-input"><input type="number" formControlName="thisYearNOL"></td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="line-num">3</td>
+                <td class="line-desc"><strong>Total NOL available</strong></td>
+                <td class="line-input"><input type="number" formControlName="totalNOL" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part IV - NOL Deduction</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">Taxable income before NOL deduction</td>
+                <td class="line-input"><input type="number" formControlName="taxableIncome"></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">NOL deduction (see instructions - limited to 80%)</td>
+                <td class="line-input"><input type="number" formControlName="nolDeduction"></td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="line-num">3</td>
+                <td class="line-desc"><strong>Remaining NOL to carry forward</strong></td>
+                <td class="line-input"><input type="number" formControlName="remainingNOL" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="election-section">
+        <label>
+            <input type="checkbox" formControlName="waiveCarryback"> 
+            I elect to waive the entire carryback period for this NOL
+        </label>
+    </div>
+
+    <div class="nerea-advice">
+        <div class="advice-header">
+            <img src="assets/images/nerea_avatar.png" alt="Nerea" class="nerea-avatar">
+            <span class="advice-title">Asistente de Impuestos</span>
+        </div>
+        <div class="advice-content">
+            <p><strong>Propósito:</strong> {{ nereaAdvice.purpose }}</p>
+            <p><strong>Cambio Reciente:</strong> {{ nereaAdvice.change }}</p>
+            <p><strong>Cálculo:</strong> {{ nereaAdvice.calculation }}</p>
+            <p><strong>Arrastre:</strong> {{ nereaAdvice.carryforward }}</p>
+            <p><strong>Elección:</strong> {{ nereaAdvice.election }}</p>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button>
+    </div>
+</div>

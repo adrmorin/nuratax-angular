@@ -1,0 +1,58 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 8962</h1><p class="form-year">(2024)</p></div>
+        <div class="form-info"><p><strong>Premium Tax Credit (PTC)</strong></p><p>Department of the Treasury — Internal Revenue Service</p></div>
+    </div>
+    <div class="form-instructions"><p>Use this form to figure your premium tax credit, reconcile advance payments, or claim a refund.</p></div>
+    <div class="part-section">
+        <h3 class="part-header">Part I — Eligibility and Enrollment</h3>
+        <div class="field-row"><div class="field-group"><label>Name(s) shown on return</label><input type="text" formControlName="name"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>SSN</label><input type="text" formControlName="ssn"></div>
+            <div class="field-group"><label>Tax Year</label><input type="text" formControlName="taxYear"></div>
+        </div>
+        <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" formControlName="eligible"> I certify that I (or my spouse or dependent) was enrolled in a qualified health plan through the Marketplace.</label>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part II — Annual and Monthly Contribution Calculation</h3>
+        <table class="form-table">
+            <tr><td>1. Annual household income</td><td><input type="number" formControlName="line1"></td></tr>
+            <tr><td>2. Federal poverty line (FPL)</td><td><input type="number" formControlName="line2"></td></tr>
+            <tr><td>3. Percentage of FPL (line 1 divided by line 2)</td><td><input type="number" formControlName="line3" readonly></td></tr>
+            <tr><td>4. Applicable figure from Table 1</td><td><input type="number" formControlName="line4"></td></tr>
+            <tr class="highlight-row"><td>5. Required contribution (line 1 × line 4)</td><td><input type="number" formControlName="line5" readonly></td></tr>
+            <tr><td>6. Self-only coverage figure</td><td><input type="number" formControlName="line6"></td></tr>
+            <tr class="highlight-row"><td>7. Monthly contribution (line 5 ÷ 12)</td><td><input type="number" formControlName="line7" readonly></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part III — Premium and Credit Calculation</h3>
+        <table class="form-table">
+            <tr><td>8. Premium for the lowest cost bronze plan</td><td><input type="number" formControlName="line8"></td></tr>
+            <tr><td>9. Monthly silver plan premium</td><td><input type="number" formControlName="line9"></td></tr>
+            <tr><td>10.APTC received (from Form 1095-A)</td><td><input type="number" formControlName="line10"></td></tr>
+            <tr class="highlight-row"><td>11. Monthly PTC (line 9 minus line 7)</td><td><input type="number" formControlName="line11" readonly></td></tr>
+            <tr class="highlight-row"><td>12. Annual PTC (line 11 × 12)</td><td><input type="number" formControlName="line12" readonly></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part IV — Reconciliation</h3>
+        <table class="form-table">
+            <tr><td>13. Total APTC for the year</td><td><input type="number" formControlName="line13"></td></tr>
+            <tr><td>14. Total premium for the plan year</td><td><input type="number" formControlName="line14"></td></tr>
+            <tr><td>15. Allowable PTC (lesser of line 12 or 14)</td><td><input type="number" formControlName="line15" readonly></td></tr>
+            <tr><td>16. Excess APTC (line 13 minus line 15)</td><td><input type="number" formControlName="line16" readonly></td></tr>
+            <tr class="highlight-row"><td>17. Repayment limitation (see instructions)</td><td><input type="number" formControlName="line17"></td></tr>
+            <tr class="highlight-row"><td>18. Net premium tax credit (line 15 minus line 13)</td><td><input type="number" formControlName="line18" readonly></td></tr>
+            <tr class="highlight-row"><td>19. Excess APTC to repay (line 16 minus line 17)</td><td><input type="number" formControlName="line19" readonly></td></tr>
+            <tr class="highlight-row"><td>20. Total PTC (line 15)</td><td><input type="number" formControlName="line20" readonly></td></tr>
+        </table>
+    </div>
+    <div class="signature-section">
+        <div class="signature-box"><p>Signature</p><input type="text" formControlName="signature" class="signature-input"></div>
+        <div class="date-box"><p>Date</p><input type="date" formControlName="dateSigned"></div>
+    </div>
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

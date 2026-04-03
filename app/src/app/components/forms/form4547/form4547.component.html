@@ -1,92 +1,137 @@
 <div class="irs-unified-container">
-  <!-- Header Section -->
-  <div class="irs-header">
-    <div class="irs-form-id-box">
-      <span style="font-size: 0.8rem; font-weight: 850;">Form</span>
-      <span class="irs-id-large">4547</span>
-      <div class="irs-id-year">2025</div>
-    </div>
-    <div class="irs-title-box">
-      <h1>Trump Account Election(s)</h1>
-      <p style="font-size: 0.8rem; font-weight: 700; margin: 5px 0;">(Initial Election and Request for $1,000 Contribution)</p>
-      <p style="font-size: 0.75rem; font-weight: 600; font-style: italic;">Go to <strong>www.trumpaccounts.gov</strong> for account management and latest information.</p>
-    </div>
-    <div class="irs-omb-right" style="text-align: right;">
-      <span style="font-size: 0.65rem; font-weight: 700;">OMB No. 1545-2025</span><br>
-      <span style="font-size: 0.75rem; font-weight: 900;">Attachment <br> Sequence No. <strong>999</strong></span>
-    </div>
-  </div>
-
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
-    <!-- SECTION I: Responsible Party -->
-    <div class="irs-section-label">Section I: Responsible Party (Parent or Guardian)</div>
-    <div class="irs-field-group">
-      <div class="irs-input-wrap">
-        <label for="respName" class="irs-label-small">Name of Parent or Legal Guardian</label>
-        <input id="respName" type="text" formControlName="responsibleName" class="irs-input-border">
-      </div>
-      <div class="irs-input-wrap" style="flex: 0.5;">
-        <label for="respTIN" class="irs-label-small">SSN or ITIN</label>
-        <input id="respTIN" type="text" formControlName="responsibleTIN" class="irs-input-border">
-      </div>
-    </div>
-    <div class="irs-field-group">
-      <div class="irs-input-wrap">
-        <label for="respAddr" class="irs-label-small">Street Address</label>
-        <input id="respAddr" type="text" formControlName="responsibleAddress" class="irs-input-border">
-      </div>
-    </div>
-
-    <!-- SECTION II: Eligible Child/Children -->
-    <div class="irs-section-label">Section II: Eligible Child/Children</div>
-    <div formArrayName="children">
-      @for (child of children.controls; track $index; let i = $index) {
-        <div class="irs-child-card" [formGroupName]="i">
-          <p class="irs-text-bold" style="margin-top:0">Child #{{ i + 1 }} Information</p>
-          <div class="irs-field-group">
-            <div class="irs-input-wrap">
-              <label class="irs-label-small">Child's Legal Name</label>
-              <input type="text" formControlName="name" class="irs-input-border">
+    <!-- Form 4547 Header -->
+    <div class="irs-header-main" style="background: #fff; border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.4rem;">Form 4547</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif;">
+                Department of the Treasury<br>
+                Internal Revenue Service
             </div>
-            <div class="irs-input-wrap" style="flex: 0.5;">
-              <label class="irs-label-small">Child's SSN</label>
-              <input type="text" formControlName="tin" class="irs-input-border">
-            </div>
-          </div>
-          <div class="irs-field-group">
-            <div class="irs-input-wrap" style="flex: 0.5;">
-              <label class="irs-label-small">Date of Birth</label>
-              <input type="date" formControlName="dob" class="irs-input-border">
-            </div>
-            <div class="irs-input-wrap" style="justify-content: center;">
-              <label class="irs-label-small" style="display: flex; align-items: center; gap: 10px; border: 2px solid #000; padding: 10px; cursor: pointer;">
-                <input type="checkbox" formControlName="requestContribution">
-                <span>Request $1,000 Pilot Contribution</span>
-              </label>
-            </div>
-          </div>
         </div>
-      }
-    </div>
-    <button type="button" (click)="addChild()" class="irs-btn-add">+ Register Additional Child</button>
-
-    <!-- SECTION III: Consents and Disclosures -->
-    <div class="irs-section-label">Section III: Consents and Disclosures</div>
-    <div class="irs-checkbox-wrap">
-      <input type="checkbox" formControlName="consentDisclosure">
-      <p style="font-size: 0.75rem; font-weight: 500; margin:0">
-        <strong>Disclosure Consent:</strong> I authorize the IRS to disclose the information above to the Federal Savings Hub (Trump Accounts) for the purpose of establishing and funding tax-deferred savings accounts for the child(ren) listed.
-      </p>
-    </div>
-    <div class="irs-checkbox-wrap">
-      <input type="checkbox" formControlName="consentMaintenance">
-      <p style="font-size: 0.75rem; font-weight: 500; margin:0">
-        <strong>Account Maintenance:</strong> I acknowledge that I am electing to open an initial Trump Account and agree to be subject to the program rules published at <strong>www.trumpaccounts.gov</strong>.
-      </p>
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.1rem; margin: 0;">Trump Account Election(s)</h1>
+                <h2 style="font-size: 0.9rem; margin: 0; font-style: italic;">Elección(es) de Cuentas de Trump</h2>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 8px; font-weight: 700;">(Initial Election and Request for $1,000 Contribution)</p>
+            <p style="font-size: 0.8rem; font-weight: 700;">▶ Go to www.trumpaccounts.gov for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-2025</div>
+            <div style="font-size: 2.8rem; line-height: 1;">2025</div>
+        </div>
     </div>
 
-    <div class="irs-footer">
-      <button type="submit" class="irs-btn-submit">Submit Form 4547 Election</button>
-    </div>
-  </form>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="form">
+        <!-- Section I: Responsible Party -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Section I</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Responsible Party (Parent or Guardian)</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Parte Responsable (Padre o Tutor)</span>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 1fr 300px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Name of Parent or Legal Guardian</label>
+                    <label class="irs-label-es">Nombre del Padre o Tutor Legal</label>
+                </div>
+                <input type="text" formControlName="responsibleName" style="width: 100%; border: none; font-weight: 700;">
+            </div>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">SSN or ITIN</label>
+                    <label class="irs-label-es">SSN o ITIN del Responsable</label>
+                </div>
+                <input type="text" formControlName="responsibleTIN" style="width: 100%; border: none; font-weight: 700;">
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 1fr;">
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Street Address (Include apt. no.)</label>
+                    <label class="irs-label-es">Dirección (Incluya número de apto.)</label>
+                </div>
+                <input type="text" formControlName="responsibleAddress" style="width: 100%; border: none; font-weight: 700;">
+            </div>
+        </div>
+
+        <!-- Section II: Eligible Child/Children -->
+        <div class="irs-part-banner" style="background: #111; color: #fff; padding: 5px 10px; margin-top: 20px;">
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <span style="font-size: 1.2rem; font-weight: 900;">Section II</span>
+                <div class="irs-label-wrap">
+                    <span style="font-size: 1rem; font-weight: 700;">Eligible Child/Children</span>
+                    <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Hijo(s) Elegible(s)</span>
+                </div>
+            </div>
+        </div>
+
+        <div formArrayName="children" style="padding: 10px;">
+            @for (child of children.controls; track $index; let i = $index) {
+                <div [formGroupName]="i" style="border: 2px solid #000; margin-bottom: 15px; background: #fdfdfd;">
+                    <div style="background: #eee; padding: 4px 10px; font-weight: 950; border-bottom: 1px solid #000;">
+                        Child #{{ i + 1 }} / Hijo #{{ i + 1 }}
+                    </div>
+                    <div class="irs-row" style="grid-template-columns: 1fr 250px; border-bottom: 1px solid #ccc;">
+                        <div style="padding: 5px 10px; border-right: 1px solid #ccc;">
+                            <label style="font-size: 0.7rem; font-weight: 800;">Legal Name / Nombre Legal:</label>
+                            <input type="text" formControlName="name" style="width: 100%; border: none; font-weight: 700;">
+                        </div>
+                        <div style="padding: 5px 10px;">
+                            <label style="font-size: 0.7rem; font-weight: 800;">SSN / SSN:</label>
+                            <input type="text" formControlName="tin" style="width: 100%; border: none; font-weight: 700;">
+                        </div>
+                    </div>
+                    <div class="irs-row" style="grid-template-columns: 1fr 1fr;">
+                        <div style="padding: 5px 10px; border-right: 1px solid #ccc;">
+                            <label style="font-size: 0.7rem; font-weight: 800;">Date of Birth / Fecha de Nacimiento:</label>
+                            <input type="date" formControlName="dob" style="width: 100%; border: none; font-weight: 700;">
+                        </div>
+                        <div style="padding: 10px; background: #e8f0ff; display: flex; align-items: center; gap: 10px;">
+                            <input type="checkbox" formControlName="requestContribution" style="width: 20px; height: 20px; cursor: pointer;">
+                            <label style="font-size: 0.75rem; font-weight: 900; line-height: 1.1;">
+                                Request $1,000 Pilot Contribution /<br>
+                                <span style="font-style: italic; font-weight: 400;">Solicitud de Contribución Piloto de $1,000</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            }
+            <button type="button" (click)="addChild()" style="background: #111; color: #fff; padding: 8px 15px; border: none; font-weight: 900; cursor: pointer; text-transform: uppercase; font-size: 0.75rem;">
+                + Register Additional Child / Registrar Hijo Adicional
+            </button>
+        </div>
+
+        <!-- Section III: Consents -->
+        <div class="irs-part-banner" style="background: #111; color: #fff; padding: 5px 10px; margin-top: 20px;">
+            <div style="display: flex; align-items: center; gap: 20px;">
+                <span style="font-size: 1.2rem; font-weight: 900;">Section III</span>
+                <div class="irs-label-wrap">
+                    <span style="font-size: 1rem; font-weight: 700;">Consents and Disclosures</span>
+                    <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Consentimientos y Divulgaciones</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 20px; background: #fff;">
+            <div style="display: flex; gap: 15px; margin-bottom: 20px; align-items: flex-start;">
+                <input type="checkbox" formControlName="consentDisclosure" style="width: 22px; height: 22px; margin-top: 5px; cursor: pointer;">
+                <div>
+                    <p style="margin: 0; font-size: 0.85rem; font-weight: 750;">Disclosure Consent / Consentimiento de Divulgación:</p>
+                    <p style="margin: 5px 0 0; font-size: 0.75rem; color: #333;">
+                        I authorize the IRS to disclose the information above to the Federal Savings Hub (Trump Accounts)...
+                        <br><i>Autorizo al IRS a divulgar la información anterior al Centro de Ahorros Federales (Cuentas de Trump)...</i>
+                    </p>
+                </div>
+            </div>
+            
+            <button type="submit" style="width: 100%; background: #111; color: #fff; padding: 15px; border: none; font-weight: 900; cursor: pointer; text-transform: uppercase;">
+                Submit Form 4547 Election / Enviar Elección del Formulario 4547
+            </button>
+        </div>
+    </form>
 </div>

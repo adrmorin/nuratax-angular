@@ -1,0 +1,158 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title">
+            <h1>Form 8949</h1>
+            <p class="form-year">Department of the Treasury - Internal Revenue Service</p>
+        </div>
+        <div class="form-info">
+            <p><strong>Sales and Other Dispositions of Capital Assets</strong></p>
+            <p>File with your Schedule D to list your transactions for lines 1b, 2, 3, 8b, 9, and 10 of Schedule D.</p>
+        </div>
+    </div>
+
+    <div class="box-selection">
+        <label><strong>Part I - Short-Term (Box A or B):</strong></label>
+        <div class="checkbox-group">
+            <label><input type="checkbox" formControlName="boxA"> (A) Short-term, reported on Form 1099-B</label>
+            <label><input type="checkbox" formControlName="boxB"> (B) Short-term, not reported on Form 1099-B</label>
+        </div>
+    </div>
+
+    <div class="box-selection">
+        <label><strong>Part II - Long-Term (Box C or D):</strong></label>
+        <div class="checkbox-group">
+            <label><input type="checkbox" formControlName="boxC"> (C) Long-term, reported on Form 1099-B</label>
+            <label><input type="checkbox" formControlName="boxD"> (D) Long-term, not reported on Form 1099-B</label>
+        </div>
+    </div>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th>(a)</th>
+                <th>(b)</th>
+                <th>(c)</th>
+                <th>(d)</th>
+                <th>(e)</th>
+                <th>(f)</th>
+                <th>(g)</th>
+                <th>(h)</th>
+            </tr>
+            <tr class="sub-header">
+                <th>Description</th>
+                <th>Date Acquired</th>
+                <th>Date Sold</th>
+                <th>Proceeds</th>
+                <th>Cost or Other Basis</th>
+                <th>Adjustment</th>
+                <th>Gain or (Loss)</th>
+                <th>Check if Rollover</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-input"><input type="text" formControlName="description"></td>
+                <td class="line-input"><input type="date" formControlName="dateAcquired"></td>
+                <td class="line-input"><input type="date" formControlName="dateSold"></td>
+                <td class="line-input"><input type="number" formControlName="proceeds"></td>
+                <td class="line-input"><input type="number" formControlName="costBasis"></td>
+                <td class="line-input"><input type="number" formControlName="adjustment"></td>
+                <td class="line-input"><input type="number" formControlName="gainOrLoss" readonly></td>
+                <td class="line-input"><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td class="line-input"><input type="text" formControlName="transaction2Description"></td>
+                <td class="line-input"><input type="date" formControlName="transaction2DateAcquired"></td>
+                <td class="line-input"><input type="date" formControlName="transaction2DateSold"></td>
+                <td class="line-input"><input type="number" formControlName="transaction2Proceeds"></td>
+                <td class="line-input"><input type="number" formControlName="transaction2CostBasis"></td>
+                <td class="line-input">0</td>
+                <td class="line-input"><input type="number" formControlName="transaction2GainOrLoss" readonly></td>
+                <td class="line-input"><input type="checkbox"></td>
+            </tr>
+            <tr>
+                <td class="line-input"><input type="text" formControlName="transaction3Description"></td>
+                <td class="line-input"><input type="date" formControlName="transaction3DateAcquired"></td>
+                <td class="line-input"><input type="date" formControlName="transaction3DateSold"></td>
+                <td class="line-input"><input type="number" formControlName="transaction3Proceeds"></td>
+                <td class="line-input"><input type="number" formControlName="transaction3CostBasis"></td>
+                <td class="line-input">0</td>
+                <td class="line-input"><input type="number" formControlName="transaction3GainOrLoss" readonly></td>
+                <td class="line-input"><input type="checkbox"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Totals</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">Total proceeds</td>
+                <td class="line-input"><input type="number" formControlName="totalProceeds" readonly></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">Total cost or other basis</td>
+                <td class="line-input"><input type="number" formControlName="totalCostBasis" readonly></td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="line-num">3</td>
+                <td class="line-desc"><strong>Total gain or (loss)</strong></td>
+                <td class="line-input"><input type="number" formControlName="totalGainOrLoss" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Adjustments (see instructions)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">Wash sale loss</td>
+                <td class="line-input"><input type="number" formControlName="washSale"></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">Collectibles gain</td>
+                <td class="line-input"><input type="number" formControlName="collectiblesGain"></td>
+            </tr>
+            <tr>
+                <td class="line-num">3</td>
+                <td class="line-desc">Section 1250 gain</td>
+                <td class="line-input"><input type="number" formControlName="section1250Gain"></td>
+            </tr>
+            <tr>
+                <td class="line-num">4</td>
+                <td class="line-desc">Other adjustments</td>
+                <td class="line-input"><input type="number" formControlName="otherAdjustments"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="nerea-advice">
+        <div class="advice-header">
+            <img src="assets/images/nerea_avatar.png" alt="Nerea" class="nerea-avatar">
+            <span class="advice-title">Asistente de Impuestos</span>
+        </div>
+        <div class="advice-content">
+            <p><strong>Propósito:</strong> {{ nereaAdvice.purpose }}</p>
+            <p><strong>Corto Plazo:</strong> {{ nereaAdvice.shortTerm }}</p>
+            <p><strong>Largo Plazo:</strong> {{ nereaAdvice.longTerm }}</p>
+            <p><strong>Base de Costo:</strong> {{ nereaAdvice.basis }}</p>
+            <p><strong>Cajas:</strong> {{ nereaAdvice.box }}</p>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button>
+    </div>
+</div>

@@ -1,0 +1,175 @@
+<div class="irs-form-container" style="position: relative;">
+    <div class="irs-header">
+        <div class="irs-header-left">
+            <div class="form-title">Formulario 3520 2026</div>
+        </div>
+        <div class="irs-header-right">
+            <span>Página 1</span>
+        </div>
+    </div>
+
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1">
+                <span class="irs-form-id">3520</span>
+                <span class="irs-form-sub-id">2026</span>
+            </div>
+            <div class="irs-col-2">
+                <h1>Annual Return To Report Transactions With Foreign Trusts and Receipt of Certain Foreign Gifts</h1>
+                <p class="irs-instruction">▶ Adjunte al Formulario 1040, 1040-NR, o 1120.</p>
+            </div>
+            <div class="irs-col-3">
+                <div class="irs-sequence-box">
+                    <span>Secuencia No.</span>
+                    <span class="irs-sequence-num">16</span>
+                </div>
+            </div>
+        </div>
+
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right">
+                    <label for="name">Nombre del Reportante (Your name)</label>
+                    <input id="name" type="text" formControlName="name">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="ssn">Número de Seguro Social (SSN)</label>
+                    <input id="ssn" type="text" formControlName="ssn">
+                </div>
+            </div>
+
+            <div class="irs-row-border">
+                <div class="irs-field flex-1 border-right">
+                    <label for="ein">EIN</label>
+                    <input id="ein" type="text" formControlName="ein">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="taxYear">Año Fiscal (Tax Year)</label>
+                    <input id="taxYear" type="number" formControlName="taxYear">
+                </div>
+            </div>
+
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part I</span>
+                <span class="irs-part-title">Reportable Transactions With Foreign Trust</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part1 }}
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-desc"><label for="trustName1">Name of foreign trust . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-val-cell"><input id="trustName1" type="text" formControlName="trustName1"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">2</td>
+                        <td class="irs-desc"><label for="trustCountry">Country of residence . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">2</td>
+                        <td class="irs-val-cell"><input id="trustCountry" type="text" formControlName="trustCountry"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-desc"><label for="transferAmount">Amount transferred to trust . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-val-cell"><input id="transferAmount" type="number" formControlName="transferAmount"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-desc"><label for="distributionAmount">Amount received from trust . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-val-cell"><input id="distributionAmount" type="number" formControlName="distributionAmount"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">5</td>
+                        <td class="irs-desc"><label for="loanAmount">Loan from trust (outstanding balance) . . . . . . . . .</label></td>
+                        <td class="irs-line-num">5</td>
+                        <td class="irs-val-cell"><input id="loanAmount" type="number" formControlName="loanAmount"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part II</span>
+                <span class="irs-part-title">Receipt of Foreign Gift</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part2 }}
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">6</td>
+                        <td class="irs-desc"><label for="donorName">Donor's name . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">6</td>
+                        <td class="irs-val-cell"><input id="donorName" type="text" formControlName="donorName"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">7</td>
+                        <td class="irs-desc"><label for="donorCountry">Donor's country . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">7</td>
+                        <td class="irs-val-cell"><input id="donorCountry" type="text" formControlName="donorCountry"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">8</td>
+                        <td class="irs-desc"><label for="giftAmount">Value of gift . . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">8</td>
+                        <td class="irs-val-cell"><input id="giftAmount" type="number" formControlName="giftAmount"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">9</td>
+                        <td class="irs-desc"><label for="giftDescription">Description of gift . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">9</td>
+                        <td class="irs-val-cell"><input id="giftDescription" type="text" formControlName="giftDescription"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part III</span>
+                <span class="irs-part-title">Ownership of Foreign Trust</span>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">10</td>
+                        <td class="irs-desc"><label for="beneficiaryName">Beneficiary name . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">10</td>
+                        <td class="irs-val-cell"><input id="beneficiaryName" type="text" formControlName="beneficiaryName"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">11</td>
+                        <td class="irs-desc"><label for="beneficiarySSN">Beneficiary SSN/ITIN . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">11</td>
+                        <td class="irs-val-cell"><input id="beneficiarySSN" type="text" formControlName="beneficiarySSN"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">12</td>
+                        <td class="irs-desc"><label for="trustInterest">Interest in trust (%) . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">12</td>
+                        <td class="irs-val-cell"><input id="trustInterest" type="number" formControlName="trustInterest"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="irs-footer-actions">
+                <button type="submit" class="btn-irs-submit">Guardar Formulario 3520</button>
+            </div>
+        </form>
+
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

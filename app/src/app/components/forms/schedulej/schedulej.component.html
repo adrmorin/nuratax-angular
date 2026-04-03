@@ -1,74 +1,100 @@
-<div class="irs-form-container">
-  <div class="irs-form-box">
-    <!-- Header -->
-    <div class="irs-main-header">
-      <div class="irs-col-form-id">
-        <div class="irs-form-num">SCHEDULE J <br>(Form 5471)</div>
-        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
-      </div>
-      <div class="irs-col-title">
-        <h1>Accumulated Earnings and Profits of Foreign Corporation</h1>
-        <p class="irs-instruction">Go to <strong>www.irs.gov/Form5471</strong> for instructions and the latest information.</p>
-        <p class="irs-attach">Attach to Form 5471.</p>
-      </div>
-      <div class="irs-col-omb">
-        <div class="irs-omb">OMB No. 1545-0704</div>
-      </div>
-    </div>
-
-    <!-- Identity Row -->
-    <div class="irs-identity-row">
-        <div class="irs-id-section border-b">
-           <label for="nameOfPerson">Name of person filing Form 5471</label>
-           <input id="nameOfPerson" type="text" formControlName="nameOfPerson" class="irs-borderless-input">
+<div class="irs-unified-container">
+    <!-- Schedule J (Form 5471) Header -->
+    <div class="irs-header-main" style="background: #fff; border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.2rem; font-weight: 900;">SCHEDULE J</div>
+            <div style="font-size: 1rem; font-weight: 700;">(Form 5471)</div>
+            <div class="irs-dept-info" style="margin-top: 5px; font-family: sans-serif; font-size: 0.7rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
         </div>
-        <div class="irs-id-section border-l border-b">
-           <label for="identNumber">Identifying number</label>
-           <input id="identNumber" type="text" formControlName="identNumber" class="irs-borderless-input">
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.1rem; margin: 0;">Accumulated Earnings and Profits of Foreign Corporation</h1>
+                <h2 style="font-size: 0.9rem; margin: 0; font-style: italic;">Ganancias y Utilidades Acumuladas de una Corporación Extranjera</h2>
+            </div>
+            <p style="font-size: 0.75rem; margin-top: 5px; font-weight: 700;">▶ Attach to Form 5471. / Adjunte al Formulario 5471.</p>
         </div>
-    </div>
-    <div class="irs-identity-row">
-        <div class="irs-id-section">
-           <label for="nameOfForeignCorp">Name of foreign corporation</label>
-           <input id="nameOfForeignCorp" type="text" formControlName="nameOfForeignCorp" class="irs-borderless-input">
-        </div>
-        <div class="irs-id-section border-l">
-           <label for="corpTin">Reference ID number (see instructions)</label>
-           <input id="corpTin" type="text" formControlName="corpTin" class="irs-borderless-input">
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.6rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0704</div>
+            <div style="font-size: 2.2rem; line-height: 1;">2025</div>
         </div>
     </div>
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <!-- Part I -->
-      <div class="irs-part-header-full">
-        <span class="part-label">Part I</span>
-        <span class="part-title">Accumulated Earnings and Profits of Foreign Corporation</span>
-      </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="form">
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 250px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Name of person filing Form 5471</label>
+                    <label class="irs-label-es">Nombre de la persona que presenta el Formulario 5471</label>
+                </div>
+                <input type="text" formControlName="nameOfPerson" style="width: 100%; border: none; font-weight: 700;">
+            </div>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Identifying number</label>
+                    <label class="irs-label-es">Número de identificación</label>
+                </div>
+                <input type="text" formControlName="identNumber" style="width: 100%; border: none; font-weight: 700;">
+            </div>
+        </div>
 
-      <div class="irs-table-container">
-         <div class="irs-table-header-grid">
-            <div class="cell-head cell-row-num"></div>
-            <div class="cell-head">(a) Post-2017 Undistributed Earnings</div>
-            <div class="cell-head">(b) Section 959(c)(1) E&P</div>
-            <div class="cell-head">(c) Section 959(c)(2) E&P</div>
-            <div class="cell-head">(d) Section 959(c)(3) E&P</div>
-            <div class="cell-head">(e) Floating Column</div>
-            <div class="cell-head">(f) Total Section 964(a) E&P</div>
-         </div>
-         <div class="irs-table-row">
-            <div class="cell-val cell-row-num">1</div>
-            <div class="cell-input"><input type="number" formControlName="p1_row1a"></div>
-            <div class="cell-input"><input type="number" formControlName="p1_row1b"></div>
-            <div class="cell-input"><input type="number" formControlName="p1_row1c"></div>
-            <div class="cell-input"><input type="number" formControlName="p1_row1d"></div>
-            <div class="cell-input"><input type="number" formControlName="p1_row1e"></div>
-            <div class="cell-input"><input type="number" formControlName="p1_row1f"></div>
-         </div>
-      </div>
+        <div class="irs-row" style="grid-template-columns: 1fr 250px; border-bottom: 2px solid #000;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Name of foreign corporation</label>
+                    <label class="irs-label-es">Nombre de la corporación extranjera</label>
+                </div>
+                <input type="text" formControlName="nameOfForeignCorp" style="width: 100%; border: none; font-weight: 700;">
+            </div>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Reference ID number</label>
+                    <label class="irs-label-es">Número de identificación de referencia</label>
+                </div>
+                <input type="text" formControlName="corpTin" style="width: 100%; border: none; font-weight: 700;">
+            </div>
+        </div>
 
-      <div class="irs-footer-actions">
-        <button type="submit" class="btn-submit">Submit Schedule J</button>
-      </div>
+        <!-- Part I -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part I</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Accumulated Earnings and Profits of Foreign Corporation</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Ganancias y Utilidades Acumuladas de la Corporación Extranjera</span>
+            </div>
+        </div>
+
+        <!-- Table Grid Section -->
+        <div style="overflow-x: auto;">
+            <div style="min-width: 800px;">
+                <div style="display: grid; grid-template-columns: 50px repeat(6, 1fr); background: #eee; border-bottom: 2px solid #000; font-size: 0.75rem; font-weight: 800; text-align: center;">
+                    <div style="padding: 5px; border-right: 1px solid #000;"></div>
+                    <div style="padding: 5px; border-right: 1px solid #000;">(a) Post-2017 Undistributed Earnings</div>
+                    <div style="padding: 5px; border-right: 1px solid #000;">(b) Section 959(c)(1) E&P</div>
+                    <div style="padding: 5px; border-right: 1px solid #000;">(c) Section 959(c)(2) E&P</div>
+                    <div style="padding: 5px; border-right: 1px solid #000;">(d) Section 959(c)(3) E&P</div>
+                    <div style="padding: 5px; border-right: 1px solid #000;">(e) Other E&P</div>
+                    <div style="padding: 5px;">(f) Total Section 964(a) E&P</div>
+                </div>
+                <div style="display: grid; grid-template-columns: 50px repeat(6, 1fr); border-bottom: 1px solid #000;">
+                    <div style="padding: 5px; text-align: center; font-weight: 800; border-right: 1px solid #000; background: #eee;">1</div>
+                    <div style="padding: 5px; border-right: 1px solid #000;"><input type="number" formControlName="p1_row1a" style="width: 100%; border: none; text-align: right;"></div>
+                    <div style="padding: 5px; border-right: 1px solid #000;"><input type="number" formControlName="p1_row1b" style="width: 100%; border: none; text-align: right;"></div>
+                    <div style="padding: 5px; border-right: 1px solid #000;"><input type="number" formControlName="p1_row1c" style="width: 100%; border: none; text-align: right;"></div>
+                    <div style="padding: 5px; border-right: 1px solid #000;"><input type="number" formControlName="p1_row1d" style="width: 100%; border: none; text-align: right;"></div>
+                    <div style="padding: 5px; border-right: 1px solid #000;"><input type="number" formControlName="p1_row1e" style="width: 100%; border: none; text-align: right;"></div>
+                    <div style="padding: 5px; background: #e8efff;"><input type="number" formControlName="p1_row1f" style="width: 100%; border: none; text-align: right; background: transparent; font-weight: 800;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 40px; text-align: center;">
+            <button type="submit" style="background: #111; color: #fff; padding: 15px 60px; border: none; border-radius: 2px; font-weight: 900; cursor: pointer; text-transform: uppercase;">
+                Save Schedule J / Guardar Anexo J
+            </button>
+        </div>
     </form>
-  </div>
 </div>

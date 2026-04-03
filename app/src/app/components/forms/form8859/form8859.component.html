@@ -1,72 +1,115 @@
 <div class="irs-unified-container">
-  <!-- Header Section -->
-  <div class="irs-header-container">
-    <div class="irs-id-box">
-      <span class="irs-id-main">8859</span>
-      <span class="irs-id-sub">Form</span>
-      <span style="font-size: 0.7rem; font-weight: 700; color: #555;">(Rev. December 2024)</span>
-    </div>
-    <div class="irs-title-box">
-      <h1>Carryforward of the District of Columbia First-Time Homebuyer Credit</h1>
-      <p style="font-size: 0.75rem; margin-top: 5px;">Attach to your tax return.</p>
-    </div>
-    <div class="irs-omb-box" style="text-align: right;">
-      <span style="font-size: 0.65rem; font-weight: 700;">OMB No. 1545-1647</span><br>
-      <div style="margin-top: 10px; font-weight: 950; font-size: 0.8rem;">Attachment <br> Sequence No. <strong>112</strong></div>
-    </div>
-  </div>
-
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
-    <!-- INFO BLOCK -->
-    <div class="irs-row-line-unified border-b" style="display: flex; border-top: 3.5px solid #000; border-bottom: 3px solid #000; margin-bottom: 25px;">
-      <div class="irs-id-col" style="flex: 2; padding: 6px 12px; border-right: 2px solid #000;">
-        <label style="display: block; font-size: 0.65rem; font-weight: 900; text-transform: uppercase;">Name(s) shown on return</label>
-        <input type="text" formControlName="name" class="irs-input-field" style="text-align: left;">
-      </div>
-      <div class="irs-id-col" style="flex: 1; padding: 6px 12px;">
-        <label style="display: block; font-size: 0.65rem; font-weight: 900; text-transform: uppercase;">Your social security number</label>
-        <input type="text" formControlName="ssn" class="irs-input-field" style="text-align: left;">
-      </div>
+    <!-- Form 8859 Header -->
+    <div class="irs-header-main" style="background: #fff; border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.1rem; font-weight: 950; text-transform: uppercase;">Form 8859</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.75rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
+        </div>
+        <div class="irs-form-title-block" style="text-align: center;">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.25rem; margin: 0; font-weight: 950; text-transform: uppercase;">Carryforward of the District of Columbia First-Time Homebuyer Credit</h1>
+                <h2 style="font-size: 1rem; margin: 0; font-weight: 400; font-style: italic;">Arrastre del Crédito para Compradores de Vivienda por Primera Vez en DC</h2>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 12px; font-weight: 700;">▶ Attach to your tax return.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.6rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-1647</div>
+            <div style="font-size: 3rem; line-height: 1; font-weight: 950;">2025</div>
+            <div style="font-size: 0.75rem; font-weight: 800; margin-top: 5px;">Sequence No. 112</div>
+        </div>
     </div>
 
-    <!-- Line 1 -->
-    <div class="irs-field-row">
-      <div class="irs-ln-num">1</div>
-      <div class="irs-ln-desc">District of Columbia first-time homebuyer credit carryforward from previous tax year. Enter the amount from your previous Form 8859, line 4...</div>
-      <div class="irs-in-wrap">
-        <input type="number" formControlName="carryforwardPrev" class="irs-input-field">
-      </div>
-    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="form">
+        <!-- Identification Rows -->
+        <div class="irs-row" style="grid-template-columns: 1fr 300px;">
+            <div style="padding: 10px; border-right: 2px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Name(s) shown on return</label>
+                    <label class="irs-label-es">Nombre(s) que aparece(n) en la declaración</label>
+                </div>
+                <input type="text" formControlName="name" style="font-size: 1.1rem;">
+            </div>
+            <div style="padding: 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Social security number</label>
+                    <label class="irs-label-es">Número de seguro social (SSN)</label>
+                </div>
+                <input type="text" formControlName="ssn" style="font-size: 1.1rem;">
+            </div>
+        </div>
 
-    <!-- Line 2 -->
-    <div class="irs-field-row">
-      <div class="irs-ln-num">2</div>
-      <div class="irs-ln-desc">Limitation based on tax liability (Enter the amount from the Tax Liability Limit Worksheet; see instructions)...</div>
-      <div class="irs-in-wrap">
-        <input type="number" formControlName="taxLimit" class="irs-input-field">
-      </div>
-    </div>
+        <!-- Part I: Computation -->
+        <div class="irs-part-banner">
+            <div class="irs-label-wrap" style="display: flex; gap: 20px; align-items: baseline;">
+                <span style="font-size: 1.4rem; font-weight: 950;">Part I</span>
+                <span style="font-size: 1.1rem; font-weight: 700;">Credit Computation / Cálculo del Crédito</span>
+            </div>
+        </div>
 
-    <!-- Line 3 -->
-    <div class="irs-field-row" style="background: #fafbff;">
-      <div class="irs-ln-num">3</div>
-      <div class="irs-ln-desc bold">Current year credit. Enter the smaller of line 1 or line 2. Also include this amount on your current tax return (e.g., Schedule 3, Line 6h)...</div>
-      <div class="irs-result-box bold">
-        ${{ currentYearCredit() | number:'1.2-2' }}
-      </div>
-    </div>
+        <!-- Form Rows -->
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div class="irs-col-line-num">1</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap" style="max-width: 600px;">
+                    <span class="irs-label-en">DC first-time homebuyer credit carryforward from previous tax year.</span>
+                    <span class="irs-label-es">Arrastre del crédito de DC del año fiscal anterior.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <input type="number" formControlName="carryforwardPrev" style="text-align: right;">
+            </div>
+        </div>
 
-    <!-- Line 4 -->
-    <div class="irs-field-row" style="border-bottom: 3.5px solid #000; margin-top: 5px;">
-      <div class="irs-ln-num">4</div>
-      <div class="irs-ln-desc bold">Credit carryforward to next tax year. Subtract line 3 from line 1...</div>
-      <div class="irs-result-box bold" style="background: #e8f0fe;">
-        ${{ carryforwardNext() | number:'1.2-2' }}
-      </div>
-    </div>
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div class="irs-col-line-num">2</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Limitation based on tax liability (from Worksheet).</span>
+                    <span class="irs-label-es">Limitación basada en la responsabilidad contributiva.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <input type="number" formControlName="taxLimit" style="text-align: right;">
+            </div>
+        </div>
 
-    <div style="margin-top: 40px; text-align: right;">
-      <button type="submit" class="irs-btn-submit">Submit Form 8859</button>
-    </div>
-  </form>
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px; background: #ffffde;">
+            <div class="irs-col-line-num">3</div>
+            <div style="padding: 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">Current year credit. Enter the smaller of line 1 or line 2.</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Crédito del año actual. Ingrese el menor de la línea 1 o la línea 2.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input" style="background: #ffd54f !important; text-align: right; padding-right: 15px;">
+                <span style="font-weight: 950; font-size: 1.2rem;">${{ currentYearCredit() | number:'1.2-2' }}</span>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px; background: #e3f2fd; border-bottom: 3px solid #000;">
+            <div class="irs-col-line-num" style="background: #1565c0; color: #fff;">4</div>
+            <div style="padding: 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950; color: #1565c0;">Credit carryforward to next tax year. Subtract line 3 from line 1.</span>
+                    <span class="irs-label-es" style="font-weight: 700; color: #1565c0;">Arrastre del crédito al próximo año. Reste la línea 3 de la línea 1.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input" style="background: #1e88e5 !important; color: #fff; text-align: right; padding-right: 15px;">
+                <span style="font-weight: 950; font-size: 1.4rem;">${{ carryforwardNext() | number:'1.2-2' }}</span>
+            </div>
+        </div>
+
+        <div style="padding: 40px; text-align: center;">
+            <button type="submit" style="background: #111; color: #fff; padding: 20px 80px; border: none; font-size: 1.3rem; font-weight: 950; cursor: pointer; text-transform: uppercase;">
+                Save Form 8859 / Guardar Formulario 8859
+            </button>
+        </div>
+    </form>
 </div>

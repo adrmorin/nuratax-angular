@@ -1,89 +1,94 @@
-/* Form 8396 CSS */
+/* Form 8396 - Mortgage Interest Credit 
+   Unified Design System v2 
+*/
+
+:host {
+    display: block;
+    background-color: var(--irs-bg-paper);
+}
+
 .irs-unified-container {
-  max-width: 900px;
-  margin: 20px auto;
-  font-family: 'Inter', system-ui, sans-serif;
-  color: #1a1a1a;
-  background: #fff;
-  padding: 40px;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+    margin: 2rem auto;
+    border: 3.5px solid #000;
+    max-width: 1000px;
+    box-shadow: 0 15px 60px rgba(0,0,0,0.15);
 }
 
-.irs-header-container {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 4px solid #000;
-  padding-bottom: 20px;
-  margin-bottom: 30px;
+.irs-row {
+    display: grid;
+    border-bottom: 2.2px solid #000;
+    align-items: stretch;
 }
 
-.irs-id-box { flex: 1; display: flex; flex-direction: column; }
-.irs-id-main { font-weight: 950; font-size: 3rem; line-height: 1; }
-.irs-id-sub { font-size: 1rem; font-weight: 700; text-transform: uppercase; }
-
-.irs-title-box { flex: 3; text-align: center; }
-.irs-title-box h1 { font-size: 1.5rem; font-weight: 950; margin: 0; text-transform: uppercase; }
-
-.irs-section-header-bar {
-  background: #333;
-  color: #fff;
-  padding: 8px 15px;
-  font-size: 1.1rem;
-  font-weight: 950;
-  margin-top: 25px;
-  margin-bottom: 10px;
+.irs-header-main {
+    display: grid;
+    grid-template-columns: 240px 1fr 240px;
+    background-color: #fff;
+    padding: 20px;
+    border-bottom: 3.5px solid #000;
 }
 
-.irs-field-row {
-  display: flex;
-  align-items: flex-end;
-  border-bottom: 1px solid #ddd;
-  padding: 12px 0;
-  min-height: 45px;
+.irs-part-banner {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background-color: #000;
+    color: #fff;
+    padding: 12px 25px;
 }
 
-.irs-ln-num { width: 35px; font-weight: 950; font-size: 0.85rem; }
-.irs-ln-desc { flex: 1; font-size: 0.9rem; padding-right: 15px; line-height: 1.4; font-weight: 700; }
-.irs-ln-sub { width: 35px; text-align: center; font-weight: 700; color: #666; font-size: 0.75rem; }
-
-.irs-in-wrap-amounts {
-  width: 170px;
-  border-left: 2px solid #000;
-  padding: 0 10px;
+input[type="number"], input[type="text"], select {
+    font-family: var(--irs-font-body);
+    font-size: 1.15rem;
+    font-weight: 850;
+    color: #111;
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
 }
 
-.irs-result-box {
-  width: 170px;
-  border-left: 2px solid #000;
-  padding: 5px 10px;
-  text-align: right;
-  font-family: 'Roboto Mono', monospace;
-  font-weight: 700;
-  font-size: 1.1rem;
+.irs-label-en {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #000;
 }
 
-.irs-input-field {
-  width: 100%;
-  border: none;
-  background: transparent;
-  font-family: 'Roboto Mono', monospace;
-  font-size: 1rem;
-  font-weight: 700;
-  text-align: right;
-  outline: none;
+.irs-label-es {
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #444;
+    display: block;
 }
 
-.irs-btn-submit {
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 15px 40px;
-  font-size: 1.1rem;
-  font-weight: 950;
-  text-transform: uppercase;
-  cursor: pointer;
+.irs-blue-cell {
+    background: #eef2ff !important;
 }
 
-.border-b { border-bottom: 3.5px solid #000; }
-.bold { font-weight: 950; }
+.irs-yellow-cell {
+    background: var(--irs-accent-amber-light) !important;
+    border-left: 2.5px solid #000;
+}
+
+.irs-col-line-num {
+    background-color: #f5f5f5;
+    font-weight: 950;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 2.5px solid #000;
+    font-size: 1.1rem;
+}
+
+.irs-entity-box {
+    padding: 15px;
+    border-right: 2.2px solid #000;
+}
+
+.irs-money-sym {
+    font-weight: 950;
+    font-size: 1.3rem;
+    padding-right: 8px;
+    color: #000;
+}

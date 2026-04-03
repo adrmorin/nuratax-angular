@@ -1,0 +1,270 @@
+<div class="irs-form-container" style="position: relative;">
+    <div class="irs-header">
+        <div class="irs-header-left">
+            <div class="form-title">Formulario 3520-A 2026</div>
+        </div>
+        <div class="irs-header-right">
+            <span>Página 1</span>
+        </div>
+    </div>
+
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1">
+                <span class="irs-form-id">3520-A</span>
+                <span class="irs-form-sub-id">2026</span>
+            </div>
+            <div class="irs-col-2">
+                <h1>Annual Information Return of Foreign Trust With a U.S. Owner</h1>
+                <p>(Under section 6048(b))</p>
+                <p class="irs-instruction">▶ Adjunte al Formulario 1040, 1040-NR, 1065, o 1120.</p>
+            </div>
+            <div class="irs-col-3">
+                <div class="irs-sequence-box">
+                    <span>Secuencia No.</span>
+                    <span class="irs-sequence-num">17</span>
+                </div>
+            </div>
+        </div>
+
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <!-- Owner Information -->
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right">
+                    <label for="trustName">Nombre del Fideicomiso (Foreign trust name)</label>
+                    <input id="trustName" type="text" formControlName="trustName">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="ssn">Número de Seguro Social (SSN)</label>
+                    <input id="ssn" type="text" formControlName="ssn">
+                </div>
+            </div>
+
+            <div class="irs-row-border">
+                <div class="irs-field flex-1 border-right">
+                    <label for="ein">EIN (Employer Identification Number)</label>
+                    <input id="ein" type="text" formControlName="ein">
+                </div>
+                <div class="irs-field flex-1">
+                    <label for="foreignAddress">Dirección del Fideicomiso en el Extranjero</label>
+                    <input id="foreignAddress" type="text" formControlName="foreignAddress">
+                </div>
+            </div>
+
+            <!-- Part I: U.S. Owner -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part I</span>
+                <span class="irs-part-title">U.S. Owner(s) of Foreign Trust</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part1 }}
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-desc"><label for="ownerName1">Name of U.S. owner . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">1</td>
+                        <td class="irs-val-cell"><input id="ownerName1" type="text" formControlName="ownerName1"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">2</td>
+                        <td class="irs-desc"><label for="ownerSSN1">U.S. owner's SSN or ITIN . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">2</td>
+                        <td class="irs-val-cell"><input id="ownerSSN1" type="text" formControlName="ownerSSN1"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-desc"><label for="ownerAddress1">Address . . . . . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">3</td>
+                        <td class="irs-val-cell"><input id="ownerAddress1" type="text" formControlName="ownerAddress1"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-desc"><label for="ownershipPercent">Ownership percentage . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">4</td>
+                        <td class="irs-val-cell"><input id="ownershipPercent" type="number" formControlName="ownershipPercent"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Part II: Fiduciary -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part II</span>
+                <span class="irs-part-title">Fiduciary</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part2 }}
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">5</td>
+                        <td class="irs-desc"><label for="fiduciaryName">Name of fiduciary . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">5</td>
+                        <td class="irs-val-cell"><input id="fiduciaryName" type="text" formControlName="fiduciaryName"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">6</td>
+                        <td class="irs-desc"><label for="fiduciaryAddress">Fiduciary's address . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">6</td>
+                        <td class="irs-val-cell"><input id="fiduciaryAddress" type="text" formControlName="fiduciaryAddress"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">7</td>
+                        <td class="irs-desc"><label for="fiduciaryEIN">Fiduciary's EIN . . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">7</td>
+                        <td class="irs-val-cell"><input id="fiduciaryEIN" type="text" formControlName="fiduciaryEIN"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Part III: Trust Income -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part III</span>
+                <span class="irs-part-title">Trust Income and Distributions</span>
+            </div>
+
+            <div class="nerea-advice-container">
+                <img src="assets/images/nerea_avatar.png" class="nerea-avatar-favicon" alt="Nerea">
+                <div class="nerea-advice-bubble">
+                    <strong>Consejo de Nerea:</strong> {{ nereaAdvice.part3 }}
+                </div>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">8</td>
+                        <td class="irs-desc"><label for="interestIncome">Interest income . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">8</td>
+                        <td class="irs-val-cell"><input id="interestIncome" type="number" formControlName="interestIncome"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">9</td>
+                        <td class="irs-desc"><label for="dividendIncome">Dividend income . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">9</td>
+                        <td class="irs-val-cell"><input id="dividendIncome" type="number" formControlName="dividendIncome"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">10</td>
+                        <td class="irs-desc"><label for="royaltyIncome">Royalty income . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">10</td>
+                        <td class="irs-val-cell"><input id="royaltyIncome" type="number" formControlName="royaltyIncome"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">11</td>
+                        <td class="irs-desc"><label for="realEstateIncome">Real estate income . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">11</td>
+                        <td class="irs-val-cell"><input id="realEstateIncome" type="number" formControlName="realEstateIncome"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">12</td>
+                        <td class="irs-desc"><label for="otherIncome">Other income . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">12</td>
+                        <td class="irs-val-cell"><input id="otherIncome" type="number" formControlName="otherIncome"></td>
+                    </tr>
+                    <tr class="irs-result-row">
+                        <td class="irs-line-num">13</td>
+                        <td class="irs-desc"><strong>Total trust income. Sume líneas 8 a 12 . . . . . . . . . . .</strong></td>
+                        <td class="irs-line-num">13</td>
+                        <td class="irs-val-cell calculated text-right">{{ taxForm.get('totalTrustIncome')?.value | currency }}</td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">14</td>
+                        <td class="irs-desc"><label for="distributionsUS">Distributions to U.S. beneficiaries . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">14</td>
+                        <td class="irs-val-cell"><input id="distributionsUS" type="number" formControlName="distributionsUS"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">15</td>
+                        <td class="irs-desc"><label for="distributionsForeign">Distributions to foreign beneficiaries . . . . . . . . .</label></td>
+                        <td class="irs-line-num">15</td>
+                        <td class="irs-val-cell"><input id="distributionsForeign" type="number" formControlName="distributionsForeign"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Part IV: Trust Assets -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part IV</span>
+                <span class="irs-part-title">Trust Assets</span>
+            </div>
+
+            <table class="irs-table">
+                <tbody>
+                    <tr>
+                        <td class="irs-line-num">16</td>
+                        <td class="irs-desc"><label for="totalTrustAssets">Total value of trust assets at year-end . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">16</td>
+                        <td class="irs-val-cell"><input id="totalTrustAssets" type="number" formControlName="totalTrustAssets"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">17</td>
+                        <td class="irs-desc"><label for="usAssetValue">U.S. asset value . . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">17</td>
+                        <td class="irs-val-cell"><input id="usAssetValue" type="number" formControlName="usAssetValue"></td>
+                    </tr>
+                    <tr>
+                        <td class="irs-line-num">18</td>
+                        <td class="irs-desc"><label for="foreignAssetValue">Foreign asset value . . . . . . . . . . . . . . . . . . . . .</label></td>
+                        <td class="irs-line-num">18</td>
+                        <td class="irs-val-cell"><input id="foreignAssetValue" type="number" formControlName="foreignAssetValue"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Part V: Transactions -->
+            <div class="irs-section-header">
+                <span class="irs-part-num">Part V</span>
+                <span class="irs-part-title">Reportable Transactions</span>
+            </div>
+
+            <div class="irs-row-border">
+                <div class="irs-field flex-1 border-right">
+                    <div class="irs-checkbox-group">
+                        <input type="checkbox" id="saleProperty" formControlName="saleProperty">
+                        <label for="saleProperty">Sale or exchange of property</label>
+                    </div>
+                </div>
+                <div class="irs-field flex-1">
+                    <div class="irs-checkbox-group">
+                        <input type="checkbox" id="loanTransaction" formControlName="loanTransaction">
+                        <label for="loanTransaction">Loan transaction</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="irs-row-border">
+                <div class="irs-field flex-1 border-right">
+                    <div class="irs-checkbox-group">
+                        <input type="checkbox" id="transferToTrust" formControlName="transferToTrust">
+                        <label for="transferToTrust">Transfer to foreign trust</label>
+                    </div>
+                </div>
+                <div class="irs-field flex-1">
+                    <div class="irs-checkbox-group">
+                        <input type="checkbox" id="distributionFromTrust" formControlName="distributionFromTrust">
+                        <label for="distributionFromTrust">Distribution from trust</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="irs-footer-actions">
+                <button type="submit" class="btn-irs-submit">Guardar Formulario 3520-A</button>
+            </div>
+        </form>
+
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

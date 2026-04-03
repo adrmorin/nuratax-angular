@@ -1,46 +1,50 @@
-import { Component, inject, computed } from '@angular/core';
+import { Component, OnInit, signal, inject } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-form8396',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './form8396.component.html',
-  styleUrl: './form8396.component.css'
+  styleUrls: ['./form8396.component.css']
 })
-export class Form8396Component {
+export class Form8396Component implements OnInit {
   private fb = inject(FormBuilder);
+  form!: FormGroup;
+  
+  // High-fidelity calculation signals
+  currentYearCredit = signal(0);
 
-  form: FormGroup = this.fb.group({
-    name: [''],
-    ssn: [''],
-    l1_creditRate: [0],
-    l2_interestPaid: [0],
-    l4_carryforward2019: [0],
-    l5_carryforward2020: [0],
-    l6_carryforward2021: [0]
-  });
+  ngOnInit(): void {
+    this.form = this.fb.group({
+      name: [''],
+      ssn: [''],
+      line1: [0], // Mortgage interest paid
+      line2: [0], // Credit rate from MCC
+      line3: [0], // Potential credit (multiply line 1 by line 2)
+      line9: [0]  // Current year mortgage interest credit
+    });
 
-  currentYearCredit = computed(() => {
-    const rate = (this.form.get('l1_creditRate')?.value || 0) / 100;
-    const interest = (this.form.get('l2_interestPaid')?.value || 0);
-    const calculated = rate * interest;
-    // Cap at $2,000 if rate > 20%
-    if (rate > 0.20) {
-      return Math.min(calculated, 2000);
-    }
-    return calculated;
-  });
+    this.form.valueChanges.subscribe(val => {
+      this.calculateValues(val);
+    });
+  }
 
-  totalAvailableCredit = computed(() => {
-    return this.currentYearCredit() +
-           (this.form.get('l4_carryforward2019')?.value || 0) +
-           (this.form.get('l5_carryforward2020')?.value || 0) +
-           (this.form.get('l6_carryforward2021')?.value || 0);
-  });
+  calculateValues(val: Record<string, number | string>): void {
+      const rate = Number(val['line2']) / 100;
+      const potential = Number(val['line1']) * rate;
+      const finalCredit = Math.min(potential, 2000); // Cap usually at $2,000 for many MCCs
+      
+      this.form.patchValue({
+          line3: potential,
+          line9: finalCredit
+      }, { emitEvent: false });
 
-  onSubmit() {
-    console.log('Form 8396 Submitted', this.form.value);
+      this.currentYearCredit.set(finalCredit);
+  }
+
+  onSubmit(): void {
+    console.log('Form 8396 Data:', this.form.value);
   }
 }

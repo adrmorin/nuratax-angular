@@ -1,193 +1,60 @@
-.irs-form-container {
-    padding: 2rem;
+/* Form 1099-K - Unified Design System v2
+   Inherits from global styles.css
+*/
+
+:host {
+    display: block;
+    background-color: var(--irs-bg-paper);
+}
+
+.irs-unified-container {
+    margin: 2rem auto;
+    border: 3px solid #000;
     max-width: 950px;
-    margin: 0 auto;
-    background: #fff;
-    font-family: 'Inter', Arial, sans-serif;
-    color: #000;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.1);
 }
 
-.k1099-box {
-    border: 2px solid #000;
+.irs-w2-body {
+    padding: 0;
 }
 
-.k1099-grid {
-    display: flex;
+.irs-w2-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     border-bottom: 2px solid #000;
 }
 
-.k1099-left {
-    flex: 1.1;
+.irs-w2-col-left, .irs-w2-col-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.irs-w2-col-left {
     border-right: 2px solid #000;
-    display: flex;
-    flex-direction: column;
 }
 
-.k1099-right {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.k1099-header-right {
-    display: flex;
-    flex-direction: column;
-    border-bottom: 2px solid #000;
-}
-
-.k1099-omb {
-    font-size: 0.75rem;
-    font-weight: 500;
-    padding: 4px;
-    border-bottom: 2px solid #000;
-    text-align: right;
-}
-
-.k1099-maintitle {
-    display: flex;
-    padding: 10px;
-    align-items: center;
-}
-
-.k1099-form-name {
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin-right: 15px;
-}
-.k1099-form-name strong {
-    font-size: 2.2rem;
-    font-weight: 900;
-}
-
-.k1099-title-text {
-    font-size: 1.1rem;
-    font-weight: 900;
-    line-height: 1.1;
-}
-
-.k1099-row {
-    display: flex;
+.irs-cell-w2 {
     border-bottom: 1px solid #000;
-}
-.k1099-left .k1099-row:last-child {
-    border-bottom: none;
-}
-.k1099-right .k1099-row:last-child {
-    border-bottom: none;
+    padding: 5px 10px;
 }
 
-.k1099-cell {
-    padding: 4px;
-    display: flex;
-    flex-direction: column;
-}
-
-.k1099-cell.h-filer { height: 120px; border-bottom: 1px solid #000; }
-.k1099-cell.h-double { height: 80px; border-bottom: 1px solid #000; }
-.k1099-cell.h-triple { height: 120px; border-bottom: 1px solid #000; }
-
-.k1099-cell.half {
-    flex: 1;
-    border-right: 1px solid #000;
-}
-.k1099-cell.half:last-child {
-    border-right: none;
-}
-.k1099-cell.quarter {
-    flex: 1;
-    border-right: 1px solid #000;
-}
-.k1099-cell.quarter:last-child { border-right: none; }
-.k1099-cell.full { width: 100%; border-right: none; }
-.k1099-cell.thin { width: 40px; border-right: 1px solid #000; }
-
-.k1099-cell-header {
-    font-size: 0.75rem;
-    font-weight: 500;
-    line-height: 1.1;
-    margin-bottom: 2px;
-}
-.k1099-cell-header strong {
-    font-weight: 950;
-    margin-right: 3px;
-    font-size: 0.85rem;
-}
-
-.k1099-input {
-    border: none;
-    background: #eef7ff;
-    padding: 4px;
+input[type="text"], input[type="number"], textarea {
+    font-family: var(--irs-font-body);
     font-size: 1rem;
-    outline: none;
-    font-family: monospace;
+    font-weight: 700;
+    color: #1a1a1a;
     width: 100%;
-    margin-top: auto;
-}
-.k1099-input.num {
-    text-align: right;
-}
-
-.k1099-textarea {
     border: none;
-    background: #eef7ff;
-    padding: 4px;
-    font-size: 0.95rem;
+    background: transparent;
     outline: none;
-    font-family: monospace;
+}
+
+textarea {
     resize: none;
-    width: 100%;
-    height: 100%;
-    margin-top: 5px;
 }
 
-.radio-cell {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 0.75rem;
-    font-weight: 500;
-    padding-left: 10px;
-}
-.k1099-radio {
-    margin: 2px 0;
-}
-
-.bg-gray {
-    background: #f2f2f2;
-}
-
-.k1099-footer {
-    display: flex;
-    border-top: 2px solid #000;
-    padding: 10px;
-}
-
-.k1099-copy-text {
-    width: 150px;
-    font-size: 1.1rem;
-    font-weight: 500;
-    border-right: 2px solid #000;
-    padding-right: 10px;
-    line-height: 1.1;
-}
-.k1099-copy-text strong {
-    font-size: 2rem;
-    font-weight: 950;
-}
-
-.k1099-instructions {
-    flex: 1;
-    padding-left: 15px;
-    font-size: 0.85rem;
-    line-height: 1.2;
-}
-
-.k1099-dts-footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    font-size: 0.85rem;
-    background: #000;
-    color: #fff;
-    font-weight: 500;
+input[type="checkbox"], input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #000;
 }

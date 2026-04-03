@@ -1,0 +1,26 @@
+<div class="irs-form-container">
+    <div class="irs-header"><div class="form-title">Formulario 8991 2026</div></div>
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1"><span class="irs-form-id">8991</span><span class="irs-form-sub-id">2026</span></div>
+            <div class="irs-col-2"><h1>Global Intangible Low-Taxed Income</h1><p class="irs-instruction">▶ Attach to Form 1120.</p></div>
+            <div class="irs-col-3"><div class="irs-sequence-box"><span>Secuencia</span><span class="irs-sequence-num">91</span></div></div>
+        </div>
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right"><label for="name">Nombre de la Corporación</label><input id="name" type="text" formControlName="name"></div>
+                <div class="irs-field flex-1"><label for="ein">EIN</label><input id="ein" type="text" formControlName="ein"></div>
+            </div>
+            <div class="irs-section-header"><span class="irs-part-num">Part I</span><span class="irs-part-title">GILTI Calculation</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">1</td><td class="irs-desc"><label for="grossIncome">Gross income . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">1</td><td class="irs-val-cell"><input id="grossIncome" type="number" formControlName="grossIncome"></td></tr>
+                    <tr><td class="irs-line-num">2</td><td class="irs-desc"><label for="usGrossIncome">U.S. gross income . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">2</td><td class="irs-val-cell"><input id="usGrossIncome" type="number" formControlName="usGrossIncome"></td></tr>
+                    <tr class="irs-result-row"><td class="irs-line-num">3</td><td class="irs-desc"><strong>Foreign gross income . . . . . . . . . . . . . . . . . . . .</strong></td><td class="irs-line-num">3</td><td class="irs-val-cell calculated">{{ taxForm.get('foreignGross')?.value | currency }}</td></tr>
+                </tbody>
+            </table>
+            <div class="irs-footer-actions"><button type="submit" class="btn-irs-submit">Guardar Formulario 8991</button></div>
+        </form>
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

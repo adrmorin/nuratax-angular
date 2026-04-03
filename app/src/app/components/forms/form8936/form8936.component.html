@@ -1,177 +1,121 @@
-<div class="irs-form-container">
-  <div class="irs-form-box">
-    <!-- Main Header -->
-    <div class="irs-main-header">
-      <div class="irs-col-form-id">
-        <div class="irs-form-num">Form <span class="num-large">8936</span></div>
-        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
-      </div>
-      <div class="irs-col-title">
-        <h1>Clean Vehicle Credits</h1>
-        <p class="irs-instruction">Go to <strong>www.irs.gov/Form8936</strong> for instructions and the latest information.</p>
-        <p class="irs-attach">Attach to Form 1040, 1040-SR, or 1040-NR.</p>
-      </div>
-      <div class="irs-col-omb">
-        <div class="irs-omb">OMB No. 1545-2137</div>
-        <div class="irs-year-box">
-          <div class="irs-year">2025</div>
-          <div class="irs-attachment">Attachment<br>Sequence No. <strong>69</strong></div>
+<div class="irs-unified-container">
+    <!-- Form 8936 Header -->
+    <div class="irs-header-main" style="background: #fff; border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.4rem;">Form 8936</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
         </div>
-      </div>
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.3rem; margin: 0;">Clean Vehicle Credits</h1>
+                <h2 style="font-size: 1rem; margin: 0; font-style: italic;">Créditos por Vehículos Limpios</h2>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 8px; font-weight: 700;">Attach to Form 1040, 1040-SR, or 1040-NR. / Adjunte al Formulario 1040, 1040-SR o 1040-NR.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-2137</div>
+            <div style="font-size: 2.8rem; line-height: 1;">2025</div>
+        </div>
     </div>
 
-    <!-- Name and ID Header -->
-    <div class="irs-name-ssn-row">
-      <div class="irs-name-box">
-        <label for="name">Name(s) shown on return</label>
-        <input id="name" type="text" formControlName="name" class="irs-borderless-input">
-      </div>
-      <div class="irs-ssn-box">
-        <label for="identifyingNumber">Identifying number</label>
-        <input id="identifyingNumber" type="text" formControlName="identifyingNumber" class="irs-borderless-input">
-      </div>
-    </div>
-
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      
-      <!-- Part I -->
-      <div class="irs-part-header">
-        <span class="part-label">Part I</span>
-        <span class="part-title">Modified Adjusted Gross Income (MAGI) Amount</span>
-      </div>
-
-      <div class="irs-form-body">
-        
-        <!-- Line 1 Breakdown -->
-        <div class="irs-line-item zebra-light">
-          <div class="irs-line-num">1</div>
-          <div class="irs-line-desc">
-            <strong>2025 Modified Adjusted Gross Income (MAGI).</strong> See instructions.
-            <div class="irs-sub-grid">
-              <div class="irs-sub-row">
-                <span class="sub-letter">a</span>
-                <label for="line1a">Enter the amount from line 11a of your 2025 Form 1040, 1040-SR, or 1040-NR. Estates and trusts, Form 1041, see instructions.</label>
-                <div class="irs-dots"></div>
-                <div class="irs-input-box small"><input id="line1a" type="number" formControlName="line1a"></div>
-              </div>
-              <div class="irs-sub-row">
-                <span class="sub-letter">b</span>
-                <label for="line1b">Enter any income from Puerto Rico you excluded</label>
-                <div class="irs-dots"></div>
-                <div class="irs-input-box small"><input id="line1b" type="number" formControlName="line1b"></div>
-              </div>
-              <div class="irs-sub-row">
-                <span class="sub-letter">c</span>
-                <label for="line1c">Enter any amount from Form 2555, line 45</label>
-                <div class="irs-dots"></div>
-                <div class="irs-input-box small"><input id="line1c" type="number" formControlName="line1c"></div>
-              </div>
-              <div class="irs-sub-row">
-                <span class="sub-letter">d</span>
-                <label for="line1d">Enter any amount from Form 2555, line 50</label>
-                <div class="irs-dots"></div>
-                <div class="irs-input-box small"><input id="line1d" type="number" formControlName="line1d"></div>
-              </div>
-              <div class="irs-sub-row">
-                <span class="sub-letter">e</span>
-                <label for="line1e">Enter any amount from Form 4563, line 15</label>
-                <div class="irs-dots"></div>
-                <div class="irs-input-box small"><input id="line1e" type="number" formControlName="line1e"></div>
-              </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="form">
+        <!-- Name and ID Header -->
+        <div class="irs-row" style="grid-template-columns: 1fr 250px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Name(s) shown on return</label>
+                    <label class="irs-label-es">Nombre(s) que aparecen en la declaración</label>
+                </div>
+                <input type="text" formControlName="name" style="width: 100%; border: none; font-weight: 700;">
             </div>
-          </div>
-        </div>
-
-        <div class="irs-line-item zebra-dark border-thick-bottom">
-          <div class="irs-line-num">2</div>
-          <div class="irs-line-desc"><label for="line2">Add lines 1a through 1e</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-line-val-num">2</div>
-          <div class="irs-input-box"><input id="line2" type="number" formControlName="line2"></div>
-        </div>
-
-        <!-- Line 3 Breakdown -->
-        <div class="irs-line-item zebra-light">
-          <div class="irs-line-num">3</div>
-          <div class="irs-line-desc">
-            <strong>2024 Modified Adjusted Gross Income (MAGI).</strong> See instructions.
-            <div class="irs-sub-grid">
-              <div class="irs-sub-row">
-                <span class="sub-letter">a</span>
-                <label for="line3a">Enter the amount from line 11 of your 2024 Form 1040, 1040-SR, or 1040-NR. Estates and trusts, Form 1041, see instructions.</label>
-                <div class="irs-dots"></div>
-                <div class="irs-input-box small"><input id="line3a" type="number" formControlName="line3a"></div>
-              </div>
-              <div class="irs-sub-row">
-                <span class="sub-letter">b</span>
-                <label for="line3b">Enter any income from Puerto Rico you excluded</label>
-                <div class="irs-dots"></div>
-                <div class="irs-input-box small"><input id="line3b" type="number" formControlName="line3b"></div>
-              </div>
-              <div class="irs-sub-row">
-                <span class="sub-letter">c</span>
-                <label for="line3c">Enter any amount from Form 2555, line 45</label>
-                <div class="irs-dots"></div>
-                <div class="irs-input-box small"><input id="line3c" type="number" formControlName="line3c"></div>
-              </div>
-              <div class="irs-sub-row">
-                <span class="sub-letter">d</span>
-                <label for="line3d">Enter any amount from Form 2555, line 50</label>
-                <div class="irs-dots"></div>
-                <div class="irs-input-box small"><input id="line3d" type="number" formControlName="line3d"></div>
-              </div>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Identifying number</label>
+                    <label class="irs-label-es">Número de identificación</label>
+                </div>
+                <input type="text" formControlName="identifyingNumber" style="width: 100%; border: none; font-weight: 700;">
             </div>
-          </div>
         </div>
 
-        <div class="irs-line-item zebra-dark border-thick-bottom">
-          <div class="irs-line-num">4</div>
-          <div class="irs-line-desc"><label for="line4">Add lines 3a through 3d</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-line-val-num">4</div>
-          <div class="irs-input-box"><input id="line4" type="number" formControlName="line4"></div>
+        <!-- Part I -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part I</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Modified Adjusted Gross Income (MAGI) Amount</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Cantidad de los Ingresos Brutos Ajustados Modificados (MAGI)</span>
+            </div>
         </div>
 
-        <div class="irs-line-item">
-          <div class="irs-line-num">5</div>
-          <div class="irs-line-desc">
-            <label for="line5"><strong>Compare lines 2 and 4.</strong> Enter the smaller of line 2 or line 4. If you aren't using your 2024 MAGI to qualify, enter the amount from line 2.</label>
-          </div>
-          <div class="irs-dots"></div>
-          <div class="irs-line-val-num">5</div>
-          <div class="irs-input-box"><input id="line5" type="number" formControlName="line5"></div>
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div class="irs-col-line-num">1a</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Enter the amount from line 11a of your 2025 Form 1040, 1040-SR, or 1040-NR.</span>
+                    <span class="irs-label-es">Anote la cantidad de la línea 11a de su Formulario 1040, 1040-SR o 1040-NR de 2025.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line1a">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px; background: #eee;">
+            <div class="irs-col-line-num">2</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 900;">Add lines 1a through 1e</span>
+                    <span class="irs-label-es" style="font-weight: 400;">Sume las líneas 1a a la 1e</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line2" style="font-weight: 900;">
+                </div>
+            </div>
         </div>
 
         <!-- MAGI Limits Table -->
-        <div class="irs-table-msg">
-          Individuals, estates, or trusts exceeding the following MAGI limits for both 2024 and 2025 can't claim the applicable credit.
+        <div style="padding: 15px; border-bottom: 2px solid #000;">
+            <div class="irs-label-wrap" style="margin-bottom: 10px;">
+                <span class="irs-label-en">Individuals, estates, or trusts exceeding the following MAGI limits for both 2024 and 2025 can't claim the applicable credit.</span>
+                <span class="irs-label-es">Las personas, sucesiones o fideicomisos que superen los siguientes límites de MAGI tanto para 2024 como para 2025 no pueden reclamar el crédito correspondiente.</span>
+            </div>
+            <table style="width: 100%; border-collapse: collapse; border: 2px solid #000; font-size: 0.85rem;">
+                <thead>
+                    <tr style="background: #f4f4f4; border-bottom: 2px solid #000;">
+                        <th style="padding: 8px; border-right: 1px solid #000; text-align: left;">Filing Status / Estado civil</th>
+                        <th style="padding: 8px; border-right: 1px solid #000; text-align: right;">Part II/III Limits</th>
+                        <th style="padding: 8px; text-align: right;">Part IV Limits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #ccc;">
+                        <td style="padding: 8px; border-right: 1px solid #000;">Single (S) / Soltero</td>
+                        <td style="padding: 8px; border-right: 1px solid #000; text-align: right; font-weight: 700;">$150,000</td>
+                        <td style="padding: 8px; text-align: right; font-weight: 700;">$75,000</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ccc;">
+                        <td style="padding: 8px; border-right: 1px solid #000;">Married filing jointly (MFJ) / Casado presentando declaración conjunta</td>
+                        <td style="padding: 8px; border-right: 1px solid #000; text-align: right; font-weight: 700;">$300,000</td>
+                        <td style="padding: 8px; text-align: right; font-weight: 700;">$150,000</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <table class="irs-limits-table">
-          <thead>
-            <tr>
-              <th>Filing Status</th>
-              <th>Part II/III Limits</th>
-              <th>Part IV Limits</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Single (S)</td><td>$150,000</td><td>$75,000</td></tr>
-            <tr><td>Married filing separately (MFS)</td><td>$150,000</td><td>$75,000</td></tr>
-            <tr><td>Head of household (HOH)</td><td>$225,000</td><td>$112,500</td></tr>
-            <tr><td>Married filing jointly (MFJ)</td><td>$300,000</td><td>$150,000</td></tr>
-            <tr><td>Qualifying surviving spouse (QSS)</td><td>$300,000</td><td>$150,000</td></tr>
-            <tr><td>Estates and trusts</td><td>$150,000</td><td class="shaded">N/A</td></tr>
-          </tbody>
-        </table>
 
-      </div>
-
-      <!-- Parts II-IV would follow same pattern -->
-      <!-- ... -->
-
-      <div class="irs-footer-actions">
-        <button type="submit" class="btn-submit">Submit Form 8936</button>
-      </div>
+        <div style="padding: 40px; text-align: center;">
+            <button type="submit" style="background: #111; color: #fff; padding: 15px 60px; border: none; border-radius: 2px; font-weight: 900; cursor: pointer; text-transform: uppercase;">
+                Save Form 8936 / Guardar Formulario 8936
+            </button>
+        </div>
     </form>
-  </div>
 </div>

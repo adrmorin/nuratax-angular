@@ -1,0 +1,130 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title">
+            <h1>Form 1040-X</h1>
+            <p class="form-year">(Rev. February 2024)</p>
+        </div>
+        <div class="form-info">
+            <p><strong>Amended U.S. Individual Income Tax Return</strong></p>
+            <p>Department of the Treasury — Internal Revenue Service</p>
+        </div>
+    </div>
+
+    <div class="part-section">
+        <h3 class="part-header">Part I — Identifying Information</h3>
+        <div class="field-row">
+            <div class="field-group"><label>Your name</label><input type="text" formControlName="name"></div>
+            <div class="field-group small"><label>Social Security Number</label><input type="text" formControlName="ssn"></div>
+        </div>
+        <div class="field-row">
+            <div class="field-group"><label>Filing Status (as amended)</label>
+                <select formControlName="filingStatus">
+                    <option value="">Select...</option>
+                    <option value="Single">Single</option>
+                    <option value="Married Filing Jointly">Married Filing Jointly</option>
+                    <option value="Married Filing Separately">Married Filing Separately</option>
+                    <option value="Head of Household">Head of Household</option>
+                    <option value="Qualifying Widow(er)">Qualifying Widow(er)</option>
+                </select>
+            </div>
+            <div class="field-group small"><label>Tax Year</label><input type="text" formControlName="taxYear"></div>
+        </div>
+    </div>
+
+    <div class="part-section">
+        <h3 class="part-header">Part II — Explanation of Changes</h3>
+        <p class="instructions">Check the boxes that explain why you are filing this amended return:</p>
+        <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" formControlName="reason1"> Income (wages, interest, etc.)</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="reason2"> Deductions (standard or itemized)</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="reason3"> Credits (child tax credit, EITC, etc.)</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="reason4"> Tax (withholding, payments, etc.)</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="reason5"> Other (explain below)</label>
+        </div>
+        <div class="field-row">
+            <div class="field-group"><label>Explain changes (include line numbers from original return):</label>
+                <textarea formControlName="explanation" rows="4" class="full-width"></textarea>
+            </div>
+        </div>
+    </div>
+
+    <div class="part-section">
+        <h3 class="part-header">Part III — Adjusted Gross Income</h3>
+        <table class="form-table">
+            <tr><td>1. Original amount</td><td><input type="number" formControlName="originalAGI"></td></tr>
+            <tr><td>2. Net change</td><td><input type="number" formControlName="agiChange" (change)="calculateAmount()"></td></tr>
+            <tr class="highlight-row"><td>3. Adjusted amount</td><td><input type="number" formControlName="adjustedAGI" readonly></td></tr>
+        </table>
+    </div>
+
+    <div class="part-section">
+        <h3 class="part-header">Part IV — Tax and Payments</h3>
+        <table class="form-table">
+            <tr><td>4. Original tax liability</td><td><input type="number" formControlName="originalTax"></td></tr>
+            <tr><td>5. Net change</td><td><input type="number" formControlName="taxChange" (change)="calculateAmount()"></td></tr>
+            <tr class="highlight-row"><td>6. Amended tax liability</td><td><input type="number" formControlName="amendedTax" readonly></td></tr>
+            <tr><td>7. Total payments</td><td><input type="number" formControlName="totalPayments"></td></tr>
+            <tr class="highlight-row"><td>8. Amount you owe</td><td><input type="number" formControlName="amountOwed" readonly></td></tr>
+        </table>
+    </div>
+
+    <div class="part-section">
+        <h3 class="part-header">Part V — Refund</h3>
+        <div class="field-row">
+            <div class="field-group"><label>Amount to be refunded</label><input type="number" formControlName="refundAmount"></div>
+        </div>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Refund method:</label>
+                <div class="radio-group">
+                    <label><input type="radio" formControlName="refundMethod" value="Direct Deposit"> Direct Deposit</label>
+                    <label><input type="radio" formControlName="refundMethod" value="Check"> Check</label>
+                </div>
+            </div>
+        </div>
+        <div class="field-row three-col" *ngIf="taxForm.get('refundMethod')?.value === 'Direct Deposit'">
+            <div class="field-group"><label>Routing Number</label><input type="text" formControlName="routingNumber"></div>
+            <div class="field-group"><label>Account Number</label><input type="text" formControlName="accountNumber"></div>
+            <div class="field-group">
+                <label>Account Type</label>
+                <select formControlName="accountType">
+                    <option value="Checking">Checking</option>
+                    <option value="Savings">Savings</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="part-section">
+        <h3 class="part-header">Part VI — Third Party Designee</h3>
+        <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" formControlName="designeeYes"> Yes, I authorize someone to discuss this return with the IRS.</label>
+        </div>
+        <div class="field-row" *ngIf="taxForm.get('designeeYes')?.value">
+            <div class="field-group"><label>Designee's name</label><input type="text" formControlName="designeeName"></div>
+            <div class="field-group"><label>Phone number</label><input type="text" formControlName="designeePhone"></div>
+        </div>
+    </div>
+
+    <div class="part-section">
+        <h3 class="part-header">Part VII — Signature</h3>
+        <div class="signature-section">
+            <div class="signature-box">
+                <p>Signature</p>
+                <input type="text" formControlName="signature" class="signature-input">
+            </div>
+            <div class="date-box">
+                <p>Date</p>
+                <input type="date" formControlName="dateSigned">
+            </div>
+            <div class="phone-box">
+                <p>Phone number</p>
+                <input type="text" formControlName="phone">
+            </div>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button>
+    </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 1098-T</h1><p class="form-year">(2024)</p></div>
+        <div class="form-info"><p><strong>Tuition Statement</strong></p><p>Department of the Treasury — Internal Revenue Service</p></div>
+    </div>
+    <div class="form-instructions"><p>This form is provided by eligible educational institutions to assist students and parents in claiming education credits.</p></div>
+    <div class="part-section">
+        <h3 class="part-header">Part I — Institution Information</h3>
+        <div class="field-row"><div class="field-group"><label>Name of institution</label><input type="text" formControlName="institutionName"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>EIN</label><input type="text" formControlName="ein"></div>
+            <div class="field-group"><label>Tax Year</label><input type="text" formControlName="taxYear"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part II — Student Information</h3>
+        <div class="field-row"><div class="field-group"><label>Student's name</label><input type="text" formControlName="studentName"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>Student's TIN (SSN)</label><input type="text" formControlName="studentTin"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part III — Payment Information</h3>
+        <table class="form-table">
+            <tr><td>1. Payments received for qualified tuition and related expenses</td><td><input type="number" formControlName="line1"></td></tr>
+            <tr><td>2. Amounts billed for qualified tuition and related expenses</td><td><input type="number" formControlName="line2"></td></tr>
+            <tr><td>3. Adjustments made for a prior year</td><td><input type="number" formControlName="line3"></td></tr>
+            <tr><td>4. Scholarships or grants</td><td><input type="number" formControlName="line4"></td></tr>
+            <tr><td>5. Adjustments to scholarships or grants for a prior year</td><td><input type="number" formControlName="line5"></td></tr>
+            <tr><td>6. Box 6 includes amounts for: (check all that add)</td><td><input type="number" formControlName="line6"></td></tr>
+            <tr><td>7. Is at least half-time student?</td><td><input type="text" formControlName="line7"></td></tr>
+            <tr><td>8. Is student in graduate program?</td><td><input type="text" formControlName="line8"></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part IV — Other Information</h3>
+        <table class="form-table">
+            <tr><td>9. Name of student for whom Form 1098-T is provided</td><td><input type="text" formControlName="studentName2"></td></tr>
+            <tr><td>10. Designated as: (see instructions)</td><td><input type="text" formControlName="line10"></td></tr>
+            <tr><td>11. Country code (if not US)</td><td><input type="text" formControlName="line11"></td></tr>
+        </table>
+    </div>
+    <div class="signature-section">
+        <div class="signature-box"><p>Institution Signature</p><input type="text" formControlName="signature" class="signature-input"></div>
+        <div class="date-box"><p>Date</p><input type="date" formControlName="dateSigned"></div>
+    </div>
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

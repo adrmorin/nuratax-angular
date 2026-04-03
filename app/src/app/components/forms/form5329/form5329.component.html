@@ -1,101 +1,92 @@
-<div class="irs-form-container">
-  <div class="irs-form-box">
-    <!-- Header -->
-    <div class="irs-main-header">
-      <div class="irs-col-form-id">
-        <div class="irs-form-num">Form <span class="num-large">5329</span></div>
-        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
-      </div>
-      <div class="irs-col-title">
-        <h1>Additional Taxes on Qualified Plans (Including IRAs) and Other Tax-Favored Accounts</h1>
-        <p class="irs-instruction">Go to <strong>www.irs.gov/Form5329</strong> for instructions and the latest information.</p>
-        <p class="irs-attach">Attach to Form 1040, 1040-SR, or 1040-NR.</p>
-      </div>
-      <div class="irs-col-omb">
-        <div class="irs-omb">OMB No. 1545-0074</div>
-        <div class="irs-year-box">
-          <div class="irs-year">2025</div>
-          <div class="irs-attachment">Attachment<br>Sequence No. <strong>29</strong></div>
+<div class="irs-unified-container">
+    <!-- Form 5329 Header -->
+    <div class="irs-header-main" style="background: #fff; border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.4rem;">Form 5329</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
         </div>
-      </div>
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.3rem; margin: 0;">Additional Taxes on Qualified Plans (Including IRAs) and Other Tax-Favored Accounts</h1>
+                <h2 style="font-size: 1rem; margin: 0; font-style: italic;">Impuestos Adicionales sobre Planes Cualificados (Incluyendo las Cuentas IRA) y Otras Cuentas con Ventajas Contributivas</h2>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 8px; font-weight: 700;">Attach to Form 1040, 1040-SR, or 1040-NR. / Adjunte al Formulario 1040, 1040-SR o 1040-NR.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0074</div>
+            <div style="font-size: 2.8rem; line-height: 1;">2025</div>
+        </div>
     </div>
 
-    <!-- Name/ID Row -->
-    <div class="irs-name-ssn-row">
-      <div class="irs-name-box">
-        <label for="name">Name of individual subject to additional tax. If married filing jointly, see instructions.</label>
-        <input id="name" type="text" formControlName="name" class="irs-borderless-input">
-      </div>
-      <div class="irs-ssn-box">
-        <label for="ssn">Your social security number</label>
-        <input id="ssn" type="text" formControlName="ssn" class="irs-borderless-input">
-      </div>
-    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="form">
+        <!-- Name and SSN Header -->
+        <div class="irs-row" style="grid-template-columns: 1fr 250px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Name of individual subject to additional tax</label>
+                    <label class="irs-label-es">Nombre de la persona sujeta al impuesto adicional</label>
+                </div>
+                <input type="text" formControlName="name" style="width: 100%; border: none; font-weight: 700;">
+            </div>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Your social security number</label>
+                    <label class="irs-label-es">Su número de seguro social</label>
+                </div>
+                <input type="text" formControlName="ssn" style="width: 100%; border: none; font-weight: 700;">
+            </div>
+        </div>
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <!-- Part I -->
-      <div class="irs-part-header-full">
-        <span class="part-label">Part I</span>
-        <span class="part-title">Additional Tax on Early Distributions</span>
-      </div>
+        <!-- Part I -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part I</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Additional Tax on Early Distributions</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Impuesto Adicional sobre Distribuciones Tempranas</span>
+            </div>
+        </div>
 
-      <div class="irs-form-body">
-        <div class="irs-line-item zebra-light-border">
-          <div class="irs-line-num">1</div>
-          <div class="irs-line-desc"><label for="line1">Early distributions included in income. For qualified retirement plans (including IRAs), see instructions</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-line-val-num">1</div>
-          <div class="irs-input-box"><input id="line1" type="number" formControlName="line1"></div>
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div class="irs-col-line-num">1</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Early distributions included in income. For qualified retirement plans.</span>
+                    <span class="irs-label-es">Distribuciones tempranas incluidas en el ingreso para planes cualificados.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line1">
+                </div>
+            </div>
         </div>
-        <div class="irs-line-item">
-          <div class="irs-line-num">2</div>
-          <div class="irs-line-desc"><label for="line2">Early distributions included on line 1 that are not subject to the additional tax (see instructions). Enter the appropriate exception number from the instructions</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-line-val-num">2</div>
-          <div class="irs-input-box"><input id="line2" type="number" formControlName="line2"></div>
-        </div>
-        <div class="irs-line-item zebra-light-border">
-          <div class="irs-line-num">3</div>
-          <div class="irs-line-desc"><label for="line3">Amount subject to additional tax. Subtract line 2 from line 1</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-line-val-num">3</div>
-          <div class="irs-input-box"><input id="line3" type="number" formControlName="line3"></div>
-        </div>
-        <div class="irs-line-item">
-          <div class="irs-line-num">4</div>
-          <div class="irs-line-desc"><label for="line4"><strong>Additional tax.</strong> Multiply line 3 by 10% (0.10). Include this amount on Schedule 2 (Form 1040), line 8</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-line-val-num">4</div>
-          <div class="irs-input-box"><input id="line4" type="number" formControlName="line4"></div>
-        </div>
-      </div>
 
-      <!-- Part II -->
-      <div class="irs-part-header-full">
-        <span class="part-label">Part II</span>
-        <span class="part-title">Additional Tax on Certain Distributions From Education Accounts and ABLE Accounts</span>
-      </div>
-
-      <div class="irs-form-body">
-        <div class="irs-line-item zebra-dark-border">
-          <div class="irs-line-num">5</div>
-          <div class="irs-line-desc"><label for="line5">Distributions included in income from Coverdell ESAs, QTPs, or ABLE accounts (see instructions)</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-line-val-num">5</div>
-          <div class="irs-input-box"><input id="line5" type="number" formControlName="line5"></div>
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px; border-bottom: 3px solid #000; background: #eee;">
+            <div class="irs-col-line-num">4</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 900;">Additional tax. Multiply line 3 by 10% (0.10).</span>
+                    <span class="irs-label-es" style="font-weight: 400;">Impuesto adicional. Multiplique la línea 3 por 10% (0.10).</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line4" style="font-weight: 950;">
+                </div>
+            </div>
         </div>
-        <div class="irs-line-item">
-          <div class="irs-line-num">8</div>
-          <div class="irs-line-desc"><label for="line8"><strong>Additional tax.</strong> Multiply line 7 by 10% (0.10). Include this amount on Schedule 2 (Form 1040), line 8</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-line-val-num">8</div>
-          <div class="irs-input-box"><input id="line8" type="number" formControlName="line8"></div>
-        </div>
-      </div>
 
-      <div class="irs-footer-actions">
-        <button type="submit" class="btn-submit">Submit Form 5329</button>
-      </div>
+        <div style="padding: 40px; text-align: center;">
+            <button type="submit" style="background: #111; color: #fff; padding: 15px 60px; border: none; border-radius: 2px; font-weight: 900; cursor: pointer; text-transform: uppercase;">
+                Save Form 5329 / Guardar Formulario 5329
+            </button>
+        </div>
     </form>
-  </div>
 </div>

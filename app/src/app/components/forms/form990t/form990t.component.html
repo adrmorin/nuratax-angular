@@ -1,177 +1,110 @@
-<div class="irs-form-container">
-  <div class="irs-form-box">
-    <!-- Header -->
-    <div class="irs-main-header">
-      <div class="irs-col-form-id">
-        <div class="irs-form-num">Form <span class="num-large">990-T</span></div>
-        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
-      </div>
-      <div class="irs-col-title">
-        <h1>Exempt Organization Business Income Tax Return <span class="small-text">(and proxy tax under section 6033(e))</span></h1>
-        <p class="irs-instruction">Go to <strong>www.irs.gov/Form990T</strong> for instructions and the latest information.</p>
-        <p class="irs-note">Do not enter SSN numbers on this form as it may be made public if your organization is a 501(c)(3).</p>
-      </div>
-      <div class="irs-col-omb">
-        <div class="irs-omb">OMB No. 1545-047</div>
-        <div class="irs-year-box">
-          <div class="irs-year">2025</div>
+<div class="irs-unified-container">
+    <!-- Form 990-T Header -->
+    <div class="irs-header-main" style="background: #fff; border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.4rem;">Form 990-T</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
         </div>
-      </div>
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.3rem; margin: 0;">Exempt Organization Business Income Tax Return</h1>
+                <h2 style="font-size: 1rem; margin: 0; font-style: italic;">Declaración de Impuestos sobre los Ingresos de Negocios de Organizaciones Exentas</h2>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 8px; font-weight: 700;">▶ Go to www.irs.gov/Form990T for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0047</div>
+            <div style="font-size: 2.8rem; line-height: 1;">2025</div>
+        </div>
     </div>
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <!-- Sections A-L -->
-      <div class="irs-sections-grid">
-        <div class="irs-section-box border-right">
-          <div class="irs-section-label">A</div>
-          <div class="irs-section-content">
-            <input type="checkbox" id="addressChange" formControlName="addressChange">
-            <label for="addressChange">Address change</label>
-          </div>
-        </div>
-        <div class="irs-section-box border-right">
-          <div class="irs-section-label">B</div>
-          <div class="irs-section-content">
-            <label for="exemptValue">Exempt under section</label><br>
-            <div class="irs-checkbox-group">
-              <span>501(c)(</span> <input id="exemptValue" type="text" formControlName="exemptSectionValue" class="irs-tiny-input"> <span>)</span>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="form">
+        <!-- Entity Sections A-J -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 2px solid #000; background: #f9f9f9;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en"><strong>A</strong> Address change</span>
+                    <span class="irs-label-es">Cambio de dirección</span>
+                </div>
+                <input type="checkbox" formControlName="addressChange">
             </div>
-          </div>
-        </div>
-        <div class="irs-section-box border-right">
-            <div class="irs-section-label">C</div>
-            <div class="irs-section-content">
-                <label for="bookValueAssets">Book value of all assets at end of year</label>
-                <input id="bookValueAssets" type="number" formControlName="bookValueAssets" class="irs-borderless-input">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en"><strong>B</strong> Exempt Section</span>
+                    <span class="irs-label-es">Sección exenta</span>
+                </div>
+                <div style="display: flex; align-items: center; gap: 5px;">
+                    <span style="font-size: 0.8rem;">501(c)(</span>
+                    <input type="text" formControlName="exemptSectionValue" style="width: 40px; border-bottom: 1px dotted #000; text-align: center;">
+                    <span style="font-size: 0.8rem;">)</span>
+                </div>
+            </div>
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en"><strong>C</strong> Book value of all assets</span>
+                    <span class="irs-label-es">Valor en libros de activos</span>
+                </div>
+                <input type="number" formControlName="bookValueAssets" style="width: 100%; font-weight: 700;">
+            </div>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en"><strong>D</strong> Employer ID number</span>
+                    <span class="irs-label-es">Número de ID de empleador</span>
+                </div>
+                <input type="text" formControlName="ein" style="width: 100%; font-weight: 700;">
             </div>
         </div>
-        <div class="irs-section-box">
-          <div class="irs-section-label">D</div>
-          <div class="irs-section-content">
-            <label for="ein">Employer identification number</label>
-            <input id="ein" type="text" formControlName="ein" class="irs-borderless-input ein-field" placeholder="XX-XXXXXXX">
-          </div>
-        </div>
-      </div>
 
-      <div class="irs-sections-grid-2">
-        <div class="irs-section-box border-right">
-            <div class="irs-section-label">G</div>
-            <div class="irs-section-content">
-                <label for="orgCorp">Check organization type:</label>
-                <div class="irs-radio-group">
-                    <input type="radio" id="orgCorp" value="corp" formControlName="organizationType"> <label for="orgCorp">501(c) corporation</label><br>
-                    <input type="radio" id="orgTrust" value="trust" formControlName="organizationType"> <label for="orgTrust">501(c) trust</label>
+        <!-- Part I -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part I</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Total Unrelated Business Taxable Income</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Ingreso Total Tributable de Negocios No Relacionados</span>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div class="irs-col-line-num">1</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Total unrelated business taxable income computed from all unrelated trades</span>
+                    <span class="irs-label-es">Total ingreso tributable de negocios no relacionados computado de todas las actividades</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line1">
                 </div>
             </div>
         </div>
-        <div class="irs-section-box border-right">
-            <div class="irs-section-label">H</div>
-            <div class="irs-section-content">
-                <label for="c8941">Check if claiming credit for:</label>
-                <div><input type="checkbox" id="c8941" formControlName="credits8941"> <label for="c8941">Form 8941</label></div>
-                <div><input type="checkbox" id="c2439" formControlName="credits2439"> <label for="c2439">Form 2439</label></div>
-                <div><input type="checkbox" id="c3800" formControlName="credits3800"> <label for="c3800">Form 3800</label></div>
+
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px; border-bottom: 3px solid #000; background: #eee;">
+            <div class="irs-col-line-num">11</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 900;">Unrelated business taxable income. Subtract line 10 from line 7.</span>
+                    <span class="irs-label-es" style="font-weight: 400;">Ingreso tributable de negocios no relacionados. Reste la línea 10 de la línea 7.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line11" style="font-weight: 950;">
+                </div>
             </div>
         </div>
-        <div class="irs-section-box">
-            <div class="irs-section-label">J</div>
-            <div class="irs-section-content">
-                <label for="schedulesA">Enter the number of Schedules A (Form 990-T) attached</label>
-                <input id="schedulesA" type="number" formControlName="schedulesAAdj" class="irs-tiny-input-2">
-            </div>
-        </div>
-      </div>
 
-      <!-- Part I -->
-      <div class="irs-part-header">
-        <span class="part-label">Part I</span>
-        <span class="part-title">Total Unrelated Business Taxable Income</span>
-      </div>
-
-      <div class="irs-form-body">
-        <div class="irs-line-item zebra-light">
-          <div class="irs-line-num">1</div>
-          <div class="irs-line-desc"><label for="line1">Total of unrelated business taxable income computed from all unrelated trades or businesses (see instructions)</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-line-val-num">1</div>
-          <div class="irs-input-box"><input id="line1" type="number" formControlName="line1"></div>
+        <div style="padding: 40px; text-align: center;">
+            <button type="submit" style="background: #111; color: #fff; padding: 15px 60px; border: none; border-radius: 2px; font-weight: 900; cursor: pointer; text-transform: uppercase;">
+                Save Form 990-T / Guardar Formulario 990-T
+            </button>
         </div>
-        <div class="irs-line-item zebra-dark">
-          <div class="irs-line-num">2</div>
-          <div class="irs-line-desc">Reserved for future use</div>
-          <div class="irs-dots"></div>
-          <div class="irs-line-val-num">2</div>
-          <div class="irs-input-box shaded"></div>
-        </div>
-        <div class="irs-line-item zebra-light">
-          <div class="irs-line-num">3</div>
-          <div class="irs-line-desc"><label for="line3">Add lines 1 and 2</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-line-val-num">3</div>
-          <div class="irs-input-box"><input id="line3" type="number" formControlName="line3"></div>
-        </div>
-        <div class="irs-line-item zebra-dark">
-          <div class="irs-line-num">4</div>
-          <div class="irs-line-desc"><label for="line4">Charitable contributions (see instructions for limitation rules)</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-line-val-num">4</div>
-          <div class="irs-input-box"><input id="line4" type="number" formControlName="line4"></div>
-        </div>
-        <div class="irs-line-item zebra-light">
-          <div class="irs-line-num">5</div>
-          <div class="irs-line-desc"><label for="line5">Total unrelated business taxable income before net operating losses. Subtract line 4 from line 3. If zero or less, enter -0-</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-line-val-num">5</div>
-          <div class="irs-input-box"><input id="line5" type="number" formControlName="line5"></div>
-        </div>
-        <div class="irs-line-item zebra-dark">
-            <div class="irs-line-num">6</div>
-            <div class="irs-line-desc"><label for="line6">Deduction for net operating loss (see instructions)</label></div>
-            <div class="irs-dots"></div>
-            <div class="irs-line-val-num">6</div>
-            <div class="irs-input-box"><input id="line6" type="number" formControlName="line6"></div>
-          </div>
-          <div class="irs-line-item zebra-light border-thick-bottom">
-            <div class="irs-line-num">7</div>
-            <div class="irs-line-desc"><label for="line7">Total unrelated business taxable income before specific deduction and section 199A deduction. Subtract line 6 from line 5. If zero or less, enter -0-</label></div>
-            <div class="irs-dots"></div>
-            <div class="irs-line-val-num">7</div>
-            <div class="irs-input-box"><input id="line7" type="number" formControlName="line7"></div>
-          </div>
-          <div class="irs-line-item zebra-dark">
-            <div class="irs-line-num">8</div>
-            <div class="irs-line-desc"><label for="line8">Specific deduction (generally $1,000, but see instructions for exemptions or reductions)</label></div>
-            <div class="irs-dots"></div>
-            <div class="irs-line-val-num">8</div>
-            <div class="irs-input-box"><input id="line8" type="number" formControlName="line8"></div>
-          </div>
-          <div class="irs-line-item zebra-light">
-            <div class="irs-line-num">9</div>
-            <div class="irs-line-desc"><label for="line9">Section 199A deduction (trusts only) (see instructions)</label></div>
-            <div class="irs-dots"></div>
-            <div class="irs-line-val-num">9</div>
-            <div class="irs-input-box"><input id="line9" type="number" formControlName="line9"></div>
-          </div>
-          <div class="irs-line-item zebra-dark">
-            <div class="irs-line-num">10</div>
-            <div class="irs-line-desc"><label for="line10">Add lines 8 and 9</label></div>
-            <div class="irs-dots"></div>
-            <div class="irs-line-val-num">10</div>
-            <div class="irs-input-box"><input id="line10" type="number" formControlName="line10"></div>
-          </div>
-          <div class="irs-line-item zebra-light border-thick-bottom">
-            <div class="irs-line-num">11</div>
-            <div class="irs-line-desc"><label for="line11"><strong>Unrelated business taxable income.</strong> Subtract line 10 from line 7. If zero or less, enter -0-</label></div>
-            <div class="irs-dots"></div>
-            <div class="irs-line-val-num">11</div>
-            <div class="irs-input-box"><input id="line11" type="number" formControlName="line11"></div>
-          </div>
-      </div>
-
-      <div class="irs-footer-actions">
-        <button type="submit" class="btn-submit">Submit Form 990-T</button>
-      </div>
     </form>
-  </div>
 </div>

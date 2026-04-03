@@ -1,0 +1,55 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 4029</h1><p class="form-year">(Rev. January 2024)</p></div>
+        <div class="form-info"><p><strong>Application for Exemption From Social Security and Medicare Taxes and Waiver of Benefits</strong></p><p>Department of the Treasury — Internal Revenue Service</p></div>
+    </div>
+    <div class="form-instructions"><p>Use this form to apply for exemption from Social Security and Medicare taxes if you are a member of a recognized religious sect or division and have conscientiously held religious beliefs against acceptance of public insurance.</p></div>
+    <div class="part-section">
+        <h3 class="part-header">Part I — Applicant Information</h3>
+        <div class="field-row"><div class="field-group"><label>Full name</label><input type="text" formControlName="name"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>SSN</label><input type="text" formControlName="ssn"></div>
+        </div>
+        <div class="field-row"><div class="field-group"><label>Mailing address</label><input type="text" formControlName="address"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>City</label><input type="text" formControlName="city"></div>
+            <div class="field-group"><label>State</label><input type="text" formControlName="state"></div>
+            <div class="field-group"><label>ZIP</label><input type="text" formControlName="zip"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part II — Religious Organization Information</h3>
+        <div class="field-row"><div class="field-group"><label>Name of religious organization</label><input type="text" formControlName="churchName"></div></div>
+        <div class="field-row"><div class="field-group"><label>Organization's address</label><input type="text" formControlName="churchAddress"></div></div>
+        <div class="field-row">
+            <div class="field-group"><label>Date became member</label><input type="date" formControlName="memberDate"></div>
+            <div class="field-group"><label>Are you ordained or commissioned?</label>
+                <select formControlName="ordained">
+                    <option value="">Select...</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part III — Beliefs and Certification</h3>
+        <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" formControlName="belief1"> I have conscientiously held religious beliefs against acceptance of any public or private insurance that provides payments in the event of death, disability, old age, or retirement.</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="belief2"> I am a member of, or affiliate with, a recognized religious sect or division and follow the tenets of such sect or division.</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="belief3"> For the period I am requesting exemption, I have earned income from self-employment and will pay self-employment tax.</label>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part IV — Waiver of Benefits</h3>
+        <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" formControlName="waiver"> I waive all benefits and payments under Titles II and XVIII of the Social Security Act for the period of this exemption.</label>
+        </div>
+    </div>
+    <div class="signature-section">
+        <div class="signature-box"><p>Signature</p><input type="text" formControlName="signature" class="signature-input"></div>
+        <div class="date-box"><p>Date</p><input type="date" formControlName="dateSigned"></div>
+        <div class="phone-box"><p>Phone</p><input type="text" formControlName="phone"></div>
+    </div>
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

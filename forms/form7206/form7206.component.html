@@ -1,0 +1,49 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 7206</h1><p class="form-year">(2024)</p></div>
+        <div class="form-info"><p><strong>Self-Employed Health Insurance Deduction</strong></p><p>Department of the Treasury — Internal Revenue Service</p></div>
+    </div>
+    <div class="form-instructions"><p>Use this form to figure your self-employed health insurance deduction. Attach to Form 1040, 1040-SR, or 1040-NR.</p></div>
+    <div class="part-section">
+        <h3 class="part-header">Part I — General Information</h3>
+        <div class="field-row"><div class="field-group"><label>Name(s) shown on return</label><input type="text" formControlName="name"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>SSN</label><input type="text" formControlName="ssn"></div>
+            <div class="field-group"><label>Tax Year</label><input type="text" formControlName="taxYear"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part II — Self-Employment Test</h3>
+        <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" formControlName="selfEmployed"> I was self-employed and filed Schedule C, C-EZ, F, or K-1</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="healthInsurancePaid"> I paid for health insurance for myself, my spouse, and/or my dependents</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="spouseSelfEmployed"> My spouse was self-employed (if married filing jointly)</label>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part III — Deduction Computation</h3>
+        <table class="form-table">
+            <tr><td>1. Self-employed health insurance paid (from Schedule C, line 15 or Schedule F, line 16)</td><td><input type="number" formControlName="line1"></td></tr>
+            <tr><td>2. Add amounts from any Forms K-1 (Form 1065 or 1120-S)</td><td><input type="number" formControlName="line2"></td></tr>
+            <tr class="highlight-row"><td>3. Total self-employed health insurance (line 1 + line 2)</td><td><input type="number" formControlName="line3" readonly></td></tr>
+            <tr><td>4. Enter net profit from self-employment (from Schedule C, line 31 or Schedule F, line 34)</td><td><input type="number" formControlName="line4"></td></tr>
+            <tr><td>5. Enter net farm profit (from Schedule F, line 34 or K-1)</td><td><input type="number" formControlName="line5"></td></tr>
+            <tr><td>6. Add lines 4 and 5</td><td><input type="number" formControlName="line6"></td></tr>
+            <tr class="highlight-row"><td>7. Enter amount of deduction (line 3 or line 6, whichever is less)</td><td><input type="number" formControlName="line7" readonly></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part IV — Who Paid the Premiums</h3>
+        <table class="form-table">
+            <tr><td>Did you pay premiums for:</td></tr>
+            <tr><td>• Yourself?</td><td><select formControlName="paidSelf"><option value="">Select...</option><option value="Yes">Yes</option><option value="No">No</option></select></td></tr>
+            <tr><td>• Your spouse?</td><td><select formControlName="paidSpouse"><option value="">Select...</option><option value="Yes">Yes</option><option value="No">No</option></select></td></tr>
+            <tr><td>• Your dependents?</td><td><select formControlName="paidDependents"><option value="">Select...</option><option value="Yes">Yes</option><option value="No">No</option></select></td></tr>
+        </table>
+    </div>
+    <div class="signature-section">
+        <div class="signature-box"><p>Signature</p><input type="text" formControlName="signature" class="signature-input"></div>
+        <div class="date-box"><p>Date</p><input type="date" formControlName="dateSigned"></div>
+    </div>
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

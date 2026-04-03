@@ -1,96 +1,79 @@
-<div class="irs-form-container">
-  <div class="irs-form-box">
-    <!-- Header -->
-    <div class="irs-main-header">
-      <div class="irs-col-form-id">
-        <div class="irs-form-num">Form <span class="num-large">8697</span></div>
-        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
-      </div>
-      <div class="irs-col-title">
-        <h1>Interest Computation Under the Look-Back Method for Completed Long-Term Contracts</h1>
-        <p class="irs-instruction">Go to <strong>www.irs.gov/Form8697</strong> for instructions and the latest information.</p>
-      </div>
-      <div class="irs-col-omb">
-        <div class="irs-omb">OMB No. 1545-1031</div>
-      </div>
+<div class="irs-unified-container">
+    <!-- Form 8697 Header -->
+    <div class="irs-header-main" style="background: #fff; border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.4rem;">Form 8697</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
+        </div>
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1rem; margin: 0;">Interest Computation Under the Look-Back Method for Completed Long-Term Contracts</h1>
+                <h2 style="font-size: 0.8rem; margin: 0; font-style: italic;">Cálculo de Intereses Bajo el Método de Reevaluación para Contratos a Largo Plazo Completados</h2>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 8px; font-weight: 700;">▶ Go to www.irs.gov/Form8697 for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-1031</div>
+            <div style="font-size: 2.8rem; line-height: 1;">2025</div>
+        </div>
     </div>
 
-    <!-- Identity Grid -->
-    <div class="irs-id-grid">
-       <div class="irs-ident-row flex">
-          <div class="irs-ident-cell border-r flex-grow">
-             <label for="tn">Name</label>
-             <input id="tn" type="text" formControlName="taxpayer_name" class="irs-borderless-input">
-          </div>
-          <div class="irs-ident-cell irs-id-num">
-             <label for="ttin">Identifying number</label>
-             <input id="ttin" type="text" formControlName="taxpayer_tin" class="irs-borderless-input">
-          </div>
-       </div>
-       <div class="irs-ident-row border-t border-b padding-sm">
-          <span class="irs-bold-text">Section B—Check the box for the type of taxpayer:</span>
-          <div class="irs-checkbox-group-grid">
-             <label><input type="radio" value="individual" formControlName="filing_type"> Individual</label>
-             <label><input type="radio" value="corporation" formControlName="filing_type"> Corporation</label>
-             <label><input type="radio" value="s-corp" formControlName="filing_type"> S corporation</label>
-             <label><input type="radio" value="partnership" formControlName="filing_type"> Partnership</label>
-          </div>
-       </div>
-    </div>
-
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <!-- Part I -->
-      <div class="irs-part-header-full">
-        <span class="part-label">Part I</span>
-        <span class="part-title">Regular Method</span>
-      </div>
-
-      <div class="irs-table-3col">
-         <div class="table-header border-b">
-            <div class="cell-num"></div>
-            <div class="cell-desc"></div>
-            <div class="cell-col">(a) Filing year</div>
-            <div class="cell-col">(b) Redetermination years</div>
-            <div class="cell-col">(c) Totals</div>
-         </div>
-
-         <!-- Line 1 -->
-         <div class="table-row">
-            <div class="cell-num">1</div>
-            <div class="cell-desc">Taxable income (or loss) etc...</div>
-            <div class="cell-input"><input type="number" formControlName="p1_l1a"></div>
-            <div class="cell-input"><input type="number" formControlName="p1_l1b"></div>
-            <div class="cell-input shaded"><input type="text" readonly></div>
-         </div>
-
-         <!-- Line 2 -->
-         <div class="table-row zebra-light">
-            <div class="cell-num">2</div>
-            <div class="cell-desc">Amount of tax etc...</div>
-            <div class="cell-input"><input type="number" formControlName="p1_l2a"></div>
-            <div class="cell-input"><input type="number" formControlName="p1_l2b"></div>
-            <div class="cell-input shaded"><input type="text" readonly></div>
-         </div>
-      </div>
-
-      <!-- Refund Info Line 9 -->
-      <div class="irs-refund-block padding-sm border-t">
-         <strong>9 Refund of interest.</strong> If Line 8 is etc...
-         <div class="irs-bank-grid margin-t-10">
-            <div class="bank-cell">
-               <label for="rn">Routing number</label>
-               <input id="rn" type="text" formControlName="routing_number">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="form">
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 300px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Name</label>
+                    <label class="irs-label-es">Nombre</label>
+                </div>
+                <input type="text" formControlName="taxpayer_name" style="width: 100%; border: none; font-weight: 700;">
             </div>
-            <div class="bank-cell">
-               <label for="an">Account number</label>
-               <input id="an" type="text" formControlName="account_number">
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Identifying number</label>
+                    <label class="irs-label-es">Número de identificación</label>
+                </div>
+                <input type="text" formControlName="taxpayer_tin" style="width: 100%; border: none; font-weight: 700;">
             </div>
-         </div>
-      </div>
+        </div>
 
-      <div class="irs-footer-actions">
-        <button type="submit" class="btn-submit">Submit Form 8697</button>
-      </div>
+        <!-- Part I -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part I</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Regular Method</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Método Regular</span>
+            </div>
+        </div>
+
+        <div style="overflow-x: auto;">
+            <div style="min-width: 800px;">
+                <div style="display: grid; grid-template-columns: 40px 1fr 150px 150px 150px; background: #eee; border-bottom: 2px solid #000; font-size: 0.75rem; font-weight: 800; text-align: center;">
+                    <div style="padding: 5px; border-right: 1px solid #000;"></div>
+                    <div style="padding: 5px; border-right: 1px solid #000;">Description / Descripción</div>
+                    <div style="padding: 5px; border-right: 1px solid #000;">(a) Filing year / Año de presentación</div>
+                    <div style="padding: 5px; border-right: 1px solid #000;">(b) Redetermination years / Años de redeterminación</div>
+                    <div style="padding: 5px;">(c) Totals / Totales</div>
+                </div>
+                <div style="display: grid; grid-template-columns: 40px 1fr 150px 150px 150px; border-bottom: 1px solid #000;">
+                    <div style="padding: 5px; text-align: center; font-weight: 800; border-right: 1px solid #000; background: #eee;">1</div>
+                    <div style="padding: 5px; border-right: 1px solid #000;">
+                        <span style="font-size: 0.8rem;">Taxable income (or loss) / Ingreso tributable (o pérdida)</span>
+                    </div>
+                    <div style="padding: 5px; border-right: 1px solid #000;"><input type="number" formControlName="p1_l1a" style="width: 100%; border: none; text-align: right;"></div>
+                    <div style="padding: 5px; border-right: 1px solid #000;"><input type="number" formControlName="p1_l1b" style="width: 100%; border: none; text-align: right;"></div>
+                    <div style="padding: 5px; background: #ddd;"></div>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 40px; text-align: center;">
+            <button type="submit" style="background: #111; color: #fff; padding: 15px 60px; border: none; border-radius: 2px; font-weight: 900; cursor: pointer; text-transform: uppercase;">
+                Save Form 8697 / Guardar Formulario 8697
+            </button>
+        </div>
     </form>
-  </div>
 </div>

@@ -1,0 +1,33 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 2106-EZ</h1><p class="form-year">Department of the Treasury - Internal Revenue Service</p></div>
+        <div class="form-info"><p><strong>Unreimbursed Employee Business Expenses</strong> - For calendar year 2026</p></div>
+    </div>
+
+    <div class="taxpayer-section">
+        <div class="field-row">
+            <div class="field-group"><label>Your name</label><input type="text" formControlName="name"></div>
+            <div class="field-group small"><label>SSN</label><input type="text" formControlName="ssn"></div>
+        </div>
+    </div>
+
+    <table class="form-table">
+        <thead><tr><th colspan="3" class="section-header">Vehicle Expenses</th></tr></thead>
+        <tbody>
+            <tr><td class="line-num">1</td><td class="line-desc">Business miles (70¢ per mile in 2026)</td><td class="line-input"><input type="number" formControlName="businessMiles"></td></tr>
+            <tr><td class="line-num">2</td><td class="line-desc">Parking fees, tolls</td><td class="line-input"><input type="number" formControlName="parking"></td></tr>
+            <tr><td class="line-num">3</td><td class="line-desc">Other parking, transportation</td><td class="line-input"><input type="number" formControlName="tolls"></td></tr>
+            <tr class="highlight-row"><td class="line-num">4</td><td class="line-desc"><strong>Total expenses</strong></td><td class="line-input"><input type="number" formControlName="totalExpenses" readonly></td></tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead><tr><th colspan="3" class="section-header">Reimbursement</th></tr></thead>
+        <tbody>
+            <tr><td class="line-num">5</td><td class="line-desc">Amount employer reimbursed</td><td class="line-input"><input type="number" formControlName="amountReimbursed"></td></tr>
+            <tr class="highlight-row"><td class="line-num">6</td><td class="line-desc"><strong>Deductible amount</strong></td><td class="line-input"><input type="number" formControlName="deductibleAmount" readonly></td></tr>
+        </tbody>
+    </table>
+
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

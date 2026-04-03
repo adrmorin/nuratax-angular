@@ -1,0 +1,196 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title">
+            <h1>Form 2553</h1>
+            <p class="form-year">Department of the Treasury - Internal Revenue Service</p>
+        </div>
+        <div class="form-info">
+            <p><strong>Election by a Small Business Corporation</strong></p>
+            <p>Under section 1362 of the Internal Revenue Code</p>
+        </div>
+    </div>
+
+    <div class="corp-section">
+        <h3>Corporation Information</h3>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Name of corporation</label>
+                <input type="text" formControlName="corpName">
+            </div>
+            <div class="field-group small">
+                <label>EIN</label>
+                <input type="text" formControlName="ein">
+            </div>
+        </div>
+        <div class="field-row">
+            <div class="field-group">
+                <label>State of incorporation</label>
+                <input type="text" formControlName="stateOfIncorporation">
+            </div>
+            <div class="field-group">
+                <label>Date incorporated</label>
+                <input type="date" formControlName="dateIncorporated">
+            </div>
+        </div>
+    </div>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Election Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">Tax year beginning</td>
+                <td class="line-input"><input type="date" formControlName="taxYearBeginning"></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">Date of election</td>
+                <td class="line-input"><input type="date" formControlName="electionDate"></td>
+            </tr>
+            <tr>
+                <td class="line-num">3</td>
+                <td class="line-desc">Effective date of election (if different)</td>
+                <td class="line-input"><input type="date" formControlName="effectiveDate"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="4" class="section-header">Shareholder Information</th>
+            </tr>
+            <tr class="sub-header">
+                <th>Name</th>
+                <th>SSN</th>
+                <th>Number of Shares</th>
+                <th>Signed</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-input"><input type="text" formControlName="shareholder1Name"></td>
+                <td class="line-input"><input type="text" formControlName="shareholder1SSN"></td>
+                <td class="line-input"><input type="number" formControlName="shareholder1Shares"></td>
+                <td class="line-input">
+                    <select formControlName="shareholder1Signed">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="line-input"><input type="text" formControlName="shareholder2Name"></td>
+                <td class="line-input"><input type="text" formControlName="shareholder2SSN"></td>
+                <td class="line-input"><input type="number" formControlName="shareholder2Shares"></td>
+                <td class="line-input">
+                    <select formControlName="shareholder2Signed">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="line-input"><input type="text" formControlName="shareholder3Name"></td>
+                <td class="line-input"><input type="text" formControlName="shareholder3SSN"></td>
+                <td class="line-input"><input type="number" formControlName="shareholder3Shares"></td>
+                <td class="line-input">
+                    <select formControlName="shareholder3Signed">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">S Corporation Requirements (check all boxes)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">✓</td>
+                <td class="line-desc">Corporation has no more than 100 shareholders</td>
+                <td class="line-input">
+                    <select formControlName="max100Shareholders">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="line-num">✓</td>
+                <td class="line-desc">Corporation has only one class of stock</td>
+                <td class="line-input">
+                    <select formControlName="singleClassStock">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="line-num">✓</td>
+                <td class="line-desc">All shareholders are U.S. persons (individuals, estates, or trusts)</td>
+                <td class="line-input">
+                    <select formControlName="allShareholdersUSPersons">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="line-num">✓</td>
+                <td class="line-desc">Corporation is not an ineligible entity (bank, insurance company, etc.)</td>
+                <td class="line-input">
+                    <select formControlName="notExcludedEntity">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="signature-section">
+        <h3>Authorization</h3>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Authorized person name</label>
+                <input type="text" formControlName="authorizedPerson">
+            </div>
+            <div class="field-group">
+                <label>Title</label>
+                <input type="text" formControlName="title">
+            </div>
+            <div class="field-group">
+                <label>Date</label>
+                <input type="date" formControlName="signatureDate">
+            </div>
+        </div>
+    </div>
+
+    <div class="nerea-advice">
+        <div class="advice-header">
+            <img src="assets/images/nerea_avatar.png" alt="Nerea" class="nerea-avatar">
+            <span class="advice-title">Asistente de Impuestos</span>
+        </div>
+        <div class="advice-content">
+            <p><strong>Propósito:</strong> {{ nereaAdvice.purpose }}</p>
+            <p><strong>Fecha límite:</strong> {{ nereaAdvice.deadline }}</p>
+            <p><strong>Requisitos:</strong> {{ nereaAdvice.requirements }}</p>
+            <p><strong>Elección:</strong> {{ nereaAdvice.election }}</p>
+            <p><strong>Form W-4:</strong> {{ nereaAdvice.formW4 }}</p>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button>
+    </div>
+</div>

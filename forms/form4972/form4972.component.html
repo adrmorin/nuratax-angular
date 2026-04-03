@@ -1,0 +1,57 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 4972</h1><p class="form-year">(2025)</p></div>
+        <div class="form-info"><p><strong>Tax on Lump-Sum Distributions</strong></p><p>Department of the Treasury — Internal Revenue Service</p></div>
+    </div>
+    <div class="form-instructions"><p>Use this form to figure the tax on a qualified lump-sum distribution using the 20% capital gain election, the 10-year tax option, or both. For participants born before January 2, 1936.</p></div>
+    <div class="part-section">
+        <h3 class="part-header">Part I — General Information</h3>
+        <div class="field-row"><div class="field-group"><label>Name(s) shown on return</label><input type="text" formControlName="name"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>SSN</label><input type="text" formControlName="ssn"></div>
+            <div class="field-group"><label>Tax Year</label><input type="text" formControlName="taxYear"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part II — Computation of Tax</h3>
+        <table class="form-table">
+            <tr><td>1. Total lump-sum distribution</td><td><input type="number" formControlName="line1"></td></tr>
+            <tr><td>2. Capital gain portion (20% capital gain election)</td><td><input type="number" formControlName="line2"></td></tr>
+            <tr><td>3. Ordinary income portion</td><td><input type="number" formControlName="line3"></td></tr>
+            <tr><td>4. Total taxable amount (line 1 minus line 2)</td><td><input type="number" formControlName="line4"></td></tr>
+            <tr><td>5. Participant's birth date</td><td><input type="date" formControlName="participantDOB"></td></tr>
+            <tr><td>6. Number of years of plan participation</td><td><input type="number" formControlName="yearsParticipated"></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part III — 10-Year Tax Option</h3>
+        <table class="form-table">
+            <tr><td>7. Ordinary income (10-year averaging)</td><td><input type="number" formControlName="line7"></td></tr>
+            <tr><td>8. Multiply line 7 by 10% (0.10)</td><td><input type="number" formControlName="line8"></td></tr>
+            <tr><td>9. Tax on line 8 using 2024 tax rates</td><td><input type="number" formControlName="line9"></td></tr>
+            <tr class="highlight-row"><td>10. Tax on lump-sum (10-year option)</td><td><input type="number" formControlName="line10" readonly></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part IV — 20% Capital Gain Election</h3>
+        <table class="form-table">
+            <tr><td>11. Capital gain portion</td><td><input type="number" formControlName="line11"></td></tr>
+            <tr><td>12. Multiply line 11 by 20% (0.20)</td><td><input type="number" formControlName="line12"></td></tr>
+            <tr><td>13. Tax on ordinary income (from line 10)</td><td><input type="number" formControlName="line13"></td></tr>
+            <tr class="highlight-row"><td>14. Total tax (line 12 plus line 13)</td><td><input type="number" formControlName="line14" readonly></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part V — Election</h3>
+        <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" formControlName="opt20"> I elect 20% capital gain treatment</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="opt10"> I elect 10-year tax option</label>
+        </div>
+        <p class="declaration">I understand that this election is irrevocable and applies to all of the lump-sum distribution.</p>
+    </div>
+    <div class="signature-section">
+        <div class="signature-box"><p>Signature</p><input type="text" formControlName="signature" class="signature-input"></div>
+        <div class="date-box"><p>Date</p><input type="date" formControlName="dateSigned"></div>
+    </div>
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

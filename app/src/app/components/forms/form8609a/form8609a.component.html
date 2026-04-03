@@ -1,96 +1,100 @@
-<div class="irs-form-container">
-  <div class="irs-form-box">
-    <!-- Header -->
-    <div class="irs-main-header">
-      <div class="irs-col-form-id">
-        <div class="irs-form-num">Form <span class="num-large">8609-A</span></div>
-        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
-      </div>
-      <div class="irs-col-title">
-        <h1>Annual Statement for Low-Income Housing Credit</h1>
-        <p class="irs-instruction">Go to <strong>www.irs.gov/Form8609A</strong> for instructions and the latest information.</p>
-      </div>
-      <div class="irs-col-omb">
-        <div class="irs-omb">OMB No. 1545-0988</div>
-        <div class="irs-year-box">
-          <div class="irs-attachment">Attachment<br>Sequence No. <strong>36</strong></div>
+<div class="irs-unified-container">
+    <!-- Form 8609-A Header -->
+    <div class="irs-header-main">
+        <div class="irs-form-id-block" style="padding-right: 15px; border-right: 2.2px solid #000;">
+            <div style="font-size: 1.55rem; font-weight: 1000; text-transform: uppercase;">Form 8609-A</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.8rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
         </div>
-      </div>
+        <div class="irs-form-title-block" style="text-align: center; padding: 0 25px;">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.5rem; margin: 0; font-weight: 950; text-transform: uppercase;">Annual Statement for Low-Income Housing Credit</h1>
+                <h2 style="font-size: 1.25rem; margin: 0; font-weight: 400; font-style: italic; color: #333;">Declaración Anual para el Crédito por Viviendas para Personas de Bajos Ingresos</h2>
+            </div>
+            <p style="font-size: 0.95rem; margin-top: 12px; font-weight: 850;">▶ Go to www.irs.gov/Form8609A for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.65rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0988</div>
+            <div style="font-size: 3.5rem; line-height: 1; font-weight: 950;">2025</div>
+        </div>
     </div>
 
-    <!-- Name/ID Row -->
-    <div class="irs-name-ssn-row">
-      <div class="irs-name-box">
-        <label for="name">Name(s) shown on return</label>
-        <input id="name" type="text" formControlName="name" class="irs-borderless-input">
-      </div>
-      <div class="irs-ssn-box">
-        <label for="idn">Identifying number</label>
-        <input id="idn" type="text" formControlName="identNumber" class="irs-borderless-input">
-      </div>
-    </div>
-
+    @if (form) {
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <!-- Part I -->
-      <div class="irs-part-header-full">
-        <span class="part-label">Part I</span>
-        <span class="part-title">Compliance Information</span>
-      </div>
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
+            <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
+                <div class="irs-label-wrap">
+                    <label for="f8609a-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return / Nombre que figura en la declaración</label>
+                </div>
+                <input id="f8609a-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
+            </div>
+            <div class="irs-entity-box" style="padding: 15px;">
+                <div class="irs-label-wrap">
+                    <label for="f8609a-ssn" class="irs-label-en">Social security number</label>
+                </div>
+                <input id="f8609a-ssn" type="text" formControlName="ein" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
+            </div>
+        </div>
 
-      <div class="irs-id-grid">
-        <div class="id-row">
-            <div class="id-label">A</div>
-            <div class="id-field"><label for="bin">Building identification number (BIN)</label> <input id="bin" type="text" formControlName="bin"></div>
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">7</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">Qualified basis of building.</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Base calificada del edificio.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line7" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="irs-compliance-grid">
-        <div class="grid-header-row">
-            <div class="q-empty"></div>
-            <div class="q-desc"></div>
-            <div class="q-check">Yes</div>
-            <div class="q-check">No</div>
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">8</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">Applicable percentage (as a %).</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Porcentaje aplicable (como un %).</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">%</span>
+                    <input type="number" formControlName="line8" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
         </div>
-        <div class="q-row">
-            <div class="q-num">1</div>
-            <div class="q-text">Has the building, or an interest therein, been transferred during the tax year?</div>
-            <div class="q-input"><input type="radio" value="yes" formControlName="q1"></div>
-            <div class="q-input"><input type="radio" value="no" formControlName="q1"></div>
-        </div>
-        <div class="q-row zebra-light">
-            <div class="q-num">2</div>
-            <div class="q-text">Did the building qualify as a low-income building at the close of the tax year?</div>
-            <div class="q-input"><input type="radio" value="yes" formControlName="q2"></div>
-            <div class="q-input"><input type="radio" value="no" formControlName="q2"></div>
-        </div>
-      </div>
 
-      <!-- Part II -->
-      <div class="irs-part-header-full">
-        <span class="part-label">Part II</span>
-        <span class="part-title">Computation of Credit</span>
-      </div>
-
-      <div class="irs-form-body">
-        <div class="irs-line-item">
-          <div class="irs-line-num">1</div>
-          <div class="irs-line-desc"><label for="line1">Eligible basis of building from Form 8609, Part II, line 7</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-line-val-num">1</div>
-          <div class="irs-input-box no-shade"><input id="line1" type="number" formControlName="line1"></div>
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2px solid #000;">
+            <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">15</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Current year credit.</span>
+                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Crédito del año actual.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-yellow-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym" style="color: #1e3a8a;">$</span>
+                    <span style="text-align: right; font-weight: 1000; font-size: 1.5rem; color: #1e3a8a; width: 100%; display: block;">{{ annualCredit() | number:'1.2-2' }}</span>
+                </div>
+            </div>
         </div>
-        <div class="irs-line-item zebra-light-border">
-            <div class="irs-line-num">18</div>
-            <div class="irs-line-desc"><strong>Taxpayer’s credit.</strong> Carry this amount to Form 8586</div>
-            <div class="irs-dots"></div>
-            <div class="irs-line-val-num">18</div>
-            <div class="irs-input-box"><input id="line18" type="number" formControlName="line18"></div>
-        </div>
-      </div>
 
-      <div class="irs-footer-actions">
-        <button type="submit" class="btn-submit">Submit Form 8609-A</button>
-      </div>
+        <div style="padding: 60px 40px; text-align: center; background: #fff;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
+                Save Form 8609-A / Guardar Formulario 8609-A
+            </button>
+        </div>
     </form>
-  </div>
+    }
 </div>

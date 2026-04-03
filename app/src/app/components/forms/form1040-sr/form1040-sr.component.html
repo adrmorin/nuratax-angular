@@ -1,56 +1,82 @@
-<div class="irs-unified-container sr-theme">
-  <!-- Header -->
-  <div class="irs-header-container">
-    <div class="irs-id-box">
-      <span class="irs-id-main" style="font-size: 3.5rem;">1040-SR</span>
-      <span class="irs-id-sub" style="font-size: 1.1rem;">U.S. Tax Return for Seniors</span>
-      <p style="font-size: 0.75rem; font-weight: 850; margin-top: 5px;">(Rev. 2024)</p>
-    </div>
-    <div class="irs-title-box">
-      <p style="font-size: 0.9rem; font-weight: 700; margin-top: 10px;">Department of the Treasury—Internal Revenue Service</p>
-      <h1 style="font-size: 1.6rem; font-weight: 950; text-transform: uppercase;">U.S. Individual Income Tax Return</h1>
-      <p style="font-size: 1.1rem; font-weight: 950; margin-top: 20px;">Standard Deduction Chart — Page 4</p>
-    </div>
-    <div class="irs-omb-box">
-      <span style="font-size: 0.8rem;">OMB No. 1545-0074</span>
-      <div style="margin-top: 20px; font-weight: 950; font-size: 1.3rem;">2024</div>
-    </div>
-  </div>
-
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
-    <!-- FILING STATUS (Large) -->
-    <div class="sr-box-row border-b" style="padding: 15px 0;">
-       <label style="font-weight: 950; font-size: 1.2rem;">Filing Status:</label>
-       <span style="margin-left: 20px; font-weight: 700;">Check only one box.</span>
+<div class="irs-unified-container">
+    <!-- Form 1040-SR Header -->
+    <div class="irs-header-main" style="background: #fff; border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.4rem; font-weight: 950; line-height: 1.1;">Form 1040-SR</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.75rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
+        </div>
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.25rem; margin: 0; font-weight: 950;">U.S. Tax Return for Seniors</h1>
+                <h2 style="font-size: 1rem; margin: 0; font-style: italic; font-weight: 400;">Declaración de Impuestos de EE. UU. para Adultos Mayores</h2>
+            </div>
+            <p style="font-size: 0.9rem; margin-top: 12px; font-weight: 700;">▶ Standard Deduction Chart — Page 4</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0074</div>
+            <div style="font-size: 3.2rem; line-height: 1; font-weight: 950;">2025</div>
+            <div style="font-size: 0.7rem; font-weight: 800; margin-top: 5px;">Attachment<br>Sequence No. 01</div>
+        </div>
     </div>
 
-    <!-- Part I Identification -->
-    <div class="irs-row-line-unified border-b" style="display: flex; border-bottom: 4px solid #000; padding: 15px 0;">
-      <div class="irs-id-col" style="flex: 2; padding: 0 12px; border-right: 2px solid #000;">
-        <label style="display: block; font-size: 0.9rem; font-weight: 950; text-transform: uppercase;">Your first name and initial</label>
-        <input type="text" formControlName="firstName" class="irs-input-field-sr">
-      </div>
-      <div class="irs-id-col" style="flex: 1; padding: 0 12px;">
-        <label style="display: block; font-size: 0.9rem; font-weight: 950; text-transform: uppercase;">Social security number</label>
-        <input type="text" formControlName="ssn" class="irs-input-field-sr">
-      </div>
-    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="form">
+        <!-- Part I Identification -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 10px; margin-bottom: 0;">
+            <div class="irs-label-wrap">
+                <span style="font-size: 1.1rem; font-weight: 950;">Personal Information</span>
+                <span style="font-size: 0.9rem; font-weight: 400; font-style: italic;">Información Personal</span>
+            </div>
+        </div>
 
-    <!-- AGE/BLINDNESS (LARGE CHECKBOXES) -->
-    <div class="sr-age-section" style="margin-top: 30px; border: 2px solid #000; padding: 25px;">
-      <h3 style="font-weight: 950; font-size: 1.3rem; margin-bottom: 20px;">Standard Deduction — Age/Blindness</h3>
-      <div style="display: flex; gap: 40px; align-items: center;">
-        <label class="sr-check-label">
-          <input type="checkbox" formControlName="age65" class="sr-checkbox"> Were born before Jan 2, 1960
-        </label>
-        <label class="sr-check-label">
-          <input type="checkbox" formControlName="blind" class="sr-checkbox"> Blind
-        </label>
-      </div>
-    </div>
+        <div class="irs-row" style="grid-template-columns: 1fr 300px;">
+            <div style="padding: 10px; border-right: 2px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en" style="font-size: 1.1rem;">First name and middle initial</label>
+                    <label class="irs-label-es" style="font-size: 0.9rem;">Nombre y la inicial del segundo nombre</label>
+                </div>
+                <input type="text" formControlName="firstName" style="font-size: 1.3rem; font-weight: 800;">
+            </div>
+            <div style="padding: 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en" style="font-size: 1.1rem;">Social security number</label>
+                    <label class="irs-label-es" style="font-size: 0.9rem;">Número de seguro social</label>
+                </div>
+                <input type="text" formControlName="ssn" style="font-size: 1.3rem; font-weight: 800;">
+            </div>
+        </div>
 
-    <div style="margin-top: 60px; text-align: right;">
-      <button type="submit" class="irs-btn-submit-sr" style="padding: 20px 60px; font-size: 1.3rem;">Submit Return</button>
-    </div>
-  </form>
+        <!-- Age/Blindness Section -->
+        <div class="irs-sr-box" style="margin: 20px; border: 3px solid #000; padding: 30px;">
+            <div class="irs-label-wrap" style="margin-bottom: 25px; border-bottom: 2px solid #000; padding-bottom: 10px;">
+                <h3 style="font-size: 1.4rem; font-weight: 950; margin: 0;">Standard Deduction — Age/Blindness</h3>
+                <h4 style="font-size: 1.1rem; margin: 0; font-style: italic; font-weight: 400;">Deducción Estándar — Edad/Ceguera</h4>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                <label style="display: flex; align-items: start; gap: 20px; cursor: pointer;">
+                    <input type="checkbox" formControlName="age65" style="width: 30px; height: 30px; margin-top: 5px;">
+                    <div>
+                        <span style="display: block; font-weight: 900; font-size: 1.15rem;">Were born before Jan 2, 1961</span>
+                        <span style="display: block; font-size: 1rem; font-style: italic;">Nació antes del 2 de enero de 1961</span>
+                    </div>
+                </label>
+                <label style="display: flex; align-items: start; gap: 20px; cursor: pointer;">
+                    <input type="checkbox" formControlName="blind" style="width: 30px; height: 30px; margin-top: 5px;">
+                    <div>
+                        <span style="display: block; font-weight: 900; font-size: 1.15rem;">Blind</span>
+                        <span style="display: block; font-size: 1rem; font-style: italic;">Ciego(a)</span>
+                    </div>
+                </label>
+            </div>
+        </div>
+
+        <div style="padding: 60px; text-align: center; background: #fffbe6; border-top: 1px solid #000;">
+            <button type="submit" style="background: #111; color: #fff; padding: 25px 80px; border: none; font-size: 1.4rem; font-weight: 950; cursor: pointer; text-transform: uppercase; box-shadow: 0 4px 0 #000;">
+                Submit 1040-SR Return / Enviar Declaración 1040-SR
+            </button>
+        </div>
+    </form>
 </div>

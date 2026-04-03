@@ -1,0 +1,134 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title">
+            <h1>Form 8082</h1>
+            <p class="form-year">Department of the Treasury - Internal Revenue Service</p>
+        </div>
+        <div class="form-info">
+            <p><strong>Notice of Inconsistent Treatment or Administrative Adjustment Request (AAR)</strong></p>
+            <p>For use by partners, S corporation shareholders, estate and domestic trust beneficiaries, foreign trust owners and beneficiaries, REMIC residual interest holders, and nominees.</p>
+        </div>
+    </div>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part I - Shareholder/Partner/Beneficiary Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">Your name</td>
+                <td class="line-input"><input type="text" formControlName="name"></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">Your TIN (SSN or EIN)</td>
+                <td class="line-input"><input type="text" formControlName="tin" placeholder="XX-XXXXXXX"></td>
+            </tr>
+            <tr>
+                <td class="line-num">3</td>
+                <td class="line-desc">Name of entity</td>
+                <td class="line-input"><input type="text" formControlName="entityName"></td>
+            </tr>
+            <tr>
+                <td class="line-num">4</td>
+                <td class="line-desc">Entity's TIN</td>
+                <td class="line-input"><input type="text" formControlName="entityTin"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="4" class="section-header">Part II - Inconsistent Treatment (see instructions)</th>
+            </tr>
+            <tr class="sub-header">
+                <th>(a) Description of Item</th>
+                <th>(b) Amount</th>
+                <th>(c) Entity's Treatment</th>
+                <th>(d) Your Treatment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-input"><input type="text" formControlName="description1" placeholder="Description"></td>
+                <td class="line-input"><input type="number" formControlName="amount1"></td>
+                <td class="line-input"><input type="text" formControlName="entityTreatment1"></td>
+                <td class="line-input"><input type="text" formControlName="taxpayerTreatment1"></td>
+            </tr>
+            <tr>
+                <td class="line-input"><input type="text" formControlName="description2" placeholder="Description"></td>
+                <td class="line-input"><input type="number" formControlName="amount2"></td>
+                <td class="line-input"><input type="text" formControlName="entityTreatment2"></td>
+                <td class="line-input"><input type="text" formControlName="taxpayerTreatment2"></td>
+            </tr>
+            <tr>
+                <td class="line-input"><input type="text" formControlName="description3" placeholder="Description"></td>
+                <td class="line-input"><input type="number" formControlName="amount3"></td>
+                <td class="line-input"><input type="text" formControlName="entityTreatment3"></td>
+                <td class="line-input"><input type="text" formControlName="taxpayerTreatment3"></td>
+            </tr>
+            <tr>
+                <td class="line-input"><input type="text" formControlName="description4" placeholder="Description"></td>
+                <td class="line-input"><input type="number" formControlName="amount4"></td>
+                <td class="line-input"><input type="text" formControlName="entityTreatment4"></td>
+                <td class="line-input"><input type="text" formControlName="taxpayerTreatment4"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part III - Administrative Adjustment Request (AAR)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">Is this an AAR request?</td>
+                <td class="line-input">
+                    <select formControlName="aarRequest">
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">Description of requested adjustment</td>
+                <td class="line-input"><input type="text" formControlName="aarDescription"></td>
+            </tr>
+            <tr>
+                <td class="line-num">3</td>
+                <td class="line-desc">Amount of requested change</td>
+                <td class="line-input"><input type="number" formControlName="requestedChange"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="explanation-section">
+        <label><strong>Explanation (attach additional statement if needed):</strong></label>
+        <textarea formControlName="explanation" rows="4" placeholder="Explain the inconsistent treatment..."></textarea>
+    </div>
+
+    <div class="nerea-advice">
+        <div class="advice-header">
+            <img src="assets/images/nerea_avatar.png" alt="Nerea" class="nerea-avatar">
+            <span class="advice-title">Asistente de Impuestos</span>
+        </div>
+        <div class="advice-content">
+            <p><strong>Propósito:</strong> {{ nereaAdvice.purpose }}</p>
+            <p><strong>Cuándo usar:</strong> {{ nereaAdvice.whenToUse }}</p>
+            <p><strong>Multas:</strong> {{ nereaAdvice.penalty }}</p>
+            <p><strong>AAR:</strong> {{ nereaAdvice.aar }}</p>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button>
+    </div>
+</div>

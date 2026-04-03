@@ -1,0 +1,101 @@
+<div class="irs-unified-container">
+    <!-- Form 1125-E Header -->
+    <div class="irs-header-main">
+        <div class="irs-form-id-block" style="padding-right: 15px; border-right: 2.2px solid #000;">
+            <div style="font-size: 1.55rem; font-weight: 1000; text-transform: uppercase;">Form 1125-E</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.8rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
+        </div>
+        <div class="irs-form-title-block" style="text-align: center; padding: 0 25px;">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.6rem; margin: 0; font-weight: 950; text-transform: uppercase;">Compensation of Officers</h1>
+                <h2 style="font-size: 1.3rem; margin: 0; font-weight: 400; font-style: italic; color: #333;">Compensación de Funcionarios</h2>
+            </div>
+            <p style="font-size: 0.95rem; margin-top: 12px; font-weight: 850;">▶ Go to www.irs.gov/Form1125E for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.65rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0123</div>
+            <div style="font-size: 3.5rem; line-height: 1; font-weight: 950;">2025</div>
+        </div>
+    </div>
+
+    @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
+            <div class="irs-entity-box" style="background: #fafafa;">
+                <div class="irs-label-wrap">
+                    <label for="f1125e-name" class="irs-label-en" style="font-weight: 1000;">Name / Nombre de la corporación</label>
+                </div>
+                <input id="f1125e-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
+            </div>
+            <div class="irs-entity-box" style="padding: 15px; border-right: none;">
+                <div class="irs-label-wrap">
+                    <label for="f1125e-ein" class="irs-label-en">EIN</label>
+                </div>
+                <input id="f1125e-ein" type="text" formControlName="ein" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
+            </div>
+        </div>
+
+        <div style="padding: 10px 15px; background: #eee; font-weight: 950; font-size: 0.9rem; border-bottom: 2.2px solid #000;">
+           Note: Complete Form 1125-E only if total receipts (line 1a plus lines 4 through 10 of Form 1120...) are $500,000 or more.
+        </div>
+
+        <!-- Table Header -->
+        <div class="irs-officer-grid" style="background: #eee;">
+            <div class="irs-table-header">(a) Name of officer / Nombre del funcionario</div>
+            <div class="irs-table-header">(b) Social security number / SSN</div>
+            <div class="irs-table-header">(c) % Time devoted to business</div>
+            <div class="irs-table-header" colspan="2">(d) % Stock owned (Common / Preferred)</div>
+            <div class="irs-table-header">(f) Amount of compensation / Cantidad</div>
+        </div>
+
+        <div formArrayName="officers">
+            @for (officer of officers.controls; track $index) {
+                <div [formGroupName]="$index" class="irs-officer-grid">
+                    <div class="irs-table-cell"><input type="text" formControlName="name" style="font-weight: 900;"></div>
+                    <div class="irs-table-cell"><input type="text" formControlName="ssn"></div>
+                    <div class="irs-table-cell"><input type="number" formControlName="percentTime" style="text-align: right;"></div>
+                    <div class="irs-table-cell"><input type="number" formControlName="percentCommon" style="text-align: right;"></div>
+                    <div class="irs-table-cell"><input type="number" formControlName="percentPreferred" style="text-align: right;"></div>
+                    <div class="irs-table-cell irs-blue-cell">
+                        <div style="display: flex; align-items: center;">
+                            <span class="irs-money-sym">$</span>
+                            <input type="number" formControlName="amount" style="text-align: right; font-weight: 950;">
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div style="padding: 15px; background: #fff; border-bottom: 3.5px solid #000;">
+            <button type="button" (click)="addOfficer()" style="background: #222; color: #fff; padding: 10px 25px; border: none; font-weight: 850; cursor: pointer;">+ Add Officer / Agregar Funcionario</button>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2px solid #000;">
+            <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">4</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Total. Subtract line 3 from line 2. Enter here and on Form 1120...</span>
+                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Total. Reste la línea 3 de la línea 2.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-yellow-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym" style="color: #1e3a8a;">$</span>
+                    <input type="number" formControlName="line4" style="text-align: right; font-weight: 1000; font-size: 1.4rem; color: #1e3a8a;">
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 60px 40px; text-align: center; background: #fff;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
+                Save Form 1125-E / Guardar Formulario 1125-E
+            </button>
+        </div>
+    </form>
+    }
+</div>

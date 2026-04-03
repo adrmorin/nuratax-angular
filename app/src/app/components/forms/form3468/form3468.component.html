@@ -1,131 +1,96 @@
-<div class="irs-form-container">
-  <div class="irs-form-box">
-    <!-- Header -->
-    <div class="irs-main-header">
-      <div class="irs-col-form-id">
-        <div class="irs-form-num">Form <span class="num-large">3468</span></div>
-        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
-      </div>
-      <div class="irs-col-title">
-        <h1>Investment Credit</h1>
-        <p class="irs-instruction">Go to <strong>www.irs.gov/Form3468</strong> for instructions and the latest information.</p>
-        <p class="irs-attach">Attach to your tax return.</p>
-      </div>
-      <div class="irs-col-omb">
-        <div class="irs-omb">OMB No. 1545-0155</div>
-        <div class="irs-year-box">
-          <div class="irs-year">2025</div>
+<div class="irs-unified-container">
+    <!-- Form 3468 Header -->
+    <div class="irs-header-main" style="background: #fff; border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.4rem;">Form 3468</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
         </div>
-      </div>
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.3rem; margin: 0;">Investment Credit</h1>
+                <h2 style="font-size: 1rem; margin: 0; font-style: italic;">Crédito por Inversión</h2>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 8px; font-weight: 700;">Attach to your tax return. / Adjunte a su declaración de impuestos.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0155</div>
+            <div style="font-size: 2.8rem; line-height: 1;">2025</div>
+        </div>
     </div>
 
-    <!-- Name/ID Row -->
-    <div class="irs-name-ssn-row">
-      <div class="irs-name-box">
-        <label for="name">Name(s) shown on return</label>
-        <input id="name" type="text" formControlName="name" class="irs-borderless-input">
-      </div>
-      <div class="irs-ssn-box">
-        <label for="identifyingNumber">Identifying number</label>
-        <input id="identifyingNumber" type="text" formControlName="identifyingNumber" class="irs-borderless-input">
-      </div>
-    </div>
-
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <!-- Part I -->
-      <div class="irs-part-header">
-        <span class="part-label">Part I</span>
-        <span class="part-title">Information on Qualified Property or Qualified Facility</span>
-      </div>
-
-      <div class="irs-form-body">
-        <div class="irs-line-item">
-          <div class="irs-line-num">1</div>
-          <div class="irs-line-desc"><label for="regNumber">IRS registration number for the direct payment or transfer election</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-input-box-wide"><input id="regNumber" type="text" formControlName="regNumber"></div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="form">
+        <!-- Name and ID Header -->
+        <div class="irs-row" style="grid-template-columns: 1fr 250px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Name(s) shown on return</label>
+                    <label class="irs-label-es">Nombre(s) que aparecen en la declaración</label>
+                </div>
+                <input type="text" formControlName="name" style="width: 100%; border: none; font-weight: 700;">
+            </div>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Identifying number</label>
+                    <label class="irs-label-es">Número de identificación</label>
+                </div>
+                <input type="text" formControlName="identifyingNumber" style="width: 100%; border: none; font-weight: 700;">
+            </div>
         </div>
 
-        <div class="irs-line-item">
-          <div class="irs-line-num">2</div>
-          <div class="irs-line-desc">Hydrogen emissions (kg CO2e) and DOE control number:</div>
-          <div class="irs-sub-grid-2">
-            <div class="sub-item"><label for="emissions">Emissions:</label> <input id="emissions" type="text" formControlName="hydrogenEmissions"></div>
-            <div class="sub-item"><label for="doe">DOE #:</label> <input id="doe" type="text" formControlName="doeControl"></div>
-          </div>
+        <!-- Part I -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part I</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Information on Qualified Property or Qualified Facility</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Información sobre Propiedad Cualificada o Instalación Cualificada</span>
+            </div>
         </div>
 
-        <div class="irs-line-item">
-          <div class="irs-line-num">3</div>
-          <div class="irs-line-desc">Location of the facility or property:</div>
-          <div class="irs-location-box">
-             <div class="full-width"><label for="address">Address:</label> <input id="address" type="text" formControlName="address"></div>
-             <div class="half-width"><label for="lat">Latitude:</label> <input id="lat" type="text" placeholder="±XX.XXXXXX" formControlName="latitude"></div>
-             <div class="half-width"><label for="long">Longitude:</label> <input id="long" type="text" placeholder="±XXX.XXXXXX" formControlName="longitude"></div>
-          </div>
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 200px;">
+            <div class="irs-col-line-num">1</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">IRS registration number for direct payment</span>
+                    <span class="irs-label-es">Número de registro del IRS para el pago directo</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input">
+                <input type="text" formControlName="regNumber" style="width: 100%;">
+            </div>
         </div>
 
-        <div class="irs-line-item zebra-light-border">
-          <div class="irs-line-num">4</div>
-          <div class="irs-line-desc"><label for="startDate">Date construction began</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-input-box-small"><input id="startDate" type="date" formControlName="startDate"></div>
+        <div class="irs-row" style="grid-template-columns: 40px 1fr; background: #eee;">
+            <div class="irs-col-line-num" style="background: transparent;">3</div>
+            <div style="padding: 10px;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en"><strong>Location of the facility or property:</strong></span>
+                    <span class="irs-label-es"><strong>Ubicación de la instalación o propiedad:</strong></span>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 5px;">
+                    <div style="background: #fff; padding: 5px; border: 1px solid #999; grid-column: span 2;">
+                        <label style="font-size: 0.7rem; font-weight: 700;">Address / Dirección</label>
+                        <input type="text" formControlName="address" style="width: 100%; border: none;">
+                    </div>
+                    <div style="background: #fff; padding: 5px; border: 1px solid #999;">
+                        <label style="font-size: 0.7rem; font-weight: 700;">Latitude / Latitud</label>
+                        <input type="text" formControlName="latitude" style="width: 100%; border: none;">
+                    </div>
+                    <div style="background: #fff; padding: 5px; border: 1px solid #999;">
+                        <label style="font-size: 0.7rem; font-weight: 700;">Longitude / Longitud</label>
+                        <input type="text" formControlName="longitude" style="width: 100%; border: none;">
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="irs-line-item">
-          <div class="irs-line-num">5</div>
-          <div class="irs-line-desc"><label for="inServiceDate">Date placed in service</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-input-box-small"><input id="inServiceDate" type="date" formControlName="inServiceDate"></div>
+        <div style="padding: 40px; text-align: center;">
+            <button type="submit" style="background: #111; color: #fff; padding: 15px 60px; border: none; border-radius: 2px; font-weight: 900; cursor: pointer; text-transform: uppercase;">
+                Save Form 3468 / Guardar Formulario 3468
+            </button>
         </div>
-
-        <div class="irs-checklist-header">Compliance Requirements:</div>
-        <div class="irs-checklist">
-          <div class="check-item">
-            <input type="checkbox" id="wage" formControlName="wageMet">
-            <label for="wage">Check if the prevailing wage and apprenticeship requirements are met</label>
-          </div>
-          <div class="check-item">
-            <input type="checkbox" id="domestic" formControlName="domesticMet">
-            <label for="domestic">Check if the domestic content bonus credit requirements are met</label>
-          </div>
-          <div class="check-item">
-            <input type="checkbox" id="energyComm" formControlName="energyCommunityMet">
-            <label for="energyComm">Check if the energy community bonus credit requirements are met</label>
-          </div>
-        </div>
-      </div>
-
-      <!-- Part II -->
-      <div class="irs-part-header">
-        <span class="part-label">Part II</span>
-        <span class="part-title">Specialized Project Credits</span>
-      </div>
-
-      <div class="irs-form-body">
-        <div class="irs-line-item zebra-dark-border">
-          <div class="irs-line-num">12</div>
-          <div class="irs-line-desc"><label for="line12">Qualifying advanced coal project credit (see instructions)</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-input-box"><input id="line12" type="number" formControlName="line12"></div>
-        </div>
-        <div class="irs-line-item">
-          <div class="irs-line-num">13</div>
-          <div class="irs-line-desc"><label for="line13">Qualifying gasification project credit (see instructions)</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-input-box"><input id="line13" type="number" formControlName="line13"></div>
-        </div>
-        <div class="irs-line-item zebra-dark-border">
-          <div class="irs-line-num">14</div>
-          <div class="irs-line-desc"><label for="line14">Qualifying advanced energy project credit (see instructions)</label></div>
-          <div class="irs-dots"></div>
-          <div class="irs-input-box"><input id="line14" type="number" formControlName="line14"></div>
-        </div>
-      </div>
-
-      <div class="irs-footer-actions">
-        <button type="submit" class="btn-submit">Submit Form 3468</button>
-      </div>
     </form>
-  </div>
 </div>

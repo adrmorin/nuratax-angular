@@ -1,0 +1,222 @@
+/* Form 1099-B - Proceeds From Broker and Barter Exchange Transactions */
+/* High-fidelity IRS Copy B Reproduction */
+
+.irs-form-container {
+    max-width: 850px;
+    margin: 20px auto;
+    background-color: var(--irs-bg-paper, #ffffff);
+    border: 2px solid var(--irs-border-dark, #000000);
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--irs-text-main, #1a1a1a);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.irs-header {
+    display: flex;
+    border-bottom: 2px solid var(--irs-border-dark);
+    background-color: var(--irs-bg-paper);
+}
+
+.form-title-box {
+    width: 150px;
+    padding: 10px;
+    border-right: 2px solid var(--irs-border-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+}
+
+.irs-form-id {
+    font-size: 32px;
+    line-height: 1;
+}
+
+.irs-form-sub-id {
+    font-size: 14px;
+}
+
+.irs-header-center {
+    flex: 1;
+    padding: 10px 15px;
+    border-right: 2px solid var(--irs-border-dark);
+}
+
+.irs-header-center h1 {
+    font-size: 18px;
+    font-weight: 950;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.irs-instruction {
+    font-size: 11px;
+    margin: 5px 0 0;
+    font-style: italic;
+}
+
+.year-box {
+    width: 100px;
+    padding: 10px;
+    font-size: 36px;
+    font-weight: 950;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Grid Layout for 1099-B */
+.irs-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 2px solid var(--irs-border-dark);
+}
+
+.left-column {
+    border-right: 2px solid var(--irs-border-dark);
+}
+
+/* Info Boxes */
+.irs-info-box {
+    border-bottom: 1px solid var(--irs-border-dark);
+    padding: 5px 10px;
+    min-height: 80px;
+}
+
+.irs-info-box:last-child {
+    border-bottom: none;
+}
+
+.irs-label {
+    display: block;
+    font-size: 10px;
+    font-weight: 700;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+}
+
+.irs-input-large {
+    width: 100%;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    background: transparent;
+    outline: none;
+}
+
+/* Numbered Boxes */
+.irs-numbered-boxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.box-entry {
+    border-bottom: 1px solid var(--irs-border-dark);
+    border-right: 1px solid var(--irs-border-dark);
+    padding: 3px 8px;
+    min-height: 45px;
+    position: relative;
+}
+
+.box-entry:nth-child(even) {
+    border-right: none;
+}
+
+.box-num {
+    font-size: 11px;
+    font-weight: 900;
+    margin-right: 5px;
+}
+
+.box-label {
+    font-size: 9px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.box-input {
+    width: 100%;
+    border: none;
+    font-size: 13px;
+    font-weight: 700;
+    background: transparent;
+    outline: none;
+    margin-top: 2px;
+}
+
+.box-input-amount {
+    text-align: right;
+    color: var(--irs-text-blue, #004a99);
+}
+
+/* Special rows */
+.full-width-box {
+    grid-column: 1 / span 2;
+    border-right: none;
+}
+
+.bg-gray {
+    background-color: var(--irs-bg-gray, #f0f0f0);
+}
+
+.bg-blue-light {
+    background-color: var(--irs-bg-blue-light, #eef7ff);
+}
+
+/* Footer Section */
+.irs-footer-area {
+    padding: 10px;
+    font-size: 10px;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--irs-bg-gray);
+}
+
+.irs-action-bar {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    background: #fdfdfd;
+    border-top: 1px solid #ddd;
+}
+
+.btn-irs {
+    padding: 10px 25px;
+    font-weight: 800;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+}
+
+.btn-irs-primary {
+    background: #000;
+    color: #fff;
+    border: none;
+}
+
+.btn-irs-primary:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Checkbox Style */
+.irs-checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.irs-checkbox-container input {
+    width: 16px;
+    height: 16px;
+}
+
+.irs-checkbox-container label {
+    font-size: 10px;
+    font-weight: 700;
+}

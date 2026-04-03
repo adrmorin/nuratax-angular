@@ -1,0 +1,160 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title">
+            <h1>Form 8889</h1>
+            <p class="form-year">Department of the Treasury - Internal Revenue Service</p>
+        </div>
+        <div class="form-info">
+            <p><strong>Health Savings Accounts (HSAs)</strong></p>
+            <p>Attach to Form 1040 or 1040-SR. See instructions for Form 8889.</p>
+        </div>
+    </div>
+
+    <div class="taxpayer-section">
+        <h3>Taxpayer Information</h3>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Your name</label>
+                <input type="text" formControlName="hsaContributor">
+            </div>
+        </div>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Are you covered by an HDHP?</label>
+                <select formControlName="coveredByHDHP">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+            </div>
+            <div class="field-group">
+                <label>Self-only or family coverage</label>
+                <select formControlName="selfOnlyOrFamily">
+                    <option value="selfOnly">Self-only</option>
+                    <option value="family">Family</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part I - HSA Contributions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">Your HSA contributions (see instructions)</td>
+                <td class="line-input"><input type="number" formControlName="hsaContribution"></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">Employer contributions</td>
+                <td class="line-input"><input type="number" formControlName="employerContribution"></td>
+            </tr>
+            <tr>
+                <td class="line-num">3</td>
+                <td class="line-desc">Total contributions (add lines 1 and 2)</td>
+                <td class="line-input"><input type="number" formControlName="totalContribution" readonly></td>
+            </tr>
+            <tr>
+                <td class="line-num">4</td>
+                <td class="line-desc">HSA contribution limit</td>
+                <td class="line-input"><input type="number" formControlName="contributionLimit" readonly></td>
+            </tr>
+            <tr>
+                <td class="line-num">5</td>
+                <td class="line-desc">Excess contributions (see instructions)</td>
+                <td class="line-input"><input type="number" formControlName="excessContribution" readonly></td>
+            </tr>
+            <tr>
+                <td class="line-num">6</td>
+                <td class="line-desc">Age 55+ catch-up contributions</td>
+                <td class="line-input"><input type="number" formControlName="age55CatchUp"></td>
+            </tr>
+            <tr>
+                <td class="line-num">7</td>
+                <td class="line-desc">Spouse's contributions (if filing jointly)</td>
+                <td class="line-input"><input type="number" formControlName="spouseContribution"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part II - HSA Distributions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">Distributions from HSAs (withdrawals)</td>
+                <td class="line-input"><input type="number" formControlName="distributionsForMedical"></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">Distributions for other purposes</td>
+                <td class="line-input"><input type="number" formControlName="distributionsOther"></td>
+            </tr>
+            <tr>
+                <td class="line-num">3</td>
+                <td class="line-desc">Total distributions (add lines 1 and 2)</td>
+                <td class="line-input"><input type="number" formControlName="totalDistributions" readonly></td>
+            </tr>
+            <tr>
+                <td class="line-num">4</td>
+                <td class="line-desc">Tax-free amount (see instructions)</td>
+                <td class="line-input"><input type="number" formControlName="taxFreeAmount" readonly></td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="line-num">5</td>
+                <td class="line-desc"><strong>Taxable amount</strong></td>
+                <td class="line-input"><input type="number" formControlName="taxableAmount" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Part III - HSA Ownership</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">HSA balance at end of year</td>
+                <td class="line-input"><input type="number" formControlName="hsaBalanceEnd"></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">HSA balance at end of prior year</td>
+                <td class="line-input"><input type="number" formControlName="hsaBalanceEndYear"></td>
+            </tr>
+            <tr>
+                <td class="line-num">3</td>
+                <td class="line-desc">Investment earnings</td>
+                <td class="line-input"><input type="number" formControlName="investmentEarnings"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="nerea-advice">
+        <div class="advice-header">
+            <img src="assets/images/nerea_avatar.png" alt="Nerea" class="nerea-avatar">
+            <span class="advice-title">Asistente de Impuestos</span>
+        </div>
+        <div class="advice-content">
+            <p><strong>Contribuciones:</strong> {{ nereaAdvice.part1 }}</p>
+            <p><strong>Distribuciones:</strong> {{ nereaAdvice.part2 }}</p>
+            <p><strong>HDHP:</strong> {{ nereaAdvice.part3 }}</p>
+            <p><strong>Ventajas:</strong> {{ nereaAdvice.part4 }}</p>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button>
+    </div>
+</div>

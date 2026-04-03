@@ -1,0 +1,120 @@
+/* Schedule K-1 (Form 1065) - Unified Design System v2 
+   Inherits from global styles.css
+*/
+
+:host {
+    display: block;
+    background-color: var(--irs-bg-paper);
+}
+
+.irs-unified-container {
+    margin: 2rem auto;
+    border: 4px solid #000;
+    max-width: 1150px;
+    box-shadow: 0 25px 100px rgba(0,0,0,0.2);
+}
+
+.irs-row {
+    display: grid;
+    border-bottom: 2.5px solid #000;
+    align-items: stretch;
+}
+
+.irs-header-main {
+    display: grid;
+    grid-template-columns: 260px 1fr 240px;
+    background-color: #fff;
+    padding: 20px;
+    border-bottom: 4px solid #000;
+}
+
+.irs-part-banner {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background-color: #000;
+    color: #fff;
+    padding: 15px 30px;
+}
+
+input[type="number"], input[type="text"], select {
+    font-family: var(--irs-font-body);
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: #111;
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+}
+
+.irs-label-en {
+    font-size: 1.15rem;
+    font-weight: 950;
+    color: #000;
+}
+
+.irs-label-es {
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #444;
+    display: block;
+}
+
+.irs-entity-box {
+    padding: 20px;
+    border-right: 2.5px solid #000;
+    background: #fff;
+}
+
+.irs-col-line-num {
+    background-color: #f0f0f0;
+    font-weight: 950;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 2.5px solid #000;
+    font-size: 1.2rem;
+}
+
+.irs-blue-cell {
+    background: #eef2ff !important;
+    border-left: 2.5px solid #000;
+}
+
+.irs-k1-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 4px solid #000;
+}
+
+.irs-money-sym {
+    font-weight: 950;
+    font-size: 1.4rem;
+    padding-right: 10px;
+}
+
+.irs-checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.irs-cb-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #fafafa;
+    padding: 12px;
+    border: 1.5px solid #000;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.irs-cb-row:hover {
+    background: #fff;
+    transform: translateX(4px);
+    box-shadow: 4px 4px 0 #000;
+}

@@ -157,7 +157,6 @@ export const routes: Routes = [
         path: 'f1040s1-only',
         loadComponent: () => import('./components/forms/f1040s1/f1040s1.component').then(m => m.F1040s1Component)
     },
-
     {
         path: 'f1040s8-only',
         loadComponent: () => import('./components/forms/f1040s8/f1040s8.component').then(m => m.F1040s8Component)
@@ -173,6 +172,10 @@ export const routes: Routes = [
     {
         path: 'form1099sa',
         loadComponent: () => import('./components/forms/form1099sa/form1099sa.component').then(m => m.Form1099saComponent)
+    },
+    {
+        path: 'form1099b',
+        loadComponent: () => import('./components/forms/form1099b/form1099b.component').then(m => m.Form1099bComponent)
     },
     {
         path: 'form3903',
@@ -209,6 +212,18 @@ export const routes: Routes = [
     {
         path: 'form8889',
         loadComponent: () => import('./components/forms/form8889/form8889.component').then(m => m.Form8889Component)
+    },
+    {
+        path: 'form8853',
+        loadComponent: () => import('./components/forms/form8853/form8853.component').then(m => m.Form8853Component)
+    },
+    {
+        path: 'formw8ben',
+        loadComponent: () => import('./components/forms/formw8ben/formw8ben.component').then(m => m.FormW8benComponent)
+    },
+    {
+        path: 'schedule-c',
+        loadComponent: () => import('./components/forms/schedule-c/schedule-c.component').then(m => m.ScheduleCComponent)
     },
     {
         path: 'form1040nr',
@@ -255,6 +270,7 @@ export const routes: Routes = [
     { path: 'form5713', loadComponent: () => import('./components/forms/form5713/form5713.component').then(m => m.Form5713Component) },
     { path: 'form7204', loadComponent: () => import('./components/forms/form7204/form7204.component').then(m => m.Form7204Component) },
     { path: 'form8689', loadComponent: () => import('./components/forms/form8689/form8689.component').then(m => m.Form8689Component) },
+    { path: 'form8898', loadComponent: () => import('./components/forms/form8898/form8898.component').then(m => m.Form8898Component) },
     { path: 'form8992', loadComponent: () => import('./components/forms/form8992/form8992.component').then(m => m.Form8992Component) },
     { path: 'sk3', loadComponent: () => import('./components/forms/sk3/sk3.component').then(m => m.Sk3Component) },
     { path: 'form4136', loadComponent: () => import('./components/forms/form4136/form4136.component').then(m => m.Form4136Component) },
@@ -307,6 +323,26 @@ export const routes: Routes = [
     { path: 'form1099ls', loadComponent: () => import('./components/forms/form1099ls/form1099ls.component').then(m => m.Form1099lsComponent) },
     { path: 'form1099sb', loadComponent: () => import('./components/forms/form1099sb/form1099sb.component').then(m => m.Form1099sbComponent) },
     { path: 'form1098f', loadComponent: () => import('./components/forms/form1098f/form1098f.component').then(m => m.Form1098fComponent) },
-    { path: 'form1098q', loadComponent: () => import('./components/forms/form1098q/form1098q.component').then(m => m.Form1098qComponent) },
+    { path: 'form1065', loadComponent: () => import('./components/forms/form1065/form1065.component').then(m => m.Form1065Component) },
+    { path: 'sk1-1065', loadComponent: () => import('./components/forms/sk1-1065/sk1-1065.component').then(m => m.Sk11065Component) },
+    { path: 'form1120s', loadComponent: () => import('./components/forms/form1120s/form1120s.component').then(m => m.Form1120sComponent) },
+    { path: 'f8962', loadComponent: () => import('./components/forms/f8962/f8962.component').then(m => m.F8962Component) },
+    { path: 'form4562', loadComponent: () => import('./components/forms/form4562/form4562.component').then(m => m.Form4562Component) },
+    { path: 'form4797', loadComponent: () => import('./components/forms/form4797/form4797.component').then(m => m.Form4797Component) },
+    { path: 'form1125a', loadComponent: () => import('./components/forms/form1125a/form1125a.component').then(m => m.Form1125aComponent) },
+    { path: 'form1125e', loadComponent: () => import('./components/forms/form1125e/form1125e.component').then(m => m.Form1125eComponent) },
+    { path: 'form8915f', loadComponent: () => import('./components/forms/form8915f/form8915f.component').then(m => m.Form8915fComponent) },
+    { path: 'form8853', loadComponent: () => import('./components/forms/form8853/form8853.component').then(m => m.Form8853Component) },
+    { path: 'form8889', loadComponent: () => import('./components/forms/form8889/form8889.component').then(m => m.Form8889Component) },
+    { path: 'form8396', loadComponent: () => import('./components/forms/form8396/form8396.component').then(m => m.Form8396Component) },
+    { path: 'form8582', loadComponent: () => import('./components/forms/form8582/form8582.component').then(m => m.Form8582Component) },
+    { path: 'form8586', loadComponent: () => import('./components/forms/form8586/form8586.component').then(m => m.Form8586Component) },
+    { path: 'form8609', loadComponent: () => import('./components/forms/form8609/form8609.component').then(m => m.Form8609Component) },
+    { path: 'form8609a', loadComponent: () => import('./components/forms/form8609a/form8609a.component').then(m => m.Form8609aComponent) },
+    { path: 'form6251', loadComponent: () => import('./components/forms/form6251/form6251.component').then(m => m.Form6251Component) },
+    { path: 'form6252', loadComponent: () => import('./components/forms/form6252/form6252.component').then(m => m.Form6252Component) },
+    { path: 'form6765', loadComponent: () => import('./components/forms/form6765/form6765.component').then(m => m.Form6765Component) },
+    { path: 'form6781', loadComponent: () => import('./components/forms/form6781/form6781.component').then(m => m.Form6781Component) },
+    { path: 'form8824', loadComponent: () => import('./components/forms/form8824/form8824.component').then(m => m.Form8824Component) },
     { path: '**', redirectTo: '' }
 ];

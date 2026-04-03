@@ -1,0 +1,33 @@
+<div class="irs-form-container">
+    <div class="irs-header"><div class="form-title">Formulario 6781 2026</div></div>
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1"><span class="irs-form-id">6781</span><span class="irs-form-sub-id">2026</span></div>
+            <div class="irs-col-2"><h1>Gains and Losses From Section 1256 Contracts</h1><p class="irs-instruction">▶ Attach to Form 1040 or 1040-SR.</p></div>
+            <div class="irs-col-3"><div class="irs-sequence-box"><span>Secuencia</span><span class="irs-sequence-num">78</span></div></div>
+        </div>
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right"><label for="name">Nombre</label><input id="name" type="text" formControlName="name"></div>
+                <div class="irs-field flex-1"><label for="ssn">SSN</label><input id="ssn" type="text" formControlName="ssn"></div>
+            </div>
+            <div class="irs-section-header"><span class="irs-part-num">Part I</span><span class="irs-part-title">Section 1256 Contracts</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">1</td><td class="irs-desc"><label for="markToMarket">Mark-to-market gain/(loss) . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">1</td><td class="irs-val-cell"><input id="markToMarket" type="number" formControlName="markToMarket"></td></tr>
+                    <tr><td class="irs-line-num">2</td><td class="irs-desc"><label for="priorYear">Prior year section 1256 gains . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">2</td><td class="irs-val-cell"><input id="priorYear" type="number" formControlName="priorYear"></td></tr>
+                    <tr><td class="irs-line-num">3</td><td class="irs-desc"><label for="totalGain">Total gain/(loss) . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">3</td><td class="irs-val-cell"><input id="totalGain" type="number" formControlName="totalGain"></td></tr>
+                </tbody>
+            </table>
+            <div class="irs-section-header"><span class="irs-part-num">Part II</span><span class="irs-part-title">Allocation</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">4</td><td class="irs-desc"><label for="sixtyPct">60% long-term . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">4</td><td class="irs-val-cell"><input id="sixtyPct" type="number" formControlName="sixtyPct"></td></tr>
+                    <tr><td class="irs-line-num">5</td><td class="irs-desc"><label for="fortyPct">40% short-term . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">5</td><td class="irs-val-cell"><input id="fortyPct" type="number" formControlName="fortyPct"></td></tr>
+                </tbody>
+            </table>
+            <div class="irs-footer-actions"><button type="submit" class="btn-irs-submit">Guardar Formulario 6781</button></div>
+        </form>
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

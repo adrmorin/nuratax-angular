@@ -1,69 +1,67 @@
-/* form1099r.component.css */
+/* Form 1099-R - Unified Design System v2
+   Inherits from global styles.css
+*/
 
-.irs-form-container {
-  background: #f8fafc;
-  padding: 2rem;
-  font-family: 'Inter', Arial, sans-serif;
+:host {
+    display: block;
+    background-color: var(--irs-bg-paper);
 }
 
-.irs-1099r-layout {
-  background: #fff;
-  width: 100%;
-  max-width: 900px;
-  margin: 0 auto;
-  border: 1px solid #000;
-  box-shadow: 10px 10px 20px rgba(0,0,0,0.1);
-  padding: 10px;
+.irs-unified-container {
+    margin: 2rem auto;
+    border: 3px solid #000;
+    max-width: 1000px;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.1);
 }
 
-/* Header Row */
-.irs-header-row { display: flex; justify-content: space-between; align-items: start; margin-bottom: 5px; }
-.header-left { display: flex; gap: 20px; }
-.header-right { text-align: right; }
-.irs-void-box, .irs-cor-box { display: flex; align-items: center; border: 1px solid #000; padding: 5px 10px; font-weight: 800; font-size: 0.9rem; }
-.irs-omb { font-size: 0.75rem; font-weight: 500; }
-.irs-year { font-size: 2.22rem; font-weight: 900; line-height: 1; }
-.irs-form-id { font-size: 1.15rem; font-weight: 800; }
-
-/* Box Grid Layout */
-.irs-boxes-grid { display: grid; grid-template-columns: 1fr 1fr; border-top: 2px solid #000; }
-
-.irs-col-left { display: flex; flex-direction: column; border-right: 2px solid #000; }
-.irs-col-right { display: flex; flex-direction: column; }
-
-.irs-box {
-  border-bottom: 1px solid #000;
-  padding: 5px 8px;
-  display: flex;
-  flex-direction: column;
+.irs-header-main {
+    display: grid;
+    grid-template-columns: 220px 1fr 180px;
+    background-color: #fff;
+    padding: 10px;
 }
-.irs-box label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; margin-bottom: 4px; line-height: 1.1; display: block; height: auto;}
-.irs-box input[type="text"], .irs-box input[type="number"], .irs-box textarea { border: none; background: #f8fafc; font-size: 1.1rem; font-weight: 700; width: 100%; padding: 3px; border-radius: 4px; border: 1px solid transparent; transition: all 0.2s; }
-.irs-box input:focus { border-color: #3b82f6; outline: none; background: #fff; }
 
-.irs-row-tin { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid #000; }
-.tin-box { border-bottom: none; }
-.tin-box:first-child { border-right: 1px solid #000; }
+input[type="number"], input[type="text"], textarea {
+    font-family: var(--irs-font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+}
 
-.irs-row-financial { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 2px solid #000; }
-.irs-box.box-1, .irs-box.box-3, .irs-box.box-5 { border-right: 2px solid #000; border-bottom: none; }
-.irs-box.box-2a, .irs-box.box-4, .irs-box.box-6 { border-bottom: none; }
+.irs-money-sym {
+    font-weight: 700;
+    margin-right: 5px;
+}
 
-.irs-row-box7 { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 2px solid #000; }
-.box-7 { border-bottom: none; border-right: 2px solid #000; }
-.box-7-check { border-bottom: none; display: flex; flex-direction: row !important; align-items: center; justify-content: space-between; padding-left: 15px !important; }
+.irs-label-en {
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #000;
+}
 
-.amount-line { display: flex; align-items: center; gap: 5px; font-weight: 900; }
-.amount-line input { text-align: right; }
+.irs-label-es {
+    font-size: 0.75rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #555;
+    display: block;
+}
 
-.irs-box.box-2b { border-bottom: 2px solid #000; display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; gap: 10px; padding: 10px; }
-.irs-box.box-2b label { line-height: 1; text-transform: none; font-size: 0.8rem; margin: 0; }
+.irs-cb-wrap {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+}
 
-.irs-footer-actions { padding: 20px; display: flex; justify-content: flex-end; border-top: 2px solid #000; }
-.btn-submit { background: #dc2626; color: #fff; padding: 12px 30px; font-weight: 900; border: none; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: background 0.2s; }
-.btn-submit:hover { background: #b91c1c; }
-
-@media (max-width: 800px) {
-    .irs-boxes-grid { grid-template-columns: 1fr; }
-    .irs-col-left { border-right: none; }
+.irs-year-block {
+    text-align: center;
+    border-left: 2px solid #000;
+    padding: 10px;
 }

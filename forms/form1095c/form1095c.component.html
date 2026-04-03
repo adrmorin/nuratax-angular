@@ -1,0 +1,65 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 1095-C</h1><p class="form-year">(2024)</p></div>
+        <div class="form-info"><p><strong>Employer-Provided Health Insurance Offer and Coverage</strong></p><p>Department of the Treasury — Internal Revenue Service</p></div>
+    </div>
+    <div class="form-instructions"><p>This form is provided by employers to report information about health insurance coverage offered to employees.</p></div>
+    <div class="part-section">
+        <h3 class="part-header">Part I — Employer Information</h3>
+        <div class="field-row"><div class="field-group"><label>Employer name</label><input type="text" formControlName="employerName"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>EIN</label><input type="text" formControlName="ein"></div>
+        </div>
+        <div class="field-row"><div class="field-group"><label>Employer address</label><input type="text" formControlName="address"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>City</label><input type="text" formControlName="city"></div>
+            <div class="field-group"><label>State</label><input type="text" formControlName="state"></div>
+            <div class="field-group"><label>ZIP</label><input type="text" formControlName="zip"></div>
+        </div>
+        <div class="field-row">
+            <div class="field-group"><label>Contact phone</label><input type="text" formControlName="contactPhone"></div>
+            <div class="field-group"><label>Contact email</label><input type="email" formControlName="contactEmail"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part II — Employee Information</h3>
+        <div class="field-row"><div class="field-group"><label>Employee name</label><input type="text" formControlName="employeeName"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>SSN</label><input type="text" formControlName="ssn"></div>
+            <div class="field-group"><label>Tax Year</label><input type="text" formControlName="taxYear"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part III — Coverage Details</h3>
+        <table class="form-table">
+            <tr><th>Month</th><th>Offer of Coverage (Code)</th><th>Coverage Start</th><th>Coverage End</th><th>Employee Contribution</th></tr>
+            <tr><td>January</td><td><input type="text" formControlName="janCode"></td><td><input type="date" formControlName="janStart"></td><td><input type="date" formControlName="janEnd"></td><td><input type="number" formControlName="janContrib"></td></tr>
+            <tr><td>February</td><td><input type="text" formControlName="febCode"></td><td><input type="date" formControlName="febStart"></td><td><input type="date" formControlName="febEnd"></td><td><input type="number" formControlName="febContrib"></td></tr>
+            <tr><td>March</td><td><input type="text" formControlName="marCode"></td><td><input type="date" formControlName="marStart"></td><td><input type="date" formControlName="marEnd"></td><td><input type="number" formControlName="marContrib"></td></tr>
+            <tr><td>April</td><td><input type="text" formControlName="aprCode"></td><td><input type="date" formControlName="aprStart"></td><td><input type="date" formControlName="aprEnd"></td><td><input type="number" formControlName="aprContrib"></td></tr>
+            <tr><td>May</td><td><input type="text" formControlName="mayCode"></td><td><input type="date" formControlName="mayStart"></td><td><input type="date" formControlName="mayEnd"></td><td><input type="number" formControlName="mayContrib"></td></tr>
+            <tr><td>June</td><td><input type="text" formControlName="junCode"></td><td><input type="date" formControlName="junStart"></td><td><input type="date" formControlName="junEnd"></td><td><input type="number" formControlName="junContrib"></td></tr>
+            <tr><td>July</td><td><input type="text" formControlName="julCode"></td><td><input type="date" formControlName="julStart"></td><td><input type="date" formControlName="julEnd"></td><td><input type="number" formControlName="julContrib"></td></tr>
+            <tr><td>August</td><td><input type="text" formControlName="augCode"></td><td><input type="date" formControlName="augStart"></td><td><input type="date" formControlName="augEnd"></td><td><input type="number" formControlName="augContrib"></td></tr>
+            <tr><td>September</td><td><input type="text" formControlName="sepCode"></td><td><input type="date" formControlName="sepStart"></td><td><input type="date" formControlName="sepEnd"></td><td><input type="number" formControlName="sepContrib"></td></tr>
+            <tr><td>October</td><td><input type="text" formControlName="octCode"></td><td><input type="date" formControlName="octStart"></td><td><input type="date" formControlName="octEnd"></td><td><input type="number" formControlName="octContrib"></td></tr>
+            <tr><td>November</td><td><input type="text" formControlName="novCode"></td><td><input type="date" formControlName="novStart"></td><td><input type="date" formControlName="novEnd"></td><td><input type="number" formControlName="novContrib"></td></tr>
+            <tr><td>December</td><td><input type="text" formControlName="decCode"></td><td><input type="date" formControlName="decStart"></td><td><input type="date" formControlName="decEnd"></td><td><input type="number" formControlName="decContrib"></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part IV — Other Information</h3>
+        <table class="form-table">
+            <tr><td>13. Was employee in a waiting period?</td><td><input type="text" formControlName="line13"></td></tr>
+            <tr><td>14. Was employee in a measurement period?</td><td><input type="text" formControlName="line14"></td></tr>
+            <tr><td>15. Is employee a full-time employee?</td><td><input type="text" formControlName="line15"></td></tr>
+            <tr><td>16. Total employee contribution (12 months)</td><td><input type="number" formControlName="line16"></td></tr>
+            <tr><td>17. Monthly limit for employee contribution</td><td><input type="number" formControlName="line17"></td></tr>
+        </table>
+    </div>
+    <div class="signature-section">
+        <div class="signature-box"><p>Employer Signature</p><input type="text" formControlName="signature" class="signature-input"></div>
+        <div class="date-box"><p>Date</p><input type="date" formControlName="dateSigned"></div>
+    </div>
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

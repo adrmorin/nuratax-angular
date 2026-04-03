@@ -1,183 +1,108 @@
+/* Form 8283 - Noncash Charitable Contributions 
+   Unified Design System v2 
+*/
+
+:host {
+    display: block;
+    background-color: var(--irs-bg-paper);
+}
+
 .irs-unified-container {
-  max-width: 1000px;
-  margin: 20px auto;
-  font-family: 'Inter', system-ui, sans-serif;
-  color: #1a1a1a;
-  background: #fff;
-  padding: 40px;
-  border: 1px solid #e0e0e0;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    margin: 2rem auto;
+    border: 3.5px solid #000;
+    max-width: 1100px;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.18);
 }
 
-.irs-header-container {
-  display: flex;
-  justify-content: space-between;
-  border-bottom: 4px solid #000;
-  padding-bottom: 20px;
-  margin-bottom: 30px;
+.irs-row {
+    display: grid;
+    border-bottom: 2.2px solid #000;
+    align-items: stretch;
 }
 
-.irs-id-box {
-  flex: 1;
+.irs-header-main {
+    display: grid;
+    grid-template-columns: 240px 1fr 240px;
+    background-color: #fff;
+    padding: 20px;
+    border-bottom: 3.5px solid #000;
 }
 
-.irs-id-main {
-  display: block;
-  font-size: 2.2rem;
-  font-weight: 950;
-  line-height: 1;
+.irs-part-banner {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background-color: #000;
+    color: #fff;
+    padding: 12px 25px;
 }
 
-.irs-id-sub {
-  font-size: 0.9rem;
-  font-weight: 700;
-  text-transform: uppercase;
+input[type="number"], input[type="text"], input[type="date"], select {
+    font-family: var(--irs-font-body);
+    font-size: 1.1rem;
+    font-weight: 850;
+    color: #111;
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
 }
 
-.irs-title-box {
-  flex: 3;
-  text-align: center;
+.irs-label-en {
+    font-size: 1.05rem;
+    font-weight: 900;
+    color: #000;
 }
 
-.irs-title-box h1 {
-  font-size: 1.8rem;
-  font-weight: 950;
-  margin: 0;
-  text-transform: uppercase;
-  color: #000;
+.irs-label-es {
+    font-size: 0.9rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #444;
+    display: block;
 }
 
-.irs-part-header {
-  background: #000;
-  color: #fff;
-  padding: 10px 15px;
-  display: flex;
-  align-items: center;
-  margin-top: 30px;
-  gap: 15px;
+.irs-blue-cell {
+    background: #eef2ff !important;
 }
 
-.irs-part-num {
-  font-size: 1.2rem;
-  font-weight: 950;
-  text-transform: uppercase;
-  border-right: 2px solid #fff;
-  padding-right: 15px;
+.irs-yellow-cell {
+    background: var(--irs-accent-amber-light) !important;
 }
 
-.irs-part-title {
-  font-size: 1rem;
-  font-weight: 700;
+.irs-col-line-num {
+    background-color: #f5f5f5;
+    font-weight: 950;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 2.5px solid #000;
 }
 
-/* Table Design */
-.irs-table-header-row {
-  display: flex;
-  background: #eee;
-  font-size: 0.75rem;
-  font-weight: 950;
-  text-transform: uppercase;
-  border: 2px solid #000;
-  border-bottom: none;
+.irs-entity-box {
+    padding: 15px;
+    border-right: 2.2px solid #000;
 }
 
-.irs-col-item { width: 60px; text-align: center; padding: 10px; border-right: 1px solid #000; }
-.irs-col-desc { flex: 2; padding: 10px; border-right: 1px solid #000; }
-.irs-col-id { flex: 1.2; padding: 10px; }
-
-.irs-table-data-row {
-  display: flex;
-  border: 2px solid #000;
-  border-top: none;
+/* Item Grid */
+.irs-item-grid {
+    display: grid;
+    grid-template-columns: 55px 1fr 180px 200px 180px;
+    border-bottom: 1px solid #000;
 }
 
-.irs-secondary-row {
-  display: flex;
-  border: 2px solid #000;
-  border-top: none;
-  background: #fafbff;
+.irs-table-header {
+    background: #eee;
+    font-weight: 950;
+    font-size: 0.8rem;
+    padding: 8px;
+    text-align: center;
+    border-right: 1px solid #000;
+    border-bottom: 2px solid #000;
 }
 
-.irs-col-flex {
-  flex: 1;
-  padding: 8px 12px;
+.irs-table-cell {
+    padding: 8px;
+    border-right: 1px solid #000;
+    background: #fff;
 }
-
-.irs-currency-input {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-weight: 700;
-  font-family: 'Roboto Mono', monospace;
-}
-
-.irs-label-tiny {
-  display: block;
-  font-size: 0.6rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  color: #444;
-  margin-bottom: 5px;
-}
-
-.irs-input-field {
-  width: 100%;
-  border: none;
-  background: transparent;
-  font-size: 0.95rem;
-  font-weight: 700;
-  font-family: 'Roboto Mono', monospace;
-  outline: none;
-  resize: none;
-}
-
-.irs-input-field-small {
-  width: 100%;
-  border: 1px solid transparent;
-  background: transparent;
-  font-size: 0.9rem;
-  font-weight: 700;
-  font-family: 'Roboto Mono', monospace;
-  outline: none;
-  text-align: left;
-}
-
-.irs-input-field-small:focus {
-  border-bottom: 1px solid #0056b3;
-}
-
-.irs-btn-add {
-  margin-top: 20px;
-  background: #f0f0f0;
-  border: 2px dashed #000;
-  width: 100%;
-  padding: 12px;
-  font-weight: 900;
-  cursor: pointer;
-  text-transform: uppercase;
-}
-
-.irs-btn-remove {
-  color: #cc0000;
-  background: none;
-  border: none;
-  font-size: 0.75rem;
-  font-weight: 700;
-  cursor: pointer;
-  margin-top: 5px;
-}
-
-.irs-btn-submit {
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 18px 50px;
-  font-size: 1.1rem;
-  font-weight: 950;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.bg-light-grey { background: #f4f6ff; }
-.bold { font-weight: 950; }
-.border-r { border-right: 1px solid #000; }

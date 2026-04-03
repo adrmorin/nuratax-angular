@@ -1,162 +1,170 @@
-<div class="irs-form-container">
-    <div class="irs-form-box">
-        <div class="irs-main-header">
-            <div class="irs-col-1">
-                <div>
-                    <div class="irs-form-id">Form 1099-SA</div>
-                </div>
-                <div class="irs-dept-info">
-                    Department of the Treasury<br>
-                    Internal Revenue Service
-                </div>
+<div class="irs-unified-container">
+    <!-- Form 1099-SA Header -->
+    <div class="irs-header-main">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.4rem;">Form 1099-SA</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif;">
+                Department of the Treasury<br>
+                Internal Revenue Service
             </div>
-            <div class="irs-col-2">
-                <h1>1099-SA</h1>
-                <div class="irs-form-sub-id" style="font-size: 0.95rem; margin-top: 5px;">Distributions From an HSA, Archer MSA, or Medicare Advantage MSA</div>
-                <p class="irs-instruction" style="margin-top: 10px;">Go to <i>www.irs.gov/Form1099SA</i> for instructions and the latest information.</p>
+        </div>
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.4rem; margin: 0;">Distributions From an HSA, Archer MSA, or Medicare Advantage MSA</h1>
+                <h2 style="font-size: 1rem; margin: 0; font-style: italic;">Distribuciones de una HSA, Archer MSA o Medicare Advantage MSA</h2>
             </div>
-            <div class="irs-col-3">
-                <div class="irs-omb-box">OMB No. 1545-1922</div>
-                <div class="irs-sequence-box">
-                    <div class="irs-year-box">
-                        <span class="year-outline-20">20</span><span class="year-solid-25">25</span>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-1922</div>
+            <div style="font-size: 2.8rem; line-height: 1;">2025</div>
+        </div>
+    </div>
+
+    <form [formGroup]="form1099sa" (ngSubmit)="onSubmit()">
+        <!-- Grid Layout for 1099 Boxes -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; border-bottom: 2px solid #000;">
+            <!-- Left Side: Payer/Recipient Info -->
+            <div style="border-right: 2px solid #000;">
+                <!-- Payer Section -->
+                <div style="padding: 5px 10px; border-bottom: 1px solid #000; min-height: 120px;">
+                    <div class="irs-label-wrap">
+                        <label class="irs-label-en" style="font-size: 0.7rem;">PAYER/TRUSTEE’S name, street address, city or town, state or province, country, and ZIP or foreign postal code</label>
+                        <label class="irs-label-es" style="font-size: 0.6rem;">Nombre, dirección, ciudad, estado, país y código postal del PAGADOR/FIDUCIARIO</label>
                     </div>
-                    <div class="irs-attachment">
-                        Copy B<br>
-                        for Recipient
+                    <textarea formControlName="payerName" style="width: 100%; border: none; height: 60px; font-weight: 700; background: transparent; resize: none; outline: none;"></textarea>
+                </div>
+
+                <!-- TIN Sections -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid #000;">
+                    <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                        <div class="irs-label-wrap">
+                            <label class="irs-label-en" style="font-size: 0.7rem;">PAYER’S TIN</label>
+                            <label class="irs-label-es" style="font-size: 0.6rem;">TIN del PAGADOR</label>
+                        </div>
+                        <input type="text" formControlName="payerTin" style="width: 100%; border: none; font-weight: 700; background: transparent;">
+                    </div>
+                    <div style="padding: 5px 10px;">
+                        <div class="irs-label-wrap">
+                            <label class="irs-label-en" style="font-size: 0.7rem;">RECIPIENT’S TIN</label>
+                            <label class="irs-label-es" style="font-size: 0.6rem;">TIN del BENEFICIARIO</label>
+                        </div>
+                        <input type="text" formControlName="recipientTin" style="width: 100%; border: none; font-weight: 700; background: transparent;">
+                    </div>
+                </div>
+
+                <!-- Recipient Info -->
+                <div style="padding: 5px 10px; border-bottom: 1px solid #000;">
+                    <div class="irs-label-wrap">
+                        <label class="irs-label-en" style="font-size: 0.7rem;">RECIPIENT’S name</label>
+                        <label class="irs-label-es" style="font-size: 0.6rem;">Nombre del BENEFICIARIO</label>
+                    </div>
+                    <input type="text" formControlName="recipientName" style="width: 100%; border: none; font-weight: 700; background: transparent;">
+                </div>
+
+                <div style="padding: 5px 10px; border-bottom: 1px solid #000;">
+                    <div class="irs-label-wrap">
+                        <label class="irs-label-en" style="font-size: 0.7rem;">Street address (including apt. no.)</label>
+                        <label class="irs-label-es" style="font-size: 0.6rem;">Dirección (incluyendo núm. de apto.)</label>
+                    </div>
+                    <input type="text" formControlName="recipientStreetAddress" style="width: 100%; border: none; font-weight: 700; background: transparent;">
+                </div>
+
+                <div style="padding: 5px 10px;">
+                    <div class="irs-label-wrap">
+                        <label class="irs-label-en" style="font-size: 0.7rem;">City or town, state or province, country, and ZIP or foreign postal code</label>
+                        <label class="irs-label-es" style="font-size: 0.6rem;">Ciudad, estado, país y código postal</label>
+                    </div>
+                    <input type="text" formControlName="recipientCity" style="width: 100%; border: none; font-weight: 700; background: transparent;">
+                </div>
+            </div>
+
+            <!-- Right Side: Boxes 1-5 -->
+            <div>
+                <!-- Box 1 -->
+                <div style="display: grid; grid-template-columns: 40px 1fr; border-bottom: 1px solid #000;">
+                    <div style="padding: 5px; font-weight: 900; background: #eee; border-right: 1px solid #000; text-align: center;">1</div>
+                    <div style="padding: 5px 10px; background: #d8eded;">
+                        <div class="irs-label-wrap">
+                            <span class="irs-label-en">Gross distribution</span>
+                            <span class="irs-label-es">Distribución bruta</span>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-top: 5px;">
+                            <span style="font-weight: 700; padding-right: 5px;">$</span>
+                            <input type="number" formControlName="box1" style="width: 100%; border: none; background: transparent; font-weight: 700; text-align: right;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box 2 -->
+                <div style="display: grid; grid-template-columns: 40px 1fr; border-bottom: 1px solid #000;">
+                    <div style="padding: 5px; font-weight: 900; background: #eee; border-right: 1px solid #000; text-align: center;">2</div>
+                    <div style="padding: 5px 10px; background: #d8eded;">
+                        <div class="irs-label-wrap">
+                            <span class="irs-label-en">Earnings on excess cont.</span>
+                            <span class="irs-label-es">Ganancias sobre aportaciones en exceso</span>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-top: 5px;">
+                            <span style="font-weight: 700; padding-right: 5px;">$</span>
+                            <input type="number" formControlName="box2" style="width: 100%; border: none; background: transparent; font-weight: 700; text-align: right;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box 3 -->
+                <div style="display: grid; grid-template-columns: 40px 1fr; border-bottom: 1px solid #000;">
+                    <div style="padding: 5px; font-weight: 900; background: #eee; border-right: 1px solid #000; text-align: center;">3</div>
+                    <div style="padding: 5px 10px;">
+                        <div class="irs-label-wrap">
+                            <span class="irs-label-en">Distribution code</span>
+                            <span class="irs-label-es">Código de distribución</span>
+                        </div>
+                        <input type="text" formControlName="box3" style="width: 50px; border-bottom: 1px dotted #000; border-top: none; border-left: none; border-right: none; font-weight: 700; text-align: center; margin-top: 5px;">
+                    </div>
+                </div>
+
+                <!-- Box 4 -->
+                <div style="display: grid; grid-template-columns: 40px 1fr; border-bottom: 1px solid #000;">
+                    <div style="padding: 5px; font-weight: 900; background: #eee; border-right: 1px solid #000; text-align: center;">4</div>
+                    <div style="padding: 5px 10px; background: #d8eded;">
+                        <div class="irs-label-wrap">
+                            <span class="irs-label-en">FMV on date of death</span>
+                            <span class="irs-label-es">Valor justo en fecha de defunción</span>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-top: 5px;">
+                            <span style="font-weight: 700; padding-right: 5px;">$</span>
+                            <input type="number" formControlName="box4" style="width: 100%; border: none; background: transparent; font-weight: 700; text-align: right;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Box 5 -->
+                <div style="display: grid; grid-template-columns: 40px 1fr;">
+                    <div style="padding: 5px; font-weight: 900; background: #eee; border-right: 1px solid #000; text-align: center;">5</div>
+                    <div style="padding: 5px 10px;">
+                        <div class="irs-label-wrap">
+                            <span class="irs-label-en">Check if:</span>
+                            <span class="irs-label-es">Marque si es:</span>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 5px; margin-top: 5px;">
+                            <label style="display: flex; align-items: center; gap: 10px; font-size: 0.8rem;">
+                                <input type="checkbox" formControlName="box5Medicare"> Medicare Advantage MSA
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; font-size: 0.8rem;">
+                                <input type="checkbox" formControlName="box5Hsa"> HSA
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 10px; font-size: 0.8rem;">
+                                <input type="checkbox" formControlName="box5Archer"> Archer MSA
+                            </label>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <form [formGroup]="form1099sa" (ngSubmit)="onSubmit()">
-            <div class="irs-form-grid">
-                <!-- Left Column -->
-                <div class="irs-grid-left">
-                    <div class="irs-cell irs-payer-cell" style="flex: 1.5;">
-                        <div class="irs-label">TRUSTEE’S/PAYER’S name, street address, city or town, state or province, country, and ZIP or foreign postal code</div>
-                        <div class="irs-field-group">
-                            <input type="text" formControlName="payerName" placeholder="Name" class="irs-input">
-                            <input type="text" formControlName="payerStreetAddress" placeholder="Street Address" class="irs-input">
-                            <div class="irs-input-row" style="margin-top: auto;">
-                                <input type="text" formControlName="payerCity" placeholder="City" class="irs-input" style="flex: 2;">
-                                <input type="text" formControlName="payerState" placeholder="State" class="irs-input" style="flex: 1;">
-                                <input type="text" formControlName="payerZipCode" placeholder="ZIP" class="irs-input" style="flex: 1;">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="irs-cell-row">
-                        <div class="irs-cell w-50 border-right">
-                            <div class="irs-label">TRUSTEE'S/PAYER'S TIN</div>
-                            <input type="text" formControlName="payerTin" class="irs-input">
-                        </div>
-                        <div class="irs-cell w-50">
-                            <div class="irs-label">RECIPIENT'S TIN</div>
-                            <input type="text" formControlName="recipientTin" class="irs-input">
-                        </div>
-                    </div>
-
-                    <div class="irs-cell">
-                        <div class="irs-label">RECIPIENT'S name</div>
-                        <input type="text" formControlName="recipientName" class="irs-input">
-                    </div>
-
-                    <div class="irs-cell">
-                        <div class="irs-label">Street address (including apt. no.)</div>
-                        <input type="text" formControlName="recipientStreetAddress" class="irs-input">
-                    </div>
-
-                    <div class="irs-cell">
-                        <div class="irs-label">City or town, state or province, country, and ZIP or foreign postal code</div>
-                        <div class="irs-input-row mt-1">
-                            <input type="text" formControlName="recipientCity" placeholder="City" class="irs-input" style="flex: 2;">
-                            <input type="text" formControlName="recipientState" placeholder="State" class="irs-input" style="flex: 1;">
-                            <input type="text" formControlName="recipientZipCode" placeholder="ZIP" class="irs-input" style="flex: 1;">
-                        </div>
-                    </div>
-
-                    <div class="irs-cell">
-                        <div class="irs-label">Account number (see instructions)</div>
-                        <input type="text" formControlName="recipientAccountNumber" class="irs-input">
-                    </div>
-                </div>
-
-                <!-- Right Column -->
-                <div class="irs-grid-right">
-                    <div class="irs-cell irs-box">
-                        <div class="irs-box-num">1</div>
-                        <div class="irs-box-inner">
-                            <div class="irs-label">Gross distribution</div>
-                            <div class="irs-currency">
-                                <span>$</span>
-                                <input type="number" formControlName="box1" class="irs-input text-right" placeholder="0.00">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="irs-cell irs-box">
-                        <div class="irs-box-num">2</div>
-                        <div class="irs-box-inner">
-                            <div class="irs-label">Earnings on excess cont.</div>
-                            <div class="irs-currency">
-                                <span>$</span>
-                                <input type="number" formControlName="box2" class="irs-input text-right" placeholder="0.00">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="irs-cell irs-box">
-                        <div class="irs-box-num">3</div>
-                        <div class="irs-box-inner">
-                            <div class="irs-label">Distribution code</div>
-                            <input type="text" formControlName="box3" class="irs-input font-weight-bold" style="text-align: center; font-size: 1.2rem;" maxlength="2">
-                        </div>
-                    </div>
-
-                    <div class="irs-cell irs-box">
-                        <div class="irs-box-num">4</div>
-                        <div class="irs-box-inner">
-                            <div class="irs-label">FMV on date of death</div>
-                            <div class="irs-currency">
-                                <span>$</span>
-                                <input type="number" formControlName="box4" class="irs-input text-right" placeholder="0.00">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="irs-cell irs-box box-5">
-                        <div class="irs-box-num">5</div>
-                        <div class="irs-box-inner pt-2">
-                            <div class="irs-checkbox-group vertical">
-                                <div class="irs-label">Check checkbox if:</div>
-                                <div class="irs-checkbox-item">
-                                    <input type="checkbox" formControlName="box5Medicare" id="box5Medicare">
-                                    <label for="box5Medicare">Medicare Advantage MSA</label>  
-                                </div>
-                                <div class="irs-checkbox-item">
-                                    <input type="checkbox" formControlName="box5Hsa" id="box5Hsa">
-                                    <label for="box5Hsa">HSA</label>
-                                </div>
-                                <div class="irs-checkbox-item">
-                                    <input type="checkbox" formControlName="box5Archer" id="box5Archer">
-                                    <label for="box5Archer">Archer MSA</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="irs-copy-notice">
-                Copy B — For Recipient. This is important tax information and is being furnished to the IRS. If
-                you are required to file a return, a negligence penalty or other sanction may be imposed on you if
-                this income is taxable and you fail to report it.
-            </div>
-
-            <div class="irs-footer-actions">
-                <button type="submit" class="btn-submit">Submit Form 1099-SA</button>
-            </div>
-        </form>
-    </div>
+        <div style="padding: 30px; text-align: center;">
+            <button type="submit" style="background: #111; color: #fff; padding: 12px 40px; border: none; border-radius: 2px; font-weight: 700; cursor: pointer; text-transform: uppercase;">
+                Save Form 1099-SA / Guardar Formulario 1099-SA
+            </button>
+        </div>
+    </form>
 </div>

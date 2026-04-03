@@ -1,0 +1,34 @@
+<div class="irs-form-container">
+    <div class="irs-header"><div class="form-title">Formulario 8582 2026</div></div>
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1"><span class="irs-form-id">8582</span><span class="irs-form-sub-id">2026</span></div>
+            <div class="irs-col-2"><h1>Passive Activity Loss Limitations</h1><p class="irs-instruction">▶ Attach to Form 1040 or 1040-SR.</p></div>
+            <div class="irs-col-3"><div class="irs-sequence-box"><span>Secuencia</span><span class="irs-sequence-num">85</span></div></div>
+        </div>
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right"><label for="name">Nombre</label><input id="name" type="text" formControlName="name"></div>
+                <div class="irs-field flex-1"><label for="ssn">SSN</label><input id="ssn" type="text" formControlName="ssn"></div>
+            </div>
+            <div class="irs-section-header"><span class="irs-part-num">Part I</span><span class="irs-part-title">Current Year Losses</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">1</td><td class="irs-desc"><label for="totalLoss">Total losses from all passive activities . . . . . . . . . . .</label></td><td class="irs-line-num">1</td><td class="irs-val-cell"><input id="totalLoss" type="number" formControlName="totalLoss"></td></tr>
+                    <tr><td class="irs-line-num">2</td><td class="irs-desc"><label for="totalGains">Total gains from all passive activities . . . . . . . . . . .</label></td><td class="irs-line-num">2</td><td class="irs-val-cell"><input id="totalGains" type="number" formControlName="totalGains"></td></tr>
+                    <tr class="irs-result-row"><td class="irs-line-num">3</td><td class="irs-desc"><strong>Net loss or gain . . . . . . . . . . . . . . . . . . . . . .</strong></td><td class="irs-line-num">3</td><td class="irs-val-cell calculated">{{ taxForm.get('netLossGain')?.value | currency }}</td></tr>
+                </tbody>
+            </table>
+            <div class="irs-section-header"><span class="irs-part-num">Part II</span><span class="irs-part-title">Deduction Limitation</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">4</td><td class="irs-desc"><label for="incomeWages">Income from non-passive activities . . . . . . . . . . . . . .</label></td><td class="irs-line-num">4</td><td class="irs-val-cell"><input id="incomeWages" type="number" formControlName="incomeWages"></td></tr>
+                    <tr><td class="irs-line-num">5</td><td class="irs-desc"><label for="deductionAllowed">Deduction allowed . . . . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">5</td><td class="irs-val-cell"><input id="deductionAllowed" type="number" formControlName="deductionAllowed"></td></tr>
+                    <tr class="irs-result-row"><td class="irs-line-num">6</td><td class="irs-desc"><strong>Loss carryforward . . . . . . . . . . . . . . . . . . . . .</strong></td><td class="irs-line-num">6</td><td class="irs-val-cell calculated">{{ taxForm.get('carryforward')?.value | currency }}</td></tr>
+                </tbody>
+            </table>
+            <div class="irs-footer-actions"><button type="submit" class="btn-irs-submit">Guardar Formulario 8582</button></div>
+        </form>
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

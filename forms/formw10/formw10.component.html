@@ -1,0 +1,45 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form W-10</h1><p class="form-year">(Rev. October 2020)</p></div>
+        <div class="form-info"><p><strong>Dependent Care Provider's Identification and Certification</strong></p><p>Department of the Treasury — Internal Revenue Service</p></div>
+    </div>
+    <div class="form-instructions"><p><strong>Do NOT file Form W-10 with your tax return.</strong> Keep it for your records. The taxpayer needs this information to claim the child and dependent care credit.</p></div>
+    <div class="part-section">
+        <h3 class="part-header">Part I — Provider Information</h3>
+        <div class="field-row"><div class="field-group"><label>Provider's name (individual or organization)</label><input type="text" formControlName="providerName"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>EIN or SSN</label><input type="text" formControlName="ein"></div>
+        </div>
+        <div class="field-row"><div class="field-group"><label>Address</label><input type="text" formControlName="address"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>City</label><input type="text" formControlName="city"></div>
+            <div class="field-group"><label>State</label><input type="text" formControlName="state"></div>
+            <div class="field-group"><label>ZIP</label><input type="text" formControlName="zip"></div>
+        </div>
+        <div class="field-row">
+            <div class="field-group"><label>Phone number</label><input type="text" formControlName="phone"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part II — Type of Provider</h3>
+        <div class="checkbox-group">
+            <label class="checkbox-item"><input type="radio" formControlName="typeProvider" value="Day Care Center"> Day care center (employer ID required)</label>
+            <label class="checkbox-item"><input type="radio" formControlName="typeProvider" value="Individual"> Individual provider (SSN or EIN)</label>
+            <label class="checkbox-item"><input type="radio" formControlName="typeProvider" value="Social Service"> Social service organization</label>
+            <label class="checkbox-item"><input type="radio" formControlName="typeProvider" value="Other"> Other</label>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part III — Certification</h3>
+        <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" formControlName="cert1"> I certify that the above information is correct.</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="cert2"> I understand that providing false information may result in penalties.</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="cert3"> I will provide updated information if anything changes.</label>
+        </div>
+    </div>
+    <div class="signature-section">
+        <div class="signature-box"><p>Provider Signature</p><input type="text" formControlName="providerSignature" class="signature-input"></div>
+        <div class="date-box"><p>Date</p><input type="date" formControlName="signDate"></div>
+    </div>
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

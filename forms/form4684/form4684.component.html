@@ -1,0 +1,38 @@
+<div class="irs-form-container">
+    <div class="irs-header"><div class="form-title">Formulario 4684 2026</div></div>
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1"><span class="irs-form-id">4684</span><span class="irs-form-sub-id">2026</span></div>
+            <div class="irs-col-2"><h1>Casualties and Thefts</h1><p class="irs-instruction">▶ Attach to Form 1040 or 1040-SR.</p></div>
+            <div class="irs-col-3"><div class="irs-sequence-box"><span>Secuencia</span><span class="irs-sequence-num">68</span></div></div>
+        </div>
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right"><label for="name">Nombre</label><input id="name" type="text" formControlName="name"></div>
+                <div class="irs-field flex-1"><label for="ssn">SSN</label><input id="ssn" type="text" formControlName="ssn"></div>
+            </div>
+            <div class="irs-section-header"><span class="irs-part-num">Part I</span><span class="irs-part-title">Casualty or Theft Loss</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">1</td><td class="irs-desc"><label for="description">Description of property . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">1</td><td class="irs-val-cell"><input id="description" type="text" formControlName="description"></td></tr>
+                    <tr><td class="irs-line-num">2</td><td class="irs-desc"><label for="dateLost">Date of casualty/theft . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">2</td><td class="irs-val-cell"><input id="dateLost" type="date" formControlName="dateLost"></td></tr>
+                    <tr><td class="irs-line-num">3</td><td class="irs-desc"><label for="fairMarketValue">Fair market value before . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">3</td><td class="irs-val-cell"><input id="fairMarketValue" type="number" formControlName="fairMarketValue"></td></tr>
+                    <tr><td class="irs-line-num">4</td><td class="irs-desc"><label for="fairMarketValueAfter">Fair market value after . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">4</td><td class="irs-val-cell"><input id="fairMarketValueAfter" type="number" formControlName="fairMarketValueAfter"></td></tr>
+                    <tr class="irs-result-row"><td class="irs-line-num">5</td><td class="irs-desc"><strong>Loss (line 3 menos línea 4) . . . . . . . . . . . . . . . . . . .</strong></td><td class="irs-line-num">5</td><td class="irs-val-cell calculated">{{ taxForm.get('loss')?.value | currency }}</td></tr>
+                    <tr><td class="irs-line-num">6</td><td class="irs-desc"><label for="insurance">Insurance reimbursement . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">6</td><td class="irs-val-cell"><input id="insurance" type="number" formControlName="insurance"></td></tr>
+                    <tr><td class="irs-line-num">7</td><td class="irs-desc"><label for="deductibleLoss">Net loss (line 5 menos línea 6) . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">7</td><td class="irs-val-cell"><input id="deductibleLoss" type="number" formControlName="deductibleLoss"></td></tr>
+                </tbody>
+            </table>
+            <div class="irs-section-header"><span class="irs-part-num">Part II</span><span class="irs-part-title">Summary of Losses</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td class="irs-line-num">8</td><td class="irs-desc"><label for="totalLoss1">Total losses (line 7 from all properties) . . . . . . . . . . . .</label></td><td class="irs-line-num">8</td><td class="irs-val-cell"><input id="totalLoss1" type="number" formControlName="totalLoss1"></td></tr>
+                    <tr><td class="irs-line-num">9</td><td class="irs-desc"><label for="totalReimbursements">Total reimbursements . . . . . . . . . . . . . . . . . . . .</label></td><td class="irs-line-num">9</td><td class="irs-val-cell"><input id="totalReimbursements" type="number" formControlName="totalReimbursements"></td></tr>
+                    <tr class="irs-result-row"><td class="irs-line-num">10</td><td class="irs-desc"><strong>Total deductible loss . . . . . . . . . . . . . . . . . . . . .</strong></td><td class="irs-line-num">10</td><td class="irs-val-cell calculated">{{ taxForm.get('totalDeductible')?.value | currency }}</td></tr>
+                </tbody>
+            </table>
+            <div class="irs-footer-actions"><button type="submit" class="btn-irs-submit">Guardar Formulario 4684</button></div>
+        </form>
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

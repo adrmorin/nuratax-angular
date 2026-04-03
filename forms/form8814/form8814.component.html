@@ -1,0 +1,52 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 8814</h1><p class="form-year">(2024)</p></div>
+        <div class="form-info"><p><strong>Parents' Election To Report Child's Interest and Dividends</strong></p><p>Department of the Treasury — Internal Revenue Service</p></div>
+    </div>
+    <div class="form-instructions"><p>Use this form if you are a parent electing to include your child's interest and dividends on your return.</p></div>
+    <div class="part-section">
+        <h3 class="part-header">Part I — Child Information</h3>
+        <div class="field-row"><div class="field-group"><label>Parent's name</label><input type="text" formControlName="parentName"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>Parent's SSN</label><input type="text" formControlName="parentSSN"></div>
+        </div>
+        <div class="field-row"><div class="field-group"><label>Child's name</label><input type="text" formControlName="childName"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>Child's SSN</label><input type="text" formControlName="childSSN"></div>
+            <div class="field-group"><label>Child's date of birth</label><input type="date" formControlName="childDOB"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part II — Child's Interest and Dividends</h3>
+        <table class="form-table">
+            <tr><td>1a. Child's taxable interest</td><td><input type="number" formControlName="line1a"></td></tr>
+            <tr><td>1b. Child's tax-exempt interest</td><td><input type="number" formControlName="line1b"></td></tr>
+            <tr><td>2. Child's ordinary dividends</td><td><input type="number" formControlName="line2"></td></tr>
+            <tr><td>3. Qualified dividends (if any)</td><td><input type="number" formControlName="line3"></td></tr>
+            <tr class="highlight-row"><td>4. Total (lines 1a + 1b + 2)</td><td><input type="number" formControlName="line4" readonly></td></tr>
+            <tr><td>5. Investment interest expense</td><td><input type="number" formControlName="line5"></td></tr>
+            <tr><td>6. Net investment income (line 4 minus line 5)</td><td><input type="number" formControlName="line6"></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part III — Election Computation</h3>
+        <table class="form-table">
+            <tr><td>7. Base amount ($2,500 for 2024)</td><td><input type="number" formControlName="line7"></td></tr>
+            <tr><td>8. Subtract line 7 from line 4</td><td><input type="number" formControlName="line8"></td></tr>
+            <tr><td>9. Amount to include on parent's return</td><td><input type="number" formControlName="line9"></td></tr>
+            <tr><td>10. Additional tax (if any)</td><td><input type="number" formControlName="line10"></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part IV — Election</h3>
+        <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" formControlName="election"> I elect to report my child's interest and dividends on my return.</label>
+        </div>
+        <p class="declaration">I understand that this election is irrevocable and that I must include the amounts from line 9 in my gross income.</p>
+    </div>
+    <div class="signature-section">
+        <div class="signature-box"><p>Parent Signature</p><input type="text" formControlName="signature" class="signature-input"></div>
+        <div class="date-box"><p>Date</p><input type="date" formControlName="dateSigned"></div>
+    </div>
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

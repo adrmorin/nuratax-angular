@@ -1,98 +1,128 @@
 <div class="irs-unified-container">
-  <!-- Header Section -->
-  <div class="irs-header-container">
-    <div class="irs-id-box">
-      <div class="irs-id-large">Form <span style="font-size: 3rem; font-weight: 950; line-height: 1;">2210-F</span></div>
-      <p style="font-size: 0.7rem; font-weight: 850; margin-top: 5px;">OMB No. 1545-0140</p>
-    </div>
-    <div class="irs-title-center">
-      <h1>Underpayment of Estimated Tax by Farmers and Fishermen</h1>
-      <p style="font-size: 0.8rem; font-weight: 700; margin-top: 10px;">Attach to your tax return.</p>
-    </div>
-    <div class="irs-header-right">
-      <div style="font-size: 0.8rem; font-weight: 950; text-align: right;">Attachment <br> Sequence No. <strong>06A</strong></div>
-    </div>
-  </div>
-
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
-    <!-- INFO BLOCK -->
-    <div class="irs-row-line-unified border-b" style="display: flex; border-top: 3.5px solid #000; border-bottom: 3.5px solid #000; margin-bottom: 25px;">
-      <div class="irs-id-col" style="flex: 2; padding: 6px 12px; border-right: 2px solid #000;">
-        <label for="name" style="display: block; font-size: 0.65rem; font-weight: 900;">Name(s) shown on return</label>
-        <input id="name" type="text" formControlName="name" class="irs-input-field" style="text-align: left;">
-      </div>
-      <div class="irs-id-col" style="flex: 1; padding: 6px 12px;">
-        <label for="ssn" style="display: block; font-size: 0.65rem; font-weight: 900;">Social security number</label>
-        <input id="ssn" type="text" formControlName="ssn" class="irs-input-field" style="text-align: left;">
-      </div>
+    <!-- Form 2210-F Header -->
+    <div class="irs-header-main" style="background: #fff; border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.1rem; font-weight: 950; text-transform: uppercase;">Form 2210-F</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.75rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
+        </div>
+        <div class="irs-form-title-block" style="text-align: center;">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.25rem; margin: 0; font-weight: 950; text-transform: uppercase;">Underpayment of Estimated Tax by Farmers and Fishermen</h1>
+                <h2 style="font-size: 1rem; margin: 0; font-weight: 400; font-style: italic;">Pago Menor del Impuesto Estimado por Agricultores y Pescadores</h2>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 12px; font-weight: 700;">▶ Attach to your tax return.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.6rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0140</div>
+            <div style="font-size: 3rem; line-height: 1; font-weight: 950;">2025</div>
+            <div style="font-size: 0.75rem; font-weight: 800; margin-top: 5px;">Sequence No. 06A</div>
+        </div>
     </div>
 
-    <!-- ELIGIBILITY BOX -->
-    <div style="border: 2px solid #000; padding: 15px; background: #fafafa; display: flex; gap: 40px; justify-content: center; margin-bottom: 25px;">
-      <label class="irs-checkbox-item"><input type="checkbox" formControlName="isFarmer"> <span>Is 2/3 of your income from Farming?</span></label>
-      <label class="irs-checkbox-item"><input type="checkbox" formControlName="isFisherman"> <span>Is 2/3 of your income from Fishing?</span></label>
-    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="form">
+        <!-- Identification Rows -->
+        <div class="irs-row" style="grid-template-columns: 1fr 300px;">
+            <div style="padding: 10px; border-right: 2px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Name(s) shown on return</label>
+                    <label class="irs-label-es">Nombre(s) que aparece(n) en la declaración</label>
+                </div>
+                <input type="text" formControlName="name" style="font-size: 1.1rem;">
+            </div>
+            <div style="padding: 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Social security number</label>
+                    <label class="irs-label-es">Número de seguro social (SSN)</label>
+                </div>
+                <input type="text" formControlName="ssn" style="font-size: 1.1rem;">
+            </div>
+        </div>
 
-    <!-- PART II FIGURE UNDERPAYMENT -->
-    <div class="irs-part-bar">Part II: Figure Your Underpayment</div>
-    
-    <div class="irs-line-row">
-      <div class="irs-line-num">1</div>
-      <div class="irs-line-desc">Current year tax shown on return (after credits)</div>
-      <div class="irs-input-wrap irs-blue-bg">
-        <input type="number" formControlName="tax2024" class="irs-input-field">
-      </div>
-    </div>
+        <!-- Eligibility Grid -->
+        <div style="padding: 20px; background: #fafafa; border-bottom: 2px solid #000;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <label class="irs-checkbox-card" style="display: flex; align-items: center; gap: 15px; padding: 15px; border: 1.5px solid #000; background: #fff; cursor: pointer;">
+                    <input type="checkbox" formControlName="isFarmer" style="width: 22px; height: 22px;">
+                    <div>
+                        <span class="irs-label-en" style="font-weight: 950;">2/3 of income from Farming?</span>
+                        <span class="irs-label-es">¿2/3 de ingresos de agricultura?</span>
+                    </div>
+                </label>
+                <label class="irs-checkbox-card" style="display: flex; align-items: center; gap: 15px; padding: 15px; border: 1.5px solid #000; background: #fff; cursor: pointer;">
+                    <input type="checkbox" formControlName="isFisherman" style="width: 22px; height: 22px;">
+                    <div>
+                        <span class="irs-label-en" style="font-weight: 950;">2/3 of income from Fishing?</span>
+                        <span class="irs-label-es">¿2/3 de ingresos de pesca?</span>
+                    </div>
+                </label>
+            </div>
+        </div>
 
-    <div class="irs-line-row">
-      <div class="irs-line-num">6</div>
-      <div class="irs-line-desc bold">Multiply Line 5 by 66 2/3% (0.6667)</div>
-      <div class="irs-total-display bold">${{ currentYearRequired() | number:'1.2-2' }}</div>
-    </div>
+        <!-- Part II -->
+        <div class="irs-part-banner">
+            <div class="irs-label-wrap" style="display: flex; gap: 20px; align-items: baseline;">
+                <span style="font-size: 1.4rem; font-weight: 950;">Part II</span>
+                <span style="font-size: 1.1rem; font-weight: 700;">Figure Your Underpayment / Calcule su Pago Menor</span>
+            </div>
+        </div>
 
-    <div class="irs-line-row">
-      <div class="irs-line-num">9</div>
-      <div class="irs-line-desc">Enter the tax shown on your prior year tax return.</div>
-      <div class="irs-input-wrap irs-blue-bg">
-        <input type="number" formControlName="tax2023" class="irs-input-field">
-      </div>
-    </div>
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div class="irs-col-line-num">1</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Current year tax shown on return</span>
+                    <span class="irs-label-es">Impuesto del año actual en la declaración</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <input type="number" formControlName="tax2024" style="text-align: right;">
+            </div>
+        </div>
 
-    <div class="irs-line-row bg-light-yellow" style="border-top: 3px solid #000;">
-      <div class="irs-line-num">10</div>
-      <div class="irs-line-desc bold" style="font-size: 1rem;">Required annual payment. Enter the smaller of Line 6 or Line 9.</div>
-      <div class="irs-total-display bold" style="font-size: 1.25rem;">${{ requiredAnnualPayment() | number:'1.2-2' }}</div>
-    </div>
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px; background: #e3f2fd;">
+            <div class="irs-col-line-num" style="background: #1565c0; color: #fff;">6</div>
+            <div style="padding: 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">Multiply line 5 by 66 2/3% (0.6667)</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Multiplique la línea 5 por 66 2/3%</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input" style="background: #1e88e5 !important; color: #fff; text-align: right; padding-right: 15px;">
+                <span style="font-weight: 950; font-size: 1.2rem;">${{ currentYearRequired() | number:'1.0-2' }}</span>
+            </div>
+        </div>
 
-    <div class="irs-line-row">
-      <div class="irs-line-num">11</div>
-      <div class="irs-line-desc">Withholding and estimated tax payments made on or before Jan 15, 2025.</div>
-      <div class="irs-input-wrap irs-blue-bg">
-        <input type="number" formControlName="withholding" class="irs-input-field">
-      </div>
-    </div>
+        <!-- Part III -->
+        <div class="irs-part-banner" style="background: #111;">
+            <div class="irs-label-wrap" style="display: flex; gap: 20px; align-items: baseline;">
+                <span style="font-size: 1.4rem; font-weight: 950;">Part III</span>
+                <span style="font-size: 1.1rem; font-weight: 700;">Figure the Penalty / Calcule la Multa</span>
+            </div>
+        </div>
 
-    <div class="irs-line-row" style="background: #eefbff; border-bottom: 4px solid #000;">
-      <div class="irs-line-num">12</div>
-      <div class="irs-line-desc bold">Underpayment. Subtract Line 11 from Line 10.</div>
-      <div class="irs-total-display bold">${{ underpayment() | number:'1.2-2' }}</div>
-    </div>
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px; background: #fff5f5; border-bottom: 3px solid #000;">
+            <div class="irs-col-line-num" style="background: #b71c1c; color: #fff;">16</div>
+            <div style="padding: 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950; font-size: 1.1rem;">PENALTY. Multiply line 12 by 8.0% rate.</span>
+                    <span class="irs-label-es" style="font-weight: 700;">MULTA. Multiplique la línea 12 por la tasa de 8.0%.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input" style="background: #d32f2f !important; color: #fff; text-align: right; padding-right: 15px;">
+                <span style="font-weight: 950; font-size: 1.4rem;">${{ penalty() | number:'1.0-2' }}</span>
+            </div>
+        </div>
 
-    <!-- PART III FIGURE PENALTY -->
-    <div class="irs-part-bar">Part III: Figure the Penalty</div>
-    <div class="irs-line-row bg-light-yellow">
-      <div class="irs-line-num">16</div>
-      <div class="irs-line-desc bold" style="font-size: 1.1rem;">PENALTY. Multiply Line 12 by 8.0% Rate for days of late payment.</div>
-      <div class="irs-total-display bold" style="background: #ffffde;">${{ penalty() | number:'1.2-2' }}</div>
-    </div>
-
-    <div style="margin-top: 40px; text-align: left; background: #ffffde; padding: 15px; border: 2px solid #000; font-size: 0.75rem; font-weight: 700;">
-      🚨 IMPORTANT: If you file your 2025 return and pay the total tax by March 2, 2026 (since March 1 is a Sunday), 
-      you do not owe a penalty and don't need to file Form 2210-F.
-    </div>
-
-    <div style="margin-top: 40px; display: flex; justify-content: flex-end;">
-      <button type="submit" class="irs-btn-submit" style="background: #000; color: #fff; padding: 15px 40px; font-weight: 950; border: none; cursor: pointer; text-transform: uppercase;">Submit Form 2210-F</button>
-    </div>
-  </form>
+        <div style="padding: 40px; text-align: center;">
+            <button type="submit" style="background: #111; color: #fff; padding: 20px 80px; border: none; font-size: 1.3rem; font-weight: 950; cursor: pointer; text-transform: uppercase;">
+                Save Form 2210-F / Guardar Formulario 2210-F
+            </button>
+        </div>
+    </form>
 </div>

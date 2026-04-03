@@ -1,0 +1,42 @@
+<div class="irs-form-container">
+    <div class="irs-header"><div class="form-title">Formulario 1040-NR 2026</div></div>
+    <div class="irs-form-box">
+        <div class="irs-main-header">
+            <div class="irs-col-1"><span class="irs-form-id">1040-NR</span><span class="irs-form-sub-id">2026</span></div>
+            <div class="irs-col-2"><h1>U.S. Nonresident Alien Income Tax Return</h1><p class="irs-instruction">▶ For nonresident aliens.</p></div>
+            <div class="irs-col-3"><div class="irs-sequence-box"><span>Seq</span><span class="irs-sequence-num">01</span></div></div>
+        </div>
+        <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+            <div class="irs-row-border">
+                <div class="irs-field flex-2 border-right"><label>Nombre (Name)</label><input type="text" formControlName="name"></div>
+                <div class="irs-field flex-1"><label>SSN/ITIN</label><input type="text" formControlName="ssn"></div>
+            </div>
+            <div class="irs-row-border">
+                <div class="irs-field flex-1 border-right"><label>Country of Residence</label><input type="text" formControlName="country"></div>
+                <div class="irs-field flex-1"><label>Visa Type</label><input type="text" formControlName="visa"></div>
+            </div>
+            <div class="irs-section-header"><span>Part I</span><span>Income</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td>1</td><td><label>Wages, salaries, tips</label></td><td>1</td><td><input type="number" formControlName="wages"></td></tr>
+                    <tr><td>2</td><td><label>Tax-exempt interest</label></td><td>2</td><td><input type="number" formControlName="taxExempt"></td></tr>
+                    <tr><td>3</td><td><label>Taxable interest</label></td><td>3</td><td><input type="number" formControlName="taxableInterest"></td></tr>
+                    <tr><td>4</td><td><label>Dividends</label></td><td>4</td><td><input type="number" formControlName="dividends"></td></tr>
+                    <tr><td>5</td><td><label>Capital gains</label></td><td>5</td><td><input type="number" formControlName="capitalGains"></td></tr>
+                    <tr><td>6</td><td><label>Other income</label></td><td>6</td><td><input type="number" formControlName="otherIncome"></td></tr>
+                    <tr><td>7</td><td><label>Total income</label></td><td>7</td><td><input type="number" formControlName="totalIncome"></td></tr>
+                </tbody>
+            </table>
+            <div class="irs-section-header"><span>Part II</span><span>Deductions</span></div>
+            <table class="irs-table">
+                <tbody>
+                    <tr><td>8</td><td><label>Standard deduction</label></td><td>8</td><td><input type="number" formControlName="standardDeduction"></td></tr>
+                    <tr><td>9</td><td><label>Itemized deductions</label></td><td>9</td><td><input type="number" formControlName="itemizedDeductions"></td></tr>
+                    <tr><td>10</td><td><label>Total deductions</label></td><td>10</td><td><input type="number" formControlName="totalDeductions"></td></tr>
+                </tbody>
+            </table>
+            <div class="irs-footer-actions"><button type="submit" class="btn-irs-submit">Guardar</button></div>
+        </form>
+        <app-chatforms></app-chatforms>
+    </div>
+</div>

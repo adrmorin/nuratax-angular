@@ -1,184 +1,71 @@
-.irs-form-container {
-    padding: 2rem;
-    max-width: 950px;
-    margin: 0 auto;
-    background: #fff;
-    font-family: 'Inter', Arial, sans-serif;
-    color: #000;
+/* Form W-2 - Unified Design System v2
+   Inherits from global styles.css
+*/
+
+:host {
+    display: block;
+    background-color: var(--irs-bg-paper);
 }
 
-.irs-w2-box {
-    border: 2px solid #000;
+.irs-unified-container {
+    margin: 2rem auto;
+    border: 3px solid #000;
+    max-width: 1000px;
+    box-shadow: 0 10px 50px rgba(0,0,0,0.1);
 }
 
-.w2-grid {
-    display: flex;
-    border-bottom: 2px solid #000;
-}
-
-.w2-left-col {
-    flex: 1;
-    border-right: 2px solid #000;
-    display: flex;
-    flex-direction: column;
-}
-
-.w2-right-col {
-    flex: 1.25;
-    display: flex;
-    flex-direction: column;
-}
-
-.w2-row {
-    display: flex;
-    border-bottom: 1px solid #000;
-}
-.w2-row:last-child {
-    border-bottom: none;
-}
-
-.w2-cell {
-    padding: 4px 6px;
-    display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid #000;
-}
-.w2-left-col .w2-cell:last-child {
-    border-bottom: none;
-}
-.w2-cell.half {
-    flex: 1;
-    border-right: 1px solid #000;
-    border-bottom: none;
-}
-.w2-cell.half:last-child {
-    border-right: none;
-}
-
-.w2-cell.h-double {
-    height: 100px;
-}
-.w2-cell.h-triple {
-    height: 130px;
-}
-
-.w2-cell-header {
-    font-size: 0.75rem;
-    font-weight: 500;
-    line-height: 1.1;
-    margin-bottom: 2px;
-}
-.w2-cell-header strong {
-    font-size: 0.85rem;
-    font-weight: 950;
-    margin-right: 3px;
-}
-
-.w2-input {
-    border: none;
-    background: #eef7ff;
-    padding: 4px;
-    font-size: 0.95rem;
-    outline: none;
-    font-family: monospace;
-    width: 100%;
-    margin-top: auto;
-}
-.w2-input.num {
-    text-align: right;
-}
-
-.w2-textarea {
-    border: none;
-    background: #eef7ff;
-    padding: 4px;
-    font-size: 0.95rem;
-    outline: none;
-    font-family: monospace;
-    resize: none;
-    width: 100%;
-    height: 100%;
-    margin-top: 5px;
-}
-
-.code-wrap {
-    display: flex;
-    gap: 5px;
-    align-items: flex-end;
-    margin-top: auto;
-}
-.w2-code {
-    width: 30px;
-    border: none;
-    background: #eef7ff;
-    padding: 4px;
-    font-size: 0.95rem;
-    font-family: monospace;
-    text-align: center;
-}
-
-.w2-box-13 {
-    display: flex;
-    flex-direction: column;
-}
-.w2-checkboxes {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.7rem;
-    line-height: 1;
-    text-align: center;
-    margin-top: auto;
-}
-
-.half-stack {
-    padding: 0 !important;
-    display: flex;
-    flex-direction: column;
-}
-.w2-col-split {
-    flex: 1;
-    padding: 4px 6px;
-    display: flex;
-    flex-direction: column;
-}
-
-.w2-state-row {
-    display: flex;
-    border-bottom: 2px solid #000;
-}
-.w2-state-row .w2-cell {
-    border-bottom: none;
-    border-right: 1px solid #000;
-}
-.w2-state-row .w2-cell:last-child {
-    border-right: none;
-}
-.flex-1 { flex: 1; }
-
-.w2-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.irs-header-main {
+    display: grid;
+    grid-template-columns: 220px 1fr 180px;
+    background-color: #fff;
     padding: 10px;
-    background: #000;
-    color: #fff;
+    border-bottom: 3px solid #000;
 }
-.w2-copy-title {
-    font-size: 1.2rem;
-    font-weight: 500;
+
+.irs-w2-main-grid {
+    display: flex;
+    flex-direction: column;
 }
-.w2-huge {
-    font-size: 2rem;
-    font-weight: 900;
-    margin-right: 5px;
+
+.irs-row {
+    display: grid;
+    align-items: stretch;
 }
-.w2-year {
-    font-size: 1.8rem;
-    font-weight: 900;
-    line-height: 1;
-    letter-spacing: -1px;
+
+input[type="number"], input[type="text"], textarea {
+    font-family: var(--irs-font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
 }
-.w2-footer-right {
-    text-align: right;
+
+.irs-label-en {
     font-size: 0.75rem;
+    font-weight: 800;
+    color: #000;
+    line-height: 1.1;
+}
+
+.irs-label-es {
+    font-size: 0.65rem;
+    font-weight: 400;
+    font-style: italic;
+    color: #555;
+    display: block;
+}
+
+.irs-w2-input-large {
+    font-size: 1.25rem !important;
+    text-align: right;
+    padding: 2px 0;
+}
+
+.irs-year-block {
+    text-align: center;
+    border-left: 2px solid #000;
+    padding: 10px;
 }

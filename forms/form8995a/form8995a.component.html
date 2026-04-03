@@ -1,0 +1,61 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 8995-A</h1><p class="form-year">(2024)</p></div>
+        <div class="form-info"><p><strong>Qualified Business Income Deduction for S-Corporations and Partnerships</strong></p><p>Department of the Treasury — Internal Revenue Service</p></div>
+    </div>
+    <div class="form-instructions"><p>Use this form for S-Corporations and Partnerships to report the qualified business income (QBI) deduction allocated to shareholders or partners.</p></div>
+    <div class="part-section">
+        <h3 class="part-header">Part I — Entity Information</h3>
+        <div class="field-row"><div class="field-group"><label>Entity name (S-Corp or Partnership)</label><input type="text" formControlName="entityName"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>EIN</label><input type="text" formControlName="ein"></div>
+            <div class="field-group"><label>Tax Year</label><input type="text" formControlName="taxYear"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part II — Partner/Shareholder Information</h3>
+        <div class="field-row"><div class="field-group"><label>Partner/Shareholder name</label><input type="text" formControlName="partnerName"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>TIN (SSN or EIN)</label><input type="text" formControlName="partnerTin"></div>
+            <div class="field-group"><label>Ownership %</label><input type="number" formControlName="ownershipPercent"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part III — Entity QBI Calculation</h3>
+        <table class="form-table">
+            <tr><td>1. Qualified business income (QBI) from trade or business</td><td><input type="number" formControlName="line1"></td></tr>
+            <tr><td>2. W-2 wages paid by the trade or business</td><td><input type="number" formControlName="line2"></td></tr>
+            <tr><td>3. Unadjusted basis of qualified property (UBIA)</td><td><input type="number" formControlName="line3"></td></tr>
+            <tr><td>4. Net capital gain</td><td><input type="number" formControlName="line4"></td></tr>
+            <tr><td>5. Taxable income (lesser of line 1 or entity's taxable income)</td><td><input type="number" formControlName="line5"></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part IV — Deduction Calculation for Entity</h3>
+        <table class="form-table">
+            <tr><td>6. 20% of QBI</td><td><input type="number" formControlName="line6"></td></tr>
+            <tr><td>7. 50% of W-2 wages</td><td><input type="number" formControlName="line7"></td></tr>
+            <tr><td>8. 25% of W-2 wages + 2.5% of UBIA</td><td><input type="number" formControlName="line8"></td></tr>
+            <tr><td>9. Greater of line 7 or line 8</td><td><input type="number" formControlName="line9" readonly></td></tr>
+            <tr><td>10. 20% of (taxable income - net capital gain)</td><td><input type="number" formControlName="line10"></td></tr>
+            <tr class="highlight-row"><td>11. QBI deduction (lesser of line 6, 9, or 10)</td><td><input type="number" formControlName="line11" readonly></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part V — Allocation to Partner/Shareholder</h3>
+        <table class="form-table">
+            <tr class="highlight-row"><td>12. Total QBI deduction (from line 11)</td><td><input type="number" formControlName="line12"></td></tr>
+            <tr class="highlight-row"><td>13. Partner/Shareholder allocation (line 12 × ownership %)</td><td><input type="number" formControlName="line13"></td></tr>
+        </table>
+        <div class="field-row three-col" style="margin-top: 15px;">
+            <div class="field-group"><label>Allocated QBI</label><input type="number" formControlName="allocatedQBI"></div>
+            <div class="field-group"><label>Allocated W-2 Wages</label><input type="number" formControlName="allocatedW2"></div>
+            <div class="field-group"><label>Allocated UBIA</label><input type="number" formControlName="allocatedUBIA"></div>
+        </div>
+    </div>
+    <div class="signature-section">
+        <div class="signature-box"><p>Entity Signature</p><input type="text" formControlName="signature" class="signature-input"></div>
+        <div class="date-box"><p>Date</p><input type="date" formControlName="dateSigned"></div>
+    </div>
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

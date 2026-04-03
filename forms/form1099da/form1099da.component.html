@@ -1,0 +1,147 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title">
+            <h1>Form 1099-DA</h1>
+            <p class="form-year">Department of the Treasury - Internal Revenue Service</p>
+        </div>
+        <div class="form-info">
+            <p><strong>Digital Asset Proceeds From Broker Transactions</strong></p>
+            <p>Report transactions involving digital assets (cryptocurrency, NFTs, etc.)</p>
+        </div>
+    </div>
+
+    <div class="payer-section">
+        <h3>Payer Information</h3>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Payer's name</label>
+                <input type="text" formControlName="payerName">
+            </div>
+            <div class="field-group small">
+                <label>Payer's TIN</label>
+                <input type="text" formControlName="payerTIN">
+            </div>
+        </div>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Payer's city, state, and ZIP</label>
+                <input type="text" formControlName="payerState">
+            </div>
+        </div>
+    </div>
+
+    <div class="recipient-section">
+        <h3>Recipient Information</h3>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Recipient's name</label>
+                <input type="text" formControlName="recipientName">
+            </div>
+            <div class="field-group small">
+                <label>Recipient's TIN</label>
+                <input type="text" formControlName="recipientTIN">
+            </div>
+        </div>
+        <div class="field-row">
+            <div class="field-group">
+                <label>Recipient's city, state, and ZIP</label>
+                <input type="text" formControlName="recipientState">
+            </div>
+        </div>
+    </div>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Transaction Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">Account number</td>
+                <td class="line-input"><input type="text" formControlName="accountNumber"></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">Transaction type</td>
+                <td class="line-input">
+                    <select formControlName="transactionType">
+                        <option value="">Select...</option>
+                        <option value="sale">Sale</option>
+                        <option value="exchange">Exchange</option>
+                        <option value="conversion">Conversion</option>
+                        <option value="transfer">Transfer</option>
+                        <option value="other">Other</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="line-num">3</td>
+                <td class="line-desc">Digital asset symbol</td>
+                <td class="line-input"><input type="text" formControlName="digitalAssetSymbol" placeholder="BTC, ETH, etc."></td>
+            </tr>
+            <tr>
+                <td class="line-num">4</td>
+                <td class="line-desc">Date of disposition</td>
+                <td class="line-input"><input type="date" formControlName="transactionDate"></td>
+            </tr>
+            <tr>
+                <td class="line-num">5</td>
+                <td class="line-desc">Method of disposition</td>
+                <td class="line-input">
+                    <select formControlName="dispositionMethod">
+                        <option value="">Select...</option>
+                        <option value="sale">Sale</option>
+                        <option value="exchange">Exchange</option>
+                        <option value="gift">Gift</option>
+                        <option value="destroyed">Destroyed</option>
+                    </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead>
+            <tr>
+                <th colspan="3" class="section-header">Financial Information</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="line-num">1</td>
+                <td class="line-desc">Gross proceeds</td>
+                <td class="line-input"><input type="number" formControlName="grossProceeds"></td>
+            </tr>
+            <tr>
+                <td class="line-num">2</td>
+                <td class="line-desc">Cost basis</td>
+                <td class="line-input"><input type="number" formControlName="costBasis"></td>
+            </tr>
+            <tr class="highlight-row">
+                <td class="line-num">3</td>
+                <td class="line-desc"><strong>Gain or (loss)</strong></td>
+                <td class="line-input"><input type="number" formControlName="gainOrLoss" readonly></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="nerea-advice">
+        <div class="advice-header">
+            <img src="assets/images/nerea_avatar.png" alt="Nerea" class="nerea-avatar">
+            <span class="advice-title">Asistente de Impuestos</span>
+        </div>
+        <div class="advice-content">
+            <p><strong>Propósito:</strong> {{ nereaAdvice.purpose }}</p>
+            <p><strong>Reporte:</strong> {{ nereaAdvice.reporting }}</p>
+            <p><strong>Base de Costo:</strong> {{ nereaAdvice.costBasis }}</p>
+            <p><strong>Ingresos Brutos:</strong> {{ nereaAdvice.grossProceeds }}</p>
+            <p><strong>Seguimiento:</strong> {{ nereaAdvice.tracking }}</p>
+        </div>
+    </div>
+
+    <div class="form-actions">
+        <button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 1098-C</h1><p class="form-year">Department of the Treasury - Internal Revenue Service</p></div>
+        <div class="form-info"><p><strong>Contributions of Motor Vehicles, Boats, and Airplanes</strong> - For calendar year 2026</p></div>
+    </div>
+
+    <div class="charity-section">
+        <div class="field-row">
+            <div class="field-group"><label>Organization name</label><input type="text" formControlName="charityName"></div>
+            <div class="field-group small"><label>EIN</label><input type="text" formControlName="charityTin"></div>
+        </div>
+    </div>
+
+    <div class="donor-section">
+        <div class="field-row">
+            <div class="field-group"><label>Donor name</label><input type="text" formControlName="donorName"></div>
+        </div>
+        <div class="field-row">
+            <div class="field-group"><label>Donor address</label><input type="text" formControlName="donorAddress"></div>
+        </div>
+    </div>
+
+    <table class="form-table">
+        <thead><tr><th colspan="3" class="section-header">Vehicle Information</th></tr></thead>
+        <tbody>
+            <tr><td class="line-num">1</td><td class="line-desc">Description of property</td><td class="line-input"><input type="text" formControlName="vehicleDescription"></td></tr>
+            <tr><td class="line-num">2</td><td class="line-desc">Vehicle identification number (VIN)</td><td class="line-input"><input type="text" formControlName="vehicleVIN"></td></tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead><tr><th colspan="3" class="section-header">Sale Information</th></tr></thead>
+        <tbody>
+            <tr><td class="line-num">3</td><td class="line-desc">Gross proceeds from sale</td><td class="line-input"><input type="number" formControlName="salePrice"></td></tr>
+            <tr><td class="line-num">4</td><td class="line-desc">Fair market value</td><td class="line-input"><input type="number" formControlName="value"></td></tr>
+            <tr><td class="line-num">5</td><td class="line-desc">Good faith estimate</td><td class="line-input"><input type="number" formControlName="goodFaithEstimate"></td></tr>
+        </tbody>
+    </table>
+
+    <div class="checkbox-section">
+        <label><input type="checkbox" formControlName="intUse"> Vehicle used or improved for organization's internal use</label>
+        <label><input type="checkbox" formControlName="goodsServices"> Organization provided goods or services</label>
+        <label><input type="checkbox" formControlName="certNoGoods"> Certify no goods/services provided</label>
+    </div>
+
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

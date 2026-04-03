@@ -1,0 +1,78 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form W-2</h1><p class="form-year">Department of the Treasury - Internal Revenue Service</p></div>
+        <div class="form-info"><p><strong>Wage and Tax Statement</strong> - For calendar year 2026</p></div>
+    </div>
+
+    <div class="furnish-notice">Furnish this form to employee.</div>
+
+    <div class="employer-section">
+        <div class="field-row">
+            <div class="field-group"><label>Employer identification number (EIN)</label><input type="text" formControlName="ein"></div>
+            <div class="field-group"><label>Employer name</label><input type="text" formControlName="employerName"></div>
+        </div>
+        <div class="field-row">
+            <div class="field-group"><label>Employer address</label><input type="text" formControlName="employerAddress"></div>
+        </div>
+    </div>
+
+    <div class="employee-section">
+        <div class="field-row">
+            <div class="field-group"><label>Employee's name</label><input type="text" formControlName="employeeName"></div>
+            <div class="field-group small"><label>Employee's SSN</label><input type="text" formControlName="employeeSSN"></div>
+        </div>
+        <div class="field-row">
+            <div class="field-group"><label>Employee's address</label><input type="text" formControlName="employeeAddress"></div>
+        </div>
+    </div>
+
+    <table class="w2-table">
+        <tr><th colspan="2">Control Number</th><td><input type="text"></td></tr>
+        <tr><th colspan="3">Federal Income Tax Withheld</th></tr>
+        <tr><td class="box-label">1</td><td class="box-desc">Wages, tips, other compensation</td><td class="box-input"><input type="number" formControlName="box1Wages"></td></tr>
+        <tr><td class="box-label">2</td><td class="box-desc">Federal income tax withheld</td><td class="box-input"><input type="number" formControlName="box2FederalTax"></td></tr>
+        <tr><th colspan="3">Social Security and Medicare</th></tr>
+        <tr><td class="box-label">3</td><td class="box-desc">Social security wages</td><td class="box-input"><input type="number" formControlName="box3SSWages"></td></tr>
+        <tr><td class="box-label">4</td><td class="box-desc">Social security tax withheld</td><td class="box-input"><input type="number" formControlName="box4SSTax"></td></tr>
+        <tr><td class="box-label">5</td><td class="box-desc">Medicare wages and tips</td><td class="box-input"><input type="number" formControlName="box5MedicareWages"></td></tr>
+        <tr><td class="box-label">6</td><td class="box-desc">Medicare tax withheld</td><td class="box-input"><input type="number" formControlName="box6MedicareTax"></td></tr>
+        <tr><th colspan="3">Other Items</th></tr>
+        <tr><td class="box-label">10</td><td class="box-desc">Dependent care benefits</td><td class="box-input"><input type="number" formControlName="box10DependentCare"></td></tr>
+        <tr><td class="box-label">11</td><td class="box-desc">Nonqualified plans</td><td class="box-input"><input type="number" formControlName="box11Nonqualified"></td></tr>
+        <tr><td class="box-label">12</td><td class="box-desc">Other (code/amount)</td>
+            <td class="box-input"><input type="text" formControlName="box12Code" placeholder="Code"><input type="number" formControlName="box12Amount"></td></tr>
+        <tr><td class="box-label">13</td><td class="box-desc">Statutory employee / Retirement plan / Sick pay</td>
+            <td class="box-input">
+                <label><input type="checkbox" formControlName="box13Statutory"> Statutory</label>
+                <label><input type="checkbox" formControlName="box13Retirement"> Retirement</label>
+                <label><input type="checkbox" formControlName="box13SickPay"> Sick Pay</label>
+            </td></tr>
+        <tr><td class="box-label">14</td><td class="box-desc">Other</td><td class="box-input"><input type="text" formControlName="box14Other"></td></tr>
+    </table>
+
+    <table class="w2-table">
+        <tr><th colspan="3">State Income Tax</th></tr>
+        <tr><td class="box-label">15</td><td class="box-desc">State</td><td class="box-input"><input type="text" formControlName="box15State"></td></tr>
+        <tr><td class="box-label">16</td><td class="box-desc">State wages</td><td class="box-input"><input type="number" formControlName="box16StateWages"></td></tr>
+        <tr><td class="box-label">17</td><td class="box-desc">State income tax</td><td class="box-input"><input type="number" formControlName="box17StateTax"></td></tr>
+        <tr><th colspan="3">Local Income Tax</th></tr>
+        <tr><td class="box-label">15</td><td class="box-desc">Local</td><td class="box-input"><input type="text" formControlName="box15Local"></td></tr>
+        <tr><td class="box-label">16</td><td class="box-desc">Local wages</td><td class="box-input"><input type="number" formControlName="box16LocalWages"></td></tr>
+        <tr><td class="box-label">17</td><td class="box-desc">Local income tax</td><td class="box-input"><input type="number" formControlName="box17LocalTax"></td></tr>
+    </table>
+
+    <div class="nerea-advice">
+        <div class="advice-header">
+            <img src="assets/images/nerea_avatar.png" alt="Nerea" class="nerea-avatar">
+            <span class="advice-title">Asistente de Impuestos</span>
+        </div>
+        <div class="advice-content">
+            <p><strong>Propósito:</strong> {{ nereaAdvice.purpose }}</p>
+            <p><strong>Fecha límite:</strong> {{ nereaAdvice.deadline }}</p>
+            <p><strong>Copias:</strong> {{ nereaAdvice.copies }}</p>
+            <p><strong>Cajas:</strong> {{ nereaAdvice.boxes }}</p>
+        </div>
+    </div>
+
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

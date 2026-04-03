@@ -1,201 +1,133 @@
 <div class="irs-unified-container">
-  <!-- Header Section -->
-  <div class="irs-form-header">
-    <div class="irs-header-left">
-      <div class="irs-form-id-box">
-        <span class="irs-id-sub-small">Form</span>
-        <span class="irs-id-main-large">8912</span>
-        <span class="irs-id-sub-small">(Rev. December 2024)</span>
-      </div>
-      <div class="irs-dept-irs-box">
-        Department of the Treasury<br>
-        Internal Revenue Service
-      </div>
-    </div>
-    <div class="irs-header-center">
-      <h1>Credit to Holders of Tax Credit Bonds</h1>
-      <p class="irs-attach-note">Attach to your tax return.</p>
-      <p class="irs-instruction-note">Go to <strong>www.irs.gov/Form8912</strong> for instructions and the latest information.</p>
-    </div>
-    <div class="irs-header-right">
-      <div class="irs-omb-box">OMB No. 1545-2025</div>
-      <div class="irs-attachment">Attachment <br> Sequence No. <strong>144</strong></div>
-    </div>
-  </div>
-
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
-    <!-- INFO BLOCK -->
-    <div class="irs-row-line-unified border-b">
-      <div class="irs-col border-r" style="flex: 2;">
-        <label for="name" class="irs-label-small">Name(s) shown on return</label>
-        <input id="name" type="text" formControlName="name" class="irs-input-borderless">
-      </div>
-      <div class="irs-col border-r" style="flex: 1;">
-        <label for="tin" class="irs-label-small">Identifying number</label>
-        <input id="tin" type="text" formControlName="tin" class="irs-input-borderless">
-      </div>
+    <!-- Form 8912 Header -->
+    <div class="irs-header-main" style="background: #fff; border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.4rem;">Form 8912</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
+        </div>
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.1rem; margin: 0;">Credit to Holders of Tax Credit Bonds</h1>
+                <h2 style="font-size: 0.9rem; margin: 0; font-style: italic;">Crédito para los Tenedores de Bonos de Crédito Tributario</h2>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 8px; font-weight: 700;">▶ Go to www.irs.gov/Form8912 for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-2025</div>
+            <div style="font-size: 2.8rem; line-height: 1;">2025</div>
+        </div>
     </div>
 
-    <!-- PART I -->
-    <div class="irs-section-header">
-      <span class="irs-part-text">Part I</span>
-      <span class="irs-section-text">Current Year Credit</span>
-    </div>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="form">
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 300px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Name(s) shown on return</label>
+                    <label class="irs-label-es">Nombre(s) que aparece(n) en la declaración</label>
+                </div>
+                <input type="text" formControlName="name" style="width: 100%; border: none; font-weight: 700;">
+            </div>
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Identifying number (SSN/EIN)</label>
+                    <label class="irs-label-es">Número de identificación (SSN/EIN)</label>
+                </div>
+                <input type="text" formControlName="tin" style="width: 100%; border: none; font-weight: 700;">
+            </div>
+        </div>
 
-    <div class="irs-line-item">
-      <div class="irs-line-num">1</div>
-      <div class="irs-line-desc">Bond credit(s) from Part III, line 14, and Part IV, line 20</div>
-      <div class="irs-input-box bg-light-grey">
-        <span class="bold padding-l-10">${{ l1() | number:'1.2-2' }}</span>
-      </div>
-      <div class="irs-line-num-end">1</div>
-    </div>
+        <!-- Part I -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part I</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Current Year Credit</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Crédito del Año Actual</span>
+            </div>
+        </div>
 
-    <div class="irs-line-item">
-      <div class="irs-line-num">2</div>
-      <div class="irs-line-desc">Form 8912 credits from partnerships and S corporations ...</div>
-      <div class="irs-input-box irs-blue-bg">
-        <input type="number" formControlName="l2" class="irs-input-field">
-      </div>
-      <div class="irs-line-num-end">2</div>
-    </div>
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div class="irs-col-line-num">1</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Bond credit(s) from Part III, line 14, and Part IV, line 20</span>
+                    <span class="irs-label-es">Crédito(s) del bono de la Parte III, línea 14, y la Parte IV, línea 20</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <span style="font-weight: 950;">{{ l1() | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
 
-    <div class="irs-line-item">
-      <div class="irs-line-num">3</div>
-      <div class="irs-line-desc text-bold">Current year credit. Add lines 1 and 2</div>
-      <div class="irs-input-box bg-light-grey">
-        <span class="bold padding-l-10">${{ l3() | number:'1.2-2' }}</span>
-      </div>
-      <div class="irs-line-num-end">3</div>
-    </div>
+        <!-- Part II -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part II</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Allowable Credit</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Crédito Permitido</span>
+            </div>
+        </div>
 
-    <div class="irs-line-item">
-      <div class="irs-line-num">4</div>
-      <div class="irs-line-desc">Check this box if you are a mutual fund or real estate investment trust ...</div>
-      <div class="irs-input-box flex-center">
-        <input type="checkbox">
-      </div>
-      <div class="irs-line-num-end">4</div>
-    </div>
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+            <div class="irs-col-line-num">12</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en"><strong>Allowable credit</strong>. Enter the smaller of line 6 or line 11 here and on your return</span>
+                    <span class="irs-label-es"><strong>Crédito permitido</strong>. Ingrese el menor de la línea 6 o la línea 11 aquí y en su declaración</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <span style="font-weight: 950;">{{ l12() | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
 
-    <div class="irs-line-item">
-      <div class="irs-line-num">5</div>
-      <div class="irs-line-desc">Carryforward of the credit to holders of tax credit bonds from prior year</div>
-      <div class="irs-input-box irs-blue-bg">
-        <input type="number" formControlName="l5" class="irs-input-field">
-      </div>
-      <div class="irs-line-num-end">5</div>
-    </div>
+        <!-- Part III -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part III</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Bond Credit(s) Reported on Form(s) 1097-BTC</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Crédito(s) del Bono Reportado en el(los) Formulario(s) 1097-BTC</span>
+            </div>
+        </div>
 
-    <div class="irs-line-item">
-      <div class="irs-line-num">6</div>
-      <div class="irs-line-desc text-bold">Total credit. Add lines 3 and 5.</div>
-      <div class="irs-input-box bg-light-grey">
-        <span class="bold padding-l-10">${{ l6() | number:'1.2-2' }}</span>
-      </div>
-      <div class="irs-line-num-end">6</div>
-    </div>
+        <div style="padding: 10px;">
+            <div style="display: grid; grid-template-columns: 1fr 180px 180px; background: #eee; border: 1px solid #000; border-bottom: 2px solid #000; font-weight: 900; font-size: 0.8rem;">
+                <div style="padding: 5px; border-right: 1px solid #000;">(a) Name of issuer / Nombre del emisor</div>
+                <div style="padding: 5px; border-right: 1px solid #000;">(b) Identifying number (EIN) / Número de identificación</div>
+                <div style="padding: 5px;">(c) Amount of credit / Monto del crédito</div>
+            </div>
+            <div formArrayName="part3Bonds" style="border: 1px solid #000; border-top: none;">
+                @for (bond of part3Bonds.controls; track $index; let i = $index) {
+                    <div [formGroupName]="i" style="display: grid; grid-template-columns: 1fr 180px 180px; border-bottom: 1px solid #ccc;">
+                        <div style="border-right: 1px solid #ccc;"><input formControlName="issuer" style="width: 100%; border: none; padding: 5px;"></div>
+                        <div style="border-right: 1px solid #ccc;"><input formControlName="ein" style="width: 100%; border: none; padding: 5px;"></div>
+                        <div class="irs-blue-cell" style="display: flex; align-items: center; padding: 0 5px;">
+                            <span class="irs-money-sym">$</span>
+                            <input type="number" formControlName="amount" (input)="updateSum3()" style="width: 100%; border: none; background: transparent; text-align: right; font-weight: 700;">
+                        </div>
+                    </div>
+                }
+            </div>
+            <button type="button" (click)="addPart3Bond()" style="margin-top: 10px; padding: 5px 15px; background: #eee; border: 1px solid #000; cursor: pointer; font-weight: 700;">
+                + Add Bond / Agregar Bono
+            </button>
+        </div>
 
-    <!-- PART II -->
-    <div class="irs-section-header">
-      <span class="irs-part-text">Part II</span>
-      <span class="irs-section-text">Allowable Credit</span>
-    </div>
-
-    <div class="irs-line-item">
-      <div class="irs-line-num">7</div>
-      <div class="irs-line-desc">Regular tax before credits (see instructions)</div>
-      <div class="irs-input-box irs-blue-bg">
-        <input type="number" formControlName="l7" (input)="updateSum3()" class="irs-input-field">
-      </div>
-      <div class="irs-line-num-end">7</div>
-    </div>
-
-    <div class="irs-line-item">
-      <div class="irs-line-num">8</div>
-      <div class="irs-line-desc">Alternative minimum tax (see instructions)</div>
-      <div class="irs-input-box irs-blue-bg">
-        <input type="number" formControlName="l8" class="irs-input-field">
-      </div>
-      <div class="irs-line-num-end">8</div>
-    </div>
-
-    <div class="irs-line-item">
-      <div class="irs-line-num">9</div>
-      <div class="irs-line-desc bold">Add lines 7 and 8</div>
-      <div class="irs-input-box bg-light-grey">
-        <span class="bold padding-l-10">${{ l9() | number:'1.2-2' }}</span>
-      </div>
-      <div class="irs-line-num-end">9</div>
-    </div>
-
-    <div class="irs-line-item">
-      <div class="irs-line-num">10</div>
-      <div class="irs-line-desc">Foreign tax credit, child-tax credit, and other credits (see instructions)</div>
-      <div class="irs-input-box irs-blue-bg">
-        <input type="number" formControlName="l10" class="irs-input-field">
-      </div>
-      <div class="irs-line-num-end">10</div>
-    </div>
-
-    <div class="irs-line-item">
-      <div class="irs-line-num">11</div>
-      <div class="irs-line-desc bold">Subtract line 10 from line 9. If zero or less, enter -0-</div>
-      <div class="irs-input-box bg-light-grey">
-        <span class="bold padding-l-10">${{ l11() | number:'1.2-2' }}</span>
-      </div>
-      <div class="irs-line-num-end">11</div>
-    </div>
-
-    <div class="irs-line-item">
-      <div class="irs-line-num">12</div>
-      <div class="irs-line-desc text-bold underline">Allowable credit.</div>
-      <div class="irs-line-desc text-italic">Enter the smaller of line 6 or line 11 here and on your return</div>
-      <div class="irs-input-box bg-light-grey">
-        <span class="bold padding-l-10">${{ l12() | number:'1.2-2' }}</span>
-      </div>
-      <div class="irs-line-num-end">12</div>
-    </div>
-
-    <!-- PART III -->
-    <div class="irs-section-header">
-      <span class="irs-part-text">Part III</span>
-      <span class="irs-section-text">Bond Credit(s) Reported on Form(s) 1097-BTC</span>
-    </div>
-
-    <div class="padding-10">
-      <table class="irs-table">
-        <thead>
-          <tr>
-            <th>(a) Name of issuer</th>
-            <th>(b) Identifying number (EIN)</th>
-            <th>(c) Amount of credit</th>
-          </tr>
-        </thead>
-        <tbody formArrayName="part3Bonds">
-          @for (bond of part3Bonds.controls; track $index; let i = $index) {
-            <tr [formGroupName]="i">
-              <td><input formControlName="issuer" class="irs-input-borderless"></td>
-              <td><input formControlName="ein" class="irs-input-borderless"></td>
-              <td><input type="number" formControlName="amount" (input)="updateSum3()" class="irs-input-field"></td>
-            </tr>
-          }
-        </tbody>
-      </table>
-      <button type="button" (click)="addPart3Bond()" class="irs-add-btn">+ Add Bond (Part III)</button>
-    </div>
-
-    <div class="irs-line-item">
-      <div class="irs-line-num">14</div>
-      <div class="irs-line-desc bold">Total bond credit(s) from Part III. Add column (c)</div>
-      <div class="irs-input-box bg-light-grey">
-        <span class="bold padding-l-10">${{ l14() | number:'1.2-2' }}</span>
-      </div>
-      <div class="irs-line-num-end">14</div>
-    </div>
-
-    <div class="irs-footer">
-      <button type="submit" class="irs-btn-submit">Submit Form 8912</button>
-    </div>
-  </form>
+        <div style="padding: 40px; text-align: center;">
+            <button type="submit" style="background: #111; color: #fff; padding: 15px 60px; border: none; border-radius: 2px; font-weight: 900; cursor: pointer; text-transform: uppercase;">
+                Save Form 8912 / Guardar Formulario 8912
+            </button>
+        </div>
+    </form>
 </div>

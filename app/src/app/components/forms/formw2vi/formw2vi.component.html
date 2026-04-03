@@ -1,190 +1,156 @@
-<div class="irs-form-container">
-    <div class="irs-w2-box">
-        <form [formGroup]="formW2" (ngSubmit)="onSubmit()">
-            
-            <div class="w2-grid">
+<div class="irs-unified-container">
+    <div class="irs-w2-body">
+        <form [formGroup]="formW2" (ngSubmit)="onSubmit()" *ngIf="formW2">
+            <div class="irs-w2-grid">
                 <!-- Left Column -->
-                <div class="w2-left-col">
-                    <div class="w2-cell">
-                        <div class="w2-cell-header"><strong>a</strong> Employee's social security number</div>
-                        <input type="text" formControlName="boxA" class="w2-input">
-                    </div>
-                    <div class="w2-cell">
-                        <div class="w2-cell-header"><strong>b</strong> Employer identification number (EIN)</div>
-                        <input type="text" formControlName="boxB" class="w2-input">
-                    </div>
-                    <div class="w2-cell h-triple">
-                        <div class="w2-cell-header"><strong>c</strong> Employer's name, address, and ZIP code</div>
-                        <input type="text" formControlName="boxCName" class="w2-input" placeholder="Name">
-                        <textarea formControlName="boxCAddr" class="w2-textarea" placeholder="Address and ZIP"></textarea>
-                    </div>
-                    <div class="w2-cell">
-                        <div class="w2-cell-header"><strong>d</strong> Control number</div>
-                        <input type="text" formControlName="boxD" class="w2-input">
-                    </div>
-                    <div class="w2-cell h-double">
-                        <div class="w2-cell-header" style="display: flex; gap: 40%;"><span><strong>e</strong> Employee's first name and initial</span> <span>Last name</span> <span>Suff.</span></div>
-                        <div style="display: flex; gap: 10px;">
-                            <input type="text" formControlName="boxEFirst" class="w2-input" style="flex: 1;">
-                            <input type="text" formControlName="boxELast" class="w2-input" style="flex: 1;">
+                <div class="irs-w2-col-left">
+                    <div class="irs-cell-w2">
+                        <div class="irs-label-wrap">
+                            <label class="irs-label-en"><strong>a</strong> Employee's social security number</label>
+                            <label class="irs-label-es">Número de seguro social del empleado</label>
                         </div>
-                    </div>
-                    <div class="w2-cell h-double">
-                        <div class="w2-cell-header"><strong>f</strong> Employee's address and ZIP code</div>
-                        <textarea formControlName="boxF" class="w2-textarea"></textarea>
-                    </div>
-                </div>
-
-                <!-- Right Column (Split into two) -->
-                <div class="w2-right-col">
-                    <div class="w2-row">
-                        <div class="w2-cell half">
-                            <div class="w2-cell-header"><strong>1</strong> Wages, tips, other comp.</div>
-                            <input type="number" formControlName="box1" class="w2-input num">
-                        </div>
-                        <div class="w2-cell half">
-                            <div class="w2-cell-header"><strong>2</strong> Federal income tax withheld</div>
-                            <input type="number" formControlName="box2" class="w2-input num">
-                        </div>
-                    </div>
-                    <div class="w2-row">
-                        <div class="w2-cell half">
-                            <div class="w2-cell-header"><strong>3</strong> Social security wages</div>
-                            <input type="number" formControlName="box3" class="w2-input num">
-                        </div>
-                        <div class="w2-cell half">
-                            <div class="w2-cell-header"><strong>4</strong> Social security tax withheld</div>
-                            <input type="number" formControlName="box4" class="w2-input num">
-                        </div>
-                    </div>
-                    <div class="w2-row">
-                        <div class="w2-cell half">
-                            <div class="w2-cell-header"><strong>5</strong> Medicare wages and tips</div>
-                            <input type="number" formControlName="box5" class="w2-input num">
-                        </div>
-                        <div class="w2-cell half">
-                            <div class="w2-cell-header"><strong>6</strong> Medicare tax withheld</div>
-                            <input type="number" formControlName="box6" class="w2-input num">
-                        </div>
-                    </div>
-                    <div class="w2-row">
-                        <div class="w2-cell half">
-                            <div class="w2-cell-header"><strong>7</strong> Social security tips</div>
-                            <input type="number" formControlName="box7" class="w2-input num">
-                        </div>
-                        <div class="w2-cell half">
-                            <div class="w2-cell-header"><strong>8</strong> Allocated tips</div>
-                            <input type="number" formControlName="box8" class="w2-input num">
-                        </div>
-                    </div>
-                    <div class="w2-row">
-                        <div class="w2-cell half">
-                            <div class="w2-cell-header"><strong>9</strong> Verification code</div>
-                            <input type="text" formControlName="box9" class="w2-input">
-                        </div>
-                        <div class="w2-cell half">
-                            <div class="w2-cell-header"><strong>10</strong> Dependent care benefits</div>
-                            <input type="number" formControlName="box10" class="w2-input num">
-                        </div>
-                    </div>
-                    <div class="w2-row">
-                        <div class="w2-cell half">
-                            <div class="w2-cell-header"><strong>11</strong> Nonqualified plans</div>
-                            <input type="number" formControlName="box11" class="w2-input num">
-                        </div>
-                        <div class="w2-cell half code-col">
-                            <div class="w2-cell-header"><strong>12a</strong> See instructions for box 12</div>
-                            <div class="code-wrap">
-                                <input type="text" formControlName="box12aCode" class="w2-code" placeholder="Code">
-                                <input type="number" formControlName="box12aAmount" class="w2-input num">
-                            </div>
-                        </div>
+                        <input type="text" formControlName="boxA" class="irs-w2-input-large">
                     </div>
                     
-                    <!-- Box 13 and 12b -->
-                    <div class="w2-row">
-                        <div class="w2-cell half w2-box-13">
-                            <div class="w2-cell-header"><strong>13</strong></div>
-                            <div class="w2-checkboxes">
-                                <label><input type="checkbox" formControlName="box13Statutory"> Statutory<br>employee</label>
-                                <label><input type="checkbox" formControlName="box13Retirement"> Retirement<br>plan</label>
-                                <label><input type="checkbox" formControlName="box13SickPay"> Third-party<br>sick pay</label>
-                            </div>
+                    <div class="irs-cell-w2">
+                        <div class="irs-label-wrap">
+                            <label class="irs-label-en"><strong>b</strong> Employer identification number (EIN)</label>
+                            <label class="irs-label-es">Número de identificación del empleador (EIN)</label>
                         </div>
-                        <div class="w2-cell half code-col">
-                            <div class="w2-cell-header"><strong>12b</strong></div>
-                            <div class="code-wrap">
-                                <input type="text" formControlName="box12bCode" class="w2-code">
-                                <input type="number" formControlName="box12bAmount" class="w2-input num">
-                            </div>
+                        <input type="text" formControlName="boxB">
+                    </div>
+
+                    <div class="irs-cell-w2" style="height: 120px;">
+                        <div class="irs-label-wrap">
+                            <label class="irs-label-en"><strong>c</strong> Employer's name, address, and ZIP code</label>
+                            <label class="irs-label-es">Nombre, dirección y código postal del empleador</label>
+                        </div>
+                        <textarea formControlName="boxCAddr" rows="3" style="font-weight: 700;"></textarea>
+                    </div>
+
+                    <div class="irs-cell-w2">
+                        <div class="irs-label-wrap">
+                            <label class="irs-label-en"><strong>d</strong> Control number</label>
+                            <label class="irs-label-es">Número de control</label>
+                        </div>
+                        <input type="text" formControlName="boxD">
+                    </div>
+
+                    <div class="irs-cell-w2" style="height: 80px;">
+                        <div class="irs-label-wrap">
+                            <label class="irs-label-en"><strong>e</strong> Employee's first name / Last name</label>
+                            <label class="irs-label-es">Nombre del empleado / Apellido</label>
+                        </div>
+                        <div style="display: flex; gap: 10px; margin-top: 5px;">
+                            <input type="text" formControlName="boxEFirst" placeholder="First">
+                            <input type="text" formControlName="boxELast" placeholder="Last">
                         </div>
                     </div>
 
-                    <!-- Box 14 and 12c -->
-                    <div class="w2-row">
-                        <div class="w2-cell half h-double">
-                            <div class="w2-cell-header"><strong>14</strong> Other</div>
-                            <textarea formControlName="box14" class="w2-textarea"></textarea>
+                    <div class="irs-cell-w2" style="height: 100px;">
+                        <div class="irs-label-wrap">
+                            <label class="irs-label-en"><strong>f</strong> Employee's address and ZIP code</label>
+                            <label class="irs-label-es">Dirección y código postal del empleado</label>
                         </div>
-                        <div class="w2-cell half half-stack">
-                            <div class="w2-col-split" style="border-bottom: 1px solid #000;">
-                                <div class="w2-cell-header"><strong>12c</strong></div>
-                                <div class="code-wrap">
-                                    <input type="text" formControlName="box12cCode" class="w2-code">
-                                    <input type="number" formControlName="box12cAmount" class="w2-input num">
-                                </div>
+                        <textarea formControlName="boxF" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="irs-w2-col-right">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr;">
+                        <div class="irs-cell-w2">
+                            <div class="irs-label-wrap">
+                                <label class="irs-label-en"><strong>1</strong> Wages, tips, other comp.</label>
+                                <label class="irs-label-es">Sueldos, propinas, etc.</label>
                             </div>
-                            <div class="w2-col-split">
-                                <div class="w2-cell-header"><strong>12d</strong></div>
-                                <div class="code-wrap">
-                                    <input type="text" formControlName="box12dCode" class="w2-code">
-                                    <input type="number" formControlName="box12dAmount" class="w2-input num">
-                                </div>
+                            <input type="number" formControlName="box1" style="text-align: right; font-size: 1.2rem;">
+                        </div>
+                        <div class="irs-cell-w2">
+                            <div class="irs-label-wrap">
+                                <label class="irs-label-en"><strong>2</strong> VI income tax withheld</label>
+                                <label class="irs-label-es">Impuesto retenido (VI)</label>
                             </div>
+                            <input type="number" formControlName="box2" style="text-align: right; font-size: 1.2rem;">
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr;">
+                        <div class="irs-cell-w2">
+                            <div class="irs-label-wrap">
+                                <label class="irs-label-en"><strong>3</strong> Social security wages</label>
+                                <label class="irs-label-es">Salarios del seguro social</label>
+                            </div>
+                            <input type="number" formControlName="box3" style="text-align: right;">
+                        </div>
+                        <div class="irs-cell-w2">
+                            <div class="irs-label-wrap">
+                                <label class="irs-label-en"><strong>4</strong> Social security tax withheld</label>
+                                <label class="irs-label-es">Impuesto del seguro social</label>
+                            </div>
+                            <input type="number" formControlName="box4" style="text-align: right;">
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr;">
+                        <div class="irs-cell-w2">
+                            <div class="irs-label-wrap">
+                                <label class="irs-label-en"><strong>5</strong> Medicare wages and tips</label>
+                                <label class="irs-label-es">Salarios y propinas de Medicare</label>
+                            </div>
+                            <input type="number" formControlName="box5" style="text-align: right;">
+                        </div>
+                        <div class="irs-cell-w2">
+                            <div class="irs-label-wrap">
+                                <label class="irs-label-en"><strong>6</strong> Medicare tax withheld</label>
+                                <label class="irs-label-es">Impuesto de Medicare retenido</label>
+                            </div>
+                            <input type="number" formControlName="box6" style="text-align: right;">
+                        </div>
+                    </div>
+
+                    <div class="irs-cell-w2" style="height: 100px;">
+                        <div class="irs-label-wrap">
+                            <label class="irs-label-en"><strong>12</strong> Codes and Amounts</label>
+                            <label class="irs-label-es">Códigos y Cantidades</label>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 40px 1fr; gap: 5px; margin-top: 2px;">
+                            <input type="text" formControlName="box12aCode" placeholder="Cod">
+                            <input type="number" formControlName="box12aAmount" style="text-align: right;">
+                            <input type="text" formControlName="box12bCode" placeholder="Cod">
+                            <input type="number" formControlName="box12bAmount" style="text-align: right;">
+                        </div>
+                    </div>
+
+                    <div class="irs-cell-w2">
+                        <div class="irs-label-wrap">
+                            <label class="irs-label-en"><strong>13</strong> Statutory / Retirement / Sick Pay</label>
+                            <label class="irs-label-es">Estatutario / Jubilación / Incapacidad</label>
+                        </div>
+                        <div style="display: flex; gap: 10px; margin-top: 5px;">
+                            <input type="checkbox" formControlName="box13Statutory">
+                            <input type="checkbox" formControlName="box13Retirement">
+                            <input type="checkbox" formControlName="box13SickPay">
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Bottom State Row -->
-            <div class="w2-state-row">
-                <div class="w2-cell" style="flex: 1.5;">
-                    <div class="w2-cell-header"><strong>15</strong> State &nbsp;&nbsp;&nbsp; Employer's state ID number</div>
-                    <div style="display: flex; gap: 5px;">
-                        <input type="text" formControlName="box15State" class="w2-input" style="width: 40px;" placeholder="ST">
-                        <input type="text" formControlName="box15ID" class="w2-input" style="flex: 1;">
-                    </div>
+            <!-- Footer for W-2VI -->
+            <div class="irs-w2-footer" style="display: flex; justify-content: space-between; padding: 10px; background: #eee; border-top: 2px solid #000;">
+                <div>
+                    <span style="font-size: 1.2rem; font-weight: 900;">Form W-2VI</span>
+                    <span style="margin-left: 10px; font-weight: 700;">U.S. Virgin Islands Wage and Tax Statement</span>
                 </div>
-                <div class="w2-cell flex-1">
-                    <div class="w2-cell-header"><strong>16</strong> State wages, tips, etc.</div>
-                    <input type="number" formControlName="box16" class="w2-input num">
-                </div>
-                <div class="w2-cell flex-1">
-                    <div class="w2-cell-header"><strong>17</strong> State income tax</div>
-                    <input type="number" formControlName="box17" class="w2-input num">
-                </div>
-                <div class="w2-cell flex-1">
-                    <div class="w2-cell-header"><strong>18</strong> Local wages, tips, etc.</div>
-                    <input type="number" formControlName="box18" class="w2-input num">
-                </div>
-                <div class="w2-cell flex-1">
-                    <div class="w2-cell-header"><strong>19</strong> Local income tax</div>
-                    <input type="number" formControlName="box19" class="w2-input num">
-                </div>
-                <div class="w2-cell flex-1">
-                    <div class="w2-cell-header"><strong>20</strong> Locality name</div>
-                    <input type="text" formControlName="box20" class="w2-input">
+                <div>
+                    <span style="font-size: 1.5rem; font-weight: 900;">2025</span>
                 </div>
             </div>
 
-            <div class="w2-footer">
-                <div class="w2-footer-left">
-                    <span class="w2-copy-title">Form <span class="w2-huge">W-2VI</span> U.S. Virgin Islands Wage and Tax Statement</span>
-                </div>
-                <div class="w2-footer-right">
-                    <span class="w2-year">2025</span><br>
-                    <span>Department of the Treasury—Internal Revenue Service</span>
-                </div>
+            <div style="padding: 20px; text-align: center;">
+                <button type="submit" style="background: #111; color: #fff; padding: 10px 40px; border: none; border-radius: 2px; font-weight: 900; cursor: pointer; text-transform: uppercase;">
+                    Save Form W-2VI / Guardar W-2VI
+                </button>
             </div>
         </form>
     </div>

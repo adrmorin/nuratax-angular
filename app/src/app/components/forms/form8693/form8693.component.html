@@ -1,105 +1,89 @@
-<div class="irs-form-container">
-  <div class="irs-form-box">
-    <!-- Header -->
-    <div class="irs-main-header">
-      <div class="irs-col-form-id">
-        <div class="irs-form-num">Form <span class="num-large">8693</span></div>
-        <div class="irs-dept">Department of the Treasury<br>Internal Revenue Service</div>
-      </div>
-      <div class="irs-col-title">
-        <h1>Low-Income Housing Credit Disposition Bond</h1>
-        <p class="irs-instruction">Go to <strong>www.irs.gov/Form8693</strong> for instructions and the latest information.</p>
-      </div>
-      <div class="irs-col-omb">
-        <div class="irs-omb">OMB No. 1545-1029</div>
-        <div class="irs-year-box">
-          <div class="irs-attachment">Attachment<br>Sequence No. <strong>91</strong></div>
+<div class="irs-unified-container">
+    <!-- Form 8693 Header -->
+    <div class="irs-header-main" style="background: #fff; border-bottom: 3px solid #000;">
+        <div class="irs-form-id-block">
+            <div style="font-size: 1.4rem;">Form 8693</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
         </div>
-      </div>
+        <div class="irs-form-title-block">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.3rem; margin: 0;">Low-Income Housing Credit Disposition Bond</h1>
+                <h2 style="font-size: 1rem; margin: 0; font-style: italic;">Bono de Disposición del Crédito para Viviendas para Personas de Bajos Ingresos</h2>
+            </div>
+            <p style="font-size: 0.8rem; margin-top: 8px; font-weight: 700;">▶ Go to www.irs.gov/Form8693 for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-1029</div>
+            <div style="font-size: 2.8rem; line-height: 1;">2025</div>
+        </div>
     </div>
 
-    <!-- Name/ID Row -->
-    <div class="irs-name-ssn-row">
-      <div class="irs-name-box">
-        <label for="name">Name of taxpayer making disposition</label>
-        <input id="name" type="text" formControlName="taxpayer_name" class="irs-borderless-input">
-      </div>
-      <div class="irs-ssn-box">
-        <label for="idn">Identifying number</label>
-        <input id="idn" type="text" formControlName="identifying_number" class="irs-borderless-input">
-      </div>
-    </div>
-
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-      <!-- Part I -->
-      <div class="irs-part-header-full">
-        <span class="part-label">Part I</span>
-        <span class="part-title">Bonding</span>
-      </div>
-
-      <div class="irs-form-body">
-         <div class="irs-line-item-full border-b">
-            <label for="baddr">1 Address of building as shown on Form 8609</label>
-            <input id="baddr" type="text" formControlName="building_address" class="irs-borderless-input">
-         </div>
-         <div class="irs-grid-row">
-            <div class="irs-grid-cell">
-                <label for="bin">2 Building identification number (BIN)</label>
-                <input id="bin" type="text" formControlName="bin">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="form">
+        <!-- Name and ID Header -->
+        <div class="irs-row" style="grid-template-columns: 1fr 250px;">
+            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Name of taxpayer making disposition</label>
+                    <label class="irs-label-es">Nombre del contribuyente que realiza la disposición</label>
+                </div>
+                <input type="text" formControlName="taxpayer_name" style="width: 100%; border: none; font-weight: 700;">
             </div>
-            <div class="irs-grid-cell">
-                <label for="cped">3 Date the 15-year compliance period ends</label>
-                <input id="cped" type="date" formControlName="compliance_period_end_date">
+            <div style="padding: 5px 10px;">
+                <div class="irs-label-wrap">
+                    <label class="irs-label-en">Identifying number</label>
+                    <label class="irs-label-es">Número de identificación</label>
+                </div>
+                <input type="text" formControlName="identifying_number" style="width: 100%; border: none; font-weight: 700;">
             </div>
-         </div>
+        </div>
 
-          <div class="irs-line-item-full border-b shading-light">
-             <span class="irs-group-header">4 This bond is an (check one):</span>
-            <div class="irs-radio-group">
-                <label><input type="radio" value="original" formControlName="bond_type"> Original bond</label>
-                <label><input type="radio" value="strengthening" formControlName="bond_type"> Strengthening bond</label>
-                <label><input type="radio" value="superseding" formControlName="bond_type"> Superseding bond</label>
+        <!-- Part I -->
+        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
+            <span style="font-size: 1.2rem; font-weight: 900;">Part I</span>
+            <div class="irs-label-wrap">
+                <span style="font-size: 1rem; font-weight: 700;">Bonding Information</span>
+                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Información de Fianzas</span>
             </div>
-         </div>
+        </div>
 
-         <div class="irs-grid-row">
-            <div class="irs-grid-cell">
-                <label for="ddate">5 Date property interest disposed of</label>
-                <input id="ddate" type="date" formControlName="disposal_date">
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 200px;">
+            <div class="irs-col-line-num">2</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Building identification number (BIN)</span>
+                    <span class="irs-label-es">Número de identificación del edificio (BIN)</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
             </div>
-            <div class="irs-grid-cell">
-                <label for="bidate">6 Date bond issued</label>
-                <input id="bidate" type="date" formControlName="bond_issue_date">
+            <div class="irs-cell-input">
+                <input type="text" formControlName="bin" style="width: 100%;">
             </div>
-         </div>
+        </div>
 
-         <div class="irs-line-item-full border-b">
-            <label for="bamount">7b Total amount of financial obligation ($)</label>
-            <input id="bamount" type="number" formControlName="bond_amount" class="irs-borderless-input font-bold">
-         </div>
-      </div>
+        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px; border-bottom: 3px solid #000; background: #eef2ff;">
+            <div class="irs-col-line-num">7b</div>
+            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 900;">Total amount of financial obligation ($)</span>
+                    <span class="irs-label-es" style="font-weight: 400;">Cantidad total de la obligación financiera ($)</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="bond_amount" style="font-weight: 950;">
+                </div>
+            </div>
+        </div>
 
-      <!-- Part II -->
-      <div class="irs-part-header-full">
-        <span class="part-label">Part II</span>
-        <span class="part-title">Signatures</span>
-      </div>
-
-      <div class="irs-signature-block">
-         <p class="irs-perjury">Under penalties of perjury, I declare that I have examined this bond and etc...</p>
-         <div class="irs-sig-row">
-            <div class="sig-line">Signature of principal<div class="dots-line"></div></div>
-            <div class="sig-date">Date <input type="date" formControlName="principal_sig_date"></div>
-         </div>
-         <div class="irs-sig-row">
-            <div class="sig-line">Signature of surety<div class="dots-line"></div></div>
-            <div class="sig-date">Date <input type="date" formControlName="surety_sig_date"></div>
-         </div>
-      </div>
-
-      <div class="irs-footer-actions">
-        <button type="submit" class="btn-submit">Submit Form 8693</button>
-      </div>
+        <div style="padding: 40px; text-align: center;">
+            <button type="submit" style="background: #111; color: #fff; padding: 15px 60px; border: none; border-radius: 2px; font-weight: 900; cursor: pointer; text-transform: uppercase;">
+                Save Form 8693 / Guardar Formulario 8693
+            </button>
+        </div>
     </form>
-  </div>
 </div>

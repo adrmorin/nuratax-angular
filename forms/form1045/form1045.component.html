@@ -1,0 +1,59 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 1045</h1><p class="form-year">(Rev. October 2025)</p></div>
+        <div class="form-info"><p><strong>Application for Tentative Refund</strong></p><p>Department of the Treasury — Internal Revenue Service</p></div>
+    </div>
+    <div class="form-instructions"><p><strong>File this form to request a quick refund based on a net operating loss, unused credits, or other tax benefits that can be carried back.</strong></p></div>
+    <div class="part-section">
+        <h3 class="part-header">Part I — Applicant Information</h3>
+        <div class="field-row"><div class="field-group"><label>Applicant name (individual, estate, or trust)</label><input type="text" formControlName="applicantName"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>SSN or EIN</label><input type="text" formControlName="ssn"></div>
+            <div class="field-group"><label>Tax year ending</label><input type="date" formControlName="taxYear"></div>
+            <div class="field-group"><label>Filed with Form</label><input type="text" formControlName="filedWith" placeholder="1040, 1120, etc."></div>
+        </div>
+        <div class="field-row"><div class="field-group"><label>Mailing address</label><input type="text" formControlName="address"></div></div>
+        <div class="field-row three-col">
+            <div class="field-group"><label>City</label><input type="text" formControlName="city"></div>
+            <div class="field-group"><label>State</label><input type="text" formControlName="state"></div>
+            <div class="field-group"><label>ZIP</label><input type="text" formControlName="zip"></div>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part II — Type of Application</h3>
+        <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" formControlName="typeNOL"> Net Operating Loss (NOL) carryback</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="typeCredits"> Unused general business credit carryback</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="typeAMT"> Minimum tax credit carryback</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="typeOther"> Other (specify): <input type="text" formControlName="typeOtherText"></label>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part III — Computation of Refund</h3>
+        <table class="form-table">
+            <tr><td>1. Net operating loss or unused credit</td><td><input type="number" formControlName="netOperatingLoss"></td></tr>
+            <tr><td>2. Tax year of loss or credit</td><td><input type="text" formControlName="lossYear"></td></tr>
+            <tr><td>3. Carryback year(s)</td><td><input type="text" formControlName="carrybackYear"></td></tr>
+            <tr><td>4. Tax liability for carryback year</td><td><input type="number" formControlName="carrybackTax"></td></tr>
+            <tr class="highlight-row"><td>5. Refund amount</td><td><input type="number" formControlName="refundAmount" readonly></td></tr>
+        </table>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part IV — Supporting Documents</h3>
+        <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" formControlName="attachNOL"> NOL computation attached</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="attachReturn"> Copy of tax return for loss year</label>
+            <label class="checkbox-item"><input type="checkbox" formControlName="attachCarryback"> Form 941-X or other adjustment</label>
+        </div>
+    </div>
+    <div class="part-section">
+        <h3 class="part-header">Part V — Declaration</h3>
+        <p class="declaration">Under penalties of perjury, I declare that I have examined this application and to the best of my knowledge and belief, it is true, correct, and complete.</p>
+        <div class="signature-section">
+            <div class="signature-box"><p>Signature</p><input type="text" formControlName="signature" class="signature-input"></div>
+            <div class="date-box"><p>Date</p><input type="date" formControlName="dateSigned"></div>
+            <div class="phone-box"><p>Phone</p><input type="text" formControlName="phone"></div>
+        </div>
+    </div>
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

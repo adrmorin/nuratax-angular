@@ -1,0 +1,34 @@
+<div class="irs-form">
+    <div class="form-header">
+        <div class="form-title"><h1>Form 1116</h1><p class="form-year">Department of the Treasury - Internal Revenue Service</p></div>
+        <div class="form-info"><p><strong>Foreign Tax Credit</strong> - For calendar year 2026</p></div>
+    </div>
+
+    <div class="taxpayer-section">
+        <div class="field-row">
+            <div class="field-group"><label>Your name</label><input type="text" formControlName="name"></div>
+            <div class="field-group"><label>Foreign country</label><input type="text" formControlName="country"></div>
+        </div>
+    </div>
+
+    <table class="form-table">
+        <thead><tr><th colspan="3" class="section-header">Income and Deductions</th></tr></thead>
+        <tbody>
+            <tr><td class="line-num">1</td><td class="line-desc">Gross income from foreign sources</td><td class="line-input"><input type="number" formControlName="grossIncome"></td></tr>
+            <tr><td class="line-num">2</td><td class="line-desc">Allocable deductions</td><td class="line-input"><input type="number" formControlName="totalDeductions"></td></tr>
+            <tr class="highlight-row"><td class="line-num">3</td><td class="line-desc"><strong>Net foreign income</strong></td><td class="line-input"><input type="number" formControlName="netIncome" readonly></td></tr>
+        </tbody>
+    </table>
+
+    <table class="form-table">
+        <thead><tr><th colspan="3" class="section-header">Foreign Tax Credit</th></tr></thead>
+        <tbody>
+            <tr><td class="line-num">7</td><td class="line-desc">Foreign taxes paid</td><td class="line-input"><input type="number" formControlName="foreignTaxPaid"></td></tr>
+            <tr><td class="line-num">15</td><td class="line-desc">Taxable income</td><td class="line-input"><input type="number" formControlName="taxableIncome"></td></tr>
+            <tr><td class="line-num">16</td><td class="line-desc">Total tax</td><td class="line-input"><input type="number" formControlName="totalTax"></td></tr>
+            <tr class="highlight-row"><td class="line-num">17</td><td class="line-desc"><strong>Foreign tax credit</strong></td><td class="line-input"><input type="number" formControlName="foreignTaxCredit" readonly></td></tr>
+        </tbody>
+    </table>
+
+    <div class="form-actions"><button type="button" class="btn-primary" (click)="onSubmit()">Guardar</button></div>
+</div>

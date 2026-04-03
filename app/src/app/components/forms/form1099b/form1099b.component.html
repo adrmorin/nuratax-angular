@@ -1,0 +1,125 @@
+<div class="irs-form-container">
+    <div class="irs-header">
+        <div class="form-title-box"><div class="irs-form-id">1099-B</div><div class="irs-form-sub-id">FORM</div></div>
+        <div class="irs-header-center"><h1>Proceeds From Broker and Barter Exchange Transactions</h1><p class="irs-instruction">▶ File with recipient and IRS.</p></div>
+        <div class="year-box">2025</div>
+    </div>
+
+    <form [formGroup]="taxForm" (ngSubmit)="onSubmit()">
+        <div class="irs-form-grid">
+            <div class="left-column">
+                <div class="irs-info-box">
+                    <label class="irs-label" for="brokerName">BROKER’S name, street address, city or town, state or province, country, and ZIP or foreign postal code</label>
+                    <textarea id="brokerName" class="irs-input-large" formControlName="payerName" rows="4"></textarea>
+                </div>
+                <div class="irs-info-box">
+                    <label class="irs-label" for="brokerTIN">BROKER’S federal identification number</label>
+                    <input id="brokerTIN" type="text" class="irs-input-large" formControlName="tin">
+                </div>
+                <div class="irs-info-box">
+                    <label class="irs-label" for="recipientTIN">RECIPIENT’S identification number</label>
+                    <input id="recipientTIN" type="text" class="irs-input-large" formControlName="recipientTIN">
+                </div>
+                <div class="irs-info-box">
+                    <label class="irs-label" for="recipientName">RECIPIENT’S name</label>
+                    <input id="recipientName" type="text" class="irs-input-large" formControlName="recipientName">
+                </div>
+                <div class="irs-info-box" style="min-height: 120px;">
+                    <label class="irs-label" for="recipientAddress">Street address (including apt. no.)</label>
+                    <input id="recipientAddress" type="text" class="irs-input-large" formControlName="recipientAddress">
+                    <label class="irs-label" for="recipientCityZip" style="margin-top: 10px;">City or town, state or province, country, and ZIP or foreign postal code</label>
+                    <input id="recipientCityZip" type="text" class="irs-input-large" formControlName="recipientCityZip">
+                </div>
+            </div>
+
+            <div class="irs-numbered-boxes">
+                <div class="box-entry full-width-box">
+                    <span class="box-num">1a</span><span class="box-label">Description of property (Example: 100 sh. XYZ Co.)</span>
+                    <input type="text" class="box-input" formControlName="description">
+                </div>
+                <div class="box-entry">
+                    <span class="box-num">1b</span><span class="box-label">Date acquired</span>
+                    <input type="date" class="box-input" formControlName="dateAcquired">
+                </div>
+                <div class="box-entry">
+                    <span class="box-num">1c</span><span class="box-label">Date sold or disposed</span>
+                    <input type="date" class="box-input" formControlName="dateSold">
+                </div>
+                <div class="box-entry">
+                    <span class="box-num">1d</span><span class="box-label">Proceeds</span>
+                    <input type="number" class="box-input box-input-amount" formControlName="proceeds">
+                </div>
+                <div class="box-entry">
+                    <span class="box-num">1e</span><span class="box-label">Cost or other basis. See the Instr. for Form 1099-B.</span>
+                    <input type="number" class="box-input box-input-amount" formControlName="costBasis">
+                </div>
+                <div class="box-entry">
+                    <span class="box-num">1f</span><span class="box-label">Accrued market discount</span>
+                    <input type="number" class="box-input box-input-amount" formControlName="accruedMarketDiscount">
+                </div>
+                <div class="box-entry">
+                    <span class="box-num">1g</span><span class="box-label">Wash sale loss disallowed</span>
+                    <input type="number" class="box-input box-input-amount" formControlName="washSaleLoss">
+                </div>
+                
+                <div class="box-entry bg-gray">
+                    <span class="box-num">2</span><span class="box-label">Type of gain or (loss)</span>
+                    <div class="irs-checkbox-container">
+                        <input type="radio" value="short" name="gainType" id="shortTerm" formControlName="gainType"><label for="shortTerm">Short-term</label>
+                        <input type="radio" value="long" name="gainType" id="longTerm" formControlName="gainType"><label for="longTerm">Long-term</label>
+                    </div>
+                </div>
+                <div class="box-entry">
+                    <span class="box-num">3</span><span class="box-label">Check if noncovered security</span>
+                    <input type="checkbox" formControlName="noncoveredSecurity">
+                </div>
+
+                <div class="box-entry bg-blue-light">
+                    <span class="box-num">4</span><span class="box-label">Federal income tax withheld</span>
+                    <input type="number" class="box-input box-input-amount" formControlName="federalWithheld">
+                </div>
+                <div class="box-entry">
+                    <span class="box-num">5</span><span class="box-label">Check if loss is not allowed based on amount in 1d</span>
+                    <input type="checkbox" formControlName="lossNotAllowed">
+                </div>
+
+                <div class="box-entry">
+                    <span class="box-num">6</span><span class="box-label">Check if: <br>Gross proceeds / Net proceeds</span>
+                    <div class="irs-checkbox-container">
+                        <input type="radio" value="gross" id="gross" formControlName="proceedsType"><label for="gross">Gross</label>
+                        <input type="radio" value="net" id="net" formControlName="proceedsType"><label for="net">Net</label>
+                    </div>
+                </div>
+                <div class="box-entry">
+                    <span class="box-num">7</span><span class="box-label">Check if loss is not allowed (Box 12)</span>
+                    <input type="checkbox" formControlName="lossNotAllowedBox12">
+                </div>
+
+                <div class="box-entry">
+                    <span class="box-num">12</span><span class="box-label">Check if basis reported to IRS</span>
+                    <input type="checkbox" formControlName="basisReportedToIRS">
+                </div>
+                <div class="box-entry">
+                    <span class="box-num">13</span><span class="box-label">Bartering</span>
+                    <input type="number" class="box-input box-input-amount" formControlName="bartering">
+                </div>
+                
+                <div class="box-entry full-width-box bg-gray" style="min-height: 30px; display: flex; align-items: center; border-bottom: none;">
+                    <span style="font-size: 13px; font-weight: 800; margin-left: 10px;">CALCULATED GAIN OR (LOSS): {{ taxForm.get('gainLoss')?.value | currency }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-footer-area">
+            <div>Form 1099-B (Copy B)</div>
+            <div>www.irs.gov/Form1099B</div>
+            <div>Department of the Treasury - Internal Revenue Service</div>
+        </div>
+
+        <div class="irs-action-bar">
+            <button type="submit" class="btn-irs btn-irs-primary">Guardar Formulario 1099-B</button>
+        </div>
+    </form>
+    
+    <app-chatforms></app-chatforms>
+</div>
