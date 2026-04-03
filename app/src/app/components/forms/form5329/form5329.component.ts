@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-form5329',
@@ -9,22 +9,39 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
   templateUrl: './form5329.component.html',
   styleUrls: ['./form5329.component.css']
 })
-export class Form5329Component {
-  form: FormGroup;
+export class Form5329Component implements OnInit {
   private fb = inject(FormBuilder);
+  form!: FormGroup;
+  
+  // High-fidelity calculation signals
+  additionalTax = signal(0);
 
-  constructor() {
+  ngOnInit(): void {
     this.form = this.fb.group({
-      name: [''], ssn: [''],
-      address: [''], cityStateZip: [''],
-      // Part I
-      line1: [''], line2: [''], line3: [''], line4: [''],
-      // Part II
-      line5: [''], line6: [''], line7: [''], line8: ['']
+      name: [''],
+      ssn: [''],
+      line1: [0], // Early distributions
+      line2: [0], // Exceptions
+      line4: [0]  // Result (Additional tax)
+    });
+
+    this.form.valueChanges.subscribe(val => {
+      this.calculateValues(val);
     });
   }
 
-  onSubmit() {
-    console.log('Submitted Form 5329 (2025):', this.form.value);
+  calculateValues(val: Record<string, number | string>): void {
+      const taxable = Math.max(0, Number(val['line1']) - Number(val['line2']));
+      const tax = taxable * 0.10; // Standard 10% early withdrawal tax
+      
+      this.form.patchValue({
+          line4: tax
+      }, { emitEvent: false });
+
+      this.additionalTax.set(tax);
+  }
+
+  onSubmit(): void {
+    console.log('Form 5329 Data:', this.form.value);
   }
 }

@@ -1,93 +1,80 @@
+/* Form 4136 - Credit for Federal Tax Paid on Fuels 
+   Unified Design System v2 
+*/
+
+:host {
+    display: block;
+    background-color: var(--irs-bg-paper);
+}
+
 .irs-unified-container {
-  padding: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  background: #fff;
-  border: 4px solid #000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  font-family: 'Inter', system-ui, sans-serif;
-  color: #000;
+    margin: 2rem auto;
+    border: 3.5px solid #000;
+    max-width: 1000px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.12);
 }
 
-.irs-col-name { flex: 3; padding: 5px 10px; }
-.irs-col-tin { flex: 1; padding: 5px 10px; }
-
-.irs-section-title-bar {
-  background: #000;
-  color: #fff;
-  padding: 4px 10px;
-  display: flex;
-  font-weight: 850;
-  font-size: 0.95rem;
+.irs-row {
+    display: grid;
+    border-bottom: 2.2px solid #000;
+    align-items: stretch;
 }
 
-.border-l { border-left: 2px solid #000; }
-.border-r { border-right: 2px solid #000; }
-.border-b { border-bottom: 2px solid #000; }
-.border-t { border-top: 2px solid #000; }
-
-.irs-table-box {
-  border: 1px solid #000;
-  border-top: none;
+.irs-header-main {
+    display: grid;
+    grid-template-columns: 240px 1fr 240px;
+    background-color: #fff;
+    padding: 20px;
+    border-bottom: 3.5px solid #000;
 }
 
-.irs-table-header-row {
-  display: flex;
-  background: #f0f0f0;
-  font-weight: 900;
-  padding: 4px 0;
-  border-bottom: 2px solid #000;
+.irs-part-banner {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background-color: #000;
+    color: #fff;
+    padding: 12px 25px;
 }
 
-.irs-cell-num { width: 30px; text-align: center; font-weight: 950; }
-.irs-cell-desc { flex: 1; padding-left: 10px; font-size: 0.85rem; }
-.irs-cell-val-label { width: 140px; text-align: center; font-weight: 950; }
-.irs-cell-val-box { width: 140px; padding: 0; position: relative; }
-
-.irs-blue-cell { background: #e8f0fe !important; }
-.grey-bg { background: #fdfdfd; }
-
-.irs-input-borderless {
-  width: 100%;
-  border: none;
-  background: transparent;
-  padding: 4px 8px;
-  font-size: 0.95rem;
-  font-weight: 700;
+input[type="number"], input[type="text"], select {
+    font-family: var(--irs-font-body);
+    font-size: 1.15rem;
+    font-weight: 850;
+    color: #111;
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
 }
 
-.text-right { text-align: right; }
-
-.irs-input-underline {
-  border: none;
-  border-bottom: 1px dotted #000;
-  background: transparent;
-  text-align: center;
-  font-weight: 700;
+.irs-blue-cell {
+    background: #eef2ff !important;
 }
 
-.irs-bold-large { font-size: 1.25rem; font-weight: 950; color: #1a73e8; }
+.irs-yellow-cell {
+    background: var(--irs-accent-amber-light) !important;
+    border-left: 2.5px solid #000;
+}
 
-.padding-sm { padding: 10px; }
-.margin-t-10 { margin-top: 10px; }
-.margin-t-20 { margin-top: 20px; }
-.margin-b-10 { margin-bottom: 10px; }
-.margin-l-20 { margin-left: 20px; }
-.padding-l-20 { padding-left: 20px; }
+.irs-col-line-num {
+    background-color: #f5f5f5;
+    font-weight: 950;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 2.5px solid #000;
+}
 
-.irs-col-60 { flex: 3; }
-.irs-col-40 { flex: 2; }
+.irs-label-en {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #000;
+}
 
-.flex { display: flex; }
-.flex-align-center { align-items: center; }
-
-.irs-btn-submit {
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 12px 30px;
-  font-weight: 950;
-  text-transform: uppercase;
-  cursor: pointer;
-  border-radius: 4px;
+.irs-label-es {
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #444;
 }

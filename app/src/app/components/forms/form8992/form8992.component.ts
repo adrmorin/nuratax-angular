@@ -1,27 +1,42 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-form8992',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './form8992.component.html',
-  styleUrls: ['./form8992.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./form8992.component.css']
 })
-export class Form8992Component {
+export class Form8992Component implements OnInit {
   private fb = inject(FormBuilder);
+  form!: FormGroup;
+  
+  // High-fidelity calculation signals
+  giltiAmount = signal(0);
 
-  form: FormGroup = this.fb.group({
-    name: [''],
-    taxId: [''],
-    line1: [null],
-    line2: [null]
-  });
+  ngOnInit(): void {
+    this.form = this.fb.group({
+      businessName: [''],
+      ein: [''],
+      netTestedIncome: [0],
+      netDtir: [0] // Deemed Tangible Income Return
+    });
 
-  onSubmit() {
-    console.log('Form 8992 Submitted', this.form.getRawValue());
-    alert('Form 8992 saved locally!');
+    this.form.valueChanges.subscribe(val => {
+      this.calculateValues(val);
+    });
+  }
+
+  calculateValues(val: Record<string, any>): void {
+      const income = Number(val['netTestedIncome']) || 0;
+      const dtir = Number(val['netDtir']) || 0;
+      
+      this.giltiAmount.set(Math.max(0, income - dtir));
+  }
+
+  onSubmit(): void {
+    console.log('Form 8992 Data:', this.form.value);
   }
 }

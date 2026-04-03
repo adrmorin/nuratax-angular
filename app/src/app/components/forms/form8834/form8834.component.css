@@ -1,53 +1,80 @@
+/* Form 8834 - Qualified Electric Vehicle Credit 
+   Unified Design System v2 
+*/
+
+:host {
+    display: block;
+    background-color: var(--irs-bg-paper);
+}
+
 .irs-unified-container {
-  padding: 2rem;
-  max-width: 1000px;
-  margin: 0 auto;
-  background: #fff;
-  border: 4px solid #000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  font-family: 'Inter', system-ui, sans-serif;
-  color: #000;
+    margin: 2rem auto;
+    border: 3.5px solid #000;
+    max-width: 1000px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.12);
 }
 
-.irs-col-name { flex: 3; padding: 5px 10px; }
-.irs-col-tin { flex: 1; padding: 5px 10px; }
-
-.border-r { border-right: 2px solid #000; }
-.border-b { border-bottom: 2px solid #000; }
-.border-t { border-top: 2px solid #000; }
-.border-l { border-left: 2px solid #000; }
-
-.bg-light { background: #f5f5f5; }
-.irs-blue-cell { background: #e8f0fe !important; }
-
-.irs-line-num { width: 40px; text-align: center; font-weight: 950; font-size: 0.95rem; padding-top: 6px; }
-.irs-line-desc { flex: 1; padding: 6px 15px; font-size: 0.85rem; line-height: 1.3; }
-.irs-amount-box { width: 140px; }
-.irs-line-num-right { width: 40px; text-align: center; font-weight: 950; font-size: 0.85rem; padding-top: 6px; }
-
-.irs-input-borderless {
-  width: 100%;
-  border: none;
-  background: transparent;
-  padding: 4px 8px;
-  font-size: 0.95rem;
-  font-weight: 700;
+.irs-row {
+    display: grid;
+    border-bottom: 2.2px solid #000;
+    align-items: stretch;
 }
 
-.text-right { text-align: right; }
-.irs-bold-large { font-size: 1.2rem; font-weight: 950; color: #1a73e8; }
-.padding-l-20 { padding-left: 20px; }
-.margin-t-10 { margin-top: 10px; }
-.flex { display: flex; }
-.flex-align-center { align-items: center; }
+.irs-header-main {
+    display: grid;
+    grid-template-columns: 240px 1fr 240px;
+    background-color: #fff;
+    padding: 20px;
+    border-bottom: 3.5px solid #000;
+}
 
-.irs-btn-submit {
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 12px 30px;
-  font-weight: 950;
-  text-transform: uppercase;
-  cursor: pointer;
-  border-radius: 4px;
+.irs-part-banner {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    background-color: #000;
+    color: #fff;
+    padding: 12px 25px;
+}
+
+input[type="number"], input[type="text"], select {
+    font-family: var(--irs-font-body);
+    font-size: 1.15rem;
+    font-weight: 850;
+    color: #111;
+    border: none;
+    background: transparent;
+    outline: none;
+    width: 100%;
+}
+
+.irs-blue-cell {
+    background: #eef2ff !important;
+}
+
+.irs-yellow-cell {
+    background: var(--irs-accent-amber-light) !important;
+    border-left: 2.5px solid #000;
+}
+
+.irs-col-line-num {
+    background-color: #f5f5f5;
+    font-weight: 950;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 2.5px solid #000;
+}
+
+.irs-label-en {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: #000;
+}
+
+.irs-label-es {
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-style: italic;
+    color: #444;
 }

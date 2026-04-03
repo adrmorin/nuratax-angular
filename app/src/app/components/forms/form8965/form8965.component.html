@@ -1,0 +1,81 @@
+<div class="irs-unified-container">
+    <!-- Form 8965 Header -->
+    <div class="irs-header-main">
+        <div class="irs-form-id-block" style="padding-right: 15px; border-right: 2.2px solid #000;">
+            <div style="font-size: 1.55rem; font-weight: 1000; text-transform: uppercase;">Form 8965</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.8rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
+        </div>
+        <div class="irs-form-title-block" style="text-align: center; padding: 0 25px;">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.5rem; margin: 0; font-weight: 950; text-transform: uppercase;">Health Coverage Exemptions</h1>
+                <h2 style="font-size: 1.25rem; margin: 0; font-weight: 400; font-style: italic; color: #333;">Exenciones de Cobertura de Salud</h2>
+            </div>
+            <p style="font-size: 0.95rem; margin-top: 12px; font-weight: 850;">▶ Go to www.irs.gov/Form8965 for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.65rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0074</div>
+            <div style="font-size: 3.5rem; line-height: 1; font-weight: 950;">2025</div>
+        </div>
+    </div>
+
+    @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
+            <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
+                <div class="irs-label-wrap">
+                    <label for="f8965-name" class="irs-label-en" style="font-weight: 1000;">Taxpayer's Name / Nombre del Contribuyente</label>
+                </div>
+                <input id="f8965-name" type="text" formControlName="taxpayerName" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
+            </div>
+            <div class="irs-entity-box" style="padding: 15px;">
+                <div class="irs-label-wrap">
+                    <label for="f8965-ssn" class="irs-label-en">SSN</label>
+                </div>
+                <input id="f8965-ssn" type="text" formControlName="ssn" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
+            </div>
+        </div>
+
+        <div class="irs-exemption-wrap">
+            <div class="irs-label-wrap">
+                <span class="irs-label-en" style="font-weight: 1000; font-size: 1.15rem; color: #701a75;">Marketplace-Granted Health Coverage Exemption:</span>
+                <span class="irs-label-es" style="font-weight: 700; color: #701a75;">Exención de Cobertura de Salud Otorgada por el Mercado:</span>
+            </div>
+            <div style="margin-top: 15px; display: flex; gap: 20px; align-items: center;">
+                <span style="font-size: 1.1rem; font-weight: 850;">Exemption Code:</span>
+                <select formControlName="exemptReason" style="width: 280px; padding: 10px; border: 2.5px solid #000; background: #fff; font-weight: 950;">
+                    <option value="">Select / Seleccionar</option>
+                    <option value="A">A - Tribal Member</option>
+                    <option value="B">B - Religious Conscience</option>
+                    <option value="C">C - Hardship</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="irs-row" style="padding: 25px;">
+            <label style="display: flex; align-items: center; gap: 20px; cursor: pointer;">
+                <input type="checkbox" formControlName="fullYearExempt" style="width: 30px; height: 30px;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950; font-size: 1.2rem;">Full Year Coverage Exemption</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Exención de Cobertura por Todo el Año</span>
+                </div>
+            </label>
+        </div>
+
+        @if (exemptionCount() > 0) {
+        <div class="irs-status-ribbon">
+            🎉 FULL YEAR EXEMPTION APPLIED / EXENCIÓN DE AÑO COMPLETO APLICADA
+        </div>
+        }
+
+        <div style="padding: 60px 40px; text-align: center; background: #fff;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
+                Claim Exemption / Reclamar Exención
+            </button>
+        </div>
+    </form>
+    }
+</div>

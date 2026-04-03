@@ -1,6 +1,6 @@
-import { Component, signal, computed, inject } from '@angular/core';
+import { Component, OnInit, signal, inject } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-form8959',
@@ -9,64 +9,48 @@ import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
   templateUrl: './form8959.component.html',
   styleUrls: ['./form8959.component.css']
 })
-export class Form8959Component {
+export class Form8959Component implements OnInit {
   private fb = inject(FormBuilder);
+  form!: FormGroup;
+  
+  // High-fidelity calculation signals
+  additionalTax = signal(0);
+  thresholdAmount = signal(200000);
 
-  form: FormGroup = this.fb.group({
-    name: [''],
-    ssn: [''],
-    filingStatus: ['single'], // single, mfj, mfs, hoh, qss
-    
-    // Part I
-    medicareWages: [0],
-    unreportedTips: [0],
-    
-    // Part II
-    seIncome: [0],
-    
-    // Part III
-    rrtaComp: [0],
-    
-    // Part V
-    medicareTaxWithheld: [0],
-    additionalWithholding: [0]
-  });
+  ngOnInit(): void {
+    this.form = this.fb.group({
+      filingStatus: ['single'], // single, mfj, mfs, hoh, qw
+      medicareWages: [0],
+      selfEmploymentIncome: [0],
+      totalIncome: [0]
+    });
 
-  // Thresholds for 2025
-  threshold = computed(() => {
-    const status = this.form.get('filingStatus')?.value;
-    switch(status) {
-      case 'mfj': return 250000;
-      case 'mfs': return 125000;
-      default: return 200000;
-    }
-  });
+    this.form.valueChanges.subscribe(val => {
+      this.calculateValues(val);
+    });
+  }
 
-  // Part I Calculation
-  totalWages = computed(() => (this.form.get('medicareWages')?.value || 0) + (this.form.get('unreportedTips')?.value || 0));
-  part1Tax = computed(() => {
-    const excess = Math.max(0, this.totalWages() - this.threshold());
-    return excess * 0.009;
-  });
+  calculateValues(val: Record<string, any>): void {
+      const status = val['filingStatus'];
+      let threshold = 200000;
+      if (status === 'mfj') threshold = 250000;
+      if (status === 'mfs') threshold = 125000;
+      
+      this.thresholdAmount.set(threshold);
 
-  // Part II Calculation
-  part2Tax = computed(() => {
-    const se = this.form.get('seIncome')?.value || 0;
-    const remainingThreshold = Math.max(0, this.threshold() - this.totalWages());
-    const excessSE = Math.max(0, se - remainingThreshold);
-    return excessSE * 0.009;
-  });
+      const wages = Number(val['medicareWages']) || 0;
+      const se = Number(val['selfEmploymentIncome']) || 0;
+      const total = wages + se;
+      
+      this.form.patchValue({
+          totalIncome: total
+      }, { emitEvent: false });
 
-  // Part III Calculation
-  part3Tax = computed(() => {
-    const rrta = this.form.get('rrtaComp')?.value || 0;
-    const excessRRTA = Math.max(0, rrta - this.threshold());
-    return excessRRTA * 0.009;
-  });
+      const excess = Math.max(0, total - threshold);
+      this.additionalTax.set(excess * 0.009); // 0.9% additional medicare tax
+  }
 
-  totalTax = computed(() => this.part1Tax() + this.part2Tax() + this.part3Tax());
-
-  onSubmit() {
-    console.log('Form 8959 Submitted', this.form.value);
+  onSubmit(): void {
+    console.log('Form 8959 Data:', this.form.value);
   }
 }

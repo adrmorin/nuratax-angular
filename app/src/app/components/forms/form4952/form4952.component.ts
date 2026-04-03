@@ -1,45 +1,52 @@
-import { Component, inject, computed } from '@angular/core';
+import { Component, OnInit, signal, inject } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-form4952',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './form4952.component.html',
-  styleUrl: './form4952.component.css'
+  styleUrls: ['./form4952.component.css']
 })
-export class Form4952Component {
+export class Form4952Component implements OnInit {
   private fb = inject(FormBuilder);
+  form!: FormGroup;
+  
+  // High-fidelity calculation signals
+  netInvestmentIncome = signal(0);
+  allowableDeduction = signal(0);
 
-  form: FormGroup = this.fb.group({
-    name: [''],
-    ssn: [''],
-    l1_currentInterest: [0],
-    l2_carryoverInterest: [0],
-    l4a_grossInvestmentIncome: [0],
-    l4b_qualifiedDividends: [0],
-    l4c_capitalGains: [0],
-    l5_investmentExpenses: [0]
-  });
+  ngOnInit(): void {
+    this.form = this.fb.group({
+      name: [''],
+      ssn: [''],
+      line1: [0], // Investment interest expense
+      line4a: [0], // Gross investment income
+      line4b: [0], // Qualified dividends
+      line6: [0], // Net investment income
+      line8: [0]  // Investment interest expense deduction
+    });
 
-  // Signals
-  totalInterest = computed(() => {
-    return (this.form.get('l1_currentInterest')?.value || 0) +
-           (this.form.get('l2_carryoverInterest')?.value || 0);
-  });
+    this.form.valueChanges.subscribe(val => {
+      this.calculateValues(val);
+    });
+  }
 
-  netInvestmentIncome = computed(() => {
-    const gross = (this.form.get('l4a_grossInvestmentIncome')?.value || 0);
-    const expenses = (this.form.get('l5_investmentExpenses')?.value || 0);
-    return gross - expenses;
-  });
+  calculateValues(val: Record<string, number | string>): void {
+      const netIncome = Number(val['line4a']) - Number(val['line4b']);
+      const deduction = Math.min(Number(val['line1']), netIncome);
+      
+      this.form.patchValue({
+          line6: netIncome,
+          line8: deduction
+      }, { emitEvent: false });
 
-  deduction = computed(() => {
-    return Math.min(this.totalInterest(), this.netInvestmentIncome());
-  });
+      this.netInvestmentIncome.set(netIncome);
+      this.allowableDeduction.set(deduction);
+  }
 
-  onSubmit() {
-    console.log('Form 4952 Submitted', this.form.value);
+  onSubmit(): void {
+    console.log('Form 4952 Data:', this.form.value);
   }
 }

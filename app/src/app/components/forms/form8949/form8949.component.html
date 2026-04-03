@@ -1,0 +1,84 @@
+<div class="irs-unified-container">
+    <!-- Form 8949 Header -->
+    <div class="irs-header-main">
+        <div class="irs-form-id-block" style="padding-right: 15px; border-right: 2.2px solid #000;">
+            <div style="font-size: 1.55rem; font-weight: 1000; text-transform: uppercase;">Form 8949</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.8rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
+        </div>
+        <div class="irs-form-title-block" style="text-align: center; padding: 0 25px;">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.4rem; margin: 0; font-weight: 950; text-transform: uppercase;">Sales and Other Dispositions of Capital Assets</h1>
+                <h2 style="font-size: 1.2rem; margin: 0; font-weight: 400; font-style: italic; color: #333;">Ventas y Otras Disposiciones de Activos de Capital</h2>
+            </div>
+            <p style="font-size: 0.95rem; margin-top: 12px; font-weight: 850;">▶ Go to www.irs.gov/Form8949 for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.65rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0074</div>
+            <div style="font-size: 3.5rem; line-height: 1; font-weight: 950;">2025</div>
+        </div>
+    </div>
+
+    @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
+            <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
+                <div class="irs-label-wrap">
+                    <label for="f8949-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return / Nombre que figura en la declaración</label>
+                </div>
+                <input id="f8949-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
+            </div>
+            <div class="irs-entity-box" style="padding: 15px;">
+                <div class="irs-label-wrap">
+                    <label for="f8949-ssn" class="irs-label-en">Social security number</label>
+                </div>
+                <input id="f8949-ssn" type="text" formControlName="ssn" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
+            </div>
+        </div>
+
+        <!-- Asset Table -->
+        <div class="irs-asset-table">
+            <div class="irs-table-header">(a) Description of property</div>
+            <div class="irs-table-header">(d) Proceeds</div>
+            <div class="irs-table-header">(e) Cost or other basis</div>
+            <div class="irs-table-header">(g) Adjustments</div>
+            <div class="irs-table-header" style="border-right: none;">(h) Gain or (loss)</div>
+
+            <!-- Row 1 -->
+            <div class="irs-blue-cell" style="background: #fff; border-bottom: 2.2px solid #000;">
+                <input type="text" placeholder="100 SH SHA RES INC" style="font-size: 1rem; font-weight: 700;">
+            </div>
+            <div class="irs-blue-cell" style="border-bottom: 2.2px solid #000;">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line1_proceeds" style="text-align: right; font-weight: 950;">
+                </div>
+            </div>
+            <div class="irs-blue-cell" style="border-bottom: 2.2px solid #000;">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line1_cost" style="text-align: right; font-weight: 950;">
+                </div>
+            </div>
+            <div class="irs-blue-cell" style="border-bottom: 2.2px solid #000;">
+                <input type="number" value="0" style="text-align: right; font-weight: 950;">
+            </div>
+            <div class="irs-yellow-cell" style="border-bottom: 2.2px solid #000;">
+                <div style="display: flex; align-items: center;">
+                    <span class="irs-money-sym" style="color: #1e3a8a;">$</span>
+                    <span style="text-align: right; font-weight: 1000; font-size: 1.25rem; color: #1e3a8a; width: 100%; display: block;">{{ netGainLoss() | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 60px 40px; text-align: center; background: #fff;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
+                Save Sales Data / Guardar Datos de Venta
+            </button>
+        </div>
+    </form>
+    }
+</div>

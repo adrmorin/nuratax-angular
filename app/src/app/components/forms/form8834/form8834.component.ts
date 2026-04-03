@@ -1,45 +1,46 @@
-import { Component, inject, computed, ChangeDetectionStrategy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-form8834',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './form8834.component.html',
-  styleUrls: ['./form8834.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./form8834.component.css']
 })
-export class Form8834Component {
+export class Form8834Component implements OnInit {
   private fb = inject(FormBuilder);
+  form!: FormGroup;
+  
+  // High-fidelity calculation signals
+  evCredit = signal(0);
 
-  form: FormGroup = this.fb.group({
-    name: [''],
-    tin: [''],
-    line1: [null],
-    line2: [null],
-    line3a: [null],
-    line3b: [null],
-    line5: [null],
-  });
+  ngOnInit(): void {
+    this.form = this.fb.group({
+      name: [''],
+      ein: [''],
+      line1: [0], // Qualified electric vehicle cost
+      line2: [0]  // Total credit
+    });
 
-  formValues = toSignal(this.form.valueChanges, { initialValue: this.form.value });
+    this.form.valueChanges.subscribe(val => {
+      this.calculateValues(val);
+    });
+  }
 
-  line3c = computed(() => {
-    const vals = this.formValues();
-    return (parseFloat(vals.line3a) || 0) + (parseFloat(vals.line3b) || 0);
-  });
+  calculateValues(val: Record<string, number | string>): void {
+      const cost = Number(val['line1']);
+      const credit = cost * 0.10; // 2025 electric vehicle rate example (10%)
+      
+      this.form.patchValue({
+          line2: credit
+      }, { emitEvent: false });
 
-  line4 = computed(() => {
-    const vals = this.formValues();
-    const l2 = parseFloat(vals.line2) || 0;
-    const l3c = this.line3c();
-    return Math.max(0, l2 - l3c);
-  });
+      this.evCredit.set(credit);
+  }
 
-  onSubmit() {
-    console.log('Form 8834 Submitted', this.form.getRawValue());
-    alert('Form 8834 data saved locally!');
+  onSubmit(): void {
+    console.log('Form 8834 Data:', this.form.value);
   }
 }

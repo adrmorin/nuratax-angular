@@ -1,42 +1,46 @@
-import { Component, inject, computed, ChangeDetectionStrategy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-form4136',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './form4136.component.html',
-  styleUrls: ['./form4136.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./form4136.component.css']
 })
-export class Form4136Component {
+export class Form4136Component implements OnInit {
   private fb = inject(FormBuilder);
+  form!: FormGroup;
+  
+  // High-fidelity calculation signals
+  fuelCredit = signal(0);
 
-  form: FormGroup = this.fb.group({
-    name: [''],
-    tin: [''],
-    p1a: [false], // Qualifying business activity
-    p1b_count: [null],
-    // Part II table simplified
-    line1a_gallons: [null],
-    line1a_credit: [null],
-    line1b_gallons: [null],
-    line1b_credit: [null],
-    line2a_gallons: [null],
-    line2a_credit: [null],
-  });
+  ngOnInit(): void {
+    this.form = this.fb.group({
+      name: [''],
+      ein: [''],
+      line1: [0], // Gasoline
+      line2: [0], // Aviation gasoline
+      line17: [0] // Total credit
+    });
 
-  formValues = toSignal(this.form.valueChanges, { initialValue: this.form.value });
+    this.form.valueChanges.subscribe(val => {
+      this.calculateValues(val);
+    });
+  }
 
-  totalCredit = computed(() => {
-    const vals = this.formValues();
-    return (parseFloat(vals.line1a_credit) || 0) + (parseFloat(vals.line1b_credit) || 0) + (parseFloat(vals.line2a_credit) || 0);
-  });
+  calculateValues(val: Record<string, number | string>): void {
+      const total = Number(val['line1']) + Number(val['line2']);
+      
+      this.form.patchValue({
+          line17: total
+      }, { emitEvent: false });
 
-  onSubmit() {
-    console.log('Form 4136 Submitted', this.form.getRawValue());
-    alert('Form 4136 data saved locally!');
+      this.fuelCredit.set(total);
+  }
+
+  onSubmit(): void {
+    console.log('Form 4136 Data:', this.form.value);
   }
 }

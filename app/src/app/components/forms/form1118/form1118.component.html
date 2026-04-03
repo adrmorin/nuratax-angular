@@ -1,94 +1,89 @@
 <div class="irs-unified-container">
     <!-- Form 1118 Header -->
-    <div class="irs-header-main" style="background: #fff; border-bottom: 3px solid #000;">
-        <div class="irs-form-id-block">
-            <div style="font-size: 1.4rem;">Form 1118</div>
-            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif;">
+    <div class="irs-header-main">
+        <div class="irs-form-id-block" style="padding-right: 15px; border-right: 2.2px solid #000;">
+            <div style="font-size: 1.4rem; font-weight: 1000; text-transform: uppercase; line-height: 1.1;">Form 1118</div>
+            <div style="font-size: 0.85rem; margin-top: 5px;">(Rev. Dec 2025)</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.75rem;">
                 Department of the Treasury<br>
                 Internal Revenue Service
             </div>
         </div>
-        <div class="irs-form-title-block">
+        <div class="irs-form-title-block" style="text-align: center; padding: 0 25px;">
             <div class="irs-label-wrap">
-                <h1 style="font-size: 1.1rem; margin: 0;">Foreign Tax Credit—Corporations</h1>
-                <h2 style="font-size: 0.9rem; margin: 0; font-style: italic;">Crédito por Impuestos Extranjeros—Corporaciones</h2>
+                <h1 style="font-size: 1.4rem; margin: 0; font-weight: 950; text-transform: uppercase;">Foreign Tax Credit — Corporations</h1>
+                <h2 style="font-size: 1.15rem; margin: 0; font-weight: 400; font-style: italic; color: #333;">Crédito por Impuestos Extranjeros — Sociedades</h2>
             </div>
-            <p style="font-size: 0.8rem; margin-top: 8px; font-weight: 700;">▶ Go to www.irs.gov/Form1118 for instructions and the latest information.</p>
+            <p style="font-size: 0.95rem; margin-top: 10px; font-weight: 850;">▶ Go to www.irs.gov/Form1118 for instructions and the latest information.</p>
         </div>
         <div class="irs-year-block">
-            <div class="irs-omb-box" style="font-size: 0.7rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0122</div>
-            <div style="font-size: 2.8rem; line-height: 1;">2025</div>
+            <div class="irs-omb-box" style="font-size: 0.65rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0122</div>
+            <div style="font-size: 3.2rem; line-height: 1; font-weight: 950;">2025</div>
         </div>
     </div>
 
-    <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="form">
+    @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <!-- Identity Row -->
-        <div class="irs-row" style="grid-template-columns: 1fr 300px;">
-            <div style="padding: 5px 10px; border-right: 1px solid #000;">
+        <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
+            <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
                 <div class="irs-label-wrap">
-                    <label class="irs-label-en">Name of Corporation</label>
-                    <label class="irs-label-es">Nombre de la Corporación</label>
+                    <label for="f1118-name" class="irs-label-en" style="font-weight: 1000;">Name of Corporation / Nombre de la Sociedad</label>
                 </div>
-                <input type="text" formControlName="corporationName" style="width: 100%; border: none; font-weight: 700;">
+                <input id="f1118-name" type="text" formControlName="corpName" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
             </div>
-            <div style="padding: 5px 10px;">
+            <div class="irs-entity-box" style="padding: 15px;">
                 <div class="irs-label-wrap">
-                    <label class="irs-label-en">Employer identification number (EIN)</label>
-                    <label class="irs-label-es">Número de identificación patronal (EIN)</label>
+                    <label for="f1118-ein" class="irs-label-en">Employer identification number</label>
                 </div>
-                <input type="text" formControlName="ein" style="width: 100%; border: none; font-weight: 700;">
+                <input id="f1118-ein" type="text" formControlName="ein" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
             </div>
         </div>
 
-        <!-- Schedule A -->
-        <div class="irs-part-banner" style="background: #222; color: #fff; padding: 5px 10px; display: flex; align-items: center; gap: 20px;">
-            <span style="font-size: 1.2rem; font-weight: 900;">Schedule A</span>
-            <div class="irs-label-wrap">
-                <span style="font-size: 1rem; font-weight: 700;">Income or Loss From Sources Outside the United States</span>
-                <span style="font-size: 0.8rem; font-weight: 400; font-style: italic;">Ingresos o Pérdidas de Fuentes Fuera de los Estados Unidos</span>
-            </div>
+        <div class="irs-part-banner">
+            <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Schedule A</span>
+            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">Income or (Loss) Before Adjustments / Ingreso o Pérdida Antes de Ajustes</span>
         </div>
 
-        <!-- Line 1 -->
-        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
             <div class="irs-col-line-num">1</div>
-            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en">Foreign branch income</span>
-                    <span class="irs-label-es">Ingresos de sucursales extranjeras</span>
+                    <span class="irs-label-en" style="font-weight: 950;">Foreign taxes paid or accrued.</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Impuestos extranjeros pagados o acumulados.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
             <div class="irs-cell-input irs-blue-cell">
-                <div style="display: flex; align-items: center;">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
                     <span class="irs-money-sym">$</span>
-                    <input type="number" formControlName="line1" style="font-weight: 950;">
+                    <input type="number" formControlName="line1" style="text-align: right; font-weight: 1000;">
                 </div>
             </div>
         </div>
 
-        <!-- Line 2 -->
-        <div class="irs-row" style="grid-template-columns: 40px 1fr 180px;">
-            <div class="irs-col-line-num">2</div>
-            <div style="padding: 5px 10px; display: flex; align-items: flex-end;">
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2px solid #000;">
+            <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">5</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en">Passive category income</span>
-                    <span class="irs-label-es">Ingresos de la categoría pasiva</span>
+                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Total foreign tax credit.</span>
+                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Crédito total por impuestos extranjeros.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
-            <div class="irs-cell-input irs-blue-cell">
-                <div style="display: flex; align-items: center;">
-                    <span class="irs-money-sym">$</span>
-                    <input type="number" formControlName="line2" style="font-weight: 950;">
+            <div class="irs-cell-input irs-yellow-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym" style="color: #1e3a8a;">$</span>
+                    <span style="text-align: right; font-weight: 1000; font-size: 1.5rem; color: #1e3a8a; width: 100%; display: block;">{{ corpForeignTaxCredit() | number:'1.2-2' }}</span>
                 </div>
             </div>
         </div>
 
-        <div style="padding: 40px; text-align: center;">
-            <button type="submit" style="background: #111; color: #fff; padding: 15px 60px; border: none; border-radius: 2px; font-weight: 900; cursor: pointer; text-transform: uppercase;">
+        <div style="padding: 60px 40px; text-align: center; background: #fff;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
                 Save Form 1118 / Guardar Formulario 1118
             </button>
         </div>
     </form>
+    }
 </div>

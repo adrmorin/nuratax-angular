@@ -1,38 +1,46 @@
-import { Component, inject, computed, ChangeDetectionStrategy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit, signal, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-form1118',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './form1118.component.html',
-  styleUrls: ['./form1118.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./form1118.component.css']
 })
-export class Form1118Component {
+export class Form1118Component implements OnInit {
   private fb = inject(FormBuilder);
+  form!: FormGroup;
+  
+  // High-fidelity calculation signals
+  corpForeignTaxCredit = signal(0);
 
-  form: FormGroup = this.fb.group({
-    corporationName: [''],
-    ein: [''],
-    categoryOfIncome: [''],
-    // Schedule A
-    line1: [null],
-    line2: [null],
-    line3: [null]
-  });
+  ngOnInit(): void {
+    this.form = this.fb.group({
+      corpName: [''],
+      ein: [''],
+      line1: [0], // Foreign taxes paid
+      line5: [0], // Total foreign tax credit
+      line8: [0]  // Carryover adjustments
+    });
 
-  formValues = toSignal(this.form.valueChanges, { initialValue: this.form.value });
+    this.form.valueChanges.subscribe(val => {
+      this.calculateValues(val);
+    });
+  }
 
-  totalScheduleA = computed(() => {
-    const vals = this.formValues();
-    return (parseFloat(vals.line1) || 0) + (parseFloat(vals.line2) || 0);
-  });
+  calculateValues(val: Record<string, number | string>): void {
+      const credit = Number(val['line1']) + Number(val['line8']);
+      
+      this.form.patchValue({
+          line5: credit
+      }, { emitEvent: false });
 
-  onSubmit() {
-    console.log('Form 1118 Submitted', this.form.getRawValue());
-    alert('Form 1118 saved locally!');
+      this.corpForeignTaxCredit.set(credit);
+  }
+
+  onSubmit(): void {
+    console.log('Form 1118 Data:', this.form.value);
   }
 }

@@ -1,0 +1,83 @@
+<div class="irs-unified-container">
+    <!-- Form 8952 Header -->
+    <div class="irs-header-main">
+        <div class="irs-form-id-block" style="padding-right: 15px; border-right: 2.2px solid #000;">
+            <div style="font-size: 1.4rem; font-weight: 1000; text-transform: uppercase;">Form 8952</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.8rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
+        </div>
+        <div class="irs-form-title-block" style="text-align: center; padding: 0 25px;">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.1rem; margin: 0; font-weight: 950; text-transform: uppercase;">Application for Voluntary Classification Settlement Program (VCSP)</h1>
+                <h2 style="font-size: 1.05rem; margin: 0; font-weight: 400; font-style: italic; color: #333;">Solicitud para el Programa Voluntario de Liquidación de Clasificación (VCSP)</h2>
+            </div>
+            <p style="font-size: 0.95rem; margin-top: 12px; font-weight: 850;">▶ Go to www.irs.gov/Form8952 for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.65rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-2215</div>
+            <div style="font-size: 3.5rem; line-height: 1; font-weight: 950;">2025</div>
+        </div>
+    </div>
+
+    @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
+            <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
+                <div class="irs-label-wrap">
+                    <label for="f8952-name" class="irs-label-en" style="font-weight: 1000;">Taxpayer's Name / Nombre del Contribuyente</label>
+                </div>
+                <input id="f8952-name" type="text" formControlName="taxpayerName" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
+            </div>
+            <div class="irs-entity-box" style="padding: 15px;">
+                <div class="irs-label-wrap">
+                    <label for="f8952-ein" class="irs-label-en">EIN</label>
+                </div>
+                <input id="f8952-ein" type="text" formControlName="ein" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">20</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">Compensation paid to workers for the most recent tax year.</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Remuneración pagada a los trabajadores...</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line20" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2px solid #000;">
+            <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">21</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Calculated settlement payment.</span>
+                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Pago de liquidación calculado.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-yellow-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym" style="color: #1e3a8a;">$</span>
+                    <span style="text-align: right; font-weight: 1000; font-size: 1.5rem; color: #1e3a8a; width: 100%; display: block;">{{ settlementPayment() | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 60px 40px; text-align: center; background: #fff;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
+                Submit Settlement Request / Enviar Solicitud
+            </button>
+        </div>
+    </form>
+    }
+</div>

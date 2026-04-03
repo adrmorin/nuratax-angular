@@ -1,6 +1,6 @@
-import { Component, signal, inject } from '@angular/core';
+import { Component, OnInit, signal, inject } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-form8862',
@@ -9,35 +9,23 @@ import { ReactiveFormsModule, FormBuilder, FormGroup, FormArray } from '@angular
   templateUrl: './form8862.component.html',
   styleUrls: ['./form8862.component.css']
 })
-export class Form8862Component {
+export class Form8862Component implements OnInit {
   private fb = inject(FormBuilder);
+  form!: FormGroup;
+  
+  // High-fidelity state signals
+  isEligible = signal(true);
 
-  form: FormGroup = this.fb.group({
-    taxYear: ['2025'],
-    name: [''],
-    ssn: [''],
-    reclaimingEIC: [false],
-    reclaimingCTC: [false],
-    reclaimingODC: [false],
-    reclaimingAOTC: [false],
-    
-    // Part II: EIC Questions
-    eicChildName: [''],
-    eicChildSSN: [''],
-    eicDaysInUS: [0],
-    
-    // Part III: CTC/ODC
-    ctcChildName: [''],
-    ctcChildSSN: [''],
-    ctcDaysInUS: [0],
-    
-    // Part IV: AOTC
-    studentName: [''],
-    studentSSN: [''],
-    institutionEIN: ['']
-  });
+  ngOnInit(): void {
+    this.form = this.fb.group({
+      name: [''],
+      ssn: [''],
+      part1Q1: ['yes'], // Child EITC
+      part2Q1: ['yes']  // Qualifying child
+    });
+  }
 
-  onSubmit() {
-    console.log('Form 8862 Submitted', this.form.value);
+  onSubmit(): void {
+    console.log('Form 8862 Data:', this.form.value);
   }
 }

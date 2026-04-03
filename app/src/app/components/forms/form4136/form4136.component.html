@@ -1,122 +1,83 @@
 <div class="irs-unified-container">
-  <!-- Header Section -->
-  <div class="irs-form-header">
-    <div class="irs-header-left">
-      <div class="irs-form-id-box">
-        <span class="irs-id-sub-small">Form</span>
-        <span class="irs-id-main-large">4136</span>
-      </div>
-      <div class="irs-dept-irs-box">
-        Department of the Treasury<br>
-        Internal Revenue Service
-      </div>
-    </div>
-    <div class="irs-header-center">
-      <h1>Credit for Federal Tax Paid on Fuels</h1>
-      <p class="irs-instruction-note">Go to <strong>www.irs.gov/Form4136</strong> for instructions and the latest information.</p>
-    </div>
-    <div class="irs-header-right">
-      <div class="irs-omb-container">OMB No. 1545-0074</div>
-      <div class="irs-year-display">
-        <span class="irs-year-20">20</span><span class="irs-year-solid">25</span>
-      </div>
-      <div class="irs-attachment">Attachment <br> Sequence No. <strong>79</strong></div>
-    </div>
-  </div>
-
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
-    <!-- Info Grid -->
-    <div class="irs-input-grid-box border-b">
-      <div class="irs-row-line-unified">
-        <div class="irs-col-name border-r">
-          <label for="name" class="irs-label-small">Name (as shown on your income tax return)</label>
-          <input id="name" type="text" formControlName="name" class="irs-input-borderless">
+    <!-- Form 4136 Header -->
+    <div class="irs-header-main">
+        <div class="irs-form-id-block" style="padding-right: 15px; border-right: 2.2px solid #000;">
+            <div style="font-size: 1.55rem; font-weight: 1000; text-transform: uppercase;">Form 4136</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.8rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
         </div>
-        <div class="irs-col-tin">
-          <label for="tin" class="irs-label-small">Taxpayer identification number</label>
-          <input id="tin" type="text" formControlName="tin" class="irs-input-borderless">
+        <div class="irs-form-title-block" style="text-align: center; padding: 0 25px;">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.5rem; margin: 0; font-weight: 950; text-transform: uppercase;">Credit for Federal Tax Paid on Fuels</h1>
+                <h2 style="font-size: 1.25rem; margin: 0; font-weight: 400; font-style: italic; color: #333;">Crédito por los Impuestos Federales Pagados sobre Combustibles</h2>
+            </div>
+            <p style="font-size: 0.95rem; margin-top: 12px; font-weight: 850;">▶ Go to www.irs.gov/Form4136 for instructions and the latest information.</p>
         </div>
-      </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.65rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-0162</div>
+            <div style="font-size: 3.5rem; line-height: 1; font-weight: 950;">2025</div>
+        </div>
     </div>
 
-    <!-- Part I -->
-    <div class="irs-section-title-bar margin-t-10">
-      <span class="irs-section-letter">Part I</span>
-      <span class="irs-section-text">Information About Your Business</span>
-    </div>
-    <div class="irs-input-grid-box padding-sm border-b">
-      <p class="irs-label-small"><strong>(A)</strong> Do you have a qualifying business or business activity with qualifying usage of qualifying fuels eligible for the fuel tax credit?</p>
-      <div class="irs-radio-group margin-b-10">
-        <label><input type="radio" [value]="true" formControlName="p1a"> Yes</label>
-        <label class="margin-l-20"><input type="radio" [value]="false" formControlName="p1a"> No</label>
-      </div>
-      <p class="irs-label-small">If "Yes," how many different business activities do you have that qualify for this credit? <input type="number" formControlName="p1b_count" class="irs-input-underline" style="width: 60px;"></p>
-    </div>
+    @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
+            <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
+                <div class="irs-label-wrap">
+                    <label for="f4136-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return / Nombre que figura en la declaración</label>
+                </div>
+                <input id="f4136-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
+            </div>
+            <div class="irs-entity-box" style="padding: 15px;">
+                <div class="irs-label-wrap">
+                    <label for="f4136-ein" class="irs-label-en">Taxpayer identification number</label>
+                </div>
+                <input id="f4136-ein" type="text" formControlName="ein" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
+            </div>
+        </div>
 
-    <!-- Part II -->
-    <div class="irs-section-title-bar margin-t-10">
-      <span class="irs-section-letter">Part II</span>
-      <span class="irs-section-text">Credits</span>
-    </div>
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">1</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">Gasoline, including gasohol.</span>
+                    <span class="irs-label-es" style="font-weight: 700;">Gasolina, incluyendo el gasohol...</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line1" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
 
-    <div class="irs-table-box">
-      <div class="irs-table-header-row">
-        <div class="irs-cell-num">1</div>
-        <div class="irs-cell-desc">Nontaxable Use of Gasoline</div>
-        <div class="irs-cell-val-label">(c) Gallons</div>
-        <div class="irs-cell-val-label">(e) Credit</div>
-      </div>
-      <div class="irs-row-line-unified grey-bg">
-        <div class="irs-cell-num">a</div>
-        <div class="irs-cell-desc">Off-highway business use</div>
-        <div class="irs-cell-val-box border-l">
-          <input type="number" formControlName="line1a_gallons" class="irs-input-borderless text-right">
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2px solid #000;">
+            <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">17</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Total fuel credit.</span>
+                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Crédito por combustible total.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-yellow-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym" style="color: #1e3a8a;">$</span>
+                    <span style="text-align: right; font-weight: 1000; font-size: 1.5rem; color: #1e3a8a; width: 100%; display: block;">{{ fuelCredit() | number:'1.2-2' }}</span>
+                </div>
+            </div>
         </div>
-        <div class="irs-cell-val-box border-l irs-blue-cell">
-          <input type="number" formControlName="line1a_credit" class="irs-input-borderless text-right">
-        </div>
-      </div>
-      <div class="irs-row-line-unified">
-        <div class="irs-cell-num">b</div>
-        <div class="irs-cell-desc">Use on a farm for farming purposes</div>
-        <div class="irs-cell-val-box border-l">
-          <input type="number" formControlName="line1b_gallons" class="irs-input-borderless text-right">
-        </div>
-        <div class="irs-cell-val-box border-l irs-blue-cell">
-          <input type="number" formControlName="line1b_credit" class="irs-input-borderless text-right">
-        </div>
-      </div>
 
-      <div class="irs-table-header-row margin-t-10">
-        <div class="irs-cell-num">2</div>
-        <div class="irs-cell-desc">Nontaxable Use of Aviation Gasoline</div>
-        <div class="irs-cell-val-label">(c) Gallons</div>
-        <div class="irs-cell-val-label">(e) Credit</div>
-      </div>
-      <div class="irs-row-line-unified grey-bg">
-        <div class="irs-cell-num">a</div>
-        <div class="irs-cell-desc">Use in commercial aviation (other than foreign trade)</div>
-        <div class="irs-cell-val-box border-l">
-          <input type="number" formControlName="line2a_gallons" class="irs-input-borderless text-right">
+        <div style="padding: 60px 40px; text-align: center; background: #fff;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
+                Save Form 4136 / Guardar Formulario 4136
+            </button>
         </div>
-        <div class="irs-cell-val-box border-l irs-blue-cell">
-          <input type="number" formControlName="line2a_credit" class="irs-input-borderless text-right">
-        </div>
-      </div>
-    </div>
-
-    <!-- Total Row -->
-    <div class="irs-row-line-unified border-t border-b margin-t-20">
-      <div class="irs-col-60 padding-sm">
-        <strong>Total fuel tax credit.</strong> Add lines 1 through 17 in column (e).
-      </div>
-      <div class="irs-col-40 irs-blue-cell flex flex-align-center padding-l-20">
-        <span class="irs-bold-large">${{ totalCredit() | number:'1.2-2' }}</span>
-      </div>
-    </div>
-
-    <div class="irs-footer-actions">
-      <button type="submit" class="irs-btn-submit">Submit Form 4136</button>
-    </div>
-  </form>
+    </form>
+    }
 </div>

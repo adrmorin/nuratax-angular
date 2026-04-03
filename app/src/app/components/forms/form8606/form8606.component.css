@@ -1,5 +1,5 @@
-/* Form 8606 - Unified Design System v2
-   Inherits from global styles.css
+/* Form 8606 - Nondeductible IRAs 
+   Unified Design System v2 
 */
 
 :host {
@@ -9,72 +9,72 @@
 
 .irs-unified-container {
     margin: 2rem auto;
-    border: 3px solid #000;
+    border: 3.5px solid #000;
     max-width: 1000px;
-    box-shadow: 0 10px 50px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.12);
 }
 
 .irs-row {
     display: grid;
-    border-bottom: 1px solid #000;
+    border-bottom: 2.2px solid #000;
     align-items: stretch;
 }
 
 .irs-header-main {
     display: grid;
-    grid-template-columns: 220px 1fr 180px;
+    grid-template-columns: 240px 1fr 240px;
     background-color: #fff;
-    padding: 10px;
+    padding: 20px;
+    border-bottom: 3.5px solid #000;
 }
 
 .irs-part-banner {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
+    background-color: #000;
+    color: #fff;
+    padding: 12px 25px;
 }
 
-input[type="number"], input[type="text"] {
+input[type="number"], input[type="text"], select {
     font-family: var(--irs-font-body);
-    font-size: 1rem;
-    font-weight: 700;
-    color: #1a1a1a;
+    font-size: 1.15rem;
+    font-weight: 850;
+    color: #111;
     border: none;
     background: transparent;
     outline: none;
     width: 100%;
 }
 
-.irs-money-sym {
-    font-weight: 700;
-    margin-right: 5px;
+.irs-blue-cell {
+    background: #eef2ff !important;
 }
 
-.irs-dotted-leader {
-    flex-grow: 1;
-    border-bottom: 1px dotted #888;
-    margin: 0 10px 5px 10px;
+.irs-yellow-cell {
+    background: var(--irs-accent-amber-light) !important;
+    border-left: 2.5px solid #000;
+}
+
+.irs-col-line-num {
+    background-color: #f5f5f5;
+    font-weight: 950;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 2.5px solid #000;
 }
 
 .irs-label-en {
-    font-size: 0.95rem;
-    font-weight: 800;
+    font-size: 1.1rem;
+    font-weight: 900;
     color: #000;
 }
 
 .irs-label-es {
-    font-size: 0.8rem;
-    font-weight: 400;
+    font-size: 0.95rem;
+    font-weight: 600;
     font-style: italic;
-    color: #555;
-    display: block;
-}
-
-.irs-blue-cell {
-    background: #e8efff;
-}
-
-.irs-year-block {
-    text-align: center;
-    border-left: 2px solid #000;
-    padding: 10px;
+    color: #444;
 }
