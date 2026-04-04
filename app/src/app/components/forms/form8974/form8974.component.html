@@ -10,8 +10,8 @@
         </div>
         <div class="irs-form-title-block" style="text-align: center; padding: 0 25px;">
             <div class="irs-label-wrap">
-                <h1 style="font-size: 1.15rem; margin: 0; font-weight: 950; text-transform: uppercase;">Qualified Small Business Payroll Tax Credit for Increasing Research Activities</h1>
-                <h2 style="font-size: 1.05rem; margin: 0; font-weight: 400; font-style: italic; color: #333;">Crédito Tributario sobre la Nómina de Pequeñas Empresas Calificadas...</h2>
+                <h1 style="font-size: 1.25rem; margin: 0; font-weight: 950; text-transform: uppercase;">Qualified Small Business Payroll Tax Credit for Increasing Research Activities</h1>
+                <h2 style="font-size: 1.05rem; margin: 0; font-weight: 400; font-style: italic; color: #333;">Crédito sobre la Nómina de Pequeñas Empresas por Actividades de Investigación</h2>
             </div>
             <p style="font-size: 0.95rem; margin-top: 12px; font-weight: 850;">▶ Go to www.irs.gov/Form8974 for instructions and the latest information.</p>
         </div>
@@ -23,56 +23,113 @@
 
     @if (form) {
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <!-- Business Info Row -->
-        <div class="irs-business-block" style="display: grid; grid-template-columns: 1fr 300px; gap: 30px;">
-            <div>
-                <label for="f8974-name" style="font-weight: 950;">Name of Business / Nombre de la Empresa:</label>
-                <input id="f8974-name" type="text" formControlName="businessName" style="padding: 10px; border-bottom: 2.2px solid #000; margin-top: 5px;">
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 320px; border-bottom: 3.5px solid #000;">
+            <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
+                <div class="irs-label-wrap">
+                    <label for="f8974-name" class="irs-label-en" style="font-weight: 1000;">Name(s) of employer</label>
+                </div>
+                <input id="f8974-name" type="text" formControlName="businessName" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
             </div>
-            <div>
-                <label for="f8974-ein" style="font-weight: 950;">EIN:</label>
-                <input id="f8974-ein" type="text" formControlName="ein" style="padding: 10px; border-bottom: 2.2px solid #000; margin-top: 5px; letter-spacing: 2px;">
+            <div class="irs-entity-box" style="padding: 15px;">
+                <div class="irs-label-wrap">
+                    <label for="f8974-ein" class="irs-label-en">EIN</label>
+                </div>
+                <input id="f8974-ein" type="text" formControlName="ein" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
             </div>
+        </div>
+
+        <div class="irs-part-banner">
+            <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Part I</span>
+            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">Current Period Credit / Crédito del Periodo Actual</span>
         </div>
 
         <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
             <div class="irs-col-line-num">7</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 950;">Enter the amount from Form 6765, line 44.</span>
-                    <span class="irs-label-es" style="font-weight: 700;">Ingrese la cantidad del Formulario 6765, línea 44...</span>
+                    <span class="irs-label-en" style="font-weight: 1000;">Enter the amount from Form 6765, line 44.</span>
+                    <span class="irs-label-es">Ingrese el monto del Formulario 6765, línea 44.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
             <div class="irs-cell-input irs-blue-cell">
                 <div style="display: flex; align-items: center; padding: 0 15px;">
                     <span class="irs-money-sym">$</span>
-                    <input type="number" formControlName="line7" style="text-align: right; font-weight: 1000;">
+                    <input type="number" formControlName="line7" style="text-align: right; font-weight: 950;">
                 </div>
             </div>
         </div>
 
-        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 3.5px solid #000;">
-            <div class="irs-col-line-num" style="background: #1e293b; color: #fff;">11</div>
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">8</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.15rem; color: #1e293b;">Qualified Small Business Payroll Tax Credit.</span>
-                    <span class="irs-label-es" style="font-weight: 750; color: #1e293b;">Crédito de Impuesto sobre la Nómina de Pequeña Empresa.</span>
+                    <span class="irs-label-en" style="font-weight: 1000;">Enter the amount from Form 8974, line 12, from previous period.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line8" style="text-align: right; font-weight: 950;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #fafafa;">
+            <div class="irs-col-line-num">9</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000;">Total credit. Add lines 7 and 8.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
             <div class="irs-cell-input irs-yellow-cell">
                 <div style="display: flex; align-items: center; padding: 0 15px;">
-                    <span class="irs-money-sym" style="color: #1e293b;">$</span>
-                    <span style="text-align: right; font-weight: 1000; font-size: 1.5rem; color: #1e293b; width: 100%; display: block;">{{ payrollCredit() | number:'1.2-2' }}</span>
+                    <span class="irs-money-sym">$</span>
+                    <span style="text-align: right; width: 100%; font-weight: 950; font-size: 1.1rem;">{{ form.get('line9')?.value | number:'1.2-2' }}</span>
                 </div>
             </div>
         </div>
 
-        <div style="padding: 60px 40px; text-align: center; background: #fff;">
-            <p style="font-size: 0.9rem; font-weight: 850; margin-bottom: 25px; color: #555;">(Note: Limit is $250,000 per tax year for the payroll tax credit portion.)</p>
-            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
-                Finalize Research Credit / Finalizar Crédito
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #e0f2fe; border-top: 3.5px solid #152961; margin-top: 25px;">
+            <div class="irs-col-line-num" style="background: #152961; color: #fff;">11</div>
+            <div style="padding: 20px; display: flex; align-items: center;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-size: 1.3rem; font-weight: 1000; color: #152961;">Enter amount of credit being used this period.</span>
+                    <span class="irs-label-es" style="font-size: 1rem; font-weight: 800; color: #152961;">Crédito utilizado este periodo.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-yellow-cell" style="background: #fff !important; border: 3.5px solid #152961;">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym" style="font-size: 1.4rem; color: #152961;">$</span>
+                    <input type="number" formControlName="line11" style="text-align: right; font-weight: 1000; font-size: 2rem; color: #152961; width: 100%;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">12</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">Credit carryforward. Line 9 minus Line 11.</span>
+                    <span class="irs-label-es">Crédito remanente para futuro.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <span style="text-align: right; width: 100%; font-weight: 950; font-size: 1.25rem;">{{ form.get('line12')?.value | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 80px 40px; text-align: center; background: #fff;">
+            <button type="submit" style="background: #000; color: #fff; padding: 30px 160px; border: none; font-size: 1.8rem; font-weight: 950; cursor: pointer; text-transform: uppercase;">
+                Finalize Form 8974 / Guardar
             </button>
         </div>
     </form>

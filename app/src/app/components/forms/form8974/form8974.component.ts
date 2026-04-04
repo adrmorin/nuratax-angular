@@ -13,35 +13,47 @@ export class Form8974Component implements OnInit {
   private fb = inject(FormBuilder);
   form!: FormGroup;
   
-  // High-fidelity calculation signals
   payrollCredit = signal(0);
 
   ngOnInit(): void {
     this.form = this.fb.group({
       businessName: [''],
       ein: [''],
-      line7: [0], // Research credit
-      line11: [0] // Payroll credit amount (limited)
+      // Part I - Qualified Small Business Payroll Tax Credit
+      line1: [''], // Tax period ending
+      line7: [0], // Amount from 6765, line 44
+      line8: [0], // Credit from 8974, line 12 (previous year?) 
+      line9: [0], // Total credit (Line 7 + 8)
+      line11: [0], // Current period credit
+      line12: [0]  // Credit carryforward
     });
 
     this.form.valueChanges.subscribe(val => {
-      this.calculateValues(val);
+      this.calculateValues(val as {
+          line7: number, line8: number, line11: number
+      });
     });
   }
 
-  calculateValues(val: Record<string, any>): void {
-      const researchCredit = Number(val['line7']) || 0;
-      const limit = 250000;
-      const credit = Math.min(researchCredit, limit);
+  calculateValues(val: {
+      line7: number, line8: number, line11: number
+  }): void {
+      const line7 = Number(val.line7) || 0;
+      const line8 = Number(val.line8) || 0;
+      const total = line7 + line8;
       
+      const current = Number(val.line11) || 0;
+      const carry = Math.max(0, total - current);
+
       this.form.patchValue({
-          line11: credit
+          line9: total,
+          line12: carry
       }, { emitEvent: false });
 
-      this.payrollCredit.set(credit);
+      this.payrollCredit.set(current);
   }
 
   onSubmit(): void {
-    console.log('Form 8974 Data:', this.form.value);
+      console.log('Form 8974 Data:', this.form.value);
   }
 }

@@ -1,0 +1,12 @@
+.irs-unified-container {
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.irs-blue-cell {
+    background-color: #e0f2fe !important;
+}
+
+.irs-yellow-cell {
+    background-color: #fef9c3 !important;
+}

@@ -1,0 +1,136 @@
+<div class="irs-unified-container">
+    <!-- Form 8903 Header -->
+    <div class="irs-header-main">
+        <div class="irs-form-id-block" style="padding-right: 15px; border-right: 2.2px solid #000;">
+            <div style="font-size: 1.55rem; font-weight: 1000; text-transform: uppercase;">Form 8903</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.8rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
+        </div>
+        <div class="irs-form-title-block" style="text-align: center; padding: 0 25px;">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.45rem; margin: 0; font-weight: 950; text-transform: uppercase;">Domestic Production Activities Deduction</h1>
+                <h2 style="font-size: 1.25rem; margin: 0; font-weight: 400; font-style: italic; color: #333;">Deducción por Actividades de Producción Nacional</h2>
+            </div>
+            <p style="font-size: 0.95rem; margin-top: 12px; font-weight: 850;">▶ Go to www.irs.gov/Form8903 for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.65rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-1961</div>
+            <div style="font-size: 3.5rem; line-height: 1; font-weight: 950;">2025</div>
+        </div>
+    </div>
+
+    @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 320px; border-bottom: 3.5px solid #000;">
+            <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
+                <div class="irs-label-wrap">
+                    <label for="f8903-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return</label>
+                </div>
+                <input id="f8903-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
+            </div>
+            <div class="irs-entity-box" style="padding: 15px;">
+                <div class="irs-label-wrap">
+                    <label for="f8903-tin" class="irs-label-en">TIN / Numero de Identificación</label>
+                </div>
+                <input id="f8903-tin" type="text" formControlName="tin" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
+            </div>
+        </div>
+
+        <div class="irs-part-banner">
+            <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Part I</span>
+            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">Deduction Computation / Cómputo de la Deducción</span>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">1</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000;">Domestic production gross receipts (DPGR).</span>
+                    <span class="irs-label-es">Ingresos brutos de producción nacional.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line1" style="text-align: right; font-weight: 950;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">2</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000;">Cost of goods sold allocable to DPGR.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line2" style="text-align: right; font-weight: 950;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #fafafa;">
+            <div class="irs-col-line-num">4</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000;">Qualified production activities income (QPAI).</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-yellow-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <span style="text-align: right; width: 100%; font-weight: 950; font-size: 1.1rem;">{{ form.get('line4')?.value | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">10</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000;">Form W-2 wages. See instructions.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line10" style="text-align: right; font-weight: 950;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #e0f2fe; border-top: 3.5px solid #152961; margin-top: 25px;">
+            <div class="irs-col-line-num" style="background: #152961; color: #fff;">25</div>
+            <div style="padding: 20px; display: flex; align-items: center;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-size: 1.3rem; font-weight: 1000; color: #152961;">Domestic production activities deduction (DPAD).</span>
+                    <span class="irs-label-es" style="font-size: 1rem; font-weight: 800; color: #152961;">Deducción DPAD final.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-yellow-cell" style="background: #fff !important; border: 3.5px solid #152961;">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym" style="font-size: 1.4rem; color: #152961;">$</span>
+                    <span style="text-align: right; font-weight: 1000; font-size: 2.2rem; color: #152961; width: 100%; display: block;">{{ dpadComputed() | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 80px 40px; text-align: center; background: #fff;">
+            <button type="submit" style="background: #000; color: #fff; padding: 30px 160px; border: none; font-size: 1.8rem; font-weight: 950; cursor: pointer; text-transform: uppercase;">
+                Finalize Form 8903 / Guardar
+            </button>
+        </div>
+    </form>
+    }
+</div>

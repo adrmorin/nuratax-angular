@@ -1,0 +1,29 @@
+.irs-unified-container {
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.irs-entity-box {
+    padding: 10px 15px;
+}
+
+.irs-table-row:nth-child(even) {
+    background-color: #fafafa;
+}
+
+.irs-form-table th {
+    font-size: 0.85rem;
+    font-weight: 900;
+}
+
+.irs-col-line-num {
+    height: 100%;
+}
+
+.irs-blue-cell {
+    background-color: #e0f2fe !important;
+}
+
+.irs-yellow-cell {
+    background-color: #fef9c3 !important;
+}

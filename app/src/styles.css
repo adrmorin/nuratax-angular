@@ -219,6 +219,23 @@
     font-weight: 700;
 }
 
+/* Highlight Colors - High Fidelity */
+.irs-blue-cell {
+    background-color: #e0f2fe !important; /* Official Field Light Blue */
+}
+
+.irs-yellow-cell {
+    background-color: #fef9c3 !important; /* Total / Emphasis Yellow */
+}
+
+.irs-green-cell {
+    background-color: #f0fdf4 !important; /* Refund / Success Green */
+}
+
+.irs-red-cell {
+    background-color: #fef2f2 !important; /* Owed / Critical Red */
+}
+
 
 [data-theme="dark"] {
     /* Dark Mode Overrides */

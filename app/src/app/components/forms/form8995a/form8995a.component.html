@@ -1,0 +1,130 @@
+<div class="irs-unified-container">
+    <!-- Form 8995-A Header -->
+    <div class="irs-header-main">
+        <div class="irs-form-id-block" style="padding-right: 15px; border-right: 2.2px solid #000;">
+            <div style="font-size: 1.55rem; font-weight: 1000; text-transform: uppercase;">Form 8995-A</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.8rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
+        </div>
+        <div class="irs-form-title-block" style="text-align: center; padding: 0 25px;">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.45rem; margin: 0; font-weight: 950; text-transform: uppercase;">Qualified Business Income Deduction</h1>
+                <h2 style="font-size: 1.25rem; margin: 0; font-weight: 400; font-style: italic; color: #333;">Deducción de Ingresos de Negocio Calificado (Completo)</h2>
+            </div>
+            <p style="font-size: 0.95rem; margin-top: 12px; font-weight: 850;">▶ Go to www.irs.gov/Form8995A for instructions and the latest information.</p>
+        </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.65rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-2294</div>
+            <div style="font-size: 3.5rem; line-height: 1; font-weight: 950;">2025</div>
+        </div>
+    </div>
+
+    @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 320px; border-bottom: 3.5px solid #000;">
+            <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
+                <div class="irs-label-wrap">
+                    <label for="f8995a-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return</label>
+                </div>
+                <input id="f8995a-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
+            </div>
+            <div class="irs-entity-box" style="padding: 15px;">
+                <div class="irs-label-wrap">
+                    <label for="f8995a-tin" class="irs-label-en">Your TIN</label>
+                </div>
+                <input id="f8995a-tin" type="text" formControlName="tin" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
+            </div>
+        </div>
+
+        <div class="irs-part-banner">
+            <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Part I</span>
+            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">Qualified Business Income Calculation / Cálculo de QBI</span>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">1</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000;">QBI or (loss) from trade, business, or aggregation.</span>
+                    <span class="irs-label-es">Ingresos o pérdida de negocio calificada.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line1" style="text-align: right; font-weight: 950;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-part-banner">
+            <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Part II</span>
+            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">W-2 Wages and UBIA / Salarios W-2 y Base de Propiedad (UBIA)</span>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">4</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000;">W-2 wages paid by the trade or business.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line4" style="text-align: right; font-weight: 950;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">5</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000;">UBIA of all qualified property.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line5" style="text-align: right; font-weight: 950;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-part-banner">
+            <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Part III</span>
+            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">Result / Resultado de la Deducción</span>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #e0f2fe; border-top: 3.5px solid #152961; margin-top: 25px;">
+            <div class="irs-col-line-num" style="background: #152961; color: #fff;">15</div>
+            <div style="padding: 20px; display: flex; align-items: center;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-size: 1.3rem; font-weight: 1000; color: #152961;">Tentative QBI deduction.</span>
+                    <span class="irs-label-es" style="font-size: 1rem; font-weight: 800; color: #152961;">Deducción tentativa de QBI.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-yellow-cell" style="background: #fff !important; border: 3.5px solid #152961;">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym" style="font-size: 1.4rem; color: #152961;">$</span>
+                    <span style="text-align: right; font-weight: 1000; font-size: 2.2rem; color: #152961; width: 100%; display: block;">{{ qbiDeductionComputed() | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 80px 40px; text-align: center; background: #fff;">
+            <button type="submit" style="background: #000; color: #fff; padding: 30px 160px; border: none; font-size: 1.8rem; font-weight: 950; cursor: pointer; text-transform: uppercase;">
+                Finalize Form 8995-A / Guardar
+            </button>
+        </div>
+    </form>
+    }
+</div>

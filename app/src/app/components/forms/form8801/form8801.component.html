@@ -1,108 +1,102 @@
 <div class="irs-unified-container">
-  <!-- Header Section -->
-  <div class="irs-form-header">
-    <div class="irs-header-left">
-      <div class="irs-form-id-box">
-        <span class="irs-id-sub-small">Form</span>
-        <span class="irs-id-main-large">8801</span>
-      </div>
-      <div class="irs-dept-irs-box">
-        Department of the Treasury<br>
-        Internal Revenue Service
-      </div>
-    </div>
-    <div class="irs-header-center">
-      <h1>Credit for Prior Year Minimum Tax—Individuals, Estates, and Trusts</h1>
-      <p class="irs-attach-note">Attach to Form 1040, 1040-SR, 1040-NR, or 1041.</p>
-      <p class="irs-instruction-note">Go to <strong>www.irs.gov/Form8801</strong> for instructions and the latest information.</p>
-    </div>
-    <div class="irs-header-right">
-      <div class="irs-omb-container">OMB No. 1545-0074</div>
-      <div class="irs-year-display">
-        <span class="irs-year-20">20</span><span class="irs-year-solid">25</span>
-      </div>
-      <div class="irs-attachment">Attachment <br> Sequence No. <strong>801</strong></div>
-    </div>
-  </div>
-
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
-    <!-- Info Grid -->
-    <div class="irs-input-grid-box border-b">
-      <div class="irs-row-line-unified">
-        <div class="irs-col-name border-r">
-          <label for="name" class="irs-label-small">Name(s) shown on return</label>
-          <input id="name" type="text" formControlName="name" class="irs-input-borderless">
+    <!-- Form 8801 Header -->
+    <div class="irs-header-main">
+        <div class="irs-form-id-block" style="padding-right: 15px; border-right: 2.2px solid #000;">
+            <div style="font-size: 1.55rem; font-weight: 1000; text-transform: uppercase;">Form 8801</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.8rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
         </div>
-        <div class="irs-col-tin">
-          <label for="tin" class="irs-label-small">Identifying number</label>
-          <input id="tin" type="text" formControlName="tin" class="irs-input-borderless">
+        <div class="irs-form-title-block" style="text-align: center; padding: 0 25px;">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.45rem; margin: 0; font-weight: 950; text-transform: uppercase;">Credit for Prior Year Minimum Tax—Individuals, Estates, and Trusts</h1>
+                <h2 style="font-size: 1.3rem; margin: 0; font-weight: 400; font-style: italic; color: #333;">Crédito por el Impuesto Mínimo de Años Anteriores</h2>
+            </div>
+            <p style="font-size: 0.95rem; margin-top: 12px; font-weight: 850;">▶ Go to www.irs.gov/Form8801 for instructions and the latest information.</p>
         </div>
-      </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.65rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-1073</div>
+            <div style="font-size: 3.5rem; line-height: 1; font-weight: 950;">2025</div>
+        </div>
     </div>
 
-    <!-- Part I -->
-    <div class="irs-section-title-bar margin-t-10">
-      <span class="irs-section-letter">Part I</span>
-      <span class="irs-section-text">Net Minimum Tax on Exclusion Items</span>
-    </div>
+    @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 320px; border-bottom: 3.5px solid #000;">
+            <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
+                <div class="irs-label-wrap">
+                    <label for="f8801-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return</label>
+                </div>
+                <input id="f8801-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
+            </div>
+            <div class="irs-entity-box" style="padding: 15px;">
+                <div class="irs-label-wrap">
+                    <label for="f8801-tin" class="irs-label-en">TIN / Identifying number</label>
+                </div>
+                <input id="f8801-tin" type="text" formControlName="tin" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
+            </div>
+        </div>
 
-    <div class="irs-line-item-container">
-      <div class="irs-row-line-unified">
-        <div class="irs-line-num">1</div>
-        <div class="irs-line-desc">Combine lines 1 and 2e of your 2024 Form 6251. Estates and trusts, see instructions</div>
-        <div class="irs-amount-box border-l irs-blue-cell">
-          <input type="number" formControlName="line1" class="irs-input-borderless text-right">
+        <div class="irs-part-banner">
+            <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Part I</span>
+            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">Net Minimum Tax on Exclusion Items / Impuesto Mínimo Neto</span>
         </div>
-        <div class="irs-line-num-right border-l">1</div>
-      </div>
-      <div class="irs-row-line-unified">
-        <div class="irs-line-num">2</div>
-        <div class="irs-line-desc">Enter adjustments and preferences treated as exclusion items (see instructions)</div>
-        <div class="irs-amount-box border-l irs-blue-cell">
-          <input type="number" formControlName="line2" class="irs-input-borderless text-right">
-        </div>
-        <div class="irs-line-num-right border-l">2</div>
-      </div>
-      <div class="irs-row-line-unified">
-        <div class="irs-line-num">3</div>
-        <div class="irs-line-desc">Minimum tax credit net operating loss deduction (see instructions)</div>
-        <div class="irs-amount-box border-l irs-blue-cell">
-          <input type="number" formControlName="line3" class="irs-input-borderless text-right">
-        </div>
-        <div class="irs-line-num-right border-l">3</div>
-      </div>
-      <div class="irs-row-line-unified">
-        <div class="irs-line-num">4</div>
-        <div class="irs-line-desc">Combine lines 1, 2, and 3. If zero or less, enter -0- here and on line 15 and go to Part II</div>
-        <div class="irs-amount-box border-l irs-blue-cell">
-          <input type="number" formControlName="line4" class="irs-input-borderless text-right">
-        </div>
-        <div class="irs-line-num-right border-l">4</div>
-      </div>
-      <div class="irs-row-line-unified">
-        <div class="irs-line-num">5</div>
-        <div class="irs-line-desc">Enter: $133,300 if married filing jointly or qualifying surviving spouse for 2024; $85,700 if single ...</div>
-        <div class="irs-amount-box border-l irs-blue-cell">
-          <input type="number" formControlName="line5" class="irs-input-borderless text-right">
-        </div>
-        <div class="irs-line-num-right border-l">5</div>
-      </div>
-    </div>
 
-    <!-- Calculated Row -->
-    <div class="irs-row-line-unified border-t border-b margin-t-20 bg-light">
-      <div class="irs-line-num">7</div>
-      <div class="irs-line-desc">
-        <strong>Subtract line 6 from line 4.</strong> If zero or less, enter -0- here and on line 8 and go to line 9
-      </div>
-      <div class="irs-amount-box border-l irs-blue-cell flex flex-align-center padding-l-20">
-        <span class="irs-bold-large">${{ line7() | number:'1.2-2' }}</span>
-      </div>
-      <div class="irs-line-num-right border-l">7</div>
-    </div>
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">1</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000;">Combined AMT line 1 and Schedule 2 (Form 1040), line 1.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line1" style="text-align: right; font-weight: 950;">
+                </div>
+            </div>
+        </div>
 
-    <div class="irs-footer-actions">
-      <button type="submit" class="irs-btn-submit">Submit Form 8801</button>
-    </div>
-  </form>
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">2</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000;">Enter the amount of exclusion items. See instructions.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line2" style="text-align: right; font-weight: 950;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #e0f2fe; border-top: 3.5px solid #152961; margin-top: 25px;">
+            <div class="irs-col-line-num" style="background: #152961; color: #fff;">24</div>
+            <div style="padding: 20px; display: flex; align-items: center;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-size: 1.3rem; font-weight: 1000; color: #152961;">Minimum tax credit.</span>
+                    <span class="irs-label-es" style="font-size: 1rem; font-weight: 800; color: #152961;">Crédito por impuesto mínimo.</span>
+                </div>
+            </div>
+            <div class="irs-cell-input irs-yellow-cell" style="background: #fff !important; border: 3.5px solid #152961;">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym" style="font-size: 1.4rem; color: #152961;">$</span>
+                    <span style="text-align: right; font-weight: 1000; font-size: 2.2rem; color: #152961; width: 100%; display: block;">{{ minTaxCredit() | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 80px 40px; text-align: center; background: #fff;">
+            <button type="submit" style="background: #000; color: #fff; padding: 30px 160px; border: none; font-size: 1.8rem; font-weight: 950; cursor: pointer; text-transform: uppercase;">
+                Finalize Form 8801 / Guardar
+            </button>
+        </div>
+    </form>
+    }
 </div>
