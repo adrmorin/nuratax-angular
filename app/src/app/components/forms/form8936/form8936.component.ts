@@ -13,53 +13,50 @@ export class Form8936Component implements OnInit {
   private fb = inject(FormBuilder);
   form!: FormGroup;
   
-  // High-fidelity calculation signals
   allowedCredit = signal(0);
+  isEligibleByAgi = signal(true);
 
   ngOnInit(): void {
     this.form = this.fb.group({
       name: [''],
       ssn: [''],
+      filingStatus: ['mfj'],
+      vehicleType: ['new'],
       agi: [0],
-      filingStatus: ['single'],
-      vehicleType: ['new'], // new or used
-      vin: [''],
-      line1: [0], // Amount of credit from Schedule A (Form 8936)
-      line15: [0] // Credit allowed after AGI limitations
+      line1: [0], // Tentative credit
     });
 
     this.form.valueChanges.subscribe(val => {
-      this.calculateValues(val as {agi: number, filingStatus: string, vehicleType: string, line1: number});
+      this.calculateValues(val as {
+          filingStatus: string, vehicleType: string, agi: number, line1: number
+      });
     });
   }
 
-  calculateValues(val: {agi: number, filingStatus: string, vehicleType: string, line1: number}): void {
+  calculateValues(val: {
+      filingStatus: string, vehicleType: string, agi: number, line1: number
+  }): void {
       const agi = Number(val.agi) || 0;
-      const status = val.filingStatus;
-      const type = val.vehicleType;
-      const creditAmount = Number(val.line1) || 0;
+      let limit = 0;
       
-      let credit = creditAmount;
-
-      // New Vehicle Limits ($300k / $225k / $150k)
-      if (type === 'new') {
-          const limit = status === 'mfj' ? 300000 : status === 'hoh' ? 225000 : 150000;
-          if (agi > limit) credit = 0;
-      } 
-      // Used Vehicle Limits ($150k / $112.5k / $75k)
-      else if (type === 'used') {
-          const limit = status === 'mfj' ? 150000 : status === 'hoh' ? 112500 : 75000;
-          if (agi > limit) credit = 0;
+      if (val.vehicleType === 'new') {
+          if (val.filingStatus === 'mfj') limit = 300000;
+          else if (val.filingStatus === 'hoh') limit = 225000;
+          else limit = 150000;
+      } else {
+          if (val.filingStatus === 'mfj') limit = 150000;
+          else if (val.filingStatus === 'hoh') limit = 112500;
+          else limit = 75000;
       }
 
-      this.form.patchValue({
-          line15: credit
-      }, { emitEvent: false });
-
+      const eligible = agi <= limit;
+      this.isEligibleByAgi.set(eligible);
+      
+      const credit = eligible ? (Number(val.line1) || 0) : 0;
       this.allowedCredit.set(credit);
   }
 
   onSubmit(): void {
-    console.log('Form 8936 Data:', this.form.value);
+      console.log('Form 8936 Data:', this.form.value);
   }
 }

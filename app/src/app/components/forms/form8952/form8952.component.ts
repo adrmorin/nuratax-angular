@@ -13,34 +13,43 @@ export class Form8952Component implements OnInit {
   private fb = inject(FormBuilder);
   form!: FormGroup;
   
-  // High-fidelity calculation signals
   settlementPayment = signal(0);
 
   ngOnInit(): void {
     this.form = this.fb.group({
       taxpayerName: [''],
       ein: [''],
-      line20: [0], // Compensation paid
-      line21: [0]  // Settlement amount
+      // Part I - Eligibility
+      totalWages: [0], // Wages paid to workers to be reclassified
+      taxRate: [15.3], // Example self-employment/payroll rate
+      // Part II - Payment Calculation
+      vcspPayment: [0]
     });
 
     this.form.valueChanges.subscribe(val => {
-      this.calculateValues(val);
+      this.calculateValues(val as {
+          totalWages: number, taxRate: number
+      });
     });
   }
 
-  calculateValues(val: Record<string, number | string>): void {
-      const compensation = Number(val['line20']);
-      const settlement = compensation * 0.01; // VCSP typical settlement rate example (1%)
+  calculateValues(val: {
+      totalWages: number, taxRate: number
+  }): void {
+      const wages = Number(val.totalWages) || 0;
+      const rate = (Number(val.taxRate) || 0) / 100;
       
+      // Official VCSP payment is roughly 10% of the tax due (simplified)
+      const payment = wages * rate * 0.10;
+
       this.form.patchValue({
-          line21: settlement
+          vcspPayment: payment
       }, { emitEvent: false });
 
-      this.settlementPayment.set(settlement);
+      this.settlementPayment.set(payment);
   }
 
   onSubmit(): void {
-    console.log('Form 8952 Data:', this.form.value);
+      console.log('Form 8952 Data:', this.form.value);
   }
 }

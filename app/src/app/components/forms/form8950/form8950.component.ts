@@ -13,37 +13,43 @@ export class Form8950Component implements OnInit {
   private fb = inject(FormBuilder);
   form!: FormGroup;
   
-  // High-fidelity calculation signals
-  userFee = signal(0);
+  vcpFee = signal(0);
 
   ngOnInit(): void {
     this.form = this.fb.group({
+      planSponsor: [''],
+      ein: [''],
       planName: [''],
       planNumber: [''],
-      planAssets: [0],
-      feeAmount: [0]
+      // Part I - User Fee
+      totalAssets: [0], // Assets in the plan
+      vcpUserFee: [0]  // Based on assets
     });
 
     this.form.valueChanges.subscribe(val => {
-      this.calculateValues(val);
+      this.calculateValues(val as {
+          totalAssets: number
+      });
     });
   }
 
-  calculateValues(val: Record<string, number | string>): void {
-      const assets = Number(val['planAssets']);
+  calculateValues(val: {
+      totalAssets: number
+  }): void {
+      const assets = Number(val.totalAssets) || 0;
+      let fee = 1500; // Base fee
       
-      // Typical VCP user fee logic (simplified for 2025 example)
-      let fee = 1500;
       if (assets > 500000) fee = 3000;
-      
+      if (assets > 10000000) fee = 3500;
+
       this.form.patchValue({
-          feeAmount: fee
+          vcpUserFee: fee
       }, { emitEvent: false });
 
-      this.userFee.set(fee);
+      this.vcpFee.set(fee);
   }
 
   onSubmit(): void {
-    console.log('Form 8950 Data:', this.form.value);
+      console.log('Form 8950 Data:', this.form.value);
   }
 }
