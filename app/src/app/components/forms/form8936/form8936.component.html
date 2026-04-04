@@ -27,15 +27,49 @@
         <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
             <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
                 <div class="irs-label-wrap">
-                    <label for="f8936-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return / Nombre que figura en la declaración</label>
+                    <label for="f8936-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return</label>
+                    <label for="f8936-name" class="irs-label-es">Nombre que figura en la declaración</label>
                 </div>
                 <input id="f8936-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
             </div>
             <div class="irs-entity-box" style="padding: 15px;">
                 <div class="irs-label-wrap">
                     <label for="f8936-ssn" class="irs-label-en">Social security number</label>
+                    <label for="f8936-ssn" class="irs-label-es">Número de seguro social</label>
                 </div>
                 <input id="f8936-ssn" type="text" formControlName="ssn" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
+            </div>
+        </div>
+
+        <!-- Vehicle Details -->
+        <div class="irs-row" style="grid-template-columns: 1fr 1fr 1fr; border-bottom: 2.2px solid #000; background: #f9fafb;">
+            <div style="padding: 15px; border-right: 1.5px solid #000;">
+                <div class="irs-label-wrap">
+                    <label for="f8936-filing-status" class="irs-label-en">Filing Status / Estado civil:</label>
+                </div>
+                <select id="f8936-filing-status" formControlName="filingStatus" style="width: 100%; padding: 8px; font-weight: 700; border: 1.5px solid #000;">
+                    <option value="single">Single / Soltero</option>
+                    <option value="mfj">MFJ / Casado declaración conjunta</option>
+                    <option value="hoh">Head of Household / Jefe de familia</option>
+                </select>
+            </div>
+            <div style="padding: 15px; border-right: 1.5px solid #000;">
+                <div class="irs-label-wrap">
+                    <label for="f8936-vehicle-type" class="irs-label-en">Vehicle Type / Tipo de vehículo:</label>
+                </div>
+                <select id="f8936-vehicle-type" formControlName="vehicleType" style="width: 100%; padding: 8px; font-weight: 700; border: 1.5px solid #000;">
+                    <option value="new">New Clean Vehicle / Nuevo</option>
+                    <option value="used">Used Clean Vehicle / Usado</option>
+                </select>
+            </div>
+            <div style="padding: 15px;">
+                <div class="irs-label-wrap">
+                    <label for="f8936-agi" class="irs-label-en">Modified AGI / AGI modificado:</label>
+                </div>
+                <div style="display: flex; align-items: center; border-bottom: 1.5px solid #000;">
+                    <span style="font-weight: 900; margin-right: 5px;">$</span>
+                    <input id="f8936-agi" type="number" formControlName="agi" style="width: 100%; border: none; font-size: 1.15rem; font-weight: 950; text-align: right;">
+                </div>
             </div>
         </div>
 
@@ -43,8 +77,8 @@
             <div class="irs-col-line-num">1</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 950;">Tentative clean vehicle credit (see instructions).</span>
-                    <span class="irs-label-es" style="font-weight: 700;">Crédito tentativo por vehículos limpios...</span>
+                    <span class="irs-label-en">Tentative clean vehicle credit from Schedule A.</span>
+                    <span class="irs-label-es">Crédito tentativo por vehículos limpios del Anexo A.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
@@ -56,7 +90,7 @@
             </div>
         </div>
 
-        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2px solid #000;">
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2.2px solid #000; margin-top: 15px;">
             <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">15</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
@@ -68,13 +102,13 @@
             <div class="irs-cell-input irs-yellow-cell">
                 <div style="display: flex; align-items: center; padding: 0 15px;">
                     <span class="irs-money-sym" style="color: #1e3a8a;">$</span>
-                    <span style="text-align: right; font-weight: 1000; font-size: 1.5rem; color: #1e3a8a; width: 100%; display: block;">{{ cleanVehicleCredit() | number:'1.2-2' }}</span>
+                    <span style="text-align: right; font-weight: 1000; font-size: 1.5rem; color: #1e3a8a; width: 100%; display: block;">{{ allowedCredit() | number:'1.2-2' }}</span>
                 </div>
             </div>
         </div>
 
         <div style="padding: 60px 40px; text-align: center; background: #fff;">
-            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.6rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
                 Save Form 8936 / Guardar Formulario 8936
             </button>
         </div>

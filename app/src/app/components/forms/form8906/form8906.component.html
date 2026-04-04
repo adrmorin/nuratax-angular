@@ -27,13 +27,15 @@
         <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
             <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
                 <div class="irs-label-wrap">
-                    <label for="f8906-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return / Nombre que figura en la declaración</label>
+                    <label for="f8906-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return</label>
+                    <label for="f8906-name" class="irs-label-es">Nombre que figura en la declaración</label>
                 </div>
                 <input id="f8906-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
             </div>
             <div class="irs-entity-box" style="padding: 15px;">
                 <div class="irs-label-wrap">
                     <label for="f8906-ein" class="irs-label-en">Employer identification number</label>
+                    <label for="f8906-ein" class="irs-label-es">Número de identificación patronal</label>
                 </div>
                 <input id="f8906-ein" type="text" formControlName="ein" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
             </div>
@@ -43,25 +45,42 @@
             <div class="irs-col-line-num">1</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 950;">Number of cases of distilled spirits sold or used.</span>
-                    <span class="irs-label-es" style="font-weight: 700;">Número de cajas de bebidas espirituosas destiladas...</span>
+                    <span class="irs-label-en">Number of cases of distilled spirits sold or used.</span>
+                    <span class="irs-label-es">Número de cajas de bebidas espirituosas destiladas vendidas o usadas.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
             <div class="irs-cell-input irs-blue-cell">
                 <div style="display: flex; align-items: center; padding: 0 15px;">
-                    <span class="irs-money-sym" style="font-weight: 400; font-size: 0.8rem; margin-right: 5px;">Cases</span>
+                    <span style="font-size: 0.8rem; margin-right: 5px; font-weight: 700;">CASES</span>
                     <input type="number" formControlName="line1" style="text-align: right; font-weight: 1000;">
                 </div>
             </div>
         </div>
 
-        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2px solid #000;">
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">2</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Average tax-financing cost per case (see instructions).</span>
+                    <span class="irs-label-es">Costo promedio de financiamiento de impuestos por caja (ver instrucciones).</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line2" step="0.0001" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2.2px solid #000; margin-top: 15px;">
             <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">3</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Distilled spirits credit.</span>
-                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Crédito por bebidas espirituosas destiladas.</span>
+                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Distilled spirits credit. Multiply line 1 by line 2.</span>
+                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Crédito por bebidas espirituosas destiladas. Multiplique la línea 1 por la 2.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
@@ -74,7 +93,7 @@
         </div>
 
         <div style="padding: 60px 40px; text-align: center; background: #fff;">
-            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.6rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
                 Save Form 8906 / Guardar Formulario 8906
             </button>
         </div>

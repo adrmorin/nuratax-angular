@@ -27,51 +27,86 @@
         <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
             <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
                 <div class="irs-label-wrap">
-                    <label for="f8948-name" class="irs-label-en" style="font-weight: 1000;">Preparer's Name / Nombre del Preparador</label>
+                    <label for="f8948-name" class="irs-label-en" style="font-weight: 1000;">Preparer's Name</label>
+                    <label for="f8889-name" class="irs-label-es">Nombre del Preparador</label>
                 </div>
-                <input id="f8948-name" type="text" formControlName="preparerName" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
+                <input id="f8948-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
             </div>
             <div class="irs-entity-box" style="padding: 15px;">
                 <div class="irs-label-wrap">
                     <label for="f8948-ptin" class="irs-label-en">PTIN</label>
+                    <label for="f8889-ptin" class="irs-label-es">Número PTIN</label>
                 </div>
                 <input id="f8948-ptin" type="text" formControlName="ptin" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
             </div>
         </div>
 
         <div class="irs-part-banner">
-            <span style="font-size: 1.25rem; font-weight: 1000; text-transform: uppercase;">Hardship Reason / Motivo de la Dificultad</span>
+            <span style="font-size: 1.25rem; font-weight: 1000; text-transform: uppercase;">Waiver Reasons / Motivos de Exención</span>
         </div>
 
-        <div class="irs-reason-box">
-            <label class="irs-checkbox-wrap">
-                <input type="checkbox" formControlName="reason1">
-                <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 950;">Waiver is being requested due to undue hardship.</span>
-                    <span class="irs-label-es" style="font-weight: 700;">Se solicita exención debido a dificultades económicas indebidas...</span>
-                </div>
-            </label>
+        <div style="padding: 25px; border-bottom: 1.5px solid #000;">
+            <div style="margin-bottom: 20px;">
+                <label style="display: flex; gap: 15px; cursor: pointer;">
+                    <input type="checkbox" formControlName="reason1" style="width: 24px; height: 24px; margin-top: 4px;">
+                    <div class="irs-label-wrap">
+                        <span class="irs-label-en" style="font-weight: 900;">The taxpayer chose to file the return on paper.</span>
+                        <span class="irs-label-es">El contribuyente eligió presentar la declaración en papel.</span>
+                    </div>
+                </label>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: flex; gap: 15px; cursor: pointer;">
+                    <input type="checkbox" formControlName="reason2" style="width: 24px; height: 24px; margin-top: 4px;">
+                    <div class="irs-label-wrap">
+                        <span class="irs-label-en" style="font-weight: 900;">Preparer received a waiver for the current calendar year.</span>
+                        <span class="irs-label-es">El preparador recibió una exención para el año calendario actual.</span>
+                    </div>
+                </label>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: flex; gap: 15px; cursor: pointer;">
+                    <input type="checkbox" formControlName="reason3" style="width: 24px; height: 24px; margin-top: 4px;">
+                    <div class="irs-label-wrap">
+                        <span class="irs-label-en" style="font-weight: 900;">Preparer's software does not support the form or schedule.</span>
+                        <span class="irs-label-es">El software del preparador no admite el formulario o anexo.</span>
+                    </div>
+                </label>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <label style="display: flex; gap: 15px; cursor: pointer;">
+                    <input type="checkbox" formControlName="reason4" style="width: 24px; height: 24px; margin-top: 4px;">
+                    <div class="irs-label-wrap">
+                        <span class="irs-label-en" style="font-weight: 900;">Cannot file due to technical difficulties.</span>
+                        <span class="irs-label-es">No se puede presentar debido a dificultades técnicas.</span>
+                    </div>
+                </label>
+            </div>
+
+            <div style="margin-bottom: 10px;">
+                <label style="display: flex; gap: 15px; cursor: pointer;">
+                    <input type="checkbox" formControlName="reason5" style="width: 24px; height: 24px; margin-top: 4px;">
+                    <div class="irs-label-wrap">
+                        <span class="irs-label-en" style="font-weight: 900;">Other (specify reason below):</span>
+                        <span class="irs-label-es">Otros (especifique el motivo a continuación):</span>
+                    </div>
+                </label>
+            </div>
+            <textarea formControlName="explanation" style="width: 100%; height: 100px; border: 1.5px solid #000; padding: 15px; font-family: inherit; font-size: 1.1rem; margin-top: 10px;" placeholder="Provide additional explanation / Proporcione una explicación adicional..."></textarea>
         </div>
 
-        <div class="irs-reason-box">
-            <label class="irs-checkbox-wrap">
-                <input type="checkbox" formControlName="reason2">
-                <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 950;">Waiver is being requested due to technical limitations.</span>
-                    <span class="irs-label-es" style="font-weight: 700;">Se solicita exención debido a limitaciones técnicas...</span>
-                </div>
-            </label>
-        </div>
-
-        @if (waiverReasonSelected()) {
-        <div style="padding: 20px; background: #eef2ff; text-align: center; border-bottom: 3.5px solid #000;">
-            <p style="font-weight: 1000; color: #1e3a8a; font-size: 1.1rem; margin: 0;">✔ Waiver reason identified. Proceed to attach supporting documents.</p>
+        @if (reasonSelected()) {
+        <div style="padding: 20px; background: #f0fdf4; text-align: center; border-bottom: 3.5px solid #000;">
+            <p style="font-weight: 1000; color: #166534; font-size: 1.15rem; margin: 0;">✔ Exemption reason identified. Please keep this form for your records.</p>
         </div>
         }
 
         <div style="padding: 60px 40px; text-align: center; background: #fff;">
-            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
-                Save Waiver Request / Guardar Solicitud
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.65rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
+                Save Form 8948 / Guardar Formulario 8948
             </button>
         </div>
     </form>

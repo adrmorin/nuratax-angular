@@ -27,59 +27,120 @@
         <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
             <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
                 <div class="irs-label-wrap">
-                    <label for="f8881-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return / Nombre que figura en la declaración</label>
+                    <label for="f8881-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return</label>
+                    <label for="f8881-name" class="irs-label-es">Nombre que figura en la declaración</label>
                 </div>
                 <input id="f8881-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
             </div>
             <div class="irs-entity-box" style="padding: 15px;">
                 <div class="irs-label-wrap">
                     <label for="f8881-ein" class="irs-label-en">Employer identification number</label>
+                    <label for="f8881-ein" class="irs-label-es">Número de identificación patronal</label>
                 </div>
                 <input id="f8881-ein" type="text" formControlName="ein" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
             </div>
         </div>
 
+        <!-- Part I -->
         <div class="irs-part-banner">
             <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Part I</span>
-            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">Current Year Credit / Crédito del Año Actual</span>
+            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc; margin-left: 10px;">Credit for Small Employer Pension Plan Startup Costs</span>
         </div>
 
         <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
             <div class="irs-col-line-num">1</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 950;">Qualified startup costs incurred during the tax year.</span>
-                    <span class="irs-label-es" style="font-weight: 700;">Costos de establecimiento calificados...</span>
+                    <span class="irs-label-en">Qualified startup costs incurred during the tax year.</span>
+                    <span class="irs-label-es">Costos de establecimiento calificados incurridos durante el año contributivo.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
             <div class="irs-cell-input irs-blue-cell">
                 <div style="display: flex; align-items: center; padding: 0 15px;">
                     <span class="irs-money-sym">$</span>
-                    <input type="number" formControlName="line1" style="text-align: right; font-weight: 1000;">
+                    <input type="number" formControlName="p1_line1" style="text-align: right; font-weight: 1000;">
                 </div>
             </div>
         </div>
 
-        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2px solid #000;">
-            <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">7</div>
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">2</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Total credit.</span>
-                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Crédito total.</span>
+                    <span class="irs-label-en">Enter 50% of line 1.</span>
+                    <span class="irs-label-es">Ingrese el 50% de la línea 1.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <span style="text-align: right; font-weight: 1000; width: 100%;">{{ form.get('p1_line2')?.value | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">4</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 750;">Current year credit for startup costs.</span>
+                    <span class="irs-label-es">Crédito del año actual para costos de establecimiento.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <span style="text-align: right; font-weight: 1000; width: 100%;">{{ form.get('p1_line4')?.value | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Part III -->
+        <div class="irs-part-banner" style="margin-top: 10px;">
+            <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Part III</span>
+            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc; margin-left: 10px;">Credit for Small Employer Auto-Enrollment</span>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">10</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Enter $500 if an auto-enrollment option was added (see instructions).</span>
+                    <span class="irs-label-es">Ingrese $500 si se agregó una opción de inscripción automática...</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="p3_line10" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Total Combined -->
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2.5px solid #000; margin-top: 10px;">
+            <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">15</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Total Credits. Add all applicable lines.</span>
+                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Créditos totales. Sume todas las líneas aplicables.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
             <div class="irs-cell-input irs-yellow-cell">
                 <div style="display: flex; align-items: center; padding: 0 15px;">
                     <span class="irs-money-sym" style="color: #1e3a8a;">$</span>
-                    <span style="text-align: right; font-weight: 1000; font-size: 1.5rem; color: #1e3a8a; width: 100%; display: block;">{{ pensionCredit() | number:'1.2-2' }}</span>
+                    <span style="text-align: right; font-weight: 1000; font-size: 1.5rem; color: #1e3a8a; width: 100%; display: block;">{{ totalCombinedCredit() | number:'1.2-2' }}</span>
                 </div>
             </div>
         </div>
 
-        <div style="padding: 60px 40px; text-align: center; background: #fff;">
-            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
+        <div style="padding: 60px 40px; text-align: center; background: #f9f9f9; border-top: 2.2px solid #000;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.6rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
                 Save Form 8881 / Guardar Formulario 8881
             </button>
         </div>

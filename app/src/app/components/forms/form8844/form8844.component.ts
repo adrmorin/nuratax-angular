@@ -21,23 +21,28 @@ export class Form8844Component implements OnInit {
       name: [''],
       ein: [''],
       line1: [0], // Qualified empowerment zone wages
-      line2: [0]  // Total credit
+      line2: [0], // Line 1 * 20%
+      line3: [0], // Credits from partnerships, S corps, etc.
+      line4: [0]  // Total credit
     });
 
     this.form.valueChanges.subscribe(val => {
-      this.calculateValues(val);
+      this.calculateValues(val as {line1: number, line3: number});
     });
   }
 
-  calculateValues(val: Record<string, number | string>): void {
-      const wages = Number(val['line1']);
-      const credit = wages * 0.20; // 2025 empowerment zone rate example (20%)
+  calculateValues(val: {line1: number, line3: number}): void {
+      const line1 = Number(val['line1']) || 0;
+      const line2 = line1 * 0.20; 
+      const line3 = Number(val['line3']) || 0;
+      const line4 = line2 + line3;
       
       this.form.patchValue({
-          line2: credit
+          line2: line2,
+          line4: line4
       }, { emitEvent: false });
 
-      this.empowermentCredit.set(credit);
+      this.empowermentCredit.set(line4);
   }
 
   onSubmit(): void {

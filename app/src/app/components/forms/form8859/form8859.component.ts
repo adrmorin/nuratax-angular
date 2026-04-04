@@ -14,29 +14,38 @@ export class Form8859Component implements OnInit {
   form!: FormGroup;
   
   // High-fidelity calculation signals
-  homebuyerCredit = signal(0);
+  currentCredit = signal(0);
+  carryforwardNextYear = signal(0);
 
   ngOnInit(): void {
     this.form = this.fb.group({
       name: [''],
       ssn: [''],
-      line1: [0], // Carryforward of DC first-time homebuyer credit
-      line3: [0]  // Credit allowed for current year
+      line1: [0], // Credit carryforward from prior years
+      line2: [0], // Tax liability limit
+      line3: [0], // Current year credit (Smaller of 1 or 2)
+      line4: [0]  // Carryforward to 2025 (1 minus 3)
     });
 
     this.form.valueChanges.subscribe(val => {
-      this.calculateValues(val);
+      this.calculateValues(val as {line1: number, line2: number});
     });
   }
 
-  calculateValues(val: Record<string, number | string>): void {
-      const carryforward = Number(val['line1']);
+  calculateValues(val: {line1: number, line2: number}): void {
+      const carryIn = Number(val['line1']) || 0;
+      const taxLimit = Number(val['line2']) || 0;
+      
+      const allowed = Math.min(carryIn, taxLimit);
+      const carryOut = Math.max(0, carryIn - allowed);
       
       this.form.patchValue({
-          line3: carryforward // Simple carryforward logic for example
+          line3: allowed,
+          line4: carryOut
       }, { emitEvent: false });
 
-      this.homebuyerCredit.set(carryforward);
+      this.currentCredit.set(allowed);
+      this.carryforwardNextYear.set(carryOut);
   }
 
   onSubmit(): void {

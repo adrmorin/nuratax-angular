@@ -15,31 +15,54 @@ export class Form8881Component implements OnInit {
   
   // High-fidelity calculation signals
   pensionCredit = signal(0);
+  autoEnrollCredit = signal(0);
+  totalCombinedCredit = signal(0);
 
   ngOnInit(): void {
     this.form = this.fb.group({
       name: [''],
       ein: [''],
-      line1: [0], // Qualified startup costs
-      line3: [0], // Credit for the current year
-      line7: [0]  // Total credit
+      // Part I - Startup Costs
+      p1_line1: [0], // Qualified startup costs
+      p1_line2: [0], // 50% of line 1
+      p1_line3: [500], // Minimum credit ($500)
+      p1_line4: [0], // Tentative Part I credit
+      p1_line5: [0], // Credits from partnerships
+      p1_line7: [0], // Total Part I credit
+      
+      // Part III - Auto-Enrollment
+      p3_line10: [0], // $500 per year for 3 years
+      
+      line15: [0] // Total Credit
     });
 
     this.form.valueChanges.subscribe(val => {
-      this.calculateValues(val);
+      this.calculateValues(val as {p1_line1: number, p1_line5: number, p3_line10: number});
     });
   }
 
-  calculateValues(val: Record<string, number | string>): void {
-      const costs = Number(val['line1']);
-      const credit = Math.min(costs * 0.50, 5000); // 2025 max startup benefit
+  calculateValues(val: {p1_line1: number, p1_line5: number, p3_line10: number}): void {
+      const p1_l1 = Number(val['p1_line1']) || 0;
+      const p1_l2 = p1_l1 * 0.50;
+      
+      // Part I Limit: Smaller of p1_l2 or max limit (often $5,000 for SECURE Act)
+      const p1_l4 = Math.min(p1_l2, 5000); 
+      const p1_l5 = Number(val['p1_line5']) || 0;
+      const p1_l7 = p1_l4 + p1_l5;
+      
+      const p3_l10 = Number(val['p3_line10']) || 0;
+      const total = p1_l7 + p3_l10;
       
       this.form.patchValue({
-          line3: credit,
-          line7: credit
+          p1_line2: p1_l2,
+          p1_line4: p1_l4,
+          p1_line7: p1_l7,
+          line15: total
       }, { emitEvent: false });
 
-      this.pensionCredit.set(credit);
+      this.pensionCredit.set(p1_l7);
+      this.autoEnrollCredit.set(p3_l10);
+      this.totalCombinedCredit.set(total);
   }
 
   onSubmit(): void {

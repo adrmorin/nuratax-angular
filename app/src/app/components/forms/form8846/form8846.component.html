@@ -27,24 +27,27 @@
         <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
             <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
                 <div class="irs-label-wrap">
-                    <label for="f8846-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return / Nombre que figura en la declaración</label>
+                    <label for="f8846-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return</label>
+                    <label for="f8846-name" class="irs-label-es">Nombre que figura en la declaración</label>
                 </div>
                 <input id="f8846-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
             </div>
             <div class="irs-entity-box" style="padding: 15px;">
                 <div class="irs-label-wrap">
                     <label for="f8846-ein" class="irs-label-en">Employer identification number</label>
+                    <label for="f8846-ein" class="irs-label-es">Número de identificación patronal</label>
                 </div>
                 <input id="f8846-ein" type="text" formControlName="ein" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
             </div>
         </div>
 
+        <!-- Line 1 -->
         <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
             <div class="irs-col-line-num">1</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 950;">Tips on which social security and Medicare taxes were paid or incurred.</span>
-                    <span class="irs-label-es" style="font-weight: 700;">Propinas sobre las cuales se pagaron impuestos...</span>
+                    <span class="irs-label-en" style="font-weight: 750;">Tips received by employees for services on which you paid or incurred employer social security and Medicare taxes during the tax year (see instructions).</span>
+                    <span class="irs-label-es">Propinas recibidas por empleados por servicios sobre los cuales pagó o incurrió en impuestos al seguro social y Medicare durante el año...</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
@@ -56,12 +59,90 @@
             </div>
         </div>
 
-        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2px solid #000;">
-            <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">4</div>
+        <!-- Line 2 -->
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">2</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Credit for tips tax.</span>
-                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Crédito por los impuestos sobre las propinas.</span>
+                    <span class="irs-label-en">Tips included on line 1 that are not creditable for each employee (see instructions).</span>
+                    <span class="irs-label-es">Propinas incluidas en la línea 1 que no son acreditables para cada empleado...</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line2" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Line 3 -->
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">3</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 750;">Creditable tips.</span>
+                    <span class="irs-label-es">Propinas acreditables.</span>
+                    <div style="font-size: 0.8rem; font-weight: 500;">Subtract line 2 from line 1. / Reste la línea 2 de la línea 1.</div>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <span style="text-align: right; font-weight: 1000; width: 100%;">{{ form.get('line3')?.value | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Line 4 -->
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">4</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 750;">Multiply line 3 by 7.65% (0.0765).</span>
+                    <span class="irs-label-es">Multiplique la línea 3 por 7.65% (0.0765).</span>
+                    <div style="margin-top: 8px; display: flex; align-items: center; gap: 10px;">
+                        <input type="checkbox" formControlName="isHighWage" style="width: 20px; height: 20px; border: 1.5px solid #000;">
+                        <span style="font-size: 0.85rem;">Check here if any tipped employees' wages exceeded $168,600.</span>
+                    </div>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <span style="text-align: right; font-weight: 1000; width: 100%;">{{ form.get('line4')?.value | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Line 5 -->
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">5</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Credit from partnerships and S corporations.</span>
+                    <span class="irs-label-es">Crédito de sociedades y corporaciones de tipo S.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line5" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Line 6 (Total) -->
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2.5px solid #000;">
+            <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">6</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Add lines 4 and 5.</span>
+                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Sume las líneas 4 y 5.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
@@ -73,10 +154,13 @@
             </div>
         </div>
 
-        <div style="padding: 60px 40px; text-align: center; background: #fff;">
-            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
+        <div style="padding: 60px 40px; text-align: center; background: #f9f9f9; border-top: 2.2px solid #000;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.6rem; font-weight: 1000; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
                 Save Form 8846 / Guardar Formulario 8846
             </button>
+            <p style="margin-top: 20px; font-size: 0.85rem; color: #666; font-style: italic;">
+                Report this amount on Form 3800, Part III, line 4f / Reporte este monto en el Formulario 3800, Parte III, línea 4f.
+            </p>
         </div>
     </form>
     }

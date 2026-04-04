@@ -14,7 +14,7 @@ export class Form8941Component implements OnInit {
   form!: FormGroup;
   
   // High-fidelity calculation signals
-  healthInsuranceCredit = signal(0);
+  tentativeCredit = signal(0);
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -22,26 +22,45 @@ export class Form8941Component implements OnInit {
       ein: [''],
       line1: [0], // Number of FTEs
       line2: [0], // Average annual wages
-      line12: [0] // Total credit
+      line3: [0], // Total premiums paid
+      line4: [0], // Line 3 * 50% (Taxable)
+      line12: [0] // Allowed credit amount
     });
 
     this.form.valueChanges.subscribe(val => {
-      this.calculateValues(val);
+      this.calculateValues(val as {line1: number, line2: number, line3: number});
     });
   }
 
-  calculateValues(val: Record<string, number | string>): void {
-      const ftes = Number(val['line1']);
-      const wages = Number(val['line2']);
+  calculateValues(val: {line1: number, line2: number, line3: number}): void {
+      const ftes = Number(val['line1']) || 0;
+      const wages = Number(val['line2']) || 0;
+      const premiums = Number(val['line3']) || 0;
       
-      // Simple credit logic for small employer health insurance
-      const credit = (ftes < 25 && wages < 50000) ? 1000 : 0;
+      // Maximum credit is 50% of premiums paid
+      let credit = premiums * 0.50;
+      
+      // Phaseout if FTEs > 10
+      if (ftes > 10) {
+          const reduction = (ftes - 10) / 15;
+          credit -= (credit * reduction);
+      }
+      
+      // Phaseout if wages > $30,700 (2024 threshold approx)
+      const wageThreshold = 30700;
+      if (wages > wageThreshold) {
+          const reduction = (wages - wageThreshold) / wageThreshold;
+          credit -= (credit * reduction);
+      }
+
+      const finalCredit = Math.max(0, credit);
       
       this.form.patchValue({
-          line12: credit
+          line4: premiums * 0.50,
+          line12: finalCredit
       }, { emitEvent: false });
 
-      this.healthInsuranceCredit.set(credit);
+      this.tentativeCredit.set(finalCredit);
   }
 
   onSubmit(): void {

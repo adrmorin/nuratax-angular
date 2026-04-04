@@ -27,13 +27,15 @@
         <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
             <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
                 <div class="irs-label-wrap">
-                    <label for="f8941-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return / Nombre que figura en la declaración</label>
+                    <label for="f8941-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return</label>
+                    <label for="f8941-name" class="irs-label-es">Nombre que figura en la declaración</label>
                 </div>
                 <input id="f8941-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
             </div>
             <div class="irs-entity-box" style="padding: 15px;">
                 <div class="irs-label-wrap">
                     <label for="f8941-ein" class="irs-label-en">Employer identification number</label>
+                    <label for="f8941-ein" class="irs-label-es">Número de identificación del empleador</label>
                 </div>
                 <input id="f8941-ein" type="text" formControlName="ein" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
             </div>
@@ -43,8 +45,8 @@
             <div class="irs-col-line-num">1</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 950;">Enter the number of full-time equivalent employees (FTEs) your had during the tax year.</span>
-                    <span class="irs-label-es" style="font-weight: 700;">Ingrese el número de empleados equivalentes a tiempo completo...</span>
+                    <span class="irs-label-en">Enter the number of full-time equivalent employees (FTEs).</span>
+                    <span class="irs-label-es">Ingrese el número de empleados equivalentes a tiempo completo.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
@@ -59,8 +61,8 @@
             <div class="irs-col-line-num">2</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 950;">Enter the average annual wages you paid for the tax year.</span>
-                    <span class="irs-label-es" style="font-weight: 700;">Ingrese el promedio de los salarios anuales pagados...</span>
+                    <span class="irs-label-en">Enter the average annual wages you paid for the tax year.</span>
+                    <span class="irs-label-es">Ingrese el promedio de los salarios anuales pagados durante el año.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
@@ -72,7 +74,41 @@
             </div>
         </div>
 
-        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2px solid #000;">
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">3</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Total qualified health insurance premiums paid.</span>
+                    <span class="irs-label-es">Primas de seguro de salud calificadas totales pagadas.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line3" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">4</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Multiply line 3 by 50% (0.50).</span>
+                    <span class="irs-label-es">Multiplique la línea 3 por el 50% (0.50).</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <span style="text-align: right; font-weight: 1000; width: 100%;">{{ form.get('line4')?.value | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2.2px solid #000; margin-top: 15px;">
             <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">12</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
@@ -84,13 +120,13 @@
             <div class="irs-cell-input irs-yellow-cell">
                 <div style="display: flex; align-items: center; padding: 0 15px;">
                     <span class="irs-money-sym" style="color: #1e3a8a;">$</span>
-                    <span style="text-align: right; font-weight: 1000; font-size: 1.5rem; color: #1e3a8a; width: 100%; display: block;">{{ healthInsuranceCredit() | number:'1.2-2' }}</span>
+                    <span style="text-align: right; font-weight: 1000; font-size: 1.5rem; color: #1e3a8a; width: 100%; display: block;">{{ tentativeCredit() | number:'1.2-2' }}</span>
                 </div>
             </div>
         </div>
 
         <div style="padding: 60px 40px; text-align: center; background: #fff;">
-            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.6rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
                 Save Form 8941 / Guardar Formulario 8941
             </button>
         </div>

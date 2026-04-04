@@ -15,38 +15,55 @@ export class Form8889Component implements OnInit {
   
   // High-fidelity calculation signals
   hsaDeduction = signal(0);
-  taxableHsaDistributions = signal(0);
+  taxableDistributions = signal(0);
+  additionalTax = signal(0); // 20% additional tax on taxable distributions
 
   ngOnInit(): void {
     this.form = this.fb.group({
       name: [''],
       ssn: [''],
-      // Part I - Contributions
-      line2: [0], // HSA contributions
-      line3: [0], // Annual limitation
-      line13: [0], // HSA deduction
+      // Part I - Contributions and Deductions
+      hsaType: ['self-only'], // self-only or family
+      line2: [0], // HSA contributions you made
+      line3: [4150], // Annual limitation (Self-only $4,150, Family $8,300)
+      line7: [0], // Catch-up contributions (age 55 or older)
+      line13: [0], // HSA deduction. Enter the smaller of line 2 or total deduction limit.
       // Part II - Distributions
-      line14a: [0], // Total distributions
+      line14a: [0], // Total distributions from HSAs
       line15: [0], // Qualified medical expenses
-      line16: [0]  // Taxable distributions (subtract line 15 from line 14a)
+      line16: [0], // Taxable distributions (line 14a minus line 15)
+      line17b: [0] // Additional 20% tax (line 16 * 0.20)
     });
 
     this.form.valueChanges.subscribe(val => {
-      this.calculateValues(val);
+      this.calculateValues(val as {hsaType: string, line2: number, line3: number, line7: number, line14a: number, line15: number});
     });
   }
 
-  calculateValues(val: Record<string, number | string>): void {
-      const deduction = Math.min(Number(val['line2']), Number(val['line3']));
-      const taxable = Number(val['line14a']) - Number(val['line15']);
+  calculateValues(val: {hsaType: string, line2: number, line3: number, line7: number, line14a: number, line15: number}): void {
+      // Annual Limit based on coverage type
+      const baseLimit = val.hsaType === 'family' ? 8300 : 4150;
+      const catchup = Number(val['line7']) || 0;
+      const totalLimit = baseLimit + catchup;
+
+      const contribs = Number(val['line2']) || 0;
+      const deduction = Math.min(contribs, totalLimit);
+      
+      const distTotal = Number(val['line14a']) || 0;
+      const expenses = Number(val['line15']) || 0;
+      const taxable = Math.max(0, distTotal - expenses);
+      const addTax = taxable * 0.20;
       
       this.form.patchValue({
+          line3: baseLimit,
           line13: deduction,
-          line16: taxable > 0 ? taxable : 0
+          line16: taxable,
+          line17b: addTax
       }, { emitEvent: false });
 
       this.hsaDeduction.set(deduction);
-      this.taxableHsaDistributions.set(taxable > 0 ? taxable : 0);
+      this.taxableDistributions.set(taxable);
+      this.additionalTax.set(addTax);
   }
 
   onSubmit(): void {

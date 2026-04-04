@@ -25,31 +25,48 @@
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <!-- Identity Row -->
         <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
-            <div class="irs-entity-box" style="background: #fafafa;">
+            <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
                 <div class="irs-label-wrap">
-                    <label for="f8889-name" class="irs-label-en" style="font-weight: 1000;">Name of HSA holder / Nombre del titular de la cuenta HAS</label>
+                    <label for="f8889-name" class="irs-label-en" style="font-weight: 1000;">Name of HSA holder</label>
+                    <label for="f8889-name" class="irs-label-es">Nombre del titular de la cuenta HSA</label>
                 </div>
                 <input id="f8889-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
             </div>
-            <div class="irs-entity-box" style="padding: 15px; border-right: none;">
+            <div class="irs-entity-box" style="padding: 15px;">
                 <div class="irs-label-wrap">
-                    <label for="f8889-ssn" class="irs-label-en">SSN / TIN</label>
+                    <label for="f8889-ssn" class="irs-label-en">Social security number</label>
+                    <label for="f8889-ssn" class="irs-label-es">Número de seguro social</label>
                 </div>
                 <input id="f8889-ssn" type="text" formControlName="ssn" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
             </div>
         </div>
 
+        <!-- Coverage Selection -->
+        <div class="irs-row" style="padding: 20px; background: #f8fafc; border-bottom: 2.2px solid #000;">
+            <div style="font-weight: 950; margin-bottom: 10px;">Indicate HSA coverage type / Indique el tipo de cobertura de HSA:</div>
+            <div style="display: flex; gap: 40px;">
+                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                    <input type="radio" formControlName="hsaType" value="self-only" style="width: 20px; height: 20px;">
+                    <span>Self-only / Individual</span>
+                </label>
+                <label style="display: flex; align-items: center; gap: 10px; cursor: pointer;">
+                    <input type="radio" formControlName="hsaType" value="family" style="width: 20px; height: 20px;">
+                    <span>Family / Familiar</span>
+                </label>
+            </div>
+        </div>
+
         <div class="irs-part-banner">
             <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Part I</span>
-            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">HSA Contributions and Deductions / Contribuciones y Deducciones de HAS</span>
+            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">HSA Contributions and Deductions / Contribuciones y Deducciones</span>
         </div>
 
         <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
             <div class="irs-col-line-num">2</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 950;">HSA contributions you made for 2025.</span>
-                    <span class="irs-label-es" style="font-weight: 700;">Contribuciones de HAS que hizo para 2025.</span>
+                    <span class="irs-label-en">HSA contributions you made for 2024.</span>
+                    <span class="irs-label-es">Contribuciones de HSA que hizo para 2024.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
@@ -61,25 +78,98 @@
             </div>
         </div>
 
-        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2px solid #000;">
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">7</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">HSA catch-up contributions (age 55 or older).</span>
+                    <span class="irs-label-es">Contribuciones adicionales ("catch-up") por edad (55+).</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line7" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2.2px solid #000; margin-top: 15px;">
             <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">13</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">HSA deduction. Enter the smaller of line 2 or line 12.</span>
-                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Deducción de HAS. Ingrese el menor de la línea 2 o la línea 12.</span>
+                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">HSA deduction. Total allowed.</span>
+                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Deducción de HSA. Total permitido.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
             <div class="irs-cell-input irs-yellow-cell">
                 <div style="display: flex; align-items: center; padding: 0 15px;">
                     <span class="irs-money-sym" style="color: #1e3a8a;">$</span>
-                    <input type="number" formControlName="line13" style="text-align: right; font-weight: 1000; font-size: 1.4rem; color: #1e3a8a;">
+                    <span style="text-align: right; font-weight: 1000; font-size: 1.5rem; color: #1e3a8a; width: 100%; display: block;">{{ hsaDeduction() | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-part-banner">
+            <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Part II</span>
+            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">HSA Distributions / Distribuciones de HSA</span>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">14a</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Total distributions from all HSAs.</span>
+                    <span class="irs-label-es">Distribuciones totales de todas las cuentas HSA.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line14a" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">15</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Qualified medical expenses paid with HSA distributions.</span>
+                    <span class="irs-label-es">Gastos médicos calificados pagados con HSA.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line15" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #fef2f2; border-top: 2.2px solid #000; margin-top: 15px;">
+            <div class="irs-col-line-num" style="background: #991b1b; color: #fff;">16</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #991b1b;">Taxable distributions.</span>
+                    <span class="irs-label-es" style="font-weight: 750; color: #991b1b;">Distribuciones tributables.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-yellow-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym" style="color: #991b1b;">$</span>
+                    <span style="text-align: right; font-weight: 1000; font-size: 1.5rem; color: #991b1b; width: 100%; display: block;">{{ taxableDistributions() | number:'1.2-2' }}</span>
                 </div>
             </div>
         </div>
 
         <div style="padding: 60px 40px; text-align: center; background: #fff;">
-            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.6rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
                 Save Form 8889 / Guardar Formulario 8889
             </button>
         </div>

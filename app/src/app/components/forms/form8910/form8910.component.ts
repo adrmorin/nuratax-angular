@@ -19,18 +19,18 @@ export class Form8910Component implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       name: [''],
-      ein: [''],
-      line1: [0], // Tentative credit
+      ein: [''], // Using 'ein' for identifying number consistency
+      line1: [0], // Tentative alternative motor vehicle credit
       line5: [0]  // Allowed credit
     });
 
     this.form.valueChanges.subscribe(val => {
-      this.calculateValues(val);
+      this.calculateValues(val as {line1: number});
     });
   }
 
-  calculateValues(val: Record<string, number | string>): void {
-      const tentative = Number(val['line1']);
+  calculateValues(val: {line1: number}): void {
+      const tentative = Number(val['line1']) || 0;
       
       this.form.patchValue({
           line5: tentative

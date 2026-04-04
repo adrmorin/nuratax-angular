@@ -21,17 +21,19 @@ export class Form8906Component implements OnInit {
       name: [''],
       ein: [''],
       line1: [0], // Number of cases
+      line2: [0.0250], // Average tax-financing cost per case (2024 approx)
       line3: [0]  // Total credit
     });
 
     this.form.valueChanges.subscribe(val => {
-      this.calculateValues(val);
+      this.calculateValues(val as {line1: number, line2: number});
     });
   }
 
-  calculateValues(val: Record<string, number | string>): void {
-      const cases = Number(val['line1']);
-      const credit = cases * 0.05; // 2025 spirits rate example ($0.05 per case)
+  calculateValues(val: {line1: number, line2: number}): void {
+      const cases = Number(val['line1']) || 0;
+      const costPerCase = Number(val['line2']) || 0.0250;
+      const credit = cases * costPerCase;
       
       this.form.patchValue({
           line3: credit

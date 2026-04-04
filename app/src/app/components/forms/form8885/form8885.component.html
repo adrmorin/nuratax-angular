@@ -22,34 +22,36 @@
     </div>
 
     @if (form) {
+    <div style="background: #fee2e2; border: 2px solid #ef4444; color: #b91c1c; padding: 20px; margin: 20px; border-radius: 8px; font-weight: 800; font-family: sans-serif;">
+        ⚠️ IMPORTANT: The Health Coverage Tax Credit (HCTC) expired on December 31, 2021. This form is for historical data entry only.<br>
+        ⚠️ IMPORTANTE: El Crédito Tributario por Cobertura de Salud (HCTC) venció el 31 de diciembre de 2021. Este formulario es solo para ingreso de datos históricos.
+    </div>
+
     <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <!-- Identity Row -->
         <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
             <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
                 <div class="irs-label-wrap">
-                    <label for="f8885-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return / Nombre que figura en la declaración</label>
+                    <label for="f8885-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return</label>
+                    <label for="f8885-name" class="irs-label-es">Nombre que figura en la declaración</label>
                 </div>
                 <input id="f8885-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
             </div>
             <div class="irs-entity-box" style="padding: 15px;">
                 <div class="irs-label-wrap">
                     <label for="f8885-ssn" class="irs-label-en">Social security number</label>
+                    <label for="f8885-ssn" class="irs-label-es">Número de seguro social</label>
                 </div>
                 <input id="f8885-ssn" type="text" formControlName="ssn" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
             </div>
-        </div>
-
-        <div class="irs-part-banner">
-            <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Part I</span>
-            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">Amount of Health Coverage Tax Credit / Monto del Crédito</span>
         </div>
 
         <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
             <div class="irs-col-line-num">2</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 950;">Total qualified health insurance premiums paid.</span>
-                    <span class="irs-label-es" style="font-weight: 700;">Primas de seguro de salud calificadas totales...</span>
+                    <span class="irs-label-en">Total qualified health insurance premiums paid.</span>
+                    <span class="irs-label-es">Primas de seguro de salud calificadas totales pagadas.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
@@ -61,7 +63,24 @@
             </div>
         </div>
 
-        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2px solid #000;">
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">3</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Multiply line 2 by 72.5% (0.725).</span>
+                    <span class="irs-label-es">Multiplique la línea 2 por el 72.5% (0.725).</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <span style="text-align: right; font-weight: 1000; width: 100%;">{{ form.get('line4')?.value | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2.2px solid #000; margin-top: 15px;">
             <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">5</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
@@ -79,7 +98,7 @@
         </div>
 
         <div style="padding: 60px 40px; text-align: center; background: #fff;">
-            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.6rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
                 Save Form 8885 / Guardar Formulario 8885
             </button>
         </div>

@@ -14,30 +14,38 @@ export class Form8835Component implements OnInit {
   form!: FormGroup;
   
   // High-fidelity calculation signals
-  renewableCredit = signal(0);
+  productionCredit = signal(0);
 
   ngOnInit(): void {
     this.form = this.fb.group({
       name: [''],
       ein: [''],
-      line1: [0], // Kilowatt-hours of electricity sold
-      line3: [0]  // Total credit
+      line1: [0], // Kilowatt-hours of electricity sold (Line 1a + 1b)
+      line2: [0.029], // 2024 rate (approx 2.9 cents per kWh)
+      line3: [0], // Line 1 * Line 2
+      line4: [0], // Credits from passthrough entities
+      line5: [0]  // Total credit
     });
 
     this.form.valueChanges.subscribe(val => {
-      this.calculateValues(val);
+      this.calculateValues(val as {line1: number, line2: number, line4: number});
     });
   }
 
-  calculateValues(val: Record<string, number | string>): void {
-      const kwh = Number(val['line1']);
-      const credit = kwh * 0.027; // 2025 renewable rate example (2.7 cents per kWh)
+  calculateValues(val: {line1: number, line2: number, line4: number}): void {
+      const kwh = Number(val['line1']) || 0;
+      const rate = Number(val['line2']) || 0.029;
+      const l4 = Number(val['line4']) || 0;
+      
+      const product = kwh * rate;
+      const total = product + l4;
       
       this.form.patchValue({
-          line3: credit
+          line3: product,
+          line5: total
       }, { emitEvent: false });
 
-      this.renewableCredit.set(credit);
+      this.productionCredit.set(total);
   }
 
   onSubmit(): void {

@@ -27,13 +27,15 @@
         <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
             <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
                 <div class="irs-label-wrap">
-                    <label for="f8824-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return / Nombre que figura en la declaración</label>
+                    <label for="f8824-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return</label>
+                    <label for="f8824-name" class="irs-label-es">Nombre que figura en la declaración</label>
                 </div>
                 <input id="f8824-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
             </div>
             <div class="irs-entity-box" style="padding: 15px;">
                 <div class="irs-label-wrap">
                     <label for="f8824-ssn" class="irs-label-en">Identifying number</label>
+                    <label for="f8824-ssn" class="irs-label-es">Número de identificación</label>
                 </div>
                 <input id="f8824-ssn" type="text" formControlName="ssn" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
             </div>
@@ -41,15 +43,15 @@
 
         <div class="irs-part-banner">
             <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Part III</span>
-            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">Realized Gain or (Loss), Recognized Gain, and Basis / Ganancia o Pérdida Realizada...</span>
+            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc; margin-left: 10px;">Realized Gain or (Loss), Recognized Gain, and Basis</span>
         </div>
 
         <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
             <div class="irs-col-line-num">12</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 950;">Adjusted basis of like-kind property given up.</span>
-                    <span class="irs-label-es" style="font-weight: 700;">Base ajustada de la propiedad de la misma clase entregada.</span>
+                    <span class="irs-label-en">Adjusted basis of like-kind property given up.</span>
+                    <span class="irs-label-es">Base ajustada de la propiedad de la misma clase entregada.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
@@ -62,41 +64,109 @@
         </div>
 
         <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
-            <div class="irs-col-line-num">15</div>
+            <div class="irs-col-line-num">13</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 950;">Cash received (net of costs paid).</span>
-                    <span class="irs-label-es" style="font-weight: 700;">Efectivo recibido (neto de los costos pagados).</span>
+                    <span class="irs-label-en">Cash received.</span>
+                    <span class="irs-label-es">Efectivo recibido.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
             <div class="irs-cell-input irs-blue-cell">
                 <div style="display: flex; align-items: center; padding: 0 15px;">
                     <span class="irs-money-sym">$</span>
-                    <input type="number" formControlName="line15" style="text-align: right; font-weight: 1000;">
+                    <input type="number" formControlName="line13" style="text-align: right; font-weight: 1000;">
                 </div>
             </div>
         </div>
 
-        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2px solid #000;">
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">14</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Fair market value (FMV) of other property received.</span>
+                    <span class="irs-label-es">Valor justo en el mercado de otros bienes recibidos.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line14" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">16</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">FMV of like-kind property you received.</span>
+                    <span class="irs-label-es">Valor justo en el mercado de la propiedad de la misma clase recibida.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line16" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">19</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 750;">Realized gain.</span>
+                    <span class="irs-label-es">Ganancia realizada.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <span style="text-align: right; font-weight: 1000; width: 100%;">{{ realizedGain() | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">20</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 750;">Recognized gain.</span>
+                    <span class="irs-label-es">Ganancia reconocida.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <span style="text-align: right; font-weight: 1000; width: 100%;">{{ recognizedGain() | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2.2px solid #000; margin-top: 15px;">
             <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">25</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Recognized gain.</span>
-                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Ganancia reconocida.</span>
+                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Basis of like-kind property received.</span>
+                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Base de la propiedad de la misma clase recibida.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
             <div class="irs-cell-input irs-yellow-cell">
                 <div style="display: flex; align-items: center; padding: 0 15px;">
                     <span class="irs-money-sym" style="color: #1e3a8a;">$</span>
-                    <span style="text-align: right; font-weight: 1000; font-size: 1.5rem; color: #1e3a8a; width: 100%; display: block;">{{ recognizedGain() | number:'1.2-2' }}</span>
+                    <span style="text-align: right; font-weight: 1000; font-size: 1.5rem; color: #1e3a8a; width: 100%; display: block;">{{ basisReceived() | number:'1.2-2' }}</span>
                 </div>
             </div>
         </div>
 
-        <div style="padding: 60px 40px; text-align: center; background: #fff;">
-            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
+        <div style="padding: 60px 40px; text-align: center; background: #f9f9f9; border-top: 2.2px solid #000;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.6rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
                 Save Form 8824 / Guardar Formulario 8824
             </button>
         </div>

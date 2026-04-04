@@ -27,13 +27,15 @@
         <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
             <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
                 <div class="irs-label-wrap">
-                    <label for="f8835-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return / Nombre que figura en la declaración</label>
+                    <label for="f8835-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return</label>
+                    <label for="f8835-name" class="irs-label-es">Nombre que figura en la declaración</label>
                 </div>
                 <input id="f8835-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
             </div>
             <div class="irs-entity-box" style="padding: 15px;">
                 <div class="irs-label-wrap">
                     <label for="f8835-ein" class="irs-label-en">Employer identification number</label>
+                    <label for="f8835-ein" class="irs-label-es">Número de identificación del empleador</label>
                 </div>
                 <input id="f8835-ein" type="text" formControlName="ein" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
             </div>
@@ -43,38 +45,71 @@
             <div class="irs-col-line-num">1</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 950;">Kilowatt-hours of electricity sold to unrelated persons during the tax year.</span>
-                    <span class="irs-label-es" style="font-weight: 700;">Kilovatios-hora de electricidad vendidos a personas no relacionadas...</span>
+                    <span class="irs-label-en">Kilowatt-hours of electricity sold to unrelated persons.</span>
+                    <span class="irs-label-es">Kilovatios-hora de electricidad vendidos a personas no relacionadas.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
             <div class="irs-cell-input irs-blue-cell">
                 <div style="display: flex; align-items: center; padding: 0 15px;">
-                    <span class="irs-money-sym">kWh</span>
                     <input type="number" formControlName="line1" style="text-align: right; font-weight: 1000;">
                 </div>
             </div>
         </div>
 
-        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2px solid #000;">
-            <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">3</div>
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">2</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Renewable electricity production credit.</span>
-                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Crédito por la producción de electricidad renovable.</span>
+                    <span class="irs-label-en">Multiply kWh by 2.9 cents ($0.029).</span>
+                    <span class="irs-label-es">Multiplique los kWh por 2.9 centavos ($0.029).</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <span style="text-align: right; font-weight: 1000; width: 100%;">{{ form.get('line3')?.value | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">4</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Credits from passthrough entities (from Schedule K-1).</span>
+                    <span class="irs-label-es">Créditos de entidades de traspaso (del Anexo K-1).</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line4" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2.2px solid #000; margin-top: 15px;">
+            <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">5</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Total credit. Add lines 3 and 4.</span>
+                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Crédito total. Sume las líneas 3 y 4.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
             <div class="irs-cell-input irs-yellow-cell">
                 <div style="display: flex; align-items: center; padding: 0 15px;">
                     <span class="irs-money-sym" style="color: #1e3a8a;">$</span>
-                    <span style="text-align: right; font-weight: 1000; font-size: 1.5rem; color: #1e3a8a; width: 100%; display: block;">{{ renewableCredit() | number:'1.2-2' }}</span>
+                    <span style="text-align: right; font-weight: 1000; font-size: 1.5rem; color: #1e3a8a; width: 100%; display: block;">{{ productionCredit() | number:'1.2-2' }}</span>
                 </div>
             </div>
         </div>
 
         <div style="padding: 60px 40px; text-align: center; background: #fff;">
-            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.6rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
                 Save Form 8835 / Guardar Formulario 8835
             </button>
         </div>

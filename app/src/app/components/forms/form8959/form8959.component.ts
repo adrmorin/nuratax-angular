@@ -14,40 +14,66 @@ export class Form8959Component implements OnInit {
   form!: FormGroup;
   
   // High-fidelity calculation signals
-  additionalTax = signal(0);
-  thresholdAmount = signal(200000);
+  totalAdditionalTax = signal(0);
+  threshold = signal(200000);
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      filingStatus: ['single'], // single, mfj, mfs, hoh, qw
-      medicareWages: [0],
-      selfEmploymentIncome: [0],
-      totalIncome: [0]
+      name: [''],
+      ssn: [''],
+      filingStatus: ['single'],
+      // Part I - Wages
+      line1: [0], // Medicare wages and tips
+      line4: [0], // Line 1 minus threshold
+      line7: [0], // Line 4 * 0.9%
+      // Part II - SE Income
+      line8: [0], // Total SE income
+      line13: [0], // Part II tax (Line 12 * 0.9%)
+      // Part III - RRTA
+      line14: [0], // RRTA compensation
+      line17: [0]  // Part III tax (Line 16 * 0.9%)
     });
 
     this.form.valueChanges.subscribe(val => {
-      this.calculateValues(val);
+      this.calculateValues(val as {filingStatus: string, line1: number, line8: number, line14: number});
     });
   }
 
-  calculateValues(val: Record<string, any>): void {
-      const status = val['filingStatus'];
-      let threshold = 200000;
-      if (status === 'mfj') threshold = 250000;
-      if (status === 'mfs') threshold = 125000;
+  calculateValues(val: {filingStatus: string, line1: number, line8: number, line14: number}): void {
+      const status = val.filingStatus;
+      let limit = 200000;
+      if (status === 'mfj') limit = 250000;
+      if (status === 'mfs') limit = 125000;
       
-      this.thresholdAmount.set(threshold);
+      this.threshold.set(limit);
 
-      const wages = Number(val['medicareWages']) || 0;
-      const se = Number(val['selfEmploymentIncome']) || 0;
-      const total = wages + se;
-      
+      const wages = Number(val.line1) || 0;
+      const se = Number(val.line8) || 0;
+      const rrta = Number(val.line14) || 0;
+
+      // Part I
+      const wagesExcess = Math.max(0, wages - limit);
+      const taxWages = wagesExcess * 0.009;
+
+      // Part II (Simplified threshold logic)
+      const seRemainingLimit = Math.max(0, limit - wages);
+      const seExcess = Math.max(0, se - seRemainingLimit);
+      const taxSE = seExcess * 0.009;
+
+      // Part III
+      const rrtaExcess = Math.max(0, rrta - limit);
+      const taxRRTA = rrtaExcess * 0.009;
+
+      const totalValue = taxWages + taxSE + taxRRTA;
+
       this.form.patchValue({
-          totalIncome: total
+          line4: wagesExcess,
+          line7: taxWages,
+          line13: taxSE,
+          line17: taxRRTA
       }, { emitEvent: false });
 
-      const excess = Math.max(0, total - threshold);
-      this.additionalTax.set(excess * 0.009); // 0.9% additional medicare tax
+      this.totalAdditionalTax.set(totalValue);
   }
 
   onSubmit(): void {

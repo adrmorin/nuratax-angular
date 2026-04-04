@@ -27,59 +27,118 @@
         <div class="irs-row" style="grid-template-columns: 1fr 280px; border-bottom: 3.5px solid #000;">
             <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
                 <div class="irs-label-wrap">
-                    <label for="f8839-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return / Nombre que figura en la declaración</label>
+                    <label for="f8839-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return</label>
+                    <label for="f8839-name" class="irs-label-es">Nombre que figura en la declaración</label>
                 </div>
                 <input id="f8839-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
             </div>
             <div class="irs-entity-box" style="padding: 15px;">
                 <div class="irs-label-wrap">
                     <label for="f8839-ssn" class="irs-label-en">Social security number</label>
+                    <label for="f8839-ssn" class="irs-label-es">Número de seguro social</label>
                 </div>
                 <input id="f8839-ssn" type="text" formControlName="ssn" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
             </div>
         </div>
 
         <div class="irs-part-banner">
-            <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Part I</span>
-            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">Information About Your Eligible Child / Información Sobre su Hijo Elegible</span>
+            <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Part II</span>
+            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc; margin-left: 10px;">Adoption Credit Calculation</span>
         </div>
 
         <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
-            <div class="irs-col-line-num">5</div>
+            <div class="irs-col-line-num">3</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 950;">Qualified adoption expenses.</span>
-                    <span class="irs-label-es" style="font-weight: 700;">Gastos calificados de adopción.</span>
+                    <span class="irs-label-en">Maximum credit per child.</span>
+                    <span class="irs-label-es">Crédito máximo por hijo.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
             <div class="irs-cell-input irs-blue-cell">
                 <div style="display: flex; align-items: center; padding: 0 15px;">
                     <span class="irs-money-sym">$</span>
-                    <input type="number" formControlName="line5" style="text-align: right; font-weight: 1000;">
+                    <span style="text-align: right; font-weight: 1000; width: 100%;">16,810</span>
                 </div>
             </div>
         </div>
 
-        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2px solid #000;">
-            <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">12</div>
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">6</div>
             <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
                 <div class="irs-label-wrap">
-                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Adoption credit.</span>
-                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Crédito por adopción.</span>
+                    <span class="irs-label-en">Qualified adoption expenses paid in 2024.</span>
+                    <span class="irs-label-es">Gastos calificados de adopción pagados en 2024.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line6" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">11</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 750;">Tentative credit.</span>
+                    <span class="irs-label-es">Crédito tentativo.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <span style="text-align: right; font-weight: 1000; width: 100%;">{{ tentativeCredit() | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Part III -->
+        <div class="irs-part-banner" style="margin-top: 10px;">
+            <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Part III</span>
+            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc; margin-left: 10px;">Phaseout Logic (MAGI Threshold)</span>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">14</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en">Enter your modified adjusted gross income (MAGI).</span>
+                    <span class="irs-label-es">Ingrese su ingreso bruto ajustado modificado (MAGI).</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line14" style="text-align: right; font-weight: 1000;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #eee; border-top: 2.2px solid #000; margin-top: 15px;">
+            <div class="irs-col-line-num" style="background: #1e3a8a; color: #fff;">23</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000; font-size: 1.1rem; color: #1e3a8a;">Final Adoption Credit.</span>
+                    <span class="irs-label-es" style="font-weight: 750; color: #1e3a8a;">Crédito final por adopción.</span>
                 </div>
                 <div class="irs-dotted-leader"></div>
             </div>
             <div class="irs-cell-input irs-yellow-cell">
                 <div style="display: flex; align-items: center; padding: 0 15px;">
                     <span class="irs-money-sym" style="color: #1e3a8a;">$</span>
-                    <span style="text-align: right; font-weight: 1000; font-size: 1.5rem; color: #1e3a8a; width: 100%; display: block;">{{ adoptionCredit() | number:'1.2-2' }}</span>
+                    <span style="text-align: right; font-weight: 1000; font-size: 1.5rem; color: #1e3a8a; width: 100%; display: block;">{{ finalAdoptionCredit() | number:'1.2-2' }}</span>
                 </div>
             </div>
         </div>
 
-        <div style="padding: 60px 40px; text-align: center; background: #fff;">
-            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.7rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
+        <div style="padding: 60px 40px; text-align: center; background: #f9f9f9; border-top: 2.2px solid #000;">
+            <button type="submit" style="background: #000; color: #fff; padding: 25px 140px; border: none; font-size: 1.6rem; font-weight: 1000; cursor: pointer; text-transform: uppercase;">
                 Save Form 8839 / Guardar Formulario 8839
             </button>
         </div>
