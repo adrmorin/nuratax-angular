@@ -311,6 +311,7 @@ export const routes: Routes = [
     { path: 'form8995a', loadComponent: () => import('./components/forms/form8995a/form8995a.component').then(m => m.Form8995aComponent) },
     { path: 'form8903', loadComponent: () => import('./components/forms/form8903/form8903.component').then(m => m.Form8903Component) },
     { path: 'form8915', loadComponent: () => import('./components/forms/form8915/form8915.component').then(m => m.Form8915Component) },
+    { path: 'form8582cr', loadComponent: () => import('./components/forms/form8582cr/form8582cr.component').then(m => m.Form8582CRComponent) },
     { path: 'fbar', loadComponent: () => import('./components/forms/fbar/fbar.component').then(m => m.FbarComponent) },
     { path: 'fbar-auth', loadComponent: () => import('./components/forms/fbar-auth/fbar-auth.component').then(m => m.FbarAuthComponent) },
     { path: 'form1040-sr-new', loadComponent: () => import('./components/forms/form1040-sr/form1040-sr.component').then(m => m.Form1040SRComponent) },

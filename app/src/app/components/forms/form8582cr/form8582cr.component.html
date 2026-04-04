@@ -1,82 +1,108 @@
 <div class="irs-unified-container">
-  <!-- Header Section -->
-  <div class="irs-form-header">
-    <div class="irs-header-left">
-      <div class="irs-form-id-box">
-        <span class="irs-id-sub-small">Form</span>
-        <span class="irs-id-main-large">8582-CR</span>
-        <span class="irs-id-sub-small">(Rev. December 2024)</span>
-      </div>
-      <div class="irs-dept-irs-box">
-        Department of the Treasury<br>
-        Internal Revenue Service
-      </div>
-    </div>
-    <div class="irs-header-center">
-      <h1>Passive Activity Credit Limitations</h1>
-      <p class="irs-attach-note">Attach to Form 1040, 1040-SR, or 1041.</p>
-      <p class="irs-instruction-note">Go to <strong>www.irs.gov/Form8582CR</strong> for instructions and the latest information.</p>
-    </div>
-    <div class="irs-header-right">
-      <div class="irs-omb-container">OMB No. 1545-1034</div>
-      <div class="irs-attachment">Attachment <br> Sequence No. <strong>89</strong></div>
-    </div>
-  </div>
-
-  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="irs-form-body">
-    <!-- Info Grid -->
-    <div class="irs-input-grid-box border-b">
-      <div class="irs-row-line-unified">
-        <div class="irs-col-name border-r">
-          <label for="name" class="irs-label-small">Name(s) shown on return</label>
-          <input id="name" type="text" formControlName="name" class="irs-input-borderless">
+    <!-- Form 8582-CR Header -->
+    <div class="irs-header-main">
+        <div class="irs-form-id-block" style="padding-right: 15px; border-right: 2.2px solid #000;">
+            <div style="font-size: 1.55rem; font-weight: 1000; text-transform: uppercase;">Form 8582-CR</div>
+            <div class="irs-dept-info" style="margin-top: 10px; font-family: sans-serif; font-size: 0.8rem;">
+                Department of the Treasury<br>
+                Internal Revenue Service
+            </div>
         </div>
-        <div class="irs-col-tin">
-          <label for="tin" class="irs-label-small">Identifying number</label>
-          <input id="tin" type="text" formControlName="tin" class="irs-input-borderless">
+        <div class="irs-form-title-block" style="text-align: center; padding: 0 25px;">
+            <div class="irs-label-wrap">
+                <h1 style="font-size: 1.4rem; margin: 0; font-weight: 950; text-transform: uppercase;">Passive Activity Credit Limitations</h1>
+                <h2 style="font-size: 1.15rem; margin: 0; font-weight: 400; font-style: italic; color: #333;">Limitaciones de Créditos de Actividades Pasivas</h2>
+            </div>
+            <p style="font-size: 0.95rem; margin-top: 12px; font-weight: 850;">▶ Go to www.irs.gov/Form8582CR for instructions and the latest information.</p>
         </div>
-      </div>
+        <div class="irs-year-block">
+            <div class="irs-omb-box" style="font-size: 0.65rem; font-weight: 400; position: absolute; top: 5px; right: 10px;">OMB No. 1545-1034</div>
+            <div style="font-size: 3.5rem; line-height: 1; font-weight: 950;">2025</div>
+        </div>
     </div>
 
-    <!-- Part I -->
-    <div class="irs-section-title-bar margin-t-10">
-      <span class="irs-section-letter">Part I</span>
-      <span class="irs-section-text">Passive Activity Credits</span>
-    </div>
+    @if (form) {
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <!-- Identity Row -->
+        <div class="irs-row" style="grid-template-columns: 1fr 320px; border-bottom: 3.5px solid #000;">
+            <div class="irs-entity-box" style="padding: 15px; border-right: 2.2px solid #000;">
+                <div class="irs-label-wrap">
+                    <label for="f8582cr-name" class="irs-label-en" style="font-weight: 1000;">Name(s) shown on return</label>
+                </div>
+                <input id="f8582cr-name" type="text" formControlName="name" style="width: 100%; border: none; font-size: 1.25rem; font-weight: 950;">
+            </div>
+            <div class="irs-entity-box" style="padding: 15px;">
+                <div class="irs-label-wrap">
+                    <label for="f8582cr-tin" class="irs-label-en">TIN / SSN</label>
+                </div>
+                <input id="f8582cr-tin" type="text" formControlName="tin" style="width: 100%; border: none; font-size: 1.2rem; font-weight: 900; letter-spacing: 2px;">
+            </div>
+        </div>
 
-    <div class="irs-line-item-container">
-      <div class="irs-row-line-unified border-b bg-light">
-          <div class="irs-line-desc">Credits From Rental Real Estate Activities ... Participate</div>
-          <div class="irs-amount-box border-l"></div>
-      </div>
-      <div class="irs-row-line-unified">
-          <div class="irs-line-num">1a</div>
-          <div class="irs-line-desc">Credits from Worksheet 1, column (a)</div>
-          <div class="irs-amount-box border-l irs-blue-cell">
-             <input type="number" formControlName="line1a" class="irs-input-borderless text-right">
-          </div>
-          <div class="irs-line-num-right border-l">1a</div>
-      </div>
-      <div class="irs-row-line-unified">
-          <div class="irs-line-num">1b</div>
-          <div class="irs-line-desc">Prior year unallowed credits from Worksheet 1, column (b)</div>
-          <div class="irs-amount-box border-l irs-blue-cell">
-             <input type="number" formControlName="line1b" class="irs-input-borderless text-right">
-          </div>
-          <div class="irs-line-num-right border-l">1b</div>
-      </div>
-      <div class="irs-row-line-unified bg-light">
-          <div class="irs-line-num">1c</div>
-          <div class="irs-line-desc">Add lines 1a and 1b</div>
-          <div class="irs-amount-box border-l irs-blue-cell flex flex-align-center padding-l-20">
-             <span class="irs-bold-large">${{ line1c() | number:'1.2-2' }}</span>
-          </div>
-          <div class="irs-line-num-right border-l">1c</div>
-      </div>
-    </div>
+        <div class="irs-part-banner">
+            <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Part I</span>
+            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">2025 Passive Activity Credits / Créditos de Actividades Pasivas</span>
+        </div>
 
-    <div class="irs-footer-actions">
-      <button type="submit" class="irs-btn-submit">Submit Form 8582-CR</button>
-    </div>
-  </form>
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px;">
+            <div class="irs-col-line-num">1a</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 950;">Credits from post-1986 passive activities.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <input type="number" formControlName="line1a" style="text-align: right; font-weight: 950;">
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #fafafa;">
+            <div class="irs-col-line-num">2</div>
+            <div style="padding: 15px 20px; display: flex; align-items: flex-end;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-weight: 1000;">Total 2025 passive activity credits. Add lines 1a and 1b.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-blue-cell">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym">$</span>
+                    <span style="text-align: right; width: 100%; font-weight: 950; font-size: 1.1rem;">{{ form.get('line2')?.value | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="irs-part-banner">
+            <span style="font-size: 1.4rem; font-weight: 950; color: #fff;">Part III</span>
+            <span style="font-size: 1.15rem; font-weight: 700; color: #ccc;">Passive Activity Credit Allowed / Crédito Permitido</span>
+        </div>
+
+        <div class="irs-row" style="grid-template-columns: 55px 1fr 240px; background: #e0f2fe; border-top: 3.5px solid #152961; margin-top: 25px;">
+            <div class="irs-col-line-num" style="background: #152961; color: #fff;">5</div>
+            <div style="padding: 20px; display: flex; align-items: center;">
+                <div class="irs-label-wrap">
+                    <span class="irs-label-en" style="font-size: 1.3rem; font-weight: 1000; color: #152961;">Passive activity credit allowed.</span>
+                    <span class="irs-label-es" style="font-size: 1rem; font-weight: 800; color: #152961;">Crédito de actividad pasiva permitido.</span>
+                </div>
+                <div class="irs-dotted-leader"></div>
+            </div>
+            <div class="irs-cell-input irs-yellow-cell" style="background: #fff !important; border: 3.5px solid #152961;">
+                <div style="display: flex; align-items: center; padding: 0 15px;">
+                    <span class="irs-money-sym" style="font-size: 1.4rem; color: #152961;">$</span>
+                    <span style="text-align: right; font-weight: 1000; font-size: 2.2rem; color: #152961; width: 100%; display: block;">{{ allowedCredit() | number:'1.2-2' }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="padding: 80px 40px; text-align: center; background: #fff;">
+            <button type="submit" style="background: #000; color: #fff; padding: 30px 160px; border: none; font-size: 1.8rem; font-weight: 950; cursor: pointer; text-transform: uppercase;">
+                Finalize Form 8582-CR / Guardar
+            </button>
+        </div>
+    </form>
+    }
 </div>
